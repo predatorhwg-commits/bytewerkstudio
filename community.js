@@ -542,7 +542,7 @@
     plus: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>'
   };
 
-  const lang = () => (document.documentElement.lang === 'en' ? 'en' : 'de');
+  const lang = () => (document.documentElement.lang === 'de' ? 'de' : 'en');
   const t = (de, en) => (lang() === 'en' ? en : de);
 
   function h(tag, attrs, ...children) {
