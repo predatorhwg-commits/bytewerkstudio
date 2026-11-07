@@ -23,6 +23,20 @@ Die Datenform ist absichtlich schon so geschnitten: `id`, `slug`, `cat`,
 `type`, `title{de,en}`, `body{de,en}`, `tags`, `author`, `createdAt`,
 `updatedAt`, `solved`, `solvedPost`, `pinned`, `views`, `votes`, `posts`.
 
+Das Schema ist gegen eine echte PostgreSQL-Instanz gelaufen, nicht nur
+gegen einen Parser. Zwei Dinge, die dabei aufgefallen sind und die das
+Schema jetzt löst:
+
+- `array_to_string` ist als `stable` markiert, generierte Spalten
+  verlangen aber `immutable` — `create table forum_threads` scheiterte
+  an „generation expression is not immutable“. `forum_search_vector()`
+  kapselt die Berechnung als `immutable`-Funktion (für `text[]` ist die
+  Ausgabe konstant); die Spalte bleibt `generated always … stored`.
+- Autoren durften eigene Themen anpinnen und als gelöst markieren.
+  Der Trigger hält `pinned`, `solved`, `solved_post`, `slug` und
+  `category` jetzt auch beim Autor fest; nur `mod` oder der Service-Role
+  ohne `auth.uid()` ändert sie.
+
 ## Sicherheit
 
 Das ist der Teil, der nicht verhandelbar ist.
@@ -45,24 +59,68 @@ Das ist der Teil, der nicht verhandelbar ist.
 6. **Honeypot** im Formular: ein unsichtbares Feld, das nur Bots füllen.
 7. **Keine Secrets im Repo.** Der Supabase-`anon`-Key ist öffentlich; der
    `service_role`-Key gehört nie in eine Datei, die ausgeliefert wird.
-8. **CSP bleibt:** keine Inline-Handler, keine externen Skripte. Die Seite
-   lädt three.js aus `vendor/`.
+8. **CSP ohne Ausnahme für Styles:** `style-src 'self'
+   https://fonts.googleapis.com` — kein `'unsafe-inline'`. Dazu
+   `base-uri 'none'` und `form-action 'none'`; das Formular wird
+   ausschließlich per JavaScript verarbeitet. Keine Inline-Handler, keine
+   externen Skripte, three.js aus `vendor/`. Der Inline-Block in
+   `forum.html` bleibt über seinen SHA-256-Hash erlaubt.
 9. **RLS im Schema:** Lesen für Angemeldete, Schreiben nur mit passendem
    Plan. `author_id`, `author_name`, `created_at` setzt ein Trigger aus
    `auth.uid()` — nicht der Client.
+10. **Gespeicherte Daten werden geprüft, nicht vertraut.** `normalizeDb()`
+    repariert `bw-forum-v1`: falsche Typen fliegen raus, Titel und Texte
+    werden auf die Grenzen gekürzt, unbekannte Kategorien fallen auf
+    `frontend` zurück, doppelte Slugs und IDs werden eindeutig, Daten
+    ohne gültigen Zeitstempel bekommen `jetzt`, und ein einzelner kaputter
+    Eintrag leert nicht mehr das ganze Forum. Ist nichts mehr zu retten,
+    wird neu aufgesetzt.
+11. **Auch die Nebenschlüssel sind typgeprüft.** `bw-forum-rate-v1`,
+    `bw-forum-subs-v1` und `bw-forum-reports-v1` laufen über `readArray()`.
+    `bw-forum-seen-v1` läuft über `readSeen()`: nur echte ISO-Zeitstempel
+    kommen durch, `__proto__`, `constructor` und `prototype` fliegen raus.
+    Ein Objekt, String oder ungültiges Datum wirft nicht mehr, sondern
+    wird ignoriert.
+12. **Der Entwurf wird geprüft, bevor er ins Formular geht.**
+    `readDraft()` nimmt nur ein Objekt mit Zeichenketten an, kürzt auf die
+    Feldgrenzen und verwirft eine unbekannte oder gesperrte Kategorie.
+    Vorher warf ein Entwurf mit `title` als Objekt beim Setzen von
+    `input.value` einen `pageerror`, und der Dialog ging gar nicht auf.
+13. **Moderation ist eine Rolle, keine Adresse.** In `forum.js` stand
+    eine persönliche E-Mail-Adresse als Moderationsschalter — ein
+    Datenschutzleck im ausgelieferten JavaScript und zugleich kein
+    Schutz, weil jeder den Wert im eigenen Browser ändern kann. Jetzt
+    entscheidet `plan`/`role`; für lokale Vorschauen gibt es den
+    bewussten Schalter `bw-forum-mod-preview`, genau wie beim Pro-Zugang.
+    Die echte Grenze bleibt der RLS-Trigger im Schema.
+
+**Wer darf was:** Pinnen und Moderationsfelder nur `mod`. Die Lösung
+markiert der Themen-Autor — er hat die Frage gestellt und weiß, welche
+Antwort geholfen hat. Vorher bekam der Autor den Lösungsknopf gar nicht,
+weil die Adressprüfung für ihn nicht griff.
 
 Geprüft mit einem XSS-Durchlauf im Browser: Titel und Beitrag mit
-`<img onerror>`, `<script>`, `<svg onload>`, `<iframe>`, `javascript:`-Links.
-Ergebnis: null eingeschleuste Elemente, null ausgelöste Handler, keine
-`javascript:`-Hrefs.
+`<img onerror>`, `<script>`, `<svg onload>`, `<iframe>`, `<math>`,
+`javascript:`-Links (auch mit Tab und HTML-Entität), dazu vergifteter
+Speicher mit Nutzlasten in **jedem** Feld (Titel, Text, Tags, Autor, Slug,
+Kategorie, Typ, Datum, Stimmen, Lösung). Ergebnis: null eingeschleuste
+Elemente, null Handler, null `javascript:`-Hrefs, null Alerts, null
+Konsolenfehler — die Nutzlasten stehen als Text da.
+
+Speicher- und Schlüsseltests: sechs kaputte `bw-forum-v1`-Formen
+(`null`-Eintrag, String, fehlender Autor, `posts` als String, ungültiges
+Datum, `__proto__`) und fünf falsch typisierte Nebenschlüssel. Vorher
+legten drei Formen die Seite mit `pageerror` lahm; jetzt rendert jeder Fall,
+und gültige Daten bleiben unverändert.
 
 ## Bedienung
 
 | Aktion | Maus/Touch | Tastatur |
 |---|---|---|
-| Suche | Feld im Kopf der Liste | `/` |
+| Suche | Feld im Kopf der Liste | `/` (die Site-Suche bleibt auf `Cmd`/`Strg` + `K`) |
 | Neues Thema | Knopf oben rechts | `n` |
 | Senden | Knopf im Formular | `Strg`/`Cmd` + `Enter` |
+| Formular schließen | X oder Klick daneben | `Esc` — der Fokus kehrt zum Knopf zurück (auch nach `n`) |
 | Thema öffnen | Klick auf die Zeile | `Tab`, dann `Enter` |
 | Pinwand drehen | ziehen | Pfeiltasten bei Fokus |
 
@@ -71,12 +129,71 @@ Die Pinwand ist ein Canvas mit `aria-hidden`; die vier Karten im
 Bei `prefers-reduced-motion` wird ein Standbild gezeichnet, die Schleife
 läuft nicht.
 
+Die Suche markiert ihre Treffer im Listentitel und im Auszug mit `<mark>`
+(mehrere Wörter, Groß-/Kleinschreibung egal, höchstens 24 Marken je Zeile).
+Im Thema zeigt eine zwei Pixel hohe Linie den Lesefortschritt; sie beginnt
+beim Öffnen bei 0, füllt sich beim Scrollen und ist auf der Liste unsichtbar.
+Ohne JavaScript erklärt eine `noscript`-Zeile, warum das Forum leer bleibt,
+und nennt eine Mailadresse.
+
+Ein Thema zählt eine Ansicht pro Seitenaufruf. Antworten, Sprachwechsel und
+erneutes Rendern erhöhen den Zähler nicht; gesperrte Pro-Themen zählen gar
+nicht. Nach einem Reload zählt der nächste Aufruf als neue Ansicht.
+
+Antworten tragen einen Rückverweis (`replyTo`). Er erscheint als kleine
+Zeile „Antwort an <Name>“ über dem Beitrag und springt per Klick zum
+Original, das kurz hervorgehoben wird. Ohne gültiges Ziel entfällt die
+Zeile.
+
+Beobachtete Themen bekommen in der Liste eine „Neu“-Marke, sobald eine
+Antwort seit dem letzten Öffnen dazugekommen ist. Der Zeitpunkt des
+letzten Besuchs steht unter `bw-forum-seen-v1`, geschrieben beim Öffnen
+des Themas und beim Start der Beobachtung. Ohne gespeicherte Marke gilt
+nichts als neu — sonst wäre nach dem ersten Aufruf jedes Thema „neu“.
+Wird die Beobachtung beendet, verschwindet die Marke.
+
+## Bearbeiten
+
+Eigene Beiträge lassen sich direkt im Thread ändern. Der erste Beitrag
+darf auch den Titel korrigieren; der Slug bleibt dabei stehen, damit
+geteilte Links (`forum.html#/t/slug`) nicht ins Leere laufen. Ein
+`editedAt`-Zeitstempel erscheint am Beitrag. `Esc` bricht ab, auch wenn
+der Fokus auf „Speichern“ oder im Titelfeld liegt; `Strg`/`Cmd` +
+`Enter` speichert. Beide Felder sind über `label for` beschriftet, die
+IDs kommen aus der Beitrags-ID.
+
+## Teilen
+
+`og:image` ist `media/og-forum.png` (1200 × 630, Papieroptik, gleiche
+Palette wie die Seite). Die Karte wird nicht vom Browser geladen,
+sondern nur von Crawlern — sie kostet also keine Ladezeit. Erzeugt aus
+einer HTML-Vorlage mit denselben Schriften; bei einer Textänderung neu
+rendern, sonst steht auf der Karte etwas anderes als im Titel.
+
+## Sprachen
+
+Die Seite ist auf Deutsch und Englisch geschrieben. `lang()` liest
+zuerst `window.bwLang()` (gesetzt von `components.js`), sonst
+`documentElement.lang`, und normalisiert auf `de`, `en` oder `es`.
+Spanisch fällt auf Englisch zurück — nie auf Deutsch. Datumsformate
+richten sich danach: `de-DE` nur bei `de`, sonst `en-GB`.
+
 ## Abo-Stufen
 
 - **Community (0 €):** lesen, fragen, antworten in vier offenen Kategorien.
-- **Studio Pro (9 €/Monat):** zusätzlich Studio- und Feedback-Kategorie,
-  Lösung markieren, Pro-Kennzeichen, Vorrang bei offenen Themen,
-  Vierteljährliche Sprechstunde.
+- **Studio Pro:** zusätzlich Studio- und Feedback-Kategorie, Lösung
+  markieren, Pro-Kennzeichen, Vorrang bei offenen Themen,
+  vierteljährliche Sprechstunde. Preis und Stufen stehen bewusst nur auf
+  `entwickler.html#abo` — eine Zahl an zwei Stellen läuft auseinander.
+
+Der Link setzt voraus, dass `entwickler.html` mit ausgeliefert wird —
+sie kommt aus dem Entwickler-Change-Set. Fehlt sie in einem Build, ersetzt
+`checkPlansLink()` den Link durch einen Satz. Das Signal ist die
+Kopfzeile: `components.js` baut Navigation und Forum-Link aus derselben
+Liste, ein fehlender Nav-Eintrag heißt also fehlende Seite. Kein
+`fetch`, kein `HEAD` — eine frühere Netzwerkprüfung erzeugte bei
+fehlender Seite einen 404 im Konsolenprotokoll und verstieß gegen die
+Regel „0 Konsolenfehler“.
 
 Im Vorschau-Modus gibt es keine Zahlung. `Pro anfragen` setzt
 `bw-forum-pro-preview` und zeigt den Zugang als „Pro (Vorschau)“ an. Für
@@ -92,3 +209,90 @@ Webhook, der `profiles.plan` setzt — nicht einen Schalter im Browser.
 - Ohne WebGL: `.is-flat`, vier klickbare Karten, Klick öffnet das Thema.
 - Speicher blockiert: Warnung in der Seitenleiste, kein Absturz.
 - DE/EN inklusive aller dynamisch erzeugten Texte geprüft.
+- Inline-Bearbeitung: Anlegen, Titel und Text ändern, Abbrechen,
+  `Esc` von Knopf und Titelfeld, `Strg+Enter`, zu kurzer Titel, zu
+  kurzer Text, Antwort ohne Titelfeld, Persistenz nach Reload — geprüft,
+  0 Fehler. Slug bleibt beim Titel-Edit erhalten.
+- 390 px und 320 px mit offenem Editor: 0 Überlauf, Knöpfe passen.
+- Belastung: 110-Zeichen-Titel ohne Leerzeichen, 160-Zeichen-URL und
+  180-Zeichen-Zeile im Code-Block, Emoji und Umlaute — 320, 390, 834 und
+  1440 px ohne Überlauf. Der Bruchschutz (`overflow-wrap: anywhere`) sitzt
+  an Thread-Titel, Listentitel, Wissensarchiv, Beitrags- und Autorennamen,
+  an der Thread-Meta-Zeile und an der Antwort-Referenz; `pre` scrollt
+  intern.
+- Unbekannter Deep-Link `#/t/<slug>`: Liste sichtbar **und gefüllt**
+  (neun Themen), Thread verborgen, Fortschrittslinie aus, einmaliger
+  Hinweis „Dieses Thema gibt es nicht oder nicht mehr.“
+- CSP ohne `'unsafe-inline'` für Styles, mit `base-uri 'none'` und
+  `form-action 'none'`: Dialog, Editor, Suche, Leerzustand, Sprachwechsel,
+  Pro-Band und Toast geprüft — 0 `securitypolicyviolation`, keine
+  Konsolenfehler. `element.style.transform` für die Fortschrittslinie
+  bleibt davon unberührt (CSSOM, kein Style-Attribut).
+- Suche markiert mehrere Wörter (`three.js szene` → zwei Marken), der
+  Leerzustand bleibt bei „zzzz“ sichtbar. Fortschrittslinie: 0 oben,
+  `scaleX(1)` am Seitenende, auf der Liste `opacity: 0`.
+- Ohne JavaScript: `noscript`-Hinweis sichtbar.
+- Zähler: 214 → 215 beim Öffnen, 216 nach Reload (neue Sitzung), bleibt
+  216 nach Antwort und Sprachwechsel; ein gesperrtes Pro-Thema bleibt
+  bei 52. Vorher erhöhte jedes Neu-Rendern den Zähler.
+- Antwort-Referenz: „Antwort an <Name>“ erscheint über der Antwort, der
+  Klick springt zum Original (`is-flash`), nach Reload bleibt die Zeile.
+  320/390/1440 px mit 60-Zeichen-Namen: 0 Überlauf.
+- „Neu“-Marke: initial 0 Marken (keine gespeicherte Marke), nach einer
+  simulierten Antwort 1 Marke „Neu“ am beobachteten Thema, nach Öffnen
+  0, nach Beenden der Beobachtung 0. Kaputter `bw-forum-seen-v1` (String,
+  ungültiges Datum, `__proto__`) rendert neun Themen, 0 Marken, keine
+  Prototype-Pollution. 1440 und 320 px: 0 Überlauf, 0 Konsolenfehler.
+- Entwurf: Text überlebt einen Reload; sechs vergiftete Formen
+  (`title` als Objekt, `body` als Array, nur `__proto__`, ganzes Array,
+  `null`, Zahl) öffnen den Dialog mit leerem Feld, 0 `pageerror`, keine
+  Pollution. Vorher blieb der Dialog bei `title` als Objekt zu.
+- Voller Speicher (nur `bw-forum-v1` wirft `QuotaExceededError`): Dialog
+  bleibt offen, Titel bleibt stehen, Meldung „Speichern fehlgeschlagen.
+  Bitte Speicher erlauben.“ plus Toast, Bestand unverändert bei 9 Themen,
+  0 `pageerror`.
+- Nachladen: 17 Themen bei `pageSize` 10 — erste Seite 10 Zeilen und
+  Knopf „Weitere Themen laden“, nach Klick 17 und kein Knopf mehr;
+  Suche setzt auf 10 zurück. 1440/390/320 px: 0 Überlauf.
+- Tastatur nach dem Nachladen: `Enter` auf dem Knopf setzt den Fokus auf
+  die erste neue Zeile (`a.fm-item-main`), nicht auf `<body>`; ein
+  weiteres `Enter` öffnet das Thema.
+- Codeblöcke: `tabindex="0"` und `role="region"` nur, wenn der Block
+  wirklich seitlich scrollt — bei 320 px ja, bei 1440 px nein. Ohne das
+  war ein überlaufender Block nur mit der Maus erreichbar.
+- `aria-live` sitzt auf `#fm-result` (Trefferzahl), nicht mehr auf der
+  ganzen Liste. Vorher las ein Screenreader bei jedem Suchtastendruck
+  alle Zeilen neu vor.
+- Suche mit Sonderzeichen (`(`, `[`, `*`, `?`, `\`, `.*`, `+`, `a|b`,
+  `(((`) wirft nicht: `withHits()` arbeitet mit `indexOf`, nicht mit
+  `RegExp`. Kein Treffer zeigt den Leerzustand.
+- Rollen: Autor sieht den Lösungsknopf (1), keinen Pin-Knopf (0) und
+  kann die Lösung setzen (`solved: true`, `solvedPost` gesetzt, Badge 1,
+  bleibt nach Reload). Mit `bw-forum-mod-preview` erscheint der
+  Pin-Knopf, ohne ihn nicht. Fremdes Thema: 0 Lösungsknöpfe.
+  `Haqmalh`/`icloud.com` kommt im ausgelieferten `forum.js` nicht mehr
+  vor. 0 Konsolenfehler, 0 Überlauf.
+- Spanisch: `lang='es'` liefert englische Oberfläche und `en-GB`-Datum,
+  nie deutsche Texte.
+- Zweiter Tab: Ein Thema, das in Tab B angelegt wird, erscheint in Tab A
+  ohne Reload (9 → 10 Zeilen, Titel da). Ein offener Entwurf in Tab A
+  überlebt (`dialog.open` true, Titel unverändert), während Tab B
+  schreibt. Nach Reload sind alle Themen und Antworten aus beiden Tabs da.
+  Live bestätigt (Build `ce401bf`), 0 CSP-Verstöße, 0 Konsolenfehler.
+- Reihenfolge auf kleinen Bildschirmen: Kategorien, Ansicht und Umfang
+  stehen über der Liste, Zugangskarte und Hausordnung darunter. Vorher
+  schob die Seitenleiste den ersten Beitrag bei 900 px auf `y=1592`, auf
+  dem Handy auf `y=1712` — fast zwei Bildschirme Scrollen bis zum ersten
+  Thema. Jetzt: 900 px `y=1289`, 390 px `y=1340`, 320 px `y=1339`.
+  Elf Breiten von 1440 bis 320 px: 0 Überlauf, Desktop unverändert
+  (`258px 814px`), 9 Themen, 0 Konsolenfehler. Live bestätigt
+  (Build `589594f`).
+- Supabase-Schema in einer echten PostgreSQL-Instanz (`pgserver`, nicht
+  nur `pglast`): 6 Tabellen, 6 Kategorien, 13/13 Prüfungen grün. INSERT
+  setzt Autor, Zeit und `views` und verwirft `pinned`/`solved`;
+  Autor-Edit ändert Text, aber nicht Moderation, Slug oder Kategorie;
+  fremder Edit darf nur `views` erhöhen; `views` bleibt monoton; eine
+  Lösung aus einem fremden Thema und ein `reply_to` aus einem fremden
+  Thema werden verworfen; die Vote-Policy blockt erfundene IDs und eine
+  fremde `user_id` und erlaubt echte Themen. Der Suchvektor findet
+  Titel, Text und Tag.

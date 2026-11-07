@@ -28,7 +28,9 @@
     draftKey: 'bw-forum-draft-v1',
     rateKey: 'bw-forum-rate-v1',
     subsKey: 'bw-forum-subs-v1',
+    seenKey: 'bw-forum-seen-v1',
     proPreviewKey: 'bw-forum-pro-preview',
+    modPreviewKey: 'bw-forum-mod-preview',
     reportsKey: 'bw-forum-reports-v1',
     pageSize: 10,
     maxTitle: 110,
@@ -63,19 +65,31 @@
   /* 2. Language                                                 */
   /* ---------------------------------------------------------- */
 
+  // The site speaks DE and EN; the developer pages add ES. This page is
+  // written in DE/EN, so an ES reader gets English — never German by
+  // accident, which is what "not en means de" used to do.
   function lang() {
-    return document.documentElement.lang === 'en' ? 'en' : 'de';
+    let raw = '';
+    try {
+      raw = (window.bwLang && window.bwLang()) || document.documentElement.lang || 'de';
+    } catch (e) {
+      raw = document.documentElement.lang || 'de';
+    }
+    raw = String(raw).toLowerCase().slice(0, 2);
+    return raw === 'en' ? 'en' : raw === 'es' ? 'es' : 'de';
   }
 
-  function t(de, en) {
-    return lang() === 'en' ? en : de;
+  function t(de, en, es) {
+    const l = lang();
+    if (l === 'es') return es || en;
+    return l === 'en' ? en : de;
   }
 
   /** Official content is bilingual; user content stays as written. */
   function txt(value) {
     if (value == null) return '';
     if (typeof value === 'string') return value;
-    return value[lang()] || value.de || value.en || '';
+    return value[lang()] || value.en || value.de || '';
   }
 
   /* ---------------------------------------------------------- */
@@ -191,6 +205,9 @@
 
   function renderMarkdown(source, mount) {
     const lines = String(source || '').replace(/\r\n?/g, '\n').split('\n');
+    // A code block that scrolls sideways is only reachable with a mouse.
+    // Collect them, then check after layout whether they actually overflow.
+    const pendingCode = [];
     let i = 0;
 
     while (i < lines.length) {
@@ -209,6 +226,7 @@
         if (langName) pre.dataset.lang = langName;
         pre.appendChild(el('code', { text: code.join('\n') }));
         mount.appendChild(pre);
+        pendingCode.push(pre);
         continue;
       }
 
@@ -258,6 +276,21 @@
       }
       mount.appendChild(para);
     }
+
+    // Only blocks that really scroll need to be focusable; a short block
+    // would otherwise add a pointless tab stop.
+    if (pendingCode.length) {
+      requestAnimationFrame(() => {
+        pendingCode.forEach(pre => {
+          if (!pre.isConnected) return;
+          if (pre.scrollWidth > pre.clientWidth + 1) {
+            pre.tabIndex = 0;
+            pre.setAttribute('role', 'region');
+            pre.setAttribute('aria-label', t('Codeblock, seitlich scrollbar', 'Code block, scrolls sideways'));
+          }
+        });
+      });
+    }
     return mount;
   }
 
@@ -275,6 +308,29 @@
     } catch (e) {
       return fallback;
     }
+  }
+
+  /* A key can hold anything; only arrays are lists. */
+  function readArray(key) {
+    const value = readJSON(key, []);
+    return Array.isArray(value) ? value : [];
+  }
+
+  /* The draft comes back from storage, so every field is checked before
+     it reaches an input. A non-string title used to throw on
+     `input.value = {}` and kept the composer from opening at all. */
+  function readDraft() {
+    const raw = readJSON(CFG.draftKey, null);
+    if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null;
+    const str = (value, max) => typeof value === 'string' ? value.slice(0, max) : '';
+    const draft = {
+      title: str(raw.title, CFG.maxTitle),
+      body: str(raw.body, CFG.maxBody),
+      tags: str(raw.tags, 80),
+      cat: typeof raw.cat === 'string' ? raw.cat : ''
+    };
+    if (!draft.title && !draft.body && !draft.tags) return null;
+    return draft;
   }
 
   function writeJSON(key, value) {
@@ -470,18 +526,136 @@
     };
   }
 
-  function load() {
-    let data = readJSON(CFG.storeKey, null);
-    if (!data || !Array.isArray(data.threads) || !data.threads.length) {
-      data = seed();
-      writeJSON(CFG.storeKey, data);
+  /* Stored data can be old, half-written or edited by hand. Repair it
+     instead of trusting it: one broken entry must not blank the forum. */
+  const ROLES = ['team', 'pro', 'member', 'free', 'guest'];
+
+  function cleanText(value, max) {
+    if (typeof value === 'string') return value.slice(0, max);
+    if (value && typeof value === 'object') {
+      const out = {};
+      ['de', 'en'].forEach(k => { if (typeof value[k] === 'string') out[k] = value[k].slice(0, max); });
+      return out;
     }
-    data.threads.forEach(th => {
-      th.posts = Array.isArray(th.posts) ? th.posts : [];
-      th.tags = Array.isArray(th.tags) ? th.tags : [];
-      th.votes = Array.isArray(th.votes) ? th.votes : [];
-      th.views = Number(th.views) || 0;
+    return '';
+  }
+
+  function cleanDate(value, fallback) {
+    const d = new Date(value);
+    return isNaN(d.getTime()) ? fallback : d.toISOString();
+  }
+
+  /* Keep an existing slug as it is; only strip what would break a fragment. */
+  function cleanSlug(value, fallback) {
+    const raw = typeof value === 'string' && value.trim() ? value : fallback;
+    const slug = String(raw)
+      .toLowerCase()
+      .trim()
+      .slice(0, 80)
+      .replace(/[^a-z0-9äöüß-]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+    return slug || slugify(fallback);
+  }
+
+  function cleanAuthor(value, fallbackName) {
+    const src = value && typeof value === 'object' ? value : {};
+    const name = typeof src.name === 'string' && src.name.trim()
+      ? src.name.trim().slice(0, 60)
+      : fallbackName;
+    return {
+      id: typeof src.id === 'string' && src.id ? src.id.slice(0, 80) : 'u-' + slugify(name),
+      name: name,
+      role: ROLES.indexOf(src.role) !== -1 ? src.role : 'member',
+      plan: src.plan === 'pro' ? 'pro' : 'free'
+    };
+  }
+
+  function cleanPost(value, threadId, index, fallbackTime, fallbackName) {
+    if (!value || typeof value !== 'object') return null;
+    const body = cleanText(value.body, CFG.maxBody);
+    if (!txt(body).trim()) return null;
+    return {
+      id: typeof value.id === 'string' && value.id ? value.id.slice(0, 80) : threadId + '-p' + index,
+      author: cleanAuthor(value.author, fallbackName),
+      createdAt: cleanDate(value.createdAt, fallbackTime),
+      editedAt: value.editedAt ? cleanDate(value.editedAt, null) : null,
+      votes: Array.isArray(value.votes) ? value.votes.filter(v => typeof v === 'string').slice(0, 500) : [],
+      body: body,
+      replyTo: typeof value.replyTo === 'string' ? value.replyTo.slice(0, 80) : null
+    };
+  }
+
+  function cleanThread(value, index, fallbackTime) {
+    if (!value || typeof value !== 'object') return null;
+    const title = cleanText(value.title, CFG.maxTitle);
+    const body = cleanText(value.body, CFG.maxBody);
+    if (!txt(title).trim() || !txt(body).trim()) return null;
+
+    const fallbackName = t('Unbekannt', 'Unknown');
+    const id = typeof value.id === 'string' && value.id ? value.id.slice(0, 80) : 'th-' + index + '-' + uid();
+    const created = cleanDate(value.createdAt, fallbackTime);
+    const posts = (Array.isArray(value.posts) ? value.posts : [])
+      .map((p, i) => cleanPost(p, id, i, created, fallbackName))
+      .filter(Boolean)
+      .slice(0, CFG.maxPostsPerThread);
+
+    return {
+      id: id,
+      slug: cleanSlug(value.slug, txt(title)),
+      cat: CATS.some(c => c.id === value.cat) ? value.cat : 'frontend',
+      type: ['question', 'bug', 'discussion'].indexOf(value.type) !== -1 ? value.type : 'question',
+      title: title,
+      body: body,
+      tags: (Array.isArray(value.tags) ? value.tags : [])
+        .filter(v => typeof v === 'string' && v.trim())
+        .slice(0, CFG.maxTags)
+        .map(v => v.slice(0, 24)),
+      author: cleanAuthor(value.author, fallbackName),
+      createdAt: created,
+      updatedAt: cleanDate(value.updatedAt, created),
+      pinned: value.pinned === true,
+      solved: value.solved === true,
+      solvedPost: typeof value.solvedPost === 'string' ? value.solvedPost.slice(0, 80) : null,
+      views: Math.max(0, Math.min(1e9, Math.floor(Number(value.views) || 0))),
+      votes: Array.isArray(value.votes) ? value.votes.filter(v => typeof v === 'string').slice(0, 500) : [],
+      official: value.official === true,
+      posts: posts
+    };
+  }
+
+  function normalizeDb(data) {
+    const raw = data && typeof data === 'object' && Array.isArray(data.threads) ? data.threads : [];
+    const now = nowISO();
+    const usedSlug = Object.create(null);
+    const usedId = Object.create(null);
+    const threads = [];
+
+    raw.slice(0, CFG.maxThreadsLocal * 2).forEach((value, i) => {
+      const th = cleanThread(value, i, now);
+      if (!th) return;
+      if (usedId[th.id]) th.id = th.id + '-' + i;
+      let slug = th.slug;
+      let n = 2;
+      while (usedSlug[slug]) slug = th.slug.slice(0, 55) + '-' + n++;
+      th.slug = slug;
+      usedSlug[slug] = true;
+      usedId[th.id] = true;
+      threads.push(th);
     });
+
+    return { version: 1, threads: threads.slice(0, CFG.maxThreadsLocal) };
+  }
+
+  function load() {
+    const stored = readJSON(CFG.storeKey, null);
+    const data = normalizeDb(stored);
+    if (!data.threads.length) {
+      const fresh = seed();
+      writeJSON(CFG.storeKey, fresh);
+      return fresh;
+    }
+    // Write back only when the repair changed something.
+    if (stored && JSON.stringify(data) !== JSON.stringify(stored)) writeJSON(CFG.storeKey, data);
     return data;
   }
 
@@ -505,6 +679,13 @@
 
   function proPreview() {
     try { return localStorage.getItem(CFG.proPreviewKey) === '1'; } catch (e) { return false; }
+  }
+
+  /* Preview switch for moderation, same shape as the Pro preview: the
+     real boundary is the database, this only unlocks the buttons in a
+     local build. No personal address in shipped code. */
+  function modPreview() {
+    try { return localStorage.getItem(CFG.modPreviewKey) === '1'; } catch (e) { return false; }
   }
 
   function isPro() {
@@ -554,7 +735,7 @@
   /* ---------------------------------------------------------- */
 
   function rateCheck() {
-    const stamps = readJSON(CFG.rateKey, []).filter(s => Date.now() - s < 60000);
+    const stamps = readArray(CFG.rateKey).filter(s => typeof s === 'number' && Date.now() - s < 60000);
     if (stamps.length >= CFG.maxPostsPerMinute) {
       return { ok: false, message: t('Zu viele Beiträge in einer Minute. Bitte kurz warten.',
                                     'Too many posts in one minute. Please wait a moment.') };
@@ -569,13 +750,13 @@
   }
 
   function rateMark() {
-    const stamps = readJSON(CFG.rateKey, []).filter(s => Date.now() - s < 60000);
+    const stamps = readArray(CFG.rateKey).filter(s => typeof s === 'number' && Date.now() - s < 60000);
     stamps.push(Date.now());
     writeJSON(CFG.rateKey, stamps);
   }
 
   function report(itemId, kind) {
-    const list = readJSON(CFG.reportsKey, []);
+    const list = readArray(CFG.reportsKey);
     list.push({ id: itemId, kind: kind, at: nowISO(), by: (user() && user().id) || 'guest' });
     writeJSON(CFG.reportsKey, list.slice(-100));
   }
@@ -584,7 +765,7 @@
   /* 8. Subscriptions                                            */
   /* ---------------------------------------------------------- */
 
-  function subscriptions() { return readJSON(CFG.subsKey, []); }
+  function subscriptions() { return readArray(CFG.subsKey).filter(s => typeof s === 'string'); }
 
   function isSubscribed(slug) { return subscriptions().indexOf(slug) !== -1; }
 
@@ -594,6 +775,44 @@
     if (i === -1) list.push(slug); else list.splice(i, 1);
     writeJSON(CFG.subsKey, list);
     return i === -1;
+  }
+
+  /* Watched threads get a "New" chip when a reply arrived since the
+     last visit. Without a stored mark nothing is new, so the first
+     run does not flag every thread. */
+  let seenCache = null;
+
+  function readSeen() {
+    if (seenCache) return seenCache;
+    const raw = readJSON(CFG.seenKey, null);
+    const out = Object.create(null);
+    if (raw && typeof raw === 'object' && !Array.isArray(raw)) {
+      Object.keys(raw).slice(0, CFG.maxThreadsLocal).forEach(key => {
+        if (key === '__proto__' || key === 'constructor' || key === 'prototype') return;
+        const value = raw[key];
+        const d = new Date(value);
+        if (typeof value === 'string' && !isNaN(d.getTime())) out[key] = d.toISOString();
+      });
+    }
+    seenCache = out;
+    return out;
+  }
+
+  function markSeen(th) {
+    const seen = readSeen();
+    const prev = seen[th.slug];
+    const stamp = th.updatedAt || th.createdAt;
+    if (!prev || new Date(stamp) > new Date(prev)) {
+      seen[th.slug] = nowISO();
+      writeJSON(CFG.seenKey, seen);
+    }
+  }
+
+  function isUnread(th) {
+    if (!isSubscribed(th.slug)) return false;
+    const seen = readSeen()[th.slug];
+    if (!seen) return false;
+    return new Date(th.updatedAt || th.createdAt) > new Date(seen);
   }
 
   /* ---------------------------------------------------------- */
@@ -630,14 +849,14 @@
     const days = Math.floor(hours / 24);
     if (days < 7) return t('vor ' + days + (days === 1 ? ' Tag' : ' Tagen'),
                            days + (days === 1 ? ' day' : ' days') + ' ago');
-    return d.toLocaleDateString(lang() === 'en' ? 'en-GB' : 'de-DE',
+    return d.toLocaleDateString(lang() === 'de' ? 'de-DE' : 'en-GB',
                                 { day: '2-digit', month: 'short', year: 'numeric' });
   }
 
   function fullDate(iso) {
     const d = new Date(iso);
     if (isNaN(d)) return '';
-    return d.toLocaleString(lang() === 'en' ? 'en-GB' : 'de-DE',
+    return d.toLocaleString(lang() === 'de' ? 'de-DE' : 'en-GB',
                             { dateStyle: 'medium', timeStyle: 'short' });
   }
 
@@ -667,6 +886,34 @@
       .slice(0, max || 160);
   }
 
+  /* Mark search hits with <mark> nodes — never by building HTML. */
+  function withHits(node, text, query) {
+    const source = String(text || '');
+    const parts = String(query || '').toLowerCase().split(/\s+/).filter(Boolean).slice(0, 8);
+    if (!parts.length) { node.textContent = source; return node; }
+
+    const hay = source.toLowerCase();
+    let at = 0;
+    let marks = 0;
+    while (marks < 24) {
+      let best = -1;
+      let len = 0;
+      parts.forEach(part => {
+        const i = hay.indexOf(part, at);
+        if (i !== -1 && (best === -1 || i < best)) { best = i; len = part.length; }
+      });
+      if (best === -1) break;
+      if (best > at) node.appendChild(document.createTextNode(source.slice(at, best)));
+      const mark = el('mark', { class: 'fm-hit' });
+      mark.textContent = source.slice(best, best + len);
+      node.appendChild(mark);
+      at = best + len;
+      marks++;
+    }
+    node.appendChild(document.createTextNode(source.slice(at)));
+    return node;
+  }
+
   function typeLabel(type) {
     if (type === 'bug') return t('Fehler', 'Bug');
     if (type === 'discussion') return t('Diskussion', 'Discussion');
@@ -680,13 +927,23 @@
   /* ---------------------------------------------------------- */
 
   const route = { view: 'list', cat: null, slug: null };
+  let missingSlug = null;
+  const viewedThisSession = new Set();
+
+  /* A link from outside can hold anything after #/t/ — a lone "%" makes
+     decodeURIComponent throw, which used to abort boot() and leave the
+     page empty. Decode defensively and fall back to the raw segment. */
+  function decodePart(raw) {
+    try { return decodeURIComponent(raw); }
+    catch (e) { return raw; }
+  }
 
   function parseRoute() {
     const hash = (location.hash || '').replace(/^#\/?/, '');
     const parts = hash.split('/').filter(Boolean);
     route.view = 'list'; route.cat = null; route.slug = null;
-    if (parts[0] === 't' && parts[1]) { route.view = 'thread'; route.slug = decodeURIComponent(parts[1]); }
-    else if (parts[0] === 'c' && parts[1]) { route.cat = decodeURIComponent(parts[1]); }
+    if (parts[0] === 't' && parts[1]) { route.view = 'thread'; route.slug = decodePart(parts[1]); }
+    else if (parts[0] === 'c' && parts[1]) { route.cat = decodePart(parts[1]); }
     else if (parts[0] === 'neu' || parts[0] === 'new') { route.view = 'new'; }
 
     // ?t=slug makes a thread link shareable before the hash is read
@@ -769,7 +1026,16 @@
       const more = el('button', { class: 'fm-more', id: 'fm-more', type: 'button' });
       more.appendChild(el('span', { text: t('Weitere Themen laden', 'Load more threads') }));
       more.appendChild(icon(ICONS.arrow, 'fm-more-icon'));
-      more.addEventListener('click', () => { state.limit += CFG.pageSize; renderList(); });
+      const oldCount = shown.length;
+      more.addEventListener('click', () => {
+        state.limit += CFG.pageSize;
+        renderList();
+        // Keep the reader in the list: without this, focus falls to <body>
+        // and the next Tab starts at the top of the page again.
+        const rows = document.querySelectorAll('#fm-list .fm-item-main');
+        const next = rows[oldCount];
+        if (next && typeof next.focus === 'function') next.focus();
+      });
       host.appendChild(more);
     }
 
@@ -819,6 +1085,7 @@
     catChip.appendChild(el('span', { text: txt(cat) }));
     top.appendChild(catChip);
     top.appendChild(el('span', { class: 'fm-chip fm-type', text: typeLabel(th.type) }));
+    if (isUnread(th)) top.appendChild(el('span', { class: 'fm-chip fm-chip-new', text: t('Neu', 'New') }));
     if (cat.pro) top.appendChild(el('span', { class: 'fm-chip fm-chip-pro', text: 'Pro' }));
     if (th.solved) {
       const solved = el('span', { class: 'fm-chip fm-chip-solved' });
@@ -828,8 +1095,8 @@
     }
 
     main.appendChild(top);
-    main.appendChild(el('h3', { class: 'fm-item-title', text: txt(th.title) }));
-    main.appendChild(el('p', { class: 'fm-item-excerpt', text: excerpt(txt(th.body)) }));
+    main.appendChild(withHits(el('h3', { class: 'fm-item-title' }), txt(th.title), state.q));
+    main.appendChild(withHits(el('p', { class: 'fm-item-excerpt' }), excerpt(txt(th.body)), state.q));
 
     if (th.tags && th.tags.length) {
       const tags = el('div', { class: 'fm-item-tags' });
@@ -945,11 +1212,16 @@
     host.hidden = false;
     host.replaceChildren();
 
-    th.views = (th.views || 0) + 1;
-    save();
-
     const cat = catOf(th.cat);
     const locked = cat.pro && !isPro();
+
+    // One view per thread per page session, and never for a locked thread.
+    if (!locked && !viewedThisSession.has(th.id)) {
+      viewedThisSession.add(th.id);
+      th.views = (th.views || 0) + 1;
+      save();
+    }
+    if (!locked) markSeen(th);
 
     /* --- head --- */
     const head = el('div', { class: 'fm-th-head' });
@@ -1007,6 +1279,7 @@
     sub.appendChild(el('span', { text: isSubscribed(th.slug) ? t('Beobachtet', 'Watching') : t('Beobachten', 'Watch') }));
     sub.addEventListener('click', () => {
       const on = toggleSubscription(th.slug);
+      if (on) markSeen(th);
       sub.classList.toggle('is-on', on);
       sub.querySelector('span').textContent = on ? t('Beobachtet', 'Watching') : t('Beobachten', 'Watch');
       toast(on ? t('Du beobachtest dieses Thema.', 'You are watching this thread.')
@@ -1019,7 +1292,7 @@
     share.addEventListener('click', () => copyLink(th));
     actions.appendChild(share);
 
-    if (canModerate(th)) {
+    if (canModerate()) {
       const pin = el('button', { type: 'button', class: 'fm-act', aria: { label: t('Anpinnen', 'Pin') } });
       pin.appendChild(icon(ICONS.pin));
       pin.addEventListener('click', () => { th.pinned = !th.pinned; save(); renderThread(); toast(th.pinned ? t('Angepinnt.', 'Pinned.') : t('Gelöst von oben.', 'Unpinned.')); });
@@ -1078,10 +1351,22 @@
     save();
   }
 
-  function canModerate(th) {
+  /* Moderation is a role, not a person. The address that used to stand
+     here was a privacy leak in shipped JavaScript and no protection at
+     all: anyone can edit a value in their own browser. The real boundary
+     is the RLS trigger in supabase/forum-schema.sql. */
+  function canModerate() {
     const u = user();
     if (!u) return false;
-    return th.author.id === u.id || u.email === 'Haqmalh@icloud.com';
+    return u.plan === 'mod' || u.role === 'mod' || modPreview();
+  }
+
+  /* The person who asked decides which answer solved it — that is the
+     point of a question. Pinning stays with moderation. */
+  function canSolve(th) {
+    const u = user();
+    if (!u) return false;
+    return th.author.id === u.id || canModerate();
   }
 
   function copyLink(th) {
@@ -1146,6 +1431,26 @@
     }
     main.appendChild(head);
 
+    if (post.replyTo) {
+      const target = post.replyTo === th.id
+        ? { id: th.id, author: th.author }
+        : th.posts.find(p => p.id === post.replyTo);
+      if (target) {
+        const ref = el('a', { class: 'fm-reply-ref', href: '#post-' + encodeURIComponent(target.id) });
+        ref.appendChild(icon(ICONS.reply));
+        ref.appendChild(el('span', { text: t('Antwort an ' + target.author.name, 'Reply to ' + target.author.name) }));
+        ref.addEventListener('click', e => {
+          e.preventDefault();
+          const node = document.getElementById('post-' + target.id);
+          if (!node) return;
+          node.scrollIntoView({ block: 'center', behavior: 'smooth' });
+          node.classList.add('is-flash');
+          setTimeout(() => node.classList.remove('is-flash'), 1400);
+        });
+        main.appendChild(ref);
+      }
+    }
+
     const body = el('div', { class: 'fm-post-body' });
     renderMarkdown(txt(post.body), body);
     main.appendChild(body);
@@ -1167,7 +1472,7 @@
     });
     foot.appendChild(reply);
 
-    if (!post.isFirst && canModerate(th) && !th.solved) {
+    if (!post.isFirst && canSolve(th) && !th.solved) {
       const mark = el('button', { type: 'button', class: 'fm-link-btn fm-link-solve' });
       mark.appendChild(icon(ICONS.check));
       mark.appendChild(el('span', { text: t('Als Lösung markieren', 'Mark as solution') }));
@@ -1189,6 +1494,14 @@
       toast(t('Danke, zur Prüfung vorgemerkt.', 'Thanks, queued for review.'));
     });
     foot.appendChild(flag);
+
+    if (canEdit(post)) {
+      const edit = el('button', { type: 'button', class: 'fm-link-btn', aria: { label: t('Bearbeiten', 'Edit') } });
+      edit.appendChild(icon(ICONS.edit));
+      edit.appendChild(el('span', { text: t('Bearbeiten', 'Edit') }));
+      edit.addEventListener('click', () => startEdit(th, post, body));
+      foot.appendChild(edit);
+    }
 
     if (post.author.id === (user() && user().id) && !post.isFirst) {
       const del = el('button', { type: 'button', class: 'fm-link-btn fm-link-quiet', aria: { label: t('Löschen', 'Delete') } });
@@ -1216,6 +1529,121 @@
     main.appendChild(anchor);
 
     return card;
+  }
+
+  function canEdit(post) {
+    const u = user();
+    return !!(u && post.author && post.author.id === u.id);
+  }
+
+  /* Editing happens in place: the card keeps its place, only the body
+     becomes a textarea. The title can be fixed on the first post, the
+     slug stays — links that were shared must keep working. */
+  function startEdit(th, post, bodyNode) {
+    if (bodyNode.dataset.editing === '1') return;
+    bodyNode.dataset.editing = '1';
+
+    const editor = el('div', { class: 'fm-edit' });
+
+    let titleInput = null;
+    const titleId = 'fm-edit-title-' + post.id;
+    const bodyId = 'fm-edit-body-' + post.id;
+    if (post.isFirst) {
+      editor.appendChild(el('label', { class: 'fm-edit-label', htmlFor: titleId, text: t('Titel', 'Title') }));
+      titleInput = el('input', { type: 'text', id: titleId, class: 'fm-edit-title', maxlength: CFG.maxTitle, value: txt(th.title) });
+      editor.appendChild(titleInput);
+    }
+
+    editor.appendChild(el('label', { class: 'fm-edit-label', htmlFor: bodyId, text: post.isFirst ? t('Beitrag', 'Post') : t('Antwort', 'Reply') }));
+    const ta = el('textarea', { id: bodyId, class: 'fm-edit-area', rows: 8, maxlength: CFG.maxBody });
+    ta.value = txt(post.body);
+    editor.appendChild(ta);
+
+    const err = el('p', { class: 'fm-form-error', role: 'alert' });
+    err.hidden = true;
+    editor.appendChild(err);
+
+    const bar = el('div', { class: 'fm-edit-bar' });
+    const cancel = el('button', { type: 'button', class: 'btn btn-ghost', text: t('Abbrechen', 'Cancel') });
+    const commit = el('button', { type: 'button', class: 'btn btn-primary', text: t('Änderung speichern', 'Save change') });
+    bar.appendChild(el('span', { class: 'fm-edit-hint', text: t('Esc bricht ab', 'Esc cancels') }));
+    bar.appendChild(cancel);
+    bar.appendChild(commit);
+    editor.appendChild(bar);
+
+    function fail(message) {
+      err.textContent = message;
+      err.hidden = false;
+      return false;
+    }
+
+    let done = false;
+
+    function unbind() {
+      if (done) return false;
+      done = true;
+      document.removeEventListener('keydown', onKey, true);
+      return true;
+    }
+
+    function stop() {
+      if (!unbind()) return;
+      delete bodyNode.dataset.editing;
+      bodyNode.replaceChildren();
+      renderMarkdown(txt(post.body), bodyNode);
+    }
+
+    // Bound to the document, not the textarea: after clicking "Save change"
+    // the focus sits on the button, and Escape must still cancel from there
+    // (or from the title field, or from any link inside the editor).
+    function onKey(e) {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        stop();
+      } else if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+        e.preventDefault();
+        commit.click();
+      }
+    }
+    document.addEventListener('keydown', onKey, true);
+
+    cancel.addEventListener('click', stop);
+
+    commit.addEventListener('click', () => {
+      const value = ta.value.trim();
+      const min = post.isFirst ? 20 : 8;
+      if (value.length < min) {
+        return fail(post.isFirst
+          ? t('Bitte beschreibe das Problem in mindestens 20 Zeichen.', 'Please describe the problem in at least 20 characters.')
+          : t('Bitte mindestens 8 Zeichen schreiben.', 'Please write at least 8 characters.'));
+      }
+
+      let nextTitle = null;
+      if (titleInput) {
+        nextTitle = titleInput.value.trim();
+        if (nextTitle.length < 8) return fail(t('Der Titel braucht mindestens 8 Zeichen.', 'The title needs at least 8 characters.'));
+      }
+
+      if (post.isFirst) {
+        th.body = value;
+        if (nextTitle) th.title = nextTitle;
+        th.editedAt = nowISO();
+      } else {
+        const target = th.posts.find(p => p.id === post.id);
+        if (!target) return fail(t('Der Beitrag wurde nicht gefunden.', 'The post could not be found.'));
+        target.body = value;
+        target.editedAt = nowISO();
+      }
+      th.updatedAt = nowISO();
+      unbind();
+      save();
+      render();
+      toast(t('Änderung gespeichert.', 'Change saved.'));
+    });
+
+    bodyNode.replaceChildren(editor);
+    ta.focus();
+    ta.setSelectionRange(ta.value.length, ta.value.length);
   }
 
   function proWall(cat) {
@@ -1349,13 +1777,19 @@
 
   const composer = {
     dialog: null, form: null, cat: null, type: null,
-    title: null, body: null, tags: null, err: null
+    title: null, body: null, tags: null, err: null, opener: null
   };
 
   function openComposer(presetCat) {
     if (!requireAccount()) return;
     const d = composer.dialog;
     if (!d) return;
+    // Opened with "n", the cursor sits on <body>; Escape would then drop the
+    // reader at the top of the page. Fall back to the button that opens it.
+    const from = document.activeElement;
+    composer.opener = (from && from !== document.body && document.contains(from))
+      ? from
+      : document.querySelector('[data-fm-new]');
 
     composer.cat.replaceChildren();
     CATS.forEach(cat => {
@@ -1372,11 +1806,15 @@
     composer.cat.value = wanted;
     updateComposerNote();
 
-    const draft = readJSON(CFG.draftKey, null);
+    const draft = readDraft();
     if (draft && !composer.title.value) {
-      composer.title.value = draft.title || '';
-      composer.body.value = draft.body || '';
-      composer.tags.value = draft.tags || '';
+      composer.title.value = draft.title;
+      composer.body.value = draft.body;
+      composer.tags.value = draft.tags;
+      if (draft.cat && CATS.some(c => c.id === draft.cat) && !catOf(draft.cat).pro) {
+        composer.cat.value = draft.cat;
+        updateComposerNote();
+      }
     }
     updateCounts();
 
@@ -1390,6 +1828,17 @@
     if (!d) return;
     if (typeof d.close === 'function' && d.open) d.close();
     else d.removeAttribute('open');
+    restoreComposerFocus();
+  }
+
+  /* A dialog that closes should put the cursor back where it came from —
+     otherwise Esc drops the reader at the top of the document. */
+  function restoreComposerFocus() {
+    const back = composer.opener;
+    composer.opener = null;
+    if (back && back !== document.body && document.contains(back) && typeof back.focus === 'function') {
+      back.focus();
+    }
   }
 
   function updateComposerNote() {
@@ -1641,14 +2090,23 @@
   /* ---------------------------------------------------------- */
 
   function render() {
+    const thread = route.view === 'thread' && route.slug ? findThread(route.slug) : null;
     if (route.view === 'thread') {
       renderThread();
-      if (route.slug) {
-        const th = findThread(route.slug);
-        document.title = th
-          ? txt(th.title) + ' — Bytewerk Forum'
-          : t('Thema nicht gefunden — Bytewerk Forum', 'Thread not found — Bytewerk Forum');
-        updateMeta(th);
+      document.title = thread
+        ? txt(thread.title) + ' — Bytewerk Forum'
+        : t('Thema nicht gefunden — Bytewerk Forum', 'Thread not found — Bytewerk Forum');
+      updateMeta(thread);
+      if (thread) {
+        missingSlug = null;
+      } else {
+        // The thread view bailed out and left an empty list behind.
+        renderList();
+        if (missingSlug !== route.slug) {
+          missingSlug = route.slug;
+          toast(t('Dieses Thema gibt es nicht oder nicht mehr. Hier ist die Übersicht.',
+                  'This thread does not exist or is gone. Here is the overview.'), 'err');
+        }
       }
     } else {
       const listWrap = document.getElementById('themen');
@@ -1662,8 +2120,32 @@
     }
     renderAccess();
     renderKnowledge();
-    document.body.classList.toggle('fm-is-thread', route.view === 'thread');
+    document.body.classList.toggle('fm-is-thread', route.view === 'thread' && !!thread);
+    scheduleProgress();
   }
+
+  /* ---- reading progress on a thread ---- */
+  const progressBar = document.getElementById('fm-progress');
+  let progressFrame = 0;
+
+  function updateProgress() {
+    progressFrame = 0;
+    const span = progressBar && progressBar.firstElementChild;
+    const thread = document.getElementById('fm-thread');
+    if (!span || !thread || route.view !== 'thread') return;
+    const start = thread.getBoundingClientRect().top + window.scrollY;
+    const range = document.documentElement.scrollHeight - window.innerHeight - start;
+    const ratio = range < 120 ? 1 : Math.min(1, Math.max(0, (window.scrollY - start) / range));
+    span.style.transform = 'scaleX(' + ratio.toFixed(4) + ')';
+  }
+
+  function scheduleProgress() {
+    if (progressFrame) return;
+    progressFrame = requestAnimationFrame(updateProgress);
+  }
+
+  window.addEventListener('scroll', scheduleProgress, { passive: true });
+  window.addEventListener('resize', scheduleProgress);
 
   /* ---- shareable metadata ---- */
   const META_DEFAULT = {
@@ -1742,6 +2224,8 @@
       composer.dialog.addEventListener('click', e => {
         if (e.target === composer.dialog) closeComposer();
       });
+      // Native Escape closes a <dialog> without calling closeComposer().
+      composer.dialog.addEventListener('close', restoreComposerFocus);
     }
 
     document.querySelectorAll('[data-fm-scope]').forEach(btn => {
@@ -1805,21 +2289,33 @@
       });
     });
 
-    // keyboard: "/" focuses search, "n" opens composer
+    // Keyboard: "/" focuses the forum search, "n" opens the composer.
+    // Both keys also exist site-wide (ui-v4.js binds "/" to the header
+    // search overlay). On this page the forum search is the primary one,
+    // so the handler runs in the capture phase and stops there — the
+    // header search keeps Cmd/Ctrl+K and its button.
     document.addEventListener('keydown', e => {
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
       const tag = (e.target.tagName || '').toLowerCase();
-      const typing = tag === 'input' || tag === 'textarea' || tag === 'select' || e.target.isContentEditable;
-      if (typing) return;
-      if (e.key === '/' && !e.metaKey && !e.ctrlKey) {
+      if (tag === 'input' || tag === 'textarea' || tag === 'select' || e.target.isContentEditable) return;
+
+      if (e.key === '/') {
         const s = document.querySelector('[data-fm-search]');
-        if (s) { e.preventDefault(); s.focus(); s.select(); }
+        if (!s) return;
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        s.focus();
+        s.select();
+        return;
       }
-      if ((e.key === 'n' || e.key === 'N') && !e.metaKey && !e.ctrlKey && !e.altKey) {
+
+      if (e.key === 'n' || e.key === 'N') {
         if (composer.dialog && composer.dialog.open) return;
         e.preventDefault();
+        e.stopImmediatePropagation();
         openComposer();
       }
-    });
+    }, true);
 
     window.addEventListener('hashchange', () => {
       parseRoute();
@@ -1879,11 +2375,42 @@
   /* 18. Boot                                                    */
   /* ---------------------------------------------------------- */
 
+  /* The plan prices live on the developer page. That page ships with its
+     own change set. Because the header is built from the same navigation
+     list, its link is a reliable, network-free signal: no link there, no
+     page in this build — then a sentence beats a dead link. */
+  function checkPlansLink() {
+    const link = document.querySelector('[data-fm-plans-link]');
+    if (!link) return;
+    if (document.querySelector('header a[href="entwickler.html"]')) return;
+    const p = document.createElement('span');
+    p.textContent = t('Preise folgen mit der Entwickler-Seite.', 'Pricing follows with the developer page.');
+    link.replaceWith(p);
+  }
+
+  /* Two open tabs used to overwrite each other: each held its own copy in
+     memory and wrote the whole store back on the next action. Follow the
+     other tab instead of clobbering it. */
+  function watchOtherTabs() {
+    window.addEventListener('storage', e => {
+      if (e.key !== CFG.storeKey || !e.newValue) return;
+      const incoming = normalizeDb(readJSON(CFG.storeKey, null));
+      if (!incoming.threads.length) return;
+      db = incoming;
+      // Do not yank the reader out of a dialog or an open editor.
+      const busy = (composer.dialog && composer.dialog.open) ||
+        document.querySelector('[data-editing="1"]');
+      if (busy) return;
+      render();
+    });
+  }
+
   function boot() {
     db = load();
     parseRoute();
     wire();
     render();
+    watchOtherTabs();
 
     // deep-linked post: scroll once layout is ready
     if (route.view === 'thread') {
@@ -1895,6 +2422,7 @@
     }
 
     document.documentElement.classList.add('fm-ready');
+    checkPlansLink();
   }
 
   if (document.readyState === 'loading') {
