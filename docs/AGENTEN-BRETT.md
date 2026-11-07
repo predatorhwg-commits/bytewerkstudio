@@ -268,6 +268,55 @@ erzeugt. Übernommen wurden stattdessen die dort entstandenen Werkzeuge
 `externalize-data-uris`, `verify-csp`, `verify-site`) und der sparsamere
 Schriftsatz mit Lizenzen.
 
+## Stand 07.11.2026, 14:05 — Barrierefreiheit und JavaScript-frei
+
+**Sprunglink und `main` hatten zwei Lücken.** 29 Seiten hatten gar keinen
+Sprunglink, 12 keine `<main>`-Landmarke (ergänzt von
+`tools/a11y-landmarks.py`). Beim Nachmessen fiel eine dritte auf: zehn Seiten
+hatten `<main>` **ohne** `id="main"` — der Sprunglink zeigte dort auf ein Ziel,
+das es nicht gab. Alle zehn tragen die ID jetzt; `verify-site.mjs` prüft es.
+
+**`frame-src` fehlte auf allen 35 Seiten.** In `docs/SICHERHEIT.md` stand die
+Direktive schon, im Markup nicht. Jetzt auf jeder Seite `frame-src 'none'` —
+Einbetten von außen ist damit ausgeschlossen.
+
+**Überschriften ohne Sprünge.** Drei Stellen sprangen eine Ebene
+(`h1→h3` in `shop.html` und `bauplan.html`, `h2→h4` in `konto.html`). Statt die
+Optik zu ändern, wurden unsichtbare `h2`-Zwischentitel (`sr-only`) eingezogen
+und in `konto.html` die `h4` zu `h3` mit angepassten CSS-Selektoren. Sprünge
+gesamt: 3 → 0.
+
+**Ohne JavaScript war die Seite eine Sackgasse.** Header und Footer kommen aus
+`components.js`; mit abgeschaltetem Skript blieb nur der Inhalt ohne jeden Weg
+zurück. Jetzt steht auf allen 35 Seiten eine schlichte `<noscript>`-Leiste mit
+sechs Zielen (`styles-noscript.css`), direkt nach dem Header-Slot. Mit
+eingeschaltetem JavaScript ist sie nicht im Dokument (gemessen: `.ns-nav`
+fehlt im DOM, Seitenhöhen unverändert, z. B. `index.html` 14192 px,
+`shop.html` 3384 px). Mit `BW_NOJS=1` gemessen: Leiste 60 px hoch, sechs Links,
+Header nicht injiziert.
+
+**Prüfung im Browser, nicht nur im Markup.** `tools/a11y-audit.mjs` lädt alle 35
+Seiten in Chromium und prüft: Sprunglink vorhanden, erstes Bedienelement und
+mit Ziel, genau eine `main`-Landmarke, jeder sichtbare Link/Button/Knopf hat
+einen Namen (aus `aria-label`, `aria-labelledby`, `<label>`, Text oder
+`alt`), Formularfelder beschriftet, kein `tabindex > 0`, jedes Bild mit `alt`,
+`html lang` gesetzt. Ergebnis: **35/35 Seiten, 0 Befunde.**
+
+Zwei echte Funde kamen dabei heraus: auf `arbeiten.html` stand der Sprunglink
+hinter dem Header (der Logo-Link war damit das erste Bedienelement), und der
+Vergleichs-Knopf im Schnellblick (`ui-v5.js`) bekam seinen Text erst beim
+Öffnen — er trägt jetzt zusätzlich ein `aria-label`.
+
+**Nachweise, die jetzt zusammen laufen**
+
+| Werkzeug | Ergebnis |
+|---|---|
+| `tools/security-gate.mjs --live` | 12/12 grün, 1355 interne Ziele, 0 Probleme |
+| `tools/verify-site.mjs` | 0 Befunde (12 Prüfungen) |
+| `tools/a11y-audit.mjs` | 35/35 Seiten, 0 Befunde |
+| `tools/csp-hash.mjs --check` | 36 Seiten, 0 abweichend |
+| `tools/check-social.mjs` | 0 Probleme |
+
 ### Datei-Hinweis
 
 `ui-v4.js` gehört laut `AGENTS.md` zu einer anderen Linie. Die Änderung ist ein
