@@ -70,7 +70,11 @@
   color: var(--faint);
 }
 
-.sich-crumb a { color: var(--muted); text-decoration: none; }
+.sich-crumb a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  margin-block: -3px; color: var(--muted); text-decoration: none; }
 .sich-crumb a:hover { color: var(--accent-700); }
 .sich-crumb span[aria-hidden] { color: var(--line-2); }
 
@@ -771,7 +775,7 @@
 .sich-result-note {
   margin: 12px 0 0;
   color: var(--faint);
-  font-size: 10.5px;
+  font-size: 12px;
   line-height: 1.45;
 }
 
@@ -903,7 +907,7 @@
 .sich-tier-note {
   margin: 18px 0 0;
   color: var(--faint);
-  font-size: 11.5px;
+  font-size: 12px;
   text-align: center;
 }
 
@@ -996,8 +1000,8 @@
   padding-left: 14px;
   color: var(--faint);
   font-family: var(--mono);
-  font-size: 10px;
-  line-height: 1.5;
+  font-size: 12px;
+  line-height: 1.55;
   letter-spacing: 0.02em;
 }
 
@@ -1030,7 +1034,8 @@
 }
 
 .sich-code-bar button {
-  padding: 4px 8px;
+  min-height: 28px;
+  padding: 4px 10px;
   border: 1px solid rgba(250, 249, 245, 0.2);
   border-radius: 5px;
   background: transparent;

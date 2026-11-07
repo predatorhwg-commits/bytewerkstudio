@@ -44,7 +44,11 @@
   margin-bottom: 20px;
 }
 
-.mk-crumb a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line-2); }
+.mk-crumb a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  margin-block: -3px; color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line-2); }
 .mk-crumb a:hover { color: var(--accent-700); border-bottom-color: var(--accent); }
 .mk-crumb span { color: var(--muted); margin: 0 8px; }
 
@@ -160,10 +164,12 @@
 .mk-fallback svg { width: min(58%, 340px); height: auto; }
 
 .mk-stage-hint {
-  position: absolute;
-  left: 0;
-  bottom: 0;
+  /* Stand zuvor absolut am unteren Rand des ganzen Abschnitts — also unter
+     dem Kachelraster statt unter der Bühne. Im Fluss sitzt die Zeile dort,
+     wo sie hingehört, und folgt der Bühnenhöhe. */
+  margin: 12px 0 0;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 10px;
   font-family: var(--mono);

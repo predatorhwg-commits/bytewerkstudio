@@ -83,7 +83,15 @@
   font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.04em; color: var(--ink-soft);
   display: flex; justify-content: space-between; align-items: center; gap: 10px;
 }
-.auth-field > label a { color: var(--accent-300); font-family: var(--body); font-size: 12.5px; }
+.auth-field > label a {
+  color: var(--accent-300);
+  font-family: var(--body);
+  font-size: 12.5px;
+  /* Eigenes Ziel, kein Satzlink: 24 px Höhe für Finger und Maus. */
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
 .auth-field > label a:hover { color: var(--accent); }
 .input-wrap { position: relative; display: flex; align-items: center; }
 .input-wrap .in-icon {
@@ -109,7 +117,12 @@
 .auth-field .auth-err { font-size: 12px; color: oklch(0.75 0.15 25); display: none; }
 .auth-field.invalid .auth-err { display: block; }
 
-.checkline { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--muted); line-height: 1.55; cursor: pointer; }
+.checkline {
+  display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--muted);
+  line-height: 1.55; cursor: pointer;
+  /* Trefferfläche: das Kästchen ist 17 px, das Label muss 24 px erreichen. */
+  min-height: 24px; padding-block: 2px;
+}
 .checkline input[type="checkbox"] {
   appearance: none; width: 17px; height: 17px; flex-shrink: 0; margin-top: 2px; cursor: pointer;
   border: 1px solid var(--line-2); border-radius: 5px; background: oklch(0.155 0.014 262);
@@ -142,7 +155,7 @@
 .auth-foot { display: flex; flex-wrap: wrap; gap: 8px 18px; justify-content: center; font-size: 11.5px; color: var(--faint); margin-top: 22px; }
 .auth-foot span { display: inline-flex; align-items: center; gap: 6px; }
 .auth-foot svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 1.7; }
-.auth-legal { font-size: 11.5px; color: var(--faint); text-align: center; line-height: 1.6; }
+.auth-legal { font-size: 12px; color: var(--faint); text-align: center; line-height: 1.6; }
 .auth-legal a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
 .auth-mode-note {
   display: flex; gap: 10px; align-items: flex-start; margin-top: 16px; padding: 11px 13px;

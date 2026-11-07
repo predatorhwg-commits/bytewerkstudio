@@ -340,7 +340,15 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 600; line-height: 1.0
 .page-head .display { font-size: clamp(40px, 6.5vw, 78px); letter-spacing: -0.035em; margin-top: 16px; max-width: 16ch; }
 .page-head .lead { margin-top: 22px; }
 .crumb { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; color: var(--faint); text-transform: uppercase; display: flex; gap: 8px; align-items: center; }
-.crumb a { color: var(--accent-300); }
+.crumb a {
+  color: var(--accent-300);
+  /* Tap-Ziel: der Text ist nur 19 px hoch. Innenabstand nach oben/unten
+     vergrößert die Fläche, der negative Außenabstand hält die Zeile ruhig. */
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  margin: -3px 0;
+}
 .crumb a:hover { color: var(--accent); }
 
 /* Shop filters */

@@ -81,7 +81,7 @@
   margin-top: 22px;
   white-space: nowrap;
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--faint);
@@ -191,7 +191,7 @@ html.atl-ready .atl-tags { display: block; }
 .atl-caption {
   margin-top: 12px;
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 12px;
   letter-spacing: 0.06em;
   color: var(--faint);
 }

@@ -176,6 +176,8 @@ a.brf-meta-row:hover .brf-meta-v { color: var(--accent); }
 }
 .brf-stage-note.is-off { opacity: 0; }
 .brf-motion {
+  min-height: 24px;
+  padding-block: 2px;
   position: absolute;
   z-index: 4;
   right: 18px;
@@ -275,6 +277,8 @@ html.brf-no3d .brf-art {
   display: flex;
   align-items: baseline;
   gap: 7px;
+  min-width: 24px;
+  min-height: 24px;
   padding: 6px 2px;
   color: var(--faint);
   font-size: 12.5px;
@@ -474,7 +478,7 @@ html.brf-no3d .brf-art {
   pointer-events: none;
 }
 
-.brf-hint { font-size: 11.5px; color: var(--faint); line-height: 1.5; }
+.brf-hint { font-size: 12px; color: var(--faint); line-height: 1.5; }
 .brf-err {
   font-size: 11.5px;
   color: #b23b2e;
@@ -658,7 +662,7 @@ html.brf-no3d .brf-art {
 
 .brf-foot-note {
   margin: 14px 2px 0;
-  font-size: 11.5px;
+  font-size: 12px;
   line-height: 1.6;
   color: var(--faint);
   max-width: 56ch;

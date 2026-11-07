@@ -230,20 +230,39 @@ def main() -> int:
             ctx = None
             row = {"page": name}
             try:
-                ctx = browser.new_context(viewport={"width": 1440, "height": 900})
-                page = ctx.new_page()
-                page.goto(f"{args.base}/{name}", wait_until="domcontentloaded", timeout=30000)
-                page.wait_for_timeout(1200)
-                data = page.evaluate(AUDIT_JS)
-                row.update(data)
-                row["problems"] = (len(data["contrast"]) + len(data["focus"]) +
-                                   len(data["labels"]) + len(data["names"]) + len(data["aria"]))
+                for attempt in (1, 2):
+                    try:
+                        ctx = browser.new_context(viewport={"width": 1440, "height": 900})
+                        page = ctx.new_page()
+                        page.goto(f"{args.base}/{name}", wait_until="domcontentloaded", timeout=30000)
+                        page.wait_for_timeout(1200)
+                        data = page.evaluate(AUDIT_JS)
+                        row.pop("error", None)
+                        row.update(data)
+                        row["problems"] = (len(data["contrast"]) + len(data["focus"]) +
+                                           len(data["labels"]) + len(data["names"]) + len(data["aria"]))
+                        if attempt == 2:
+                            row["retried"] = True
+                        break
+                    except Exception as exc:
+                        # Renderer abgestürzt: neuer Browser, Seite vollständig
+                        # neu messen. Ein Abbruch ist kein Messergebnis.
+                        try:
+                            if ctx:
+                                ctx.close()
+                        except Exception:
+                            pass
+                        try:
+                            browser.close()
+                        except Exception:
+                            pass
+                        ctx = None
+                        if attempt == 2:
+                            row["error"] = str(exc)[:150]
+                            break
+                        browser = pw.chromium.launch(args=ARGS)
             except Exception as exc:
                 row["error"] = str(exc)[:150]
-                try:
-                    browser.close()
-                except Exception:
-                    pass
                 browser = None
             finally:
                 if ctx:
@@ -255,6 +274,17 @@ def main() -> int:
             print(f"{name}: {row.get('problems', 'ERR')} Befunde", flush=True)
         try:
             browser.close()
+        except Exception:
+            pass
+
+    # Teil-Läufe dürfen die Sammeldatei nicht auf wenige Seiten kürzen.
+    target = outdir / "a11y.json"
+    if args.only and target.exists():
+        try:
+            old = json.loads(target.read_text(encoding="utf-8"))
+            measured = {r["page"] for r in rows}
+            rows = rows + [r for r in old.get("rows", []) if r.get("page") not in measured]
+            rows.sort(key=lambda r: r.get("page", ""))
         except Exception:
             pass
 
@@ -270,7 +300,7 @@ def main() -> int:
         "pages_without_main": sum(1 for r in ok if r["landmarks"]["main"] != 1),
         "pages_without_skip": sum(1 for r in ok if not r.get("skip") or not r["skip"].get("target")),
     }
-    (outdir / "a11y.json").write_text(
+    target.write_text(
         json.dumps({"summary": summary, "rows": rows}, indent=2, ensure_ascii=False), encoding="utf-8"
     )
     print("A11Y", json.dumps(summary, ensure_ascii=False))
