@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#faf9f5">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CaeQ8Q3geGyk4C+zSbiPIgg9xb3aa/Jes1V9wggsHR4='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="index, follow">
+<title>Forum — Fragen, Antworten und Werkstattwissen | Bytewerk Studio</title>
+<meta name="description" content="Das Bytewerk-Forum für Entwickler: three.js, Frontend, Backend, Werkzeuge. Fragen stellen, Antworten finden, gelöste Probleme im Archiv. Lesen frei, Schreiben mit Konto.">
+<link rel="canonical" href="https://bytewerkstudio.com/forum.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bytewerk Forum — Werkstattwissen für Entwickler">
+<meta property="og:description" content="Fragen zu three.js, Frontend, Backend und Werkzeugen. Antworten bleiben, Probleme werden als gelöst markiert.">
+<meta property="og:url" content="https://bytewerkstudio.com/forum.html">
+<meta property="og:image" content="https://bytewerkstudio.com/media/og-forum.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Bytewerk Forum — Fragen zu three.js, Frontend, Backend und Werkzeugen">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bytewerk Forum — Werkstattwissen für Entwickler">
+<meta name="twitter:description" content="Fragen zu three.js, Frontend, Backend und Werkzeugen. Antworten bleiben, Probleme werden als gelöst markiert.">
+<meta name="twitter:image" content="https://bytewerkstudio.com/media/og-forum.png">
+<meta property="og:site_name" content="Bytewerk Studio">
+<meta property="og:locale" content="de_DE">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles-v3.css">
+<link rel="stylesheet" href="styles-auth.css">
+<link rel="stylesheet" href="styles-claude.css">
+<link rel="stylesheet" href="styles-forum.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DiscussionForumPosting",
+  "name": "Bytewerk Forum",
+  "url": "https://bytewerkstudio.com/forum.html",
+  "description": "Forum für Entwickler: three.js, Frontend, Backend, Werkzeuge und Studiopraxis.",
+  "isPartOf": { "@type": "WebSite", "name": "Bytewerk Studio", "url": "https://bytewerkstudio.com/" },
+  "publisher": { "@type": "Organization", "name": "Bytewerk Studio", "url": "https://bytewerkstudio.com/" }
+}
+</script>
+</head>
+<body class="fm-page">
+
+<a class="fm-skip" href="#forum" data-en="Skip to forum">Zum Forum springen</a>
+
+<div data-include="header"></div>
+
+<main id="main">
+
+<!-- ============================ HERO ============================ -->
+<section class="fm-hero" aria-labelledby="fm-hero-title">
+  <div class="wrap fm-hero-grid">
+
+    <div class="fm-hero-copy">
+      <div class="fm-crumb">
+        <a href="index.html" data-en="Home">Start</a>
+        <span aria-hidden="true">/</span>
+        <span>Forum</span>
+      </div>
+
+      <span class="fm-kicker"><i aria-hidden="true"></i><span data-en="Workshop knowledge · since 2026">Werkstattwissen · seit 2026</span></span>
+
+      <h1 class="fm-title" id="fm-hero-title" data-en="Questions that<em> build something.</em>">
+        Fragen, die <em>etwas bauen.</em>
+      </h1>
+
+      <p class="fm-lead" data-en="A forum for people who ship: three.js, frontend, backend, tooling. Ask precisely, answer briefly, and mark what actually solved the problem.">
+        Ein Forum für Leute, die ausliefern: three.js, Frontend, Backend, Werkzeuge.
+        <strong>Präzise fragen, knapp antworten</strong> — und markieren, was das Problem wirklich gelöst hat.
+      </p>
+
+      <div class="fm-hero-actions">
+        <button class="btn btn-primary btn-lg" type="button" data-fm-new>
+          <span data-en="Ask a question">Frage stellen</span> <span class="arr">→</span>
+        </button>
+        <a class="btn btn-ghost btn-lg" href="#themen" data-en="Browse threads">Themen durchsehen</a>
+      </div>
+
+      <dl class="fm-stats" aria-label="Forum in Zahlen">
+        <div><dt data-en="Threads">Themen</dt><dd data-fm-stat="threads">—</dd></div>
+        <div><dt data-en="Answers">Antworten</dt><dd data-fm-stat="posts">—</dd></div>
+        <div><dt data-en="Solved">Gelöst</dt><dd data-fm-stat="solved">—</dd></div>
+        <div><dt data-en="Categories">Kategorien</dt><dd data-fm-stat="cats">—</dd></div>
+      </dl>
+    </div>
+
+    <div class="fm-hero-stage">
+      <div class="fm-stage-frame" id="fm-stage-frame">
+        <canvas id="fm-stage" aria-hidden="true"></canvas>
+        <div class="fm-stage-fallback" id="fm-stage-fallback">
+          <button type="button" class="fm-board-card" data-fm-goto="three-webgl-budget">
+            <span class="fm-bc-pin" aria-hidden="true"></span>
+            <b>three.js</b>
+            <span data-en="Keeping scenes small">Szenen klein halten</span>
+          </button>
+          <button type="button" class="fm-board-card" data-fm-goto="csp-ohne-inline">
+            <span class="fm-bc-pin" aria-hidden="true"></span>
+            <b>Security</b>
+            <span data-en="CSP without inline">CSP ohne Inline</span>
+          </button>
+          <button type="button" class="fm-board-card" data-fm-goto="supabase-rls">
+            <span class="fm-bc-pin" aria-hidden="true"></span>
+            <b>Backend</b>
+            <span data-en="Row level security">Zeilenrechte</span>
+          </button>
+          <button type="button" class="fm-board-card" data-fm-goto="statisch-ohne-build">
+            <span class="fm-bc-pin" aria-hidden="true"></span>
+            <b>Tooling</b>
+            <span data-en="No build step">Ohne Build</span>
+          </button>
+        </div>
+      </div>
+      <p class="fm-stage-hint">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3v6M15 15v6M3 9h6M15 15h6"/><circle cx="12" cy="12" r="2.6"/></svg>
+        <span data-en="Drag to turn · click a card to open the thread">Ziehen zum Drehen · Karte anklicken öffnet das Thema</span>
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================ BOARD ============================ -->
+<section class="fm-board" id="forum" aria-labelledby="fm-board-title">
+  <h2 class="fm-visually-hidden" id="fm-board-title" data-en="Forum threads">Forumthemen</h2>
+  <div class="wrap fm-layout">
+
+    <!-- Rail -->
+    <aside class="fm-rail" aria-label="Kategorien und Filter">
+      <div class="fm-rail-block">
+        <p class="fm-rail-label" data-en="Categories">Kategorien</p>
+        <nav class="fm-cats" id="fm-cats" aria-label="Forumkategorien"></nav>
+      </div>
+
+      <div class="fm-rail-block">
+        <p class="fm-rail-label" data-en="View">Ansicht</p>
+        <div class="fm-switch" role="group" aria-label="Ansicht">
+          <button type="button" class="is-on" data-fm-sort="latest" data-en="Newest">Neueste</button>
+          <button type="button" data-fm-sort="active" data-en="Active">Aktiv</button>
+          <button type="button" data-fm-sort="unanswered" data-en="Unanswered">Offen</button>
+        </div>
+      </div>
+
+      <div class="fm-rail-block">
+        <p class="fm-rail-label" data-en="Scope">Umfang</p>
+        <div class="fm-scope" role="group" aria-label="Umfang">
+          <button type="button" class="is-on" data-fm-scope="all" data-en="Everything">Alles</button>
+          <button type="button" data-fm-scope="mine" data-en="Mine">Meine</button>
+          <button type="button" data-fm-scope="watching" data-en="Watching">Beobachtet</button>
+        </div>
+      </div>
+
+      <div class="fm-rail-block fm-rail-access">
+        <p class="fm-rail-label" data-en="Your access">Dein Zugang</p>
+        <div id="fm-access"></div>
+        <p class="fm-rail-hint" data-en="Preview: threads are stored in this browser only. Another device sees a different board.">
+          Vorschau: Themen liegen nur in diesem Browser. Auf einem anderen Gerät siehst du ein anderes Brett.
+        </p>
+      </div>
+
+      <div class="fm-rail-block fm-rail-note">
+        <p class="fm-rail-label" data-en="House rules">Hausordnung</p>
+        <ul>
+          <li data-en="One problem per thread — then it can be marked solved.">Ein Problem pro Thema — dann lässt es sich als gelöst markieren.</li>
+          <li data-en="Code in a fenced block, errors with the full message.">Code in einen Block, Fehler mit vollständiger Meldung.</li>
+          <li data-en="No advertising, no recruiting, no scraped content.">Keine Werbung, keine Abwerbung, keine kopierten Inhalte.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="fm-main">
+
+      <div class="fm-toolbar">
+        <div class="fm-search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg>
+          <label class="fm-visually-hidden" for="fm-q" data-en="Search threads">Themen durchsuchen</label>
+          <input id="fm-q" type="search" autocomplete="off" spellcheck="false"
+                 placeholder="Themen, Tags, Code durchsuchen …" data-en-ph="Search threads, tags, code …"
+                 data-fm-search>
+          <kbd aria-hidden="true">/</kbd>
+        </div>
+
+        <div class="fm-toolbar-right">
+          <span class="fm-result" id="fm-result" aria-live="polite"></span>
+          <button class="btn btn-primary fm-new-btn" type="button" data-fm-new>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            <span data-en="New thread">Neues Thema</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="fm-legend" id="fm-legend" hidden>
+        <span data-en="Showing">Angezeigt:</span> <b id="fm-legend-v"></b>
+        <button type="button" data-fm-reset data-en="Reset">Zurücksetzen</button>
+      </div>
+
+      <!-- Thread list -->
+      <div class="fm-list-wrap" id="themen">
+        <div class="fm-list-head" aria-hidden="true">
+          <span data-en="Thread">Thema</span>
+          <span data-en="Replies">Antworten</span>
+          <span data-en="Last post">Zuletzt</span>
+        </div>
+        <div class="fm-list" id="fm-list" aria-live="polite"></div>
+
+        <div class="fm-empty" id="fm-empty" hidden>
+          <div class="fm-empty-mark" aria-hidden="true"></div>
+          <h3 data-en="Nothing here yet">Hier ist noch nichts</h3>
+          <p id="fm-empty-text" data-en="Try another search term or start the first thread in this category.">Versuch einen anderen Suchbegriff oder eröffne das erste Thema in dieser Kategorie.</p>
+          <button class="btn btn-primary" type="button" data-fm-new data-en="Start a thread">Thema eröffnen</button>
+        </div>
+      </div>
+
+      <!-- Thread detail -->
+      <div class="fm-thread" id="fm-thread" hidden></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================ WERKSTATTWISSEN ============================ -->
+<section class="fm-know" id="wissen" aria-labelledby="fm-know-title" hidden>
+  <div class="wrap">
+    <div class="fm-know-head">
+      <div>
+        <span class="fm-kicker"><i aria-hidden="true"></i><span data-en="Solved, not buried">Gelöst, nicht vergraben</span></span>
+        <h2 id="fm-know-title" data-en="Answers that<em> stay.</em>">Antworten, die <em>bleiben.</em></h2>
+      </div>
+      <p data-en="Every thread marked as solved keeps its answer here — with the code that fixed it. No scrolling through forty replies.">
+        Jedes als gelöst markierte Thema behält seine Antwort hier — mit dem Code, der es behoben hat.
+        Kein Durchscrollen durch vierzig Beiträge.
+      </p>
+    </div>
+    <div class="fm-know-grid" id="fm-know-grid"></div>
+  </div>
+</section>
+
+<!-- ============================ PRO ============================ -->
+<section class="fm-pro" id="pro" aria-labelledby="fm-pro-title">
+  <div class="wrap">
+    <div class="fm-pro-head">
+      <span class="fm-kicker"><i aria-hidden="true"></i><span data-en="Forum subscription">Forum-Abo</span></span>
+      <h2 id="fm-pro-title" data-en="Reading is free.<em> Building together is Pro.</em>">
+        Lesen ist frei. <em>Zusammen bauen ist Pro.</em>
+      </h2>
+      <p data-en="The open categories stay open for everyone with an account. Pro adds the studio area, solution marking and a direct line to the people who write the code.">
+        Die offenen Kategorien bleiben für alle mit Konto offen. Pro ergänzt den Studio-Bereich,
+        die Lösung markieren und die direkte Leitung zu denen, die den Code schreiben.
+      </p>
+    </div>
+
+    <div class="fm-tiers">
+
+      <article class="fm-tier">
+        <header>
+          <p class="fm-tier-name" data-en="Community">Community</p>
+          <p class="fm-price"><b>0 €</b><span data-en="forever">für immer</span></p>
+        </header>
+        <ul>
+          <li data-en="Read every public thread">Jedes öffentliche Thema lesen</li>
+          <li data-en="Ask and answer in four open categories">In vier offenen Kategorien fragen und antworten</li>
+          <li data-en="Search, tags, drafts, code blocks">Suche, Tags, Entwürfe, Code-Blöcke</li>
+          <li data-en="One account for shop and forum">Ein Konto für Shop und Forum</li>
+        </ul>
+        <a class="btn btn-ghost" href="register.html" data-en="Create free account">Kostenloses Konto</a>
+      </article>
+
+      <article class="fm-tier fm-tier-pro">
+        <span class="fm-tier-flag" data-en="For developers who ship">Für Entwickler, die ausliefern</span>
+        <header>
+          <p class="fm-tier-name">Studio Pro</p>
+          <p class="fm-price fm-price-link"><a href="entwickler.html#abo" data-en="See plans and pricing on the developer page">Stufen und Preise auf der Entwickler-Seite</a></p>
+        </header>
+        <ul>
+          <li data-en="Studio and product-feedback categories">Studio- und Produkt-Feedback-Kategorien</li>
+          <li data-en="Mark answers as the solution">Antworten als Lösung markieren</li>
+          <li data-en="Pro badge next to your name">Pro-Kennzeichen am Namen</li>
+          <li data-en="Priority in unanswered threads">Vorrang bei offenen Themen</li>
+          <li data-en="Quarterly office hour with the studio">Vierteljährliche Sprechstunde mit dem Studio</li>
+        </ul>
+        <button class="btn btn-primary" type="button" data-fm-upgrade data-en="Request Pro access">Pro-Zugang anfragen</button>
+        <p class="fm-tier-fine" data-en="Preview: no payment is taken on this page. Access is activated after a short confirmation.">
+          Vorschau: Auf dieser Seite wird nichts abgebucht. Der Zugang wird nach kurzer Bestätigung freigeschaltet.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div data-include="footer"></div>
+
+<!-- ============================ COMPOSER ============================ -->
+<dialog class="fm-dialog" id="fm-composer" aria-labelledby="fm-composer-title">
+  <form class="fm-form" id="fm-composer-form" novalidate>
+    <header class="fm-dialog-head">
+      <div>
+        <p class="fm-dialog-kicker" id="fm-composer-kicker" data-en="New thread">Neues Thema</p>
+        <h2 id="fm-composer-title" data-en="What are you building?">Woran baust du?</h2>
+      </div>
+      <button type="button" class="fm-icon-btn" data-fm-close aria-label="Schließen" data-en-aria="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+      </button>
+    </header>
+
+    <div class="fm-form-grid">
+      <label class="fm-field">
+        <span data-en="Category">Kategorie</span>
+        <select id="fm-f-cat" name="cat" required></select>
+      </label>
+
+      <label class="fm-field">
+        <span data-en="Type">Art</span>
+        <select id="fm-f-type" name="type">
+          <option value="question" data-en="Question">Frage</option>
+          <option value="discussion" data-en="Discussion">Diskussion</option>
+          <option value="bug" data-en="Bug report">Fehlerbericht</option>
+        </select>
+      </label>
+    </div>
+
+    <label class="fm-field">
+      <span data-en="Title">Titel</span>
+      <input id="fm-f-title" name="title" type="text" maxlength="110" required
+             placeholder="Kurz und konkret, z. B. „Schatten kostet 8 ms bei 40 Karten“"
+             data-en-ph="Short and specific, e.g. “Shadows cost 8 ms with 40 cards”">
+      <em class="fm-count"><span id="fm-title-count">0</span>/110</em>
+    </label>
+
+    <label class="fm-field">
+      <span data-en="Your question">Deine Frage</span>
+      <div class="fm-editor">
+        <div class="fm-editor-bar">
+          <button type="button" data-fm-md="code" title="Code-Block" aria-label="Code-Block einfügen"><span aria-hidden="true">&lt;/&gt;</span></button>
+          <button type="button" data-fm-md="bold" title="Fett" aria-label="Fett"><b>B</b></button>
+          <button type="button" data-fm-md="italic" title="Kursiv" aria-label="Kursiv"><i>I</i></button>
+          <button type="button" data-fm-md="link" title="Link" aria-label="Link einfügen"><span aria-hidden="true">↗</span></button>
+          <button type="button" data-fm-md="list" title="Liste" aria-label="Liste einfügen"><span aria-hidden="true">≡</span></button>
+          <span class="fm-editor-hint" data-en="Markdown: **bold**, `code`, ```block```">Markdown: **fett**, `code`, ```block```</span>
+        </div>
+        <textarea id="fm-f-body" name="body" rows="9" maxlength="8000" required
+                  placeholder="Was hast du versucht, was passiert, was soll passieren? Versionen und Fehlermeldung nicht vergessen."
+                  data-en-ph="What did you try, what happens, what should happen? Include versions and the full error."></textarea>
+      </div>
+      <em class="fm-count"><span id="fm-body-count">0</span>/8000 · <span data-en="Draft saves automatically">Entwurf speichert automatisch</span></em>
+    </label>
+
+    <label class="fm-field">
+      <span data-en="Tags">Tags</span>
+      <input id="fm-f-tags" name="tags" type="text" maxlength="80"
+             placeholder="three.js, shader, performance" data-en-ph="three.js, shader, performance">
+      <em class="fm-count" data-en="Up to three, separated by commas">Bis zu drei, durch Komma getrennt</em>
+    </label>
+
+    <!-- honeypot: invisible for people, attractive for bots -->
+    <div class="fm-hp" aria-hidden="true">
+      <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+    </div>
+
+    <p class="fm-form-error" id="fm-form-error" role="alert" hidden></p>
+
+    <footer class="fm-dialog-foot">
+      <span class="fm-dialog-note">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7.5a4 4 0 0 1 8 0V10"/></svg>
+        <span id="fm-composer-note" data-en="Visible to everyone with an account">Für alle mit Konto sichtbar</span>
+      </span>
+      <div class="fm-dialog-actions">
+        <button type="button" class="btn btn-ghost" data-fm-close data-en="Cancel">Abbrechen</button>
+        <button type="submit" class="btn btn-primary" id="fm-f-submit">
+          <span data-en="Publish">Veröffentlichen</span> <span class="arr">→</span>
+        </button>
+      </div>
+    </footer>
+  </form>
+</dialog>
+
+<div class="fm-toasts" id="fm-toasts" aria-live="polite" aria-atomic="false"></div>
+
+<script src="components.js"></script>
+<script src="auth-config.js"></script>
+<script src="auth.js"></script>
+<script src="main.js"></script>
+<script src="ui-v3.js"></script>
+<script src="ui-v4.js"></script>
+<script src="ui-v5.js"></script>
+<script src="background.js"></script>
+<script type="module" src="forum-scene.js"></script>
+<script src="forum.js"></script>
+</body>
+</html>
