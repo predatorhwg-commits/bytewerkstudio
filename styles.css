@@ -4,7 +4,7 @@
    Neu gestaltet 01.11.2026
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+/* Schriften: siehe fonts/fonts.css (lokal). Keine Fremd-Requests. */
 
 /* ---------- Tokens ---------- */
 :root {
@@ -35,8 +35,8 @@
   --neon:       oklch(0.82 0.12 210);
 
   /* Type */
-  --display: 'Space Grotesk', system-ui, sans-serif;
-  --body: 'Manrope', system-ui, sans-serif;
+  --display: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --body: system-ui, -apple-system, 'Segoe UI', sans-serif;
   --mono: 'JetBrains Mono', ui-monospace, monospace;
 
   /* Spacing rhythm */

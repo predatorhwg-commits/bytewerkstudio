@@ -21,7 +21,9 @@
    14 Responsive, motion, print
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;450;500;600;700&display=swap');
+/* Schriften liegen im Repo (fonts/fonts.css). Die Seiten binden
+   die Datei direkt im Head ein, damit der Browser die WOFF2-Dateien
+   parallel zu den Stylesheets laden kann. */
 
 /* ---------- 1. Tokens & type ---------- */
 :root {
@@ -944,4 +946,31 @@ body,
 .hero-v3::before,
 .hero-v3.has-pointer::before {
   background: none;
+}
+
+/* Legal pages: the table of contents becomes a chip rail on phones.
+   Nine anchors as stacked rows would push the headline 400px down. */
+@media (max-width: 900px) {
+  .legal-toc {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    border-top: 0;
+    padding-bottom: 6px;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    font-size: 11.5px;
+  }
+  .legal-toc::-webkit-scrollbar { display: none; }
+  .legal-toc a {
+    flex: 0 0 auto;
+    padding: 8px 14px;
+    border: 1px solid var(--line-2);
+    border-radius: 999px;
+    background: var(--surface);
+    white-space: nowrap;
+    scroll-snap-align: start;
+  }
+  .legal-toc a:hover { border-color: var(--ink); color: var(--ink); }
+  .legal-copy article { scroll-margin-top: 96px; }
 }

@@ -5,14 +5,15 @@
 <script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Datenschutz — Bytewerk Studio</title>
 <meta name="description" content="Datenschutzhinweise von Bytewerk Studio.">
 <link rel="icon" href="logo.svg" type="image/svg+xml">
 <link rel="canonical" href="https://bytewerkstudio.com/datenschutz.html">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="styles-v3.css">
 <link rel="stylesheet" href="styles-auth.css">
@@ -20,41 +21,80 @@
 <link rel="stylesheet" href="styles-v5.css">
   <link rel="stylesheet" href="styles-3d.css">
 </head>
-<body>
+<body><body>
+<a class="skip-link" href="#main" data-en="Skip to content">Zum Inhalt springen</a>
 <div data-include="header"></div>
-<main class="wrap legal-wrap">
+<main id="main" class="wrap legal-wrap">
   <div class="legal-grid">
     <aside class="legal-toc reveal">
-      <a href="#verantwortlicher">Verantwortlicher</a>
-      <a href="#grundsatz">Grundsatz</a>
-      <a href="#hosting">Hosting</a>
-      <a href="#kontakt">Kontakt</a>
-      <a href="#rechte">Rechte</a>
+      <a href="#verantwortlicher" data-en="Controller">Verantwortlicher</a>
+      <a href="#grundsatz" data-en="Principle">Grundsatz</a>
+      <a href="#hosting" data-en="Hosting">Hosting</a>
+      <a href="#schriften" data-en="Fonts">Schriften</a>
+      <a href="#speicher" data-en="Local storage">Lokale Speicherung</a>
+      <a href="#konto" data-en="Account">Konto</a>
+      <a href="#kauf" data-en="Purchase">Kauf</a>
+      <a href="#kontakt" data-en="Contact">Kontakt</a>
+      <a href="#rechte" data-en="Your rights">Rechte</a>
     </aside>
     <section class="legal-copy reveal" data-d="1">
       <div>
-        <span class="eyebrow">Privacy</span>
-        <h1 class="display" style="font-size:clamp(38px,5vw,68px);margin-top:18px">Datenschutz</h1>
+        <span class="eyebrow" data-en="Privacy">Datenschutz</span>
+        <h1 class="display" style="font-size:clamp(38px,5vw,68px);margin-top:18px" data-en="Privacy">Datenschutz</h1>
       </div>
+
       <article id="verantwortlicher">
-        <h2>Verantwortlicher</h2>
-        <p>Bytewerk Studio<br>Inhaber: Hijratullah Haqmal<br>Heinigstraße 13, 67059 Ludwigshafen am Rhein<br>E-Mail: <a href="mailto:Haqmalh@icloud.com">Haqmalh@icloud.com</a></p>
+        <h2 data-en="Controller">Verantwortlicher</h2>
+        <p data-en="Bytewerk Studio<br>Owner: Hijratullah Haqmal<br>Heinigstraße 13, 67059 Ludwigshafen am Rhein<br>Email:">Bytewerk Studio<br>Inhaber: Hijratullah Haqmal<br>Heinigstraße 13, 67059 Ludwigshafen am Rhein<br>E-Mail:</p>
+        <p><a href="mailto:Haqmalh@icloud.com">Haqmalh@icloud.com</a></p>
       </article>
+
       <article id="grundsatz">
-        <h2>Grundsatz</h2>
-        <p>Diese statische Website verzichtet auf Tracking, Werbung und Analyse-Skripte. Beim Besuch koennen technisch notwendige Server-Logdaten durch den Hosting-Anbieter verarbeitet werden.</p>
+        <h2 data-en="Principle">Grundsatz</h2>
+        <p data-en="This is a static website. It sets no tracking cookies, loads no advertising and no analytics, and needs no consent banner because nothing is measured. There is no server-side profile building by us.">Diese Website ist statisch. Sie setzt keine Tracking-Cookies, lädt keine Werbung und keine Analyse-Skripte und braucht deshalb kein Einwilligungsbanner. Ein Profil über dich wird von uns nicht gebildet.</p>
+        <p data-en="Every file that makes up this site is delivered from this domain. Only the hosting provider processes access data — see the next section.">Alle Dateien, aus denen diese Seite besteht, kommen von dieser Domain. Zugriffsdaten verarbeitet ausschließlich der Hosting-Anbieter — dazu der nächste Abschnitt.</p>
       </article>
+
       <article id="hosting">
-        <h2>Hosting</h2>
-        <p>Die Website wird ueber GitHub Pages bereitgestellt. Beim Abruf koennen IP-Adresse, Zeitpunkt, angefragte Datei und technische Browserdaten verarbeitet werden, um die Seite auszuliefern und den Betrieb abzusichern.</p>
+        <h2 data-en="Hosting">Hosting</h2>
+        <p data-en="The site is served by GitHub Pages, a service of GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. When a page is requested, GitHub processes the IP address, time, requested file, referrer and browser details to deliver the page and to protect against attacks. GitHub is certified under the EU-US Data Privacy Framework; the legal basis is our legitimate interest in a secure, fast delivery (Art. 6 (1) (f) GDPR).">Die Website wird über GitHub Pages bereitgestellt, einen Dienst der GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. Beim Abruf verarbeitet GitHub die IP-Adresse, den Zeitpunkt, die angefragte Datei, die Herkunftsseite und Browserdaten, um die Seite auszuliefern und Angriffe abzuwehren. GitHub ist nach dem EU-US Data Privacy Framework zertifiziert; Rechtsgrundlage ist unser berechtigtes Interesse an einer sicheren und schnellen Auslieferung (Art. 6 Abs. 1 lit. f DSGVO).</p>
+        <p data-en="We do not keep our own server logs. GitHub retains its logs according to its own retention rules.">Eigene Server-Logs führen wir nicht. GitHub speichert seine Protokolle nach den eigenen Aufbewahrungsregeln.</p>
       </article>
+
+      <article id="schriften">
+        <h2 data-en="Fonts">Schriften</h2>
+        <p data-en="The fonts (Newsreader, Inter, JetBrains Mono) are hosted on this domain as WOFF2 files. No request goes to Google Fonts or any other font CDN, so your IP address is never shared for typography.">Die Schriften (Newsreader, Inter, JetBrains Mono) liegen als WOFF2-Dateien auf dieser Domain. Es geht keine Anfrage an Google Fonts oder ein anderes Schrift-CDN, deine IP-Adresse wird für die Typografie also nicht weitergegeben.</p>
+      </article>
+
+      <article id="speicher">
+        <h2 data-en="Local storage in your browser">Lokale Speicherung im Browser</h2>
+        <p data-en="The site stores a few values in localStorage on your device: the chosen language, the reduced-motion setting, your most recently viewed pages, the comparison list and, if you use the trial page, a small counter. These entries never leave your device and are not cookies in the sense of advertising.">Die Seite legt einige Werte im localStorage deines Geräts ab: die gewählte Sprache, die Einstellung für reduzierte Bewegung, die zuletzt gesehenen Seiten, die Vergleichsliste und, wenn du die Probierstand-Seite nutzt, einen kleinen Zähler. Diese Einträge verlassen dein Gerät nicht und sind keine Werbe-Cookies.</p>
+        <p data-en="You can delete them at any time through your browser settings. Without them the site works, but it forgets your language choice.">Du kannst sie jederzeit über die Einstellungen deines Browsers löschen. Ohne sie funktioniert die Seite, sie merkt sich deine Sprachwahl dann aber nicht.</p>
+      </article>
+
+      <article id="konto">
+        <h2 data-en="Account">Konto</h2>
+        <p data-en="The account area works without a server in the default setup: email address and password hash stay in your browser, the password is stored as a PBKDF2 hash with a random salt and never in clear text. If the operator switches the account area to a Supabase project, the data is stored at Supabase (EU region) instead; you will see a notice at that point.">Der Konto-Bereich arbeitet in der Standardeinstellung ohne Server: E-Mail-Adresse und Passwort-Hash bleiben in deinem Browser, das Passwort wird als PBKDF2-Hash mit zufälligem Salt gespeichert und nie im Klartext. Wird der Konto-Bereich vom Betreiber auf ein Supabase-Projekt umgestellt, liegen die Daten stattdessen bei Supabase (Region EU); ein entsprechender Hinweis erscheint dann an dieser Stelle.</p>
+      </article>
+
+      <article id="kauf">
+        <h2 data-en="Purchase and payment">Kauf und Zahlung</h2>
+        <p data-en="Orders are processed by the payment provider named at checkout. We receive the data needed to fulfil the order (name, email address, purchased product, invoice amount) and keep it for the statutory retention periods. Card or account details are entered directly at the payment provider and never reach us.">Bestellungen werden über den im Checkout genannten Zahlungsdienstleister abgewickelt. Wir erhalten die zur Erfüllung nötigen Daten (Name, E-Mail-Adresse, gekauftes Produkt, Rechnungsbetrag) und bewahren sie für die gesetzlichen Aufbewahrungsfristen auf. Karten- oder Kontodaten werden direkt beim Zahlungsdienstleister eingegeben und erreichen uns nicht.</p>
+      </article>
+
       <article id="kontakt">
-        <h2>Kontaktaufnahme</h2>
-        <p>Wenn du per E-Mail Kontakt aufnimmst, verarbeiten wir deine Angaben zur Bearbeitung der Anfrage. Die Kontaktseite sendet keine Daten an ein eigenes Backend, sondern oeffnet dein Mailprogramm.</p>
+        <h2 data-en="Contact">Kontaktaufnahme</h2>
+        <p data-en="If you write to us by email, we use your details only to answer the enquiry. The contact page does not send anything to a backend of ours — it opens your mail program.">Wenn du uns per E-Mail schreibst, nutzen wir deine Angaben ausschließlich zur Beantwortung der Anfrage. Die Kontaktseite sendet nichts an ein eigenes Backend, sie öffnet dein Mailprogramm.</p>
+        <p data-en="The sandbox on the developer page runs entirely in your browser against fixed test data. Nothing is transmitted, and no API key is stored.">Die Sandbox auf der Entwickler-Seite läuft vollständig in deinem Browser gegen feste Testdaten. Es wird nichts übertragen und kein API-Schlüssel gespeichert.</p>
       </article>
+
       <article id="rechte">
-        <h2>Deine Rechte</h2>
-        <p>Du kannst Auskunft, Berichtigung, Loeschung oder Einschraenkung der Verarbeitung verlangen. Schreibe dazu an <a href="mailto:Haqmalh@icloud.com">Haqmalh@icloud.com</a>.</p>
+        <h2 data-en="Your rights">Deine Rechte</h2>
+        <p data-en="You can request information, correction, deletion or restriction of processing, and object to processing based on legitimate interest. One email to the address above is enough. You also have the right to complain to a data protection authority, for example the Rhineland-Palatinate commissioner for data protection and freedom of information.">Du kannst Auskunft, Berichtigung, Löschung oder Einschränkung der Verarbeitung verlangen und der Verarbeitung auf Grundlage berechtigten Interesses widersprechen. Eine E-Mail an die oben genannte Adresse genügt. Außerdem steht dir ein Beschwerderecht bei einer Datenschutzaufsicht zu, zum Beispiel beim Landesbeauftragten für den Datenschutz und die Informationsfreiheit Rheinland-Pfalz.</p>
+      </article>
+
+      <article id="stand">
+        <p class="legal-note"><span data-en="Status: 7 November 2026. This English version is a translation for convenience; the German text is the legally binding version.">Stand: 7. November 2026. Diese deutsche Fassung ist die verbindliche Version; die englische Übersetzung dient nur der Orientierung.</span></p>
       </article>
     </section>
   </div>
@@ -68,6 +108,6 @@
 <script src="ui-v4.js"></script>
 <script src="ui-v5.js"></script>
 <script src="background.js"></script>
-  <script src="scene3d.js"></script>
+<script src="scene3d.js"></script>
 </body>
 </html>

@@ -5,14 +5,15 @@
 <script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>AGB — Bytewerk Studio</title>
-<meta name="description" content="Allgemeine Hinweise fuer Leistungen und digitale Produkte von Bytewerk Studio.">
+<meta name="description" content="Allgemeine Geschaeftsbedingungen von Bytewerk Studio fuer Projekte und digitale Produkte.">
 <link rel="icon" href="logo.svg" type="image/svg+xml">
 <link rel="canonical" href="https://bytewerkstudio.com/agb.html">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="styles-v3.css">
 <link rel="stylesheet" href="styles-auth.css">
@@ -20,36 +21,87 @@
 <link rel="stylesheet" href="styles-v5.css">
   <link rel="stylesheet" href="styles-3d.css">
 </head>
-<body>
+<body><body>
+<a class="skip-link" href="#main" data-en="Skip to content">Zum Inhalt springen</a>
 <div data-include="header"></div>
-<main class="wrap legal-wrap">
+<main id="main" class="wrap legal-wrap">
   <div class="legal-grid">
     <aside class="legal-toc reveal">
-      <a href="#leistungen">Leistungen</a>
-      <a href="#shop">Shop</a>
-      <a href="#nutzung">Nutzung</a>
-      <a href="#support">Support</a>
+      <a href="#geltung" data-en="Scope">Geltungsbereich</a>
+      <a href="#leistungen" data-en="Projects">Projekte</a>
+      <a href="#vertrag" data-en="Contract">Vertragsschluss</a>
+      <a href="#preise" data-en="Prices">Preise</a>
+      <a href="#lieferung" data-en="Delivery">Lieferung</a>
+      <a href="#widerruf" data-en="Withdrawal">Widerruf</a>
+      <a href="#nutzung" data-en="Licence">Nutzung</a>
+      <a href="#haftung" data-en="Liability">Haftung</a>
+      <a href="#schluss" data-en="Final">Schluss</a>
     </aside>
     <section class="legal-copy reveal" data-d="1">
       <div>
-        <span class="eyebrow">Terms</span>
-        <h1 class="display" style="font-size:clamp(38px,5vw,68px);margin-top:18px">AGB</h1>
+        <span class="eyebrow" data-en="Terms">AGB</span>
+        <h1 class="display" style="font-size:clamp(38px,5vw,68px);margin-top:18px" data-en="Terms">AGB</h1>
       </div>
+
+      <article id="geltung">
+        <h2 data-en="1. Scope">1. Geltungsbereich</h2>
+        <p data-en="These terms apply to all contracts between Bytewerk Studio, owner Hijratullah Haqmal, Heinigstraße 13, 67059 Ludwigshafen am Rhein (&#8222;we&#8220;) and our clients and customers (&#8222;you&#8220;). They cover project work as well as the digital products offered in the shop. Deviating terms apply only if we confirm them in writing.">Diese Bedingungen gelten für alle Verträge zwischen Bytewerk Studio, Inhaber Hijratullah Haqmal, Heinigstraße 13, 67059 Ludwigshafen am Rhein („wir“) und unseren Auftraggebern und Kunden („du“). Sie erfassen sowohl Projektarbeiten als auch die im Shop angebotenen digitalen Produkte. Abweichende Bedingungen gelten nur, wenn wir sie schriftlich bestätigen.</p>
+        <p data-en="Contracts with consumers are subject to German law. Mandatory consumer protection rules of your country of residence remain unaffected.">Für Verbraucher gilt deutsches Recht. Zwingende Verbraucherschutzvorschriften deines Wohnsitzstaates bleiben unberührt.</p>
+      </article>
+
       <article id="leistungen">
-        <h2>Leistungen</h2>
-        <p>Bytewerk Studio entwickelt individuelle Software-, Web- und App-Loesungen sowie digitale Produkte. Konkrete Leistungen, Termine und Verguetung werden projektbezogen vereinbart.</p>
+        <h2 data-en="2. Project work">2. Projekte</h2>
+        <p data-en="We develop custom software, web and app solutions. Scope, schedule, milestones and remuneration are agreed per project in writing before work starts. Estimates of effort are non-binding unless they are agreed as fixed.">Wir entwickeln individuelle Software-, Web- und App-Lösungen. Umfang, Zeitplan, Meilensteine und Vergütung werden vor Projektbeginn pro Vorhaben schriftlich vereinbart. Aufwandsschätzungen sind unverbindlich, solange sie nicht als fest vereinbart wurden.</p>
+        <p data-en="Unless agreed otherwise, the client provides content, access data and infrastructure in time. Delays caused by late delivery of these items shift agreed dates accordingly.">Sofern nicht anders vereinbart, stellst du Inhalte, Zugangsdaten und Infrastruktur rechtzeitig bereit. Verzögerungen durch verspätete Lieferung dieser Punkte verschieben vereinbarte Termine entsprechend.</p>
+        <p data-en="Unless agreed otherwise, we grant the client the exclusive rights of use in the delivered code and designs upon full payment, unlimited in time and territory. We may name the project as a reference unless agreed otherwise.">Sofern nicht anders vereinbart, räumen wir dir nach vollständiger Zahlung die ausschließlichen Nutzungsrechte an dem gelieferten Code und den Designs ein, zeitlich und räumlich unbeschränkt. Wir dürfen das Projekt als Referenz nennen, sofern nichts anderes vereinbart ist.</p>
       </article>
-      <article id="shop">
-        <h2>Digitale Produkte</h2>
-        <p>Der Shop stellt die Apps, Spiele und digitalen Produkte von Bytewerk Studio vor. Kostenpflichtige Produkte werden per E-Mail bestellt und ueber PayPal abgewickelt. Auf dieser Website werden keine Zahlungsdaten verarbeitet.</p>
+
+      <article id="vertrag">
+        <h2 data-en="3. Digital products, conclusion of contract">3. Digitale Produkte, Vertragsschluss</h2>
+        <p data-en="The product pages in the shop describe the apps, games and digital products. Prices are shown in euros; VAT is stated on the invoice where applicable.">Die Produktseiten im Shop beschreiben die Apps, Spiele und digitalen Produkte. Preise sind in Euro angegeben; die Umsatzsteuer wird, soweit anwendbar, auf der Rechnung ausgewiesen.</p>
+        <p data-en="You order by sending the prepared message through the checkout page or by email. That request is binding for you. The contract is concluded when we confirm the order or deliver the product.">Du bestellst über die vorbereitete Nachricht der Checkout-Seite oder per E-Mail. Diese Anfrage ist für dich verbindlich. Der Vertrag kommt zustande, wenn wir die Bestellung bestätigen oder das Produkt liefern.</p>
+        <p data-en="Payment is made in advance via PayPal to the address stated in the confirmation. Payment data is processed by PayPal; this website processes none.">Die Zahlung erfolgt im Voraus per PayPal an die in der Bestätigung genannte Adresse. Zahlungsdaten verarbeitet PayPal; diese Website verarbeitet keine.</p>
       </article>
+
+      <article id="preise">
+        <h2 data-en="4. Prices and payment">4. Preise und Zahlung</h2>
+        <p data-en="The price valid at the time of the order applies. For ongoing services, agreed monthly or yearly rates apply and are invoiced in advance unless agreed otherwise.">Es gilt der zum Bestellzeitpunkt gültige Preis. Bei laufenden Leistungen gelten die vereinbarten Monats- oder Jahresbeträge; sie werden, sofern nicht anders vereinbart, im Voraus berechnet.</p>
+        <p data-en="Invoices are due within 14 days without deduction. In the case of default, statutory provisions apply.">Rechnungen sind binnen 14 Tagen ohne Abzug fällig. Bei Verzug gelten die gesetzlichen Bestimmungen.</p>
+      </article>
+
+      <article id="lieferung">
+        <h2 data-en="5. Delivery of digital products">5. Lieferung digitaler Produkte</h2>
+        <p data-en="After payment has been received, you receive the download link and, where applicable, the licence key by email. The download is usually available within 24 hours; in individual cases it may take up to two working days.">Nach Zahlungseingang erhältst du den Download-Link und, soweit vorgesehen, den Lizenzschlüssel per E-Mail. Der Download ist in der Regel binnen 24 Stunden verfügbar, in Einzelfällen binnen zwei Werktagen.</p>
+        <p data-en="The products are software. System requirements are stated on the respective product page. A specific fitness for a particular purpose is only agreed if confirmed in writing.">Die Produkte sind Software. Die Systemvoraussetzungen stehen auf der jeweiligen Produktseite. Eine bestimmte Eignung für einen konkreten Zweck gilt nur als vereinbart, wenn sie schriftlich bestätigt wurde.</p>
+      </article>
+
+      <article id="widerruf">
+        <h2 data-en="6. Right of withdrawal">6. Widerrufsrecht</h2>
+        <p data-en="You have the right to withdraw from a contract for digital content within 14 days of its conclusion without giving reasons. To exercise it, one clear message to the email address above is enough.">Du hast das Recht, einen Vertrag über digitale Inhalte binnen 14 Tagen nach Vertragsschluss ohne Angabe von Gründen zu widerrufen. Es genügt eine eindeutige Nachricht an die oben genannte E-Mail-Adresse.</p>
+        <p data-en="The right of withdrawal expires when we have started executing the contract, in particular with the first download, after you have expressly consented to this and confirmed that you thereby lose your right of withdrawal (§ 356 (5) BGB). We obtain this confirmation in writing before the download link is sent; without it, the link is not sent.">Das Widerrufsrecht erlischt, wenn wir mit der Ausführung begonnen haben, insbesondere mit dem ersten Download, nachdem du ausdrücklich zugestimmt und bestätigt hast, dass du damit dein Widerrufsrecht verlierst (§ 356 Abs. 5 BGB). Diese Bestätigung holen wir vor dem Versand des Download-Links schriftlich ein; ohne sie wird der Link nicht verschickt.</p>
+        <p data-en="For project work, the statutory withdrawal rules apply; work already performed is compensated on a pro-rata basis.">Bei Projektarbeiten gelten die gesetzlichen Widerrufsregeln; bereits erbrachte Leistungen werden anteilig vergütet.</p>
+      </article>
+
       <article id="nutzung">
-        <h2>Nutzung</h2>
-        <p>Alle Inhalte, Designs und Software-Beispiele sind urheberrechtlich geschuetzt. Nutzungsrechte werden nur im vereinbarten Umfang eingeraeumt.</p>
+        <h2 data-en="7. Licence and use">7. Nutzungsrechte</h2>
+        <p data-en="You receive a simple, non-transferable licence for the purchased product, per seat or per device as stated on the product page. All content, designs and software examples remain protected by copyright.">Du erhältst eine einfache, nicht übertragbare Lizenz am gekauften Produkt, je Arbeitsplatz oder Gerät wie auf der Produktseite angegeben. Alle Inhalte, Designs und Software-Beispiele bleiben urheberrechtlich geschützt.</p>
+        <p data-en="You may not resell, sublicense, decompile or publish the products or parts of them, except where statutory law expressly permits it. Redistribution of licence keys is not allowed.">Du darfst die Produkte weder weiterverkaufen noch unterlizenzieren, dekompilieren oder veröffentlichen, soweit das Gesetz es nicht ausdrücklich erlaubt. Eine Weitergabe von Lizenzschlüsseln ist nicht gestattet.</p>
       </article>
-      <article id="support">
-        <h2>Support</h2>
-        <p>Support und Wartung werden je nach Projekt separat geregelt. Fuer Anfragen erreichst du Bytewerk Studio per E-Mail.</p>
+
+      <article id="haftung">
+        <h2 data-en="8. Liability and support">8. Haftung und Support</h2>
+        <p data-en="We are liable without limit for intent and gross negligence, and for injury to life, body or health. For slight negligence, liability is limited to the foreseeable damage typical for this type of contract. The same applies to lost data, which you are expected to back up.">Wir haften unbeschränkt für Vorsatz und grobe Fahrlässigkeit sowie für Schäden an Leben, Körper oder Gesundheit. Bei einfacher Fahrlässigkeit ist die Haftung auf den vorhersehbaren, vertragstypischen Schaden begrenzt. Gleiches gilt für verlorene Daten, deren Sicherung dir obliegt.</p>
+        <p data-en="Support and maintenance are agreed separately per project. Fault reports via email are answered during business hours; there is no entitlement to a specific response time unless agreed.">Support und Wartung werden je nach Projekt separat geregelt. Fehlermeldungen per E-Mail beantworten wir zu Geschäftszeiten; eine bestimmte Reaktionszeit gilt nur, wenn sie vereinbart wurde.</p>
+      </article>
+
+      <article id="schluss">
+        <h2 data-en="9. Final provisions">9. Schlussbestimmungen</h2>
+        <p data-en="German law applies, excluding the UN Convention on Contracts for the International Sale of Goods. Place of jurisdiction is Ludwigshafen am Rhein if you are a merchant, a legal entity under public law or have no general place of jurisdiction in Germany.">Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts. Gerichtsstand ist Ludwigshafen am Rhein, wenn du Kaufmann, juristische Person des öffentlichen Rechts oder ohne allgemeinen Gerichtsstand in Deutschland bist.</p>
+        <p data-en="Should a clause be invalid, the remaining clauses remain in force. Amendments to these terms take effect for future orders; the version at the time of your order applies.">Sollte eine Bestimmung unwirksam sein, bleiben die übrigen in Kraft. Änderungen dieser Bedingungen gelten für künftige Bestellungen; maßgeblich ist die Fassung zum Zeitpunkt deiner Bestellung.</p>
+      </article>
+
+      <article id="stand">
+        <p class="legal-note"><span data-en="Status: 7 November 2026. This English version is a translation for convenience; the German text is the legally binding version.">Stand: 7. November 2026. Diese deutsche Fassung ist die verbindliche Version; die englische Übersetzung dient nur der Orientierung.</span></p>
       </article>
     </section>
   </div>
@@ -63,6 +115,6 @@
 <script src="ui-v4.js"></script>
 <script src="ui-v5.js"></script>
 <script src="background.js"></script>
-  <script src="scene3d.js"></script>
+<script src="scene3d.js"></script>
 </body>
 </html>
