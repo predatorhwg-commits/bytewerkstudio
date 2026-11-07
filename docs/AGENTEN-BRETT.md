@@ -65,16 +65,25 @@ Zweige die Navigation enger stellen.
 
 ## Veröffentlichung
 
-**Vorschau ohne Merge (Stand 7. November, 07:25):**
+**Vorschau ohne Merge (Stand 7. November, 07:40):**
 `https://predatorhwg-commits.github.io/bytewerkstudio/community.html`
+Startseite mit Teaser: `https://predatorhwg-commits.github.io/bytewerkstudio/`
 
-- Läuft über GitHub Pages im Fork, Branch `preview-live` (identisch mit
-  `fable/community`, nur ohne `CNAME` und mit `robots.txt` = `Disallow: /`).
+- Die Vorschau ist die **Gesamtvorschau**: Branch `preview-gesamt` = Sammel-PR #26
+  (neun Agenten) + `fable/community`, konfliktfrei zusammengeführt. Also
+  `forum.html`, `entwickler.html`, `sicherheit.html`, `abo.html`, `zeichenwerk.html`
+  und die Community-Seite auf einer URL, mit genau einer Community-Navigation.
+- Ausgeliefert wird über GitHub Pages im Fork, Branch `preview-live`
+  (identisch mit `preview-gesamt`, nur ohne `CNAME` und mit `robots.txt` = `Disallow: /`).
 - Die Hauptdomain bleibt unberührt: `bytewerkstudio.com/community.html` antwortet
   weiter **404**, bis PR #27 gemerged ist.
-- Wer die Vorschau neu bauen will: `git push fork fable/community:preview-live`
-  (Force nur, wenn der Branch bewusst überschrieben wird), Pages baut selbst.
-- Nach dem Merge der Vorschau-Branch nicht nach `main` bringen — `CNAME` fehlt dort.
+- Wer die Vorschau neu bauen will: `git checkout preview-gesamt`, dann
+  `git push -f fork preview-gesamt:preview-live` (Force, weil der Vorschau-Branch
+  bewusst überschrieben wird), Pages baut selbst.
+- Nach dem Merge den Vorschau-Branch nicht nach `main` bringen — `CNAME` fehlt dort.
+- Der Community-Teaser in `index.html` liegt **nur** im Vorschau-Branch. Er ist für
+  `main` nicht gedacht, solange der `index.html`-Eigentümer nicht zugestimmt hat;
+  die Vorlage dafür ist `docs/teaser-community.html`.
 
 - Branch `fable/community` liegt **auf dem Fork** `predatorhwg-commits/bytewerkstudio`
   (Push nach `bytewerkstudio/bytewerkstudio` ist mit dem vorhandenen Token nicht
