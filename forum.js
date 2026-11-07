@@ -845,6 +845,7 @@
 
   const route = { view: 'list', cat: null, slug: null };
   let missingSlug = null;
+  const viewedThisSession = new Set();
 
   function parseRoute() {
     const hash = (location.hash || '').replace(/^#\/?/, '');
@@ -1110,11 +1111,15 @@
     host.hidden = false;
     host.replaceChildren();
 
-    th.views = (th.views || 0) + 1;
-    save();
-
     const cat = catOf(th.cat);
     const locked = cat.pro && !isPro();
+
+    // One view per thread per page session, and never for a locked thread.
+    if (!locked && !viewedThisSession.has(th.id)) {
+      viewedThisSession.add(th.id);
+      th.views = (th.views || 0) + 1;
+      save();
+    }
 
     /* --- head --- */
     const head = el('div', { class: 'fm-th-head' });

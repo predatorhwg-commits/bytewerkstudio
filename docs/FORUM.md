@@ -117,6 +117,10 @@ beim Öffnen bei 0, füllt sich beim Scrollen und ist auf der Liste unsichtbar.
 Ohne JavaScript erklärt eine `noscript`-Zeile, warum das Forum leer bleibt,
 und nennt eine Mailadresse.
 
+Ein Thema zählt eine Ansicht pro Seitenaufruf. Antworten, Sprachwechsel und
+erneutes Rendern erhöhen den Zähler nicht; gesperrte Pro-Themen zählen gar
+nicht. Nach einem Reload zählt der nächste Aufruf als neue Ansicht.
+
 ## Bearbeiten
 
 Eigene Beiträge lassen sich direkt im Thread ändern. Der erste Beitrag
@@ -196,6 +200,9 @@ Webhook, der `profiles.plan` setzt — nicht einen Schalter im Browser.
   Leerzustand bleibt bei „zzzz“ sichtbar. Fortschrittslinie: 0 oben,
   `scaleX(1)` am Seitenende, auf der Liste `opacity: 0`.
 - Ohne JavaScript: `noscript`-Hinweis sichtbar.
+- Zähler: 214 → 215 beim Öffnen, 216 nach Reload (neue Sitzung), bleibt
+  216 nach Antwort und Sprachwechsel; ein gesperrtes Pro-Thema bleibt
+  bei 52. Vorher erhöhte jedes Neu-Rendern den Zähler.
 - Spanisch: `lang='es'` liefert englische Oberfläche und `en-GB`-Datum,
   nie deutsche Texte.
 - Supabase-Schema in einer echten PostgreSQL-Instanz (`pgserver`, nicht
