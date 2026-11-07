@@ -65,9 +65,18 @@ Zweige die Navigation enger stellen.
 
 ## Veröffentlichung
 
-**Vorschau ohne Merge (Stand 7. November, 07:40):**
-`https://predatorhwg-commits.github.io/bytewerkstudio/community.html`
-Startseite mit Teaser: `https://predatorhwg-commits.github.io/bytewerkstudio/`
+**Vorschau ohne Merge (Stand 7. November, 07:52):**
+`https://predatorhwg-commits.github.io/bytewerkstudio/vorschau.html`
+
+- **Einstiegsseite** für die Morgenkontrolle: alle gebauten Seiten verlinkt, Stand der
+  Veröffentlichung, offene Entscheidungen. `vorschau.html` und `docs/AGENTEN.html`
+  tragen `noindex` und stehen nicht in der Sitemap.
+- **Agentenbrett als HTML:** `docs/AGENTEN.html` — 21 Zweige, 194 Commits, welche Datei
+  wem gehört, wo Konflikte entstehen, empfohlene Merge-Reihenfolge. Erzeugt aus Git mit
+  `python3 tools/build-agenten-html.py`; nach neuen Commits neu laufen lassen, nicht
+  von Hand pflegen.
+- Community: `https://predatorhwg-commits.github.io/bytewerkstudio/community.html`
+- Startseite mit Teaser: `https://predatorhwg-commits.github.io/bytewerkstudio/`
 
 - Die Vorschau ist die **Gesamtvorschau**: Branch `preview-gesamt` = Sammel-PR #26
   (neun Agenten) + `fable/community`, konfliktfrei zusammengeführt. Also
