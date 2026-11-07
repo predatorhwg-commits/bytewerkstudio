@@ -664,7 +664,17 @@
     };
   }
 
+  /* Was loadState() mit dem Speicher gemacht hat — die Sicherheitskachel
+     auf der Seite zeigt diese Zahlen, statt sie zu behaupten. */
+  const stateDiag = { present: false, parsed: false, threadsIn: 0, threadsOut: 0, dropped: 0 };
+
   function loadState() {
+    stateDiag.present = false;
+    stateDiag.parsed = false;
+    stateDiag.threadsIn = 0;
+    stateDiag.threadsOut = 0;
+    stateDiag.dropped = 0;
+
     let raw;
     try {
       raw = localStorage.getItem(STORE_KEY);
@@ -672,6 +682,7 @@
       return blankState();
     }
     if (!raw) return blankState();
+    stateDiag.present = true;
 
     let data;
     try {
@@ -680,10 +691,13 @@
       return blankState();
     }
     if (!data || typeof data !== 'object' || data.v !== 1) return blankState();
+    stateDiag.parsed = true;
+    stateDiag.threadsIn = Array.isArray(data.threads) ? data.threads.length : 0;
 
     const state = blankState();
 
     if (Array.isArray(data.threads)) {
+      let kept = 0;
       for (const item of data.threads.slice(0, MAX_THREADS)) {
         if (!item || typeof item !== 'object' || !idOk(item.id)) continue;
         const cat = CATS.find((c) => c.id === item.cat);
@@ -696,6 +710,7 @@
         const tags = Array.isArray(item.tags)
           ? item.tags.slice(0, 3).map((tag) => clean(tag, 18)).filter(Boolean)
           : [];
+        kept++;
         state.threads.push({
           id: item.id,
           cat: cat.id,
@@ -778,6 +793,8 @@
       state.rate.day = clean(data.rate.day, 10);
     }
 
+    stateDiag.threadsOut = state.threads.length;
+    stateDiag.dropped = Math.max(0, stateDiag.threadsIn - stateDiag.threadsOut);
     return state;
   }
 
@@ -1882,6 +1899,65 @@
     list.append(summary);
   }
 
+  /* ---------- 10b. Sicherheitslage, live gemessen ----------
+     Keine Behauptung: die Kacheln lesen, was der Browser wirklich
+     bekommen hat (CSP-Kopf, Feldgrenzen) und was der Speicher enthaelt. */
+  function renderSecurityStatus() {
+    const root = document.getElementById('cm-status');
+    if (!root) return;
+
+    const set = (key, value, note, tone) => {
+      const tile = root.querySelector('[data-cm-status="' + key + '"]');
+      if (!tile) return;
+      const v = tile.querySelector('.cm-status-value');
+      const n = tile.querySelector('.cm-status-note');
+      if (v) v.textContent = value;
+      if (n) n.textContent = note;
+      tile.classList.remove('is-ok', 'is-warn');
+      if (tone) tile.classList.add(tone);
+    };
+
+    // 1. Skript-Regel: Hashes im CSP-Kopf, kein 'unsafe-inline'.
+    const csp = (document.querySelector('meta[http-equiv="Content-Security-Policy"]') || {}).content || '';
+    const scriptSrc = (csp.match(/script-src[^;]*/) || [''])[0];
+    const hashes = (scriptSrc.match(/sha256-/g) || []).length;
+    const unsafe = scriptSrc.includes("'unsafe-inline'");
+    if (!scriptSrc) {
+      set('csp', '—', t('Kein CSP-Kopf gefunden', 'No CSP header found'), 'is-warn');
+    } else {
+      set('csp', hashes + (hashes === 1 ? ' Hash' : ' Hashes'),
+        unsafe ? t("'unsafe-inline' ist aktiv", "'unsafe-inline' is active") : t('kein unsafe-inline', 'no unsafe-inline'),
+        unsafe ? 'is-warn' : 'is-ok');
+    }
+
+    // 2. Eingabegrenzen: Felder mit maxlength gegen alle Textfelder.
+    const fields = [...document.querySelectorAll('input, textarea')].filter((el) => {
+      const type = (el.getAttribute('type') || 'text').toLowerCase();
+      if (['hidden', 'checkbox', 'radio', 'submit', 'button', 'file', 'range', 'color'].includes(type)) return false;
+      // Honigfallen sind absichtlich frei und nicht fokussierbar.
+      if (el.getAttribute('tabindex') === '-1' || el.getAttribute('aria-hidden') === 'true') return false;
+      return true;
+    });
+    const limited = fields.filter((el) => el.hasAttribute('maxlength')).length;
+    set('limits', limited + ' / ' + fields.length,
+      limited === fields.length ? t('alle Felder begrenzt', 'every field limited') : t('Rest ohne Grenze', 'some without a limit'),
+      limited === fields.length ? 'is-ok' : 'is-warn');
+
+    // 3. Gespeicherter Zustand: was loadState() wirklich uebernommen hat.
+    if (!stateDiag.present) {
+      set('storage', '—', t('Noch nichts gespeichert', 'Nothing stored yet'), 'is-ok');
+    } else if (!stateDiag.parsed) {
+      set('storage', '0', t('Speicher verworfen, neu aufgebaut', 'State discarded and rebuilt'), 'is-ok');
+    } else {
+      const dropped = stateDiag.dropped;
+      set('storage', stateDiag.threadsOut + (stateDiag.threadsOut === 1 ? ' Thema' : ' Themen'),
+        dropped
+          ? t(dropped + ' Eintrag/Einträge verworfen', dropped + ' entry/entries dropped')
+          : t('alle Einträge geprüft und übernommen', 'every entry checked and kept'),
+        'is-ok');
+    }
+  }
+
   /* ---------- 11. Wiring ---------- */
   function renderAll() {
     populateCatSelect();
@@ -2209,10 +2285,12 @@
     }
     const stageChips = document.querySelectorAll('.cm-stage-chip');
     stageChips.forEach((chip) => chip.classList.toggle('is-active', chip.dataset.cmCat === filter.cat));
+    renderSecurityStatus();
   });
 
   // initial paint
   renderAll();
   updatePrices();
   route();
+  renderSecurityStatus();
 })();

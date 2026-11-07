@@ -602,7 +602,7 @@
     slot.innerHTML =
       '<div class="acct-wrap">' +
         '<button type="button" class="acct-btn" aria-haspopup="true" aria-expanded="false" aria-label="' + t('Konto-Menü', 'Account menu') + '">' +
-          '<span class="acct-avatar">' + initials(user.name, user.email) + '</span>' +
+          '<span class="acct-avatar">' + escapeHTML(initials(user.name, user.email)) + '</span>' +
           '<span class="acct-label">' + escapeHTML(label) + '</span>' +
           '<span class="acct-chev">' + ICON.chevron + '</span>' +
         '</button>' +
