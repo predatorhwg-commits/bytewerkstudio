@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Wer baut was — Bytewerk Studio</title>
+<meta name="description" content="Wer an der Bytewerk-Website was baut: Zweige, Dateien, Überschneidungen und Reihenfolge der Zusammenführung. Aus den echten Git-Daten erzeugt.">
+<style>
+  :root {
+    --paper: #faf9f5;
+    --paper-2: #f4f1e8;
+    --surface: #ffffff;
+    --ink: #1f1e1d;
+    --muted: #6b665c;
+    --faint: #918b7e;
+    --line: #e6e1d4;
+    --line-2: #d8d2c1;
+    --accent: #b04f31;
+    --accent-700: #96402a;
+    --sage: #4f7a63;
+    --display: 'Newsreader', Georgia, 'Times New Roman', serif;
+    --body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Consolas, monospace;
+    --pad: clamp(20px, 5vw, 48px);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--body); font-size: 16px; line-height: 1.6;
+    font-synthesis-weight: none;
+  }
+  .wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding-inline: var(--pad); }
+  header.top {
+    padding-block: clamp(44px, 7vw, 88px);
+    border-bottom: 1px solid var(--line);
+    background:
+      radial-gradient(90% 120% at 100% 0%, rgba(176,79,49,.06), transparent 55%),
+      radial-gradient(80% 100% at 0% 100%, rgba(79,122,99,.05), transparent 60%);
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: .09em;
+    text-transform: uppercase; color: var(--accent-700); margin-bottom: 18px;
+  }
+  .eyebrow::before {
+    content: ""; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent); box-shadow: 0 0 0 3px rgba(176,79,49,.12);
+  }
+  h1 {
+    font-family: var(--display); font-weight: 500;
+    font-size: clamp(38px, 7vw, 72px); line-height: 1.02;
+    letter-spacing: -.02em; margin: 0 0 18px; text-wrap: balance;
+  }
+  h1 em { font-style: italic; color: var(--accent-700); }
+  .lead { font-size: clamp(16px, 2vw, 19px); color: var(--muted); max-width: 62ch; margin: 0; }
+  .stats {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1px; margin-top: clamp(32px, 5vw, 52px);
+    background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+  }
+  .stat { background: var(--surface); padding: 20px 22px; }
+  .stat b { display: block; font-family: var(--display); font-size: clamp(26px, 3.6vw, 36px); font-weight: 500; line-height: 1.1; }
+  .stat span { display: block; margin-top: 4px; font-family: var(--mono); font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); }
+  main { padding-block: clamp(44px, 6vw, 76px); }
+  .sec + .sec { margin-top: clamp(44px, 6vw, 76px); }
+  h2 {
+    font-family: var(--display); font-weight: 500; letter-spacing: -.01em;
+    font-size: clamp(26px, 3.4vw, 36px); line-height: 1.15; margin: 0 0 10px;
+  }
+  .sec > .lead { margin-bottom: 26px; }
+
+  /* Konflikt-Karte */
+  .hot-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .hot {
+    display: grid; grid-template-columns: minmax(120px, 170px) minmax(80px, 1fr) 34px;
+    align-items: center; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--line);
+  }
+  .hot code { font-family: var(--mono); font-size: 12.5px; color: var(--ink); overflow-wrap: anywhere; }
+  .hot-bar { height: 8px; border-radius: 99px; background: var(--paper-2); overflow: hidden; }
+  .hot-bar i { display: block; height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--accent), #c96a4b); }
+  .hot b { font-family: var(--mono); font-size: 12px; color: var(--accent-700); text-align: right; }
+  .hot-owners {
+    grid-column: 1 / -1; font-family: var(--mono); font-size: 10.5px;
+    color: var(--faint); line-height: 1.5; overflow-wrap: anywhere;
+  }
+  .callout {
+    margin-top: 22px; padding: 18px 20px; border: 1px solid var(--line-2);
+    border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0;
+    background: var(--surface); color: var(--muted); font-size: 14.5px;
+  }
+  .callout b { color: var(--ink); }
+
+  /* Agenten */
+  .agent {
+    margin-top: 18px; padding: clamp(20px, 3vw, 30px);
+    border: 1px solid var(--line); border-radius: 18px; background: var(--surface);
+    box-shadow: 0 1px 0 rgba(255,255,255,.7) inset, 0 18px 40px -34px rgba(31,30,29,.4);
+  }
+  .agent + .agent { margin-top: 16px; }
+  .agent-head { display: flex; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
+  .agent-head .dot {
+    width: 11px; height: 11px; border-radius: 50%; background: var(--ac);
+    margin-top: 8px; flex: 0 0 auto; box-shadow: 0 0 0 4px var(--tint);
+  }
+  .agent-head h3 { font-family: var(--display); font-size: 23px; font-weight: 600; margin: 0; line-height: 1.2; }
+  .agent-role { margin: 2px 0 0; font-size: 13.5px; color: var(--muted); }
+  .agent-nums {
+    margin-left: auto; font-family: var(--mono); font-size: 10.5px;
+    letter-spacing: .04em; color: var(--faint); text-align: right;
+  }
+  .agent-nums b { color: var(--ac); font-weight: 600; }
+  .agent-note { margin: 14px 0 18px; font-size: 14px; color: var(--muted); max-width: 74ch; }
+  .branch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
+  .branch {
+    border: 1px solid var(--line); border-radius: 12px; background: var(--paper);
+    padding: 13px 14px; display: flex; flex-direction: column; gap: 8px;
+  }
+  .branch-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+  .branch-name { font-family: var(--mono); font-size: 11.5px; color: var(--ac); font-weight: 600; overflow-wrap: anywhere; }
+  .branch-time { font-family: var(--mono); font-size: 10px; color: var(--faint); }
+  .branch-msg { margin: 0; font-size: 12.5px; line-height: 1.45; color: var(--ink); }
+  .chips { list-style: none; display: flex; flex-wrap: wrap; gap: 4px; margin: 0; padding: 0; }
+  .chip {
+    font-family: var(--mono); font-size: 9.5px; letter-spacing: .01em;
+    padding: 3px 6px; border-radius: 5px; color: var(--muted);
+    background: var(--paper-2); border: 1px solid var(--line); overflow-wrap: anywhere;
+  }
+  .chip.is-mod { background: #fff; border-color: var(--line-2); }
+  .chip.is-more { color: var(--faint); background: transparent; border-style: dashed; }
+  .chip span { color: var(--faint); }
+  .branch-foot {
+    display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 8px;
+    border-top: 1px dashed var(--line-2);
+    font-family: var(--mono); font-size: 10px; color: var(--faint);
+  }
+  .branch-foot b { color: var(--ink); font-weight: 600; }
+  .branch-foot .plus { color: var(--sage); }
+  .branch-foot .minus { color: var(--accent-700); }
+
+  /* Reihenfolge */
+  .steps { list-style: none; margin: 0; padding: 0; counter-reset: s; }
+  .steps li {
+    position: relative; padding: 0 0 22px 46px; counter-increment: s;
+    border-left: 1px solid var(--line-2); margin-left: 15px;
+  }
+  .steps li:last-child { border-left-color: transparent; padding-bottom: 0; }
+  .steps li::before {
+    content: counter(s); position: absolute; left: -15px; top: -2px;
+    width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--surface); border: 1px solid var(--line-2);
+    font-family: var(--mono); font-size: 12px; color: var(--accent-700);
+  }
+  .steps h3 { margin: 4px 0 4px; font-size: 15.5px; font-weight: 600; }
+  .steps p { margin: 0; font-size: 14px; color: var(--muted); max-width: 70ch; }
+  .steps code { font-family: var(--mono); font-size: 12px; background: var(--paper-2); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+
+  /* Zeitachse */
+  .tl { list-style: none; margin: 0; padding: 0; }
+  .tl li {
+    display: grid; grid-template-columns: 56px minmax(60px, 160px) 1fr;
+    align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--line);
+  }
+  .tl-hour { font-family: var(--mono); font-size: 11px; color: var(--faint); }
+  .tl-bar { height: 6px; border-radius: 99px; background: var(--paper-2); overflow: hidden; }
+  .tl-bar i { display: block; height: 100%; border-radius: 99px; background: var(--sage); }
+  .tl-names { font-family: var(--mono); font-size: 10.5px; color: var(--muted); overflow-wrap: anywhere; }
+
+  .note {
+    margin-top: 34px; padding: 20px 22px; border: 1px solid var(--line);
+    border-radius: 14px; background: var(--paper-2); font-size: 13.5px; color: var(--muted);
+  }
+  .note b { color: var(--ink); }
+  footer {
+    border-top: 1px solid var(--line); padding-block: 30px;
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: .04em;
+    text-transform: uppercase; color: var(--faint);
+  }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; }
+
+  @media (max-width: 700px) {
+    .hot { grid-template-columns: minmax(0, 1fr) 40px; }
+    .hot-bar { grid-column: 1 / -1; order: 3; }
+    .hot b { grid-row: 1; grid-column: 2; }
+    .agent-nums { margin-left: 0; text-align: left; width: 100%; }
+    .tl li { grid-template-columns: 46px 1fr; }
+    .tl-bar { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+  @media print {
+    body { background: #fff; }
+    .agent, .stat { box-shadow: none; break-inside: avoid; }
+    header.top { padding-block: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <span class="eyebrow">Bytewerk Studio · Agenten-Brett</span>
+    <h1>Wer baut <em>was.</em></h1>
+    <p class="lead">Ein Brett statt vier Chatverläufe: welcher Agent welche Seite baut, welche Dateien
+      dazugehören und wo sich die Zweige in die Quere kommen. Zahlen direkt aus Git,
+      Basis <code>main</code> — nichts geschätzt.</p>
+    <div class="stats">
+      <div class="stat"><b>21</b><span>aktive Zweige</span></div>
+      <div class="stat"><b>194</b><span>Commits</span></div>
+      <div class="stat"><b>169</b><span>berührte Dateien</span></div>
+      <div class="stat"><b>+159,524</b><span>Zeilen neu</span></div>
+      <div class="stat"><b>−4,881</b><span>Zeilen entfernt</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="sec" id="konflikte">
+    <h2>Wo es kracht</h2>
+    <p class="lead">Diese Dateien werden von mehreren Agenten gleichzeitig geändert. Jeder zusätzliche
+      Bearbeiter ist ein zusätzlicher Konflikt beim Zusammenführen — hier entscheidet sich,
+      wie teuer der Merge wird.</p>
+    <ul class="hot-list">
+      <li class="hot">
+        <code>components.js</code>
+        <span class="hot-bar"><i style="width:100%"></i></span>
+        <b>13</b>
+        <span class="hot-owners">final, integration, qa-release, integration, community, forum, sicherheit, api, werkstatt, entwickler, zeichenwerk, werkprobe, storage-guard</span>
+      </li>
+
+      <li class="hot">
+        <code>sitemap.xml</code>
+        <span class="hot-bar"><i style="width:92%"></i></span>
+        <b>12</b>
+        <span class="hot-owners">final, integration, qa-release, integration, community, forum, sicherheit, api, werkstatt, entwickler, zeichenwerk, werkprobe</span>
+      </li>
+
+      <li class="hot">
+        <code>index.html</code>
+        <span class="hot-bar"><i style="width:77%"></i></span>
+        <b>10</b>
+        <span class="hot-owners">final, integration, qa-release, integration, api, papierregal, zeichenwerk, schichtmodell, schriften, fable-hero-fix</span>
+      </li>
+
+      <li class="hot">
+        <code>styles-claude.css</code>
+        <span class="hot-bar"><i style="width:69%"></i></span>
+        <b>9</b>
+        <span class="hot-owners">final, integration, qa-release, integration, api, werkstatt, entwickler, papierregal, schriften</span>
+      </li>
+
+      <li class="hot">
+        <code>README.md</code>
+        <span class="hot-bar"><i style="width:62%"></i></span>
+        <b>8</b>
+        <span class="hot-owners">final, integration, qa-release, integration, community, forum, zeichenwerk, werkprobe</span>
+      </li>
+
+      <li class="hot">
+        <code>styles.css</code>
+        <span class="hot-bar"><i style="width:54%"></i></span>
+        <b>7</b>
+        <span class="hot-owners">final, integration, qa-release, api, entwickler, papierregal, schriften</span>
+      </li>
+
+      <li class="hot">
+        <code>AGENTS.md</code>
+        <span class="hot-bar"><i style="width:46%"></i></span>
+        <b>6</b>
+        <span class="hot-owners">final, integration, qa-release, integration, community, forum</span>
+      </li>
+
+      <li class="hot">
+        <code>ui-v4.js</code>
+        <span class="hot-bar"><i style="width:8%"></i></span>
+        <b>1</b>
+        <span class="hot-owners">integration</span>
+      </li></ul>
+    <p class="callout"><b>Die Engstelle ist die Navigation.</b> <code>components.js</code> trägt Kopf-
+      und Fußzeile für alle Seiten. Wer dort einen Link ergänzt, muss gegen alle anderen
+      Ergänzungen mergen. Deshalb gibt es am Ende genau <b>einen</b> Eintrag pro Seite —
+      nicht einen pro Agent.</p>
+  </section>
+
+  <section class="sec" id="bereiche">
+    <h2>Die Bereiche</h2>
+    <p class="lead">Fünf Bereiche, nach Zuständigkeit sortiert. Jeder Zweig zeigt seinen letzten
+      Commit, die wichtigsten Dateien und seine Größe.</p>
+    
+    <section class="agent" id="fable" style="--ac:#b04f31;--tint:rgba(176,79,49,.09)">
+      <header class="agent-head">
+        <span class="dot" aria-hidden="true"></span>
+        <div>
+          <h3>Fable</h3>
+          <p class="agent-role">Community, Forum, Abo, Sicherheit</p>
+        </div>
+        <div class="agent-nums">
+          <b>6</b> Zweige · <b>82</b> Commits · <b>+40.476</b>
+        </div>
+      </header>
+      <p class="agent-note">Forum mit Entwickler-Abo, Sicherheits-Selbsttest, 3D-Ideenregal. Dazu Werkstatt, Studio-Werkbank, Musterbuch.</p>
+      <div class="branch-grid">
+      <article class="branch">
+        <header class="branch-head">
+          <code class="branch-name">fable/community</code>
+          <span class="branch-time">07:41</span>
+        </header>
+        <p class="branch-msg">Doku: Gesamtvorschau, Teaser-Herkunft und Merge-Reihenfolge festgehalten</p>
+        <ul class="chips"><li class="chip">community-scene.js</li><li class="chip">community.html</li><li class="chip">community.js</li><li class="chip">docs/AGENTEN-BRETT.md</li><li class="chip">docs/COMMUNITY.md</li><li class="chip">docs/teaser-community.html</li><li class="chip is-more">+5 weitere</li></ul>
+        <footer class="branch-foot">
+          <span><b>15</b> Commits</span>
+          <span class="plus">+6.009</span>
+          <span class="minus">−0</span>
+          <span>7 neu</span>
+        </footer>
+      </article>
+      <article class="branch">
+        <header class="branch-head">
+          <code class="branch-name">fable/qa-release</code>
+          <span class="branch-time">07:48</span>
+        </header>
+        <p class="branch-msg">Feinschliff: null Befunde im Prüflauf</p>
+        <ul class="chips"><li class="chip">.well-known/security.txt</li><li class="chip">SECURITY.md</li><li class="chip">_headers</li><li class="chip">abo.html</li><li class="chip">atelier.js</li><li class="chip">bootstrap.js</li><li class="chip is-more">+113 weitere</li></ul>
+        <footer class="branch-foot">
+          <span><b>48</b> Commits</span>
+          <span class="plus">+28.410</span>
+          <span class="minus">−1.719</span>
+          <span>83 neu</span>
+        </footer>
+      </article>
+      <article class="branch">
+        <header class="branch-head">
+          <code class="branch-name">fable/werkstatt</code>
+          <span class="branch-time">07:44</span>
+        </header>
+        <p class="branch-msg">entwickler.html/abo.html: Sprachstart uebersteht blockierten Speicher</p>
+        <ul class="chips"><li class="chip">abo.html</li><li class="chip">entwickler.html</li><li class="chip">entwickler.js</li><li class="chip">styles-entwickler.css</li><li class="chip is-mod">components.js</li><li class="chip is-mod">produkt.html</li><li class="chip is-more">+5 weitere</li></ul>
+        <footer class="branch-foot">
+          <span><b>16</b> Commits</span>
+          <span class="plus">+2.537</span>
+          <span class="minus">−159</span>
+          <span>4 neu</span>
+        </footer>
+      </article>
+      <article class="branch">
+        <header class="branch-head">
+          <code class="branch-name">fable/atelier</code>
+          <span class="branch-time">23:07</span>
+        </header>
+        <p class="branch-msg">Studio: interaktive Werkbank mit vier Stationen (three.js)</p>
+        <ul class="chips"><li class="chip">atelier.js</li><li class="chip">styles-atelier.css</li><li class="chip is-mod">studio.html</li></ul>
+        <footer class="branch-foot">
+          <span><b>1</b> Commits</span>
+          <span class="plus">+1.588</span>
+          <span class="minus">−44</span>
+          <span>2 neu</span>
+        </footer>
+      </article>
+      <article class="branch">
+        <header class="branch-head">
+          <code class="branch-name">fable/werkprobe</code>
+          <span class="branch-time">22:47</span>
+        </header>
+        <p class="branch-msg">Musterbuch: interaktive Designprobe mit three.js-Fächer</p>
+        <ul class="chips"><li class="chip">musterbuch.html</li><li class="chip">musterbuch.js</li><li class="chip">styles-musterbuch.css</li><li class="chip is-mod">README.md</li><li class="chip is-mod">components.js</li><li class="chip is-mod">sitemap.xml</li></ul>
+        <footer class="branch-foot">
+          <span><b>1</b> Commits</span>
+          <span class="plus">+1.828</span>
+          <span class="minus">−0</span>
+          <span>3 neu</span>
+        </footer>
+      </article>
+      <article class="branch">
+        <header class="branch-head">
+          <code class="branch-name">fable-hero-fix</code>
+          <span class="branch-time">23:21</span>
+        </header>
+        <p class="branch-msg">Hero: Chip unter die Modellspalte, Hero endet auf dem Fold</p>
+        <ul class="chips"><li class="chip">styles-hero.css</li><li class="chip is-mod">index.html</li></ul>
+        <footer class="branch-foot">
+          <span><b>1</b> Commits</span>
+          <span class="plus">+104</span>
+          <span class="minus">−5</span>
+          <span>1 neu</span>
+        </footer>
+      </article></div>
+    </section>
+
+    <section class="agent" id="astra" style="--ac:#4f7a63;--tint:rgba(79,122,99,.09)">
+      <header class="agent-head">
+        <span class="dot" aria-hidden="true"></span>
+        <div>
+          <h3>Astra</h3>
+          <p class="agent-role">API, Entwickler-Seite, 3D-Bühnen</p>
+        </div>
+        <div class="agent-nums">
+          <b>7</b> Zweige · <b>17</b> Commits · <b>+12.154</b>
+        </div>
+      </header>
+      <p class="agent-note">Entwickler-API mit Sandbox, lokale Schriften, Social-Cards, Papierregal, Zeichenwerk, 404-Karteikasten.</p>
+      <div class="branch-grid">
+      <article class="branch">
+        <header class="branch-head">
+          <code class="branch-name">astra/api</code>
+          <span class="branch-time">07:45</span>
+        </header>
+        <p class="branch-msg">Jahrespreise als Jahressumme mit passender Einheit</p>
+        <ul class="chips"><li class="chip">api.html</li><li class="chip">api.js</li><li class="chip">fonts/OFL.txt</li><li class="chip">fonts/fonts.css</li><li class="chip">fonts/inter-latin-ext.woff2</li><li class="chip">fonts/inter-latin.woff2</li><li class="chip is-more">+54 weitere</li></ul>
+        <footer class="branch-foot">
+          <span><b>7</b> Commits</span>
+          <span class="plus">+3.040</span>
+          <span class="minus">−178</span>
+          <span>26 neu</span>
+        </footer>
+      </article>
+      <article class="branch">
+        <header class="branch-head">
+          <code class="branch-name">astra/entwickler</code>
+          <span class="branch-time">07:01</span>
+        </header>
+        <p class="branch-msg">Entwickler-Seite: lokale Schriften, Social-Card, API-Referenz und Sandbox</p>
+        <ul class="chips"><li class="chip">entwickler.html</li><li class="chip">entwickler.js</li><li class="chip">fonts/OFL.txt</li><li class="chip">fonts/fonts.css</li><li class="chip">fonts/inter-latin-ext.woff2</li><li class="chip">fonts/inter-latin.woff2</li><li class="chip is-more">+25 weitere</li></ul>
+        <footer class="branch-foot">
+          <span><b>1</b> Commits</span>
+          <span class="plus">+2.419</span>
+          <span class="minus">−5</span>
+          <span>27 neu</span>
+        </footer>
+      </article>
+      <article class="branch">
+        <header class="branch-head">
+          <code class="branch-name">astra/papierregal</code>
+          <span class="branch-time">07:10</span>
+        </header>
+        <p class="branch-msg">Arbeiten-Seite: Papierregal-Showroom mit fixiertem 3D-Framing</p>
+        <ul class="chips"><li class="chip">fonts/OFL.txt</li><li class="chip">fonts/fonts.css</li><li class="chip">fonts/inter-latin-ext.woff2</li><li class="chip">fonts/inter-latin.woff2</li><li class="chip">fonts/jbmono-latin-ext.woff2</li><li class="chip">fonts/jbmono-latin.woff2</li><li class="chip is-more">+50 weitere</li></ul>
+        <footer class="branch-foot">
+          <span><b>3</b> Commits</span>
+          <span class="plus">+2.333</span>
+          <span class="minus">−455</span>
+          <span>24 neu</span>
+        </footer>
+      </article>
+      <article class="branch">
+        <header class="branch-head">
+          <code class="branch-name">astra/schriften</code>
+          <span class="branch-time">06:53</span>
+        </header>
+        <p class="branch-msg">Social-Cards als PNG, Favicons und Web-Manifest</p>
+        <ul class="chips"><li class="chip">fonts/OFL.txt</li><li class="chip">fonts/fonts.css</li><li class="chip">fonts/inter-latin-ext.woff2</li><li class="chip">fonts/inter-latin.woff2</li><li class="chip">fonts/jbmono-latin-ext.woff2</li><li class="chip">fonts/jbmono-latin.woff2</li><li class="chip is-more">+48 weitere</li></ul>
+        <footer class="branch-foot">
+          <span><b>2</b> Commits</span>
+          <span class="plus">+847</span>
+          <span class="minus">−178</span>
+          <span>22 neu</span>
+        </footer>
+      </article>
+      <article class="branch">
+        <header class="branch-head">
+          <code class="branch-name">astra/zeichenwerk</code>
+          <span class="branch-time">23:19</span>
+        </header>
+        <p class="branch-msg">Zeichenwerk: kein Ueberlauf bei 390 px, Fallback zeigt Zeichenzahl und Material</p>
+        <ul class="chips"><li class="chip">styles-zeichenwerk.css</li><li class="chip">zeichenwerk.html</li><li class="chip">zeichenwerk.js</li><li class="chip is-mod">README.md</li><li class="chip is-mod">components.js</li><li class="chip is-mod">index.html</li><li class="chip is-more">+1 weitere</li></ul>
+        <footer class="branch-foot">
+          <span><b>2</b> Commits</span>
+          <span class="plus">+1.941</span>
+          <span class="minus">−1</span>
+          <span>3 neu</span>
+        </footer>
+      </article>
+      <article class="branch">
+        <header class="branch-head">
+          <code class="branch-name">astra/showroom</code>
+          <span class="branch-time">23:01</span>
+        </header>
+        <p class="branch-msg">Showroom: Bewegungsschalter im Werkzeugband</p>
+        <ul class="chips"><li class="chip is-mod">showroom-scene.js</li><li class="chip is-mod">showroom-ui.js</li><li class="chip is-mod">showroom.html</li><li class="chip is-mod">styles-showroom.css</li></ul>
+        <footer class="branch-foot">
+          <span><b>1</b> Commits</span>
+          <span class="plus">+122</span>
+          <span class="minus">−10</span>
+          <span>0 neu</span>
+        </footer>
+      </article>
+      <article class="branch">
+        <header class="branch-head">
+          <code class="branch-name">astra/404</code>
+          <span class="branch-time">22:59</span>
+        </header>
+        <p class="branch-msg">404-Seite: funktioniert auf jeder Pfadtiefe, mit 3D-Zeichen</p>
+        <ul class="chips"><li class="chip">nf-find.js</li><li class="chip">scene-404.js</li><li class="chip">styles-404.css</li><li class="chip is-mod">404.html</li></ul>
+        <footer class="branch-foot">
+          <span><b>1</b> Commits</span>
+          <span class="plus">+1.452</span>
+          <span class="minus">−26</span>
+          <span>3 neu</span>
+        </footer>
+      </article></div>
+    </section>
+
+    <section class="agent" id="kimi" style="--ac:#4e5c78;--tint:rgba(78,92,120,.09)">
+      <header class="agent-head">
+        <span class="dot" aria-hidden="true"></span>
+        <div>
+          <h3>Kimi</h3>
+          <p class="agent-role">Integration, Sicherheit, Startseite</p>
+        </div>
+        <div class="agent-nums">
+          <b>5</b> Zweige · <b>66</b> Commits · <b>+61.840</b>
+        </div>
+      </header>
+      <p class="agent-note">Sammel-Merge über neun Zweige, Sicherheitsseite mit Papier-Schloss, 3D-Schichtmodell, Projektbrief auf der Kontaktseite.</p>
+      <div class="branch-grid">
+      <article class="branch">
+        <header class="branch-head">
+          <code class="branch-name">kimi/integration</code>
+          <span class="branch-time">07:17</span>
+        </header>
+        <p class="branch-msg">Mehrsprachigkeit: Ueberschriften auf Arbeiten, SEO-Seite und Konto</p>
+        <ul class="chips"><li class="chip">.well-known/security.txt</li><li class="chip">SECURITY.md</li><li class="chip">_headers</li><li class="chip">abo.html</li><li class="chip">atelier.js</li><li class="chip">bootstrap.js</li><li class="chip is-more">+39 weitere</li></ul>
+        <footer class="branch-foot">
+          <span><b>33</b> Commits</span>
+          <span class="plus">+19.943</span>
+          <span class="minus">−594</span>
+          <span>31 neu</span>
+        </footer>
+      </article>
+      <article class="branch">
+        <header class="branch-head">
+          <code class="branch-name">kimi/sicherheit</code>
+          <span class="branch-time">07:32</span>
+        </header>
+        <p class="branch-msg">Sicherheit: Icons fuer Screenreader ausgeblendet, Description gekuerzt</p>
+        <ul class="chips"><li class="chip">.well-known/security.txt</li><li class="chip">SECURITY.md</li><li class="chip">_headers</li><li class="chip">bootstrap.js</li><li class="chip">docs/SICHERHEIT.md</li><li class="chip">scene-sicherheit.js</li><li class="chip is-more">+6 weitere</li></ul>
+        <footer class="branch-foot">
+          <span><b>8</b> Commits</span>
+          <span class="plus">+4.004</span>
+          <span class="minus">−0</span>
+          <span>10 neu</span>
+        </footer>
+      </article>
+      <article class="branch">
+        <header class="branch-head">
+          <code class="branch-name">kimi/schichtmodell</code>
+          <span class="branch-time">23:20</span>
+        </header>
+        <p class="branch-msg">Merge remote-tracking branch &#x27;origin/main&#x27; into kimi/schichtmodell</p>
+        <ul class="chips"><li class="chip">schichtmodell.js</li><li class="chip">styles-schichtmodell.css</li><li class="chip is-mod">index.html</li></ul>
+        <footer class="branch-foot">
+          <span><b>2</b> Commits</span>
+          <span class="plus">+1.533</span>
+          <span class="minus">−0</span>
+          <span>2 neu</span>
+        </footer>
+      </article>
+      <article class="branch">
+        <header class="branch-head">
+          <code class="branch-name">kimi/projektbrief</code>
+          <span class="branch-time">06:34</span>
+        </header>
+        <p class="branch-msg">Kontakt: Bezugssprachen und ContactPage-Daten fuer Suchmaschinen</p>
+        <ul class="chips"><li class="chip">brief.js</li><li class="chip">styles-brief.css</li><li class="chip is-mod">kontakt.html</li></ul>
+        <footer class="branch-foot">
+          <span><b>3</b> Commits</span>
+          <span class="plus">+2.228</span>
+          <span class="minus">−108</span>
+          <span>2 neu</span>
+        </footer>
+      </article>
+      <article class="branch">
+        <header class="branch-head">
+          <code class="branch-name">mittag/integration</code>
+          <span class="branch-time">07:28</span>
+        </header>
+        <p class="branch-msg">Doku: Abschluss-Audit und Karten-Overflow belegt</p>
+        <ul class="chips"><li class="chip">.well-known/security.txt</li><li class="chip">SECURITY.md</li><li class="chip">_headers</li><li class="chip">atelier.js</li><li class="chip">brief.js</li><li class="chip">docs/AGENTEN-ISSUE.md</li><li class="chip is-more">+100 weitere</li></ul>
+        <footer class="branch-foot">
+          <span><b>20</b> Commits</span>
+          <span class="plus">+34.132</span>
+          <span class="minus">−523</span>
+          <span>73 neu</span>
+        </footer>
+      </article></div>
+    </section>
+
+    <section class="agent" id="claude" style="--ac:#8a6a3f;--tint:rgba(138,106,63,.09)">
+      <header class="agent-head">
+        <span class="dot" aria-hidden="true"></span>
+        <div>
+          <h3>Claude</h3>
+          <p class="agent-role">Forum, Speicher-Schutz, Bauplan</p>
+        </div>
+        <div class="agent-nums">
+          <b>2</b> Zweige · <b>14</b> Commits · <b>+5.174</b>
+        </div>
+      </header>
+      <p class="agent-note">Eigenständiger Forum-Entwurf, Speicher-Schutz gegen blockiertes localStorage, Bauplan-Seite.</p>
+      <div class="branch-grid">
+      <article class="branch">
+        <header class="branch-head">
+          <code class="branch-name">claude/forum</code>
+          <span class="branch-time">07:40</span>
+        </header>
+        <p class="branch-msg">Forum: Preis-Link ohne Netzwerkpruefung absichern</p>
+        <ul class="chips"><li class="chip">docs/FORUM.md</li><li class="chip">forum-scene.js</li><li class="chip">forum.html</li><li class="chip">forum.js</li><li class="chip">media/og-forum.png</li><li class="chip">styles-forum.css</li><li class="chip is-more">+5 weitere</li></ul>
+        <footer class="branch-foot">
+          <span><b>13</b> Commits</span>
+          <span class="plus">+5.144</span>
+          <span class="minus">−1</span>
+          <span>7 neu</span>
+        </footer>
+      </article>
+      <article class="branch">
+        <header class="branch-head">
+          <code class="branch-name">claude/storage-guard</code>
+          <span class="branch-time">07:19</span>
+        </header>
+        <p class="branch-msg">Speicher blockiert: Seite laeuft weiter statt abzustuerzen</p>
+        <ul class="chips"><li class="chip is-mod">auth.js</li><li class="chip is-mod">components.js</li></ul>
+        <footer class="branch-foot">
+          <span><b>1</b> Commits</span>
+          <span class="plus">+30</span>
+          <span class="minus">−1</span>
+          <span>0 neu</span>
+        </footer>
+      </article></div>
+    </section>
+
+    <section class="agent" id="integration" style="--ac:#6a5a7a;--tint:rgba(106,90,122,.09)">
+      <header class="agent-head">
+        <span class="dot" aria-hidden="true"></span>
+        <div>
+          <h3>Bytewerk Integration</h3>
+          <p class="agent-role">Zusammenführung</p>
+        </div>
+        <div class="agent-nums">
+          <b>1</b> Zweige · <b>15</b> Commits · <b>+39.880</b>
+        </div>
+      </header>
+      <p class="agent-note">Der breiteste Zweig: 124 Dateien, alles zusammen. Hat aktuell Konflikte mit main.</p>
+      <div class="branch-grid">
+      <article class="branch">
+        <header class="branch-head">
+          <code class="branch-name">integ/final</code>
+          <span class="branch-time">07:35</span>
+        </header>
+        <p class="branch-msg">Marketing: Titel und Meta-Beschreibungen auf Suchmaschinen-Länge gebracht</p>
+        <ul class="chips"><li class="chip">.well-known/security.txt</li><li class="chip">SECURITY.md</li><li class="chip">_headers</li><li class="chip">atelier.js</li><li class="chip">bootstrap.js</li><li class="chip">brief.js</li><li class="chip is-more">+118 weitere</li></ul>
+        <footer class="branch-foot">
+          <span><b>15</b> Commits</span>
+          <span class="plus">+39.880</span>
+          <span class="minus">−874</span>
+          <span>92 neu</span>
+        </footer>
+      </article></div>
+    </section>
+  </section>
+  
+
+  <section class="sec" id="reihenfolge">
+    <h2>In welcher Reihenfolge</h2>
+    <p class="lead">21 Zweige einzeln zu mergen ist der teuerste Weg. Ein Integrationszweig,
+      dann die Sonderfälle — so bleibt jeder Schritt prüfbar.</p>
+    <ol class="steps">
+      <li>
+        <h3>Einen Integrationszweig wählen</h3>
+        <p><code>fable/qa-release</code> oder <code>integ/final</code> als Basis nehmen — nicht
+          beide. Sie enthalten bereits den Großteil der Seiten; alles andere wird darauf gelegt.</p>
+      </li>
+      <li>
+        <h3>Community einhängen</h3>
+        <p><code>fable/community</code> bringt Forum, Entwickler-Abo, Sicherheits-Selbsttest und
+          das 3D-Ideenregal mit. Konflikt in genau drei Dateien: <code>components.js</code>,
+          <code>sitemap.xml</code>, <code>README.md</code>. Auflösung: ein Eintrag
+          <b>Community</b>, <code>forum.html</code> bleibt als Seite erreichbar.</p>
+      </li>
+      <li>
+        <h3>Doppelte Foren entscheiden</h3>
+        <p><code>community.html</code> (Forum + Abo + Sicherheit) und <code>forum.html</code>
+          (nur Forum) decken dieselbe Aufgabe ab. Eines davon ins Menü, das andere per
+          <code>canonical</code> auf das erste zeigen lassen — sonst konkurrieren zwei Seiten
+          um dieselben Suchbegriffe.</p>
+      </li>
+      <li>
+        <h3>Prüfen, dann nach main</h3>
+        <p>1440 und 390 px ohne Überlauf, 0 Konsolenfehler, <code>node --check</code> für jedes
+          geänderte Skript, Anker und Doppel-IDs. Erst danach auf <code>main</code> — GitHub Pages
+          veröffentlicht direkt, es gibt keinen Rückweg über einen Build.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="sec" id="zeit">
+    <h2>Wann gearbeitet wurde</h2>
+    <p class="lead">Letzter Commit je Zweig, nach Stunde. Die Nacht war in Wellen aktiv —
+      kurz vor sieben liefen die meisten Zweige gleichzeitig.</p>
+    <ul class="tl">
+      <li>
+        <span class="tl-hour">06:00</span>
+        <span class="tl-bar"><i style="width:17%"></i></span>
+        <span class="tl-names">projektbrief, schriften</span>
+      </li>
+
+      <li>
+        <span class="tl-hour">07:00</span>
+        <span class="tl-bar"><i style="width:100%"></i></span>
+        <span class="tl-names">api, community, entwickler, final, forum, integration, integration, papierregal, qa-release, sicherheit, storage-guard, werkstatt</span>
+      </li>
+
+      <li>
+        <span class="tl-hour">22:00</span>
+        <span class="tl-bar"><i style="width:17%"></i></span>
+        <span class="tl-names">404, werkprobe</span>
+      </li>
+
+      <li>
+        <span class="tl-hour">23:00</span>
+        <span class="tl-bar"><i style="width:42%"></i></span>
+        <span class="tl-names">atelier, fable-hero-fix, schichtmodell, showroom, zeichenwerk</span>
+      </li></ul>
+  </section>
+
+  <p class="note"><b>Ehrlich gesagt:</b> Diese Seite beschreibt den Stand der Zweige, nicht den
+    der Live-Seite. Auf <code>bytewerkstudio.com</code> ist davon noch nichts sichtbar, solange
+    die Pull Requests offen sind — der vorhandene Zugang darf lesen, aber nicht schreiben.
+    Die geprüfte Gesamtvorschau liegt unter
+    <code>predatorhwg-commits.github.io/bytewerkstudio</code>.</p>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Erzeugt aus Git · Basis main @ 6b725b3</span>
+    <span>21 Zweige · 194 Commits</span>
+  </div>
+</footer>
+
+</body>
+</html>
