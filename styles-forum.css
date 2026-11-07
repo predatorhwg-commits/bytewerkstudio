@@ -615,6 +615,7 @@ body.fm-is-thread .fm-progress { opacity: 1; }
 .fm-cat-chip svg { width: 12px; height: 12px; }
 .fm-type { background: transparent; color: var(--fm-quiet); border-color: var(--line); }
 .fm-chip-pin { background: var(--accent); color: #fff; font-weight: 600; }
+.fm-chip-new { background: var(--accent); color: #fff; font-weight: 600; }
 .fm-chip-pro {
   background: var(--fm-tint-2);
   border-color: rgba(79, 122, 99, 0.3);

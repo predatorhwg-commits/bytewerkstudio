@@ -76,9 +76,11 @@ Das ist der Teil, der nicht verhandelbar ist.
     Eintrag leert nicht mehr das ganze Forum. Ist nichts mehr zu retten,
     wird neu aufgesetzt.
 11. **Auch die Nebenschlüssel sind typgeprüft.** `bw-forum-rate-v1`,
-    `bw-forum-subs-v1` und `bw-forum-reports-v1` laufen über `readArray()`;
-    ein Objekt oder String an dieser Stelle wirft nicht mehr, sondern
-    wird als leere Liste behandelt.
+    `bw-forum-subs-v1` und `bw-forum-reports-v1` laufen über `readArray()`.
+    `bw-forum-seen-v1` läuft über `readSeen()`: nur echte ISO-Zeitstempel
+    kommen durch, `__proto__`, `constructor` und `prototype` fliegen raus.
+    Ein Objekt, String oder ungültiges Datum wirft nicht mehr, sondern
+    wird ignoriert.
 
 Geprüft mit einem XSS-Durchlauf im Browser: Titel und Beitrag mit
 `<img onerror>`, `<script>`, `<svg onload>`, `<iframe>`, `<math>`,
@@ -125,6 +127,13 @@ Antworten tragen einen Rückverweis (`replyTo`). Er erscheint als kleine
 Zeile „Antwort an <Name>“ über dem Beitrag und springt per Klick zum
 Original, das kurz hervorgehoben wird. Ohne gültiges Ziel entfällt die
 Zeile.
+
+Beobachtete Themen bekommen in der Liste eine „Neu“-Marke, sobald eine
+Antwort seit dem letzten Öffnen dazugekommen ist. Der Zeitpunkt des
+letzten Besuchs steht unter `bw-forum-seen-v1`, geschrieben beim Öffnen
+des Themas und beim Start der Beobachtung. Ohne gespeicherte Marke gilt
+nichts als neu — sonst wäre nach dem ersten Aufruf jedes Thema „neu“.
+Wird die Beobachtung beendet, verschwindet die Marke.
 
 ## Bearbeiten
 
@@ -212,6 +221,11 @@ Webhook, der `profiles.plan` setzt — nicht einen Schalter im Browser.
 - Antwort-Referenz: „Antwort an <Name>“ erscheint über der Antwort, der
   Klick springt zum Original (`is-flash`), nach Reload bleibt die Zeile.
   320/390/1440 px mit 60-Zeichen-Namen: 0 Überlauf.
+- „Neu“-Marke: initial 0 Marken (keine gespeicherte Marke), nach einer
+  simulierten Antwort 1 Marke „Neu“ am beobachteten Thema, nach Öffnen
+  0, nach Beenden der Beobachtung 0. Kaputter `bw-forum-seen-v1` (String,
+  ungültiges Datum, `__proto__`) rendert neun Themen, 0 Marken, keine
+  Prototype-Pollution. 1440 und 320 px: 0 Überlauf, 0 Konsolenfehler.
 - Spanisch: `lang='es'` liefert englische Oberfläche und `en-GB`-Datum,
   nie deutsche Texte.
 - Supabase-Schema in einer echten PostgreSQL-Instanz (`pgserver`, nicht

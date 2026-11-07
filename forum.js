@@ -28,6 +28,7 @@
     draftKey: 'bw-forum-draft-v1',
     rateKey: 'bw-forum-rate-v1',
     subsKey: 'bw-forum-subs-v1',
+    seenKey: 'bw-forum-seen-v1',
     proPreviewKey: 'bw-forum-pro-preview',
     reportsKey: 'bw-forum-reports-v1',
     pageSize: 10,
@@ -732,6 +733,44 @@
     return i === -1;
   }
 
+  /* Watched threads get a "New" chip when a reply arrived since the
+     last visit. Without a stored mark nothing is new, so the first
+     run does not flag every thread. */
+  let seenCache = null;
+
+  function readSeen() {
+    if (seenCache) return seenCache;
+    const raw = readJSON(CFG.seenKey, null);
+    const out = Object.create(null);
+    if (raw && typeof raw === 'object' && !Array.isArray(raw)) {
+      Object.keys(raw).slice(0, CFG.maxThreadsLocal).forEach(key => {
+        if (key === '__proto__' || key === 'constructor' || key === 'prototype') return;
+        const value = raw[key];
+        const d = new Date(value);
+        if (typeof value === 'string' && !isNaN(d.getTime())) out[key] = d.toISOString();
+      });
+    }
+    seenCache = out;
+    return out;
+  }
+
+  function markSeen(th) {
+    const seen = readSeen();
+    const prev = seen[th.slug];
+    const stamp = th.updatedAt || th.createdAt;
+    if (!prev || new Date(stamp) > new Date(prev)) {
+      seen[th.slug] = nowISO();
+      writeJSON(CFG.seenKey, seen);
+    }
+  }
+
+  function isUnread(th) {
+    if (!isSubscribed(th.slug)) return false;
+    const seen = readSeen()[th.slug];
+    if (!seen) return false;
+    return new Date(th.updatedAt || th.createdAt) > new Date(seen);
+  }
+
   /* ---------------------------------------------------------- */
   /* 9. Toasts                                                   */
   /* ---------------------------------------------------------- */
@@ -985,6 +1024,7 @@
     catChip.appendChild(el('span', { text: txt(cat) }));
     top.appendChild(catChip);
     top.appendChild(el('span', { class: 'fm-chip fm-type', text: typeLabel(th.type) }));
+    if (isUnread(th)) top.appendChild(el('span', { class: 'fm-chip fm-chip-new', text: t('Neu', 'New') }));
     if (cat.pro) top.appendChild(el('span', { class: 'fm-chip fm-chip-pro', text: 'Pro' }));
     if (th.solved) {
       const solved = el('span', { class: 'fm-chip fm-chip-solved' });
@@ -1120,6 +1160,7 @@
       th.views = (th.views || 0) + 1;
       save();
     }
+    if (!locked) markSeen(th);
 
     /* --- head --- */
     const head = el('div', { class: 'fm-th-head' });
@@ -1177,6 +1218,7 @@
     sub.appendChild(el('span', { text: isSubscribed(th.slug) ? t('Beobachtet', 'Watching') : t('Beobachten', 'Watch') }));
     sub.addEventListener('click', () => {
       const on = toggleSubscription(th.slug);
+      if (on) markSeen(th);
       sub.classList.toggle('is-on', on);
       sub.querySelector('span').textContent = on ? t('Beobachtet', 'Watching') : t('Beobachten', 'Watch');
       toast(on ? t('Du beobachtest dieses Thema.', 'You are watching this thread.')
