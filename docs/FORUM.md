@@ -23,6 +23,20 @@ Die Datenform ist absichtlich schon so geschnitten: `id`, `slug`, `cat`,
 `type`, `title{de,en}`, `body{de,en}`, `tags`, `author`, `createdAt`,
 `updatedAt`, `solved`, `solvedPost`, `pinned`, `views`, `votes`, `posts`.
 
+Das Schema ist gegen eine echte PostgreSQL-Instanz gelaufen, nicht nur
+gegen einen Parser. Zwei Dinge, die dabei aufgefallen sind und die das
+Schema jetzt löst:
+
+- `array_to_string` ist als `stable` markiert, generierte Spalten
+  verlangen aber `immutable` — `create table forum_threads` scheiterte
+  an „generation expression is not immutable“. `forum_search_vector()`
+  kapselt die Berechnung als `immutable`-Funktion (für `text[]` ist die
+  Ausgabe konstant); die Spalte bleibt `generated always … stored`.
+- Autoren durften eigene Themen anpinnen und als gelöst markieren.
+  Der Trigger hält `pinned`, `solved`, `solved_post`, `slug` und
+  `category` jetzt auch beim Autor fest; nur `mod` oder der Service-Role
+  ohne `auth.uid()` ändert sie.
+
 ## Sicherheit
 
 Das ist der Teil, der nicht verhandelbar ist.
@@ -184,3 +198,12 @@ Webhook, der `profiles.plan` setzt — nicht einen Schalter im Browser.
 - Ohne JavaScript: `noscript`-Hinweis sichtbar.
 - Spanisch: `lang='es'` liefert englische Oberfläche und `en-GB`-Datum,
   nie deutsche Texte.
+- Supabase-Schema in einer echten PostgreSQL-Instanz (`pgserver`, nicht
+  nur `pglast`): 6 Tabellen, 6 Kategorien, 13/13 Prüfungen grün. INSERT
+  setzt Autor, Zeit und `views` und verwirft `pinned`/`solved`;
+  Autor-Edit ändert Text, aber nicht Moderation, Slug oder Kategorie;
+  fremder Edit darf nur `views` erhöhen; `views` bleibt monoton; eine
+  Lösung aus einem fremden Thema und ein `reply_to` aus einem fremden
+  Thema werden verworfen; die Vote-Policy blockt erfundene IDs und eine
+  fremde `user_id` und erlaubt echte Themen. Der Suchvektor findet
+  Titel, Text und Tag.

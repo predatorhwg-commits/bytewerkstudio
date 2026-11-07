@@ -86,6 +86,23 @@ $$;
 revoke all on function public.forum_is_pro_category(text) from public;
 grant execute on function public.forum_is_pro_category(text) to authenticated;
 
+-- Suchvektor fuer die generierte Spalte. array_to_string ist als
+-- "stable" markiert, generierte Spalten verlangen aber "immutable".
+-- Fuer text[] ist die Ausgabe konstant, deshalb diese Huelle.
+create or replace function public.forum_search_vector(title text, body text, tags text[])
+returns tsvector
+language sql
+immutable
+set search_path = pg_catalog
+as $$
+  select to_tsvector('simple'::regconfig,
+    coalesce(title, '') || ' ' || coalesce(body, '') || ' ' ||
+    coalesce(array_to_string(tags, ' '), ''));
+$$;
+
+revoke all on function public.forum_search_vector(text, text, text[]) from public;
+grant execute on function public.forum_search_vector(text, text, text[]) to authenticated;
+
 -- ---------- 3. Themen --------------------------------------
 create table if not exists public.forum_threads (
   id           uuid primary key default gen_random_uuid(),
@@ -104,7 +121,7 @@ create table if not exists public.forum_threads (
   created_at   timestamptz not null default now(),
   updated_at   timestamptz not null default now(),
   search       tsvector generated always as (
-                 to_tsvector('simple', title || ' ' || body || ' ' || array_to_string(tags, ' '))
+                 public.forum_search_vector(title, body, tags)
                ) stored
 );
 
@@ -210,7 +227,17 @@ create policy "forum_votes_read"
 drop policy if exists "forum_votes_own" on public.forum_votes;
 create policy "forum_votes_own"
   on public.forum_votes for insert
-  to authenticated with check (user_id = auth.uid());
+  to authenticated
+  with check (
+    user_id = auth.uid()
+    and (
+      (item_kind = 'thread' and exists (
+        select 1 from public.forum_threads t where t.id = item_id))
+      or
+      (item_kind = 'post' and exists (
+        select 1 from public.forum_posts p where p.id = item_id))
+    )
+  );
 
 drop policy if exists "forum_votes_remove" on public.forum_votes;
 create policy "forum_votes_remove"
@@ -251,6 +278,7 @@ set search_path = public
 as $$
 declare
   display_name text;
+  is_mod boolean;
 begin
   if tg_op = 'INSERT' then
     select coalesce(nullif(name, ''), split_part(email, '@', 1), 'Mitglied')
@@ -259,19 +287,52 @@ begin
     new.author_id := auth.uid();
     new.author_name := coalesce(display_name, 'Mitglied');
     new.views := 0;
-  else
-    -- readers may only bump the counter; authors may edit text
-    if auth.uid() <> old.author_id then
-      new.title := old.title;
-      new.body := old.body;
-      new.tags := old.tags;
-      new.category := old.category;
-      new.pinned := old.pinned;
-    end if;
-    new.author_id := old.author_id;
-    new.author_name := old.author_name;
-    new.created_at := old.created_at;
+    new.pinned := false;
+    new.solved := false;
+    new.solved_post := null;
+    return new;
   end if;
+
+  -- Service role und SQL-Editor haben keine auth.uid(); sie gelten als Moderation.
+  is_mod := auth.uid() is null or public.forum_plan(auth.uid()) = 'mod';
+
+  if auth.uid() = old.author_id then
+    -- Autoren aendern Text und Tags, nicht die Moderation.
+    new.pinned := old.pinned;
+    new.solved := old.solved;
+    new.solved_post := old.solved_post;
+    new.category := old.category;
+    new.slug := old.slug;
+  elsif not is_mod then
+    -- Alle anderen duerfen nur den Zaehler erhoehen.
+    new.title := old.title;
+    new.body := old.body;
+    new.tags := old.tags;
+    new.category := old.category;
+    new.pinned := old.pinned;
+    new.solved := old.solved;
+    new.solved_post := old.solved_post;
+    new.slug := old.slug;
+  end if;
+
+  -- Eine Loesung muss ein Beitrag dieses Themas sein.
+  if new.solved and new.solved_post is not null then
+    if not exists (
+      select 1 from public.forum_posts p
+      where p.id = new.solved_post and p.thread_id = old.id
+    ) then
+      new.solved := false;
+      new.solved_post := null;
+    end if;
+  end if;
+  if not new.solved then
+    new.solved_post := null;
+  end if;
+
+  new.author_id := old.author_id;
+  new.author_name := old.author_name;
+  new.created_at := old.created_at;
+  new.views := greatest(old.views, new.views);
   new.updated_at := now();
   return new;
 end;
@@ -298,13 +359,22 @@ begin
     new.author_id := auth.uid();
     new.author_name := coalesce(display_name, 'Mitglied');
     new.edited_at := null;
-  else
-    new.author_id := old.author_id;
-    new.author_name := old.author_name;
-    new.thread_id := old.thread_id;
-    new.created_at := old.created_at;
-    new.edited_at := now();
+    -- Eine Antwort zeigt nur auf einen Beitrag im selben Thema.
+    if new.reply_to is not null and not exists (
+      select 1 from public.forum_posts p
+      where p.id = new.reply_to and p.thread_id = new.thread_id
+    ) then
+      new.reply_to := null;
+    end if;
+    return new;
   end if;
+
+  new.author_id := old.author_id;
+  new.author_name := old.author_name;
+  new.thread_id := old.thread_id;
+  new.reply_to := old.reply_to;
+  new.created_at := old.created_at;
+  new.edited_at := now();
   return new;
 end;
 $$;
