@@ -45,6 +45,7 @@ def main() -> int:
     design = load("design.json")
     perf = load("perf.json")
     perf_mobil = load("perf-mobil.json")
+    forum = load("forum.json")
 
     s = static["summary"]
     seo_rows = seo.get("rows", [])
@@ -139,6 +140,22 @@ def main() -> int:
         body.append("")
         body.append("Breiten: Desktop 1440 × 900, Tablet 768 × 1024, Mobil 390 × 844.")
         body.append("")
+        if forum:
+            f = forum.get("summary", {})
+            body.append("### Forenfunktion")
+            body.append("")
+            body.append("`tools/qa_forum.py` bedient das Forum statt es nur zu laden:")
+            body.append("Suche mit Treffer und ohne, Sortierung, Kategoriefilter, die")
+            body.append("Kontopflicht beim Schreiben, Thread anlegen, Neuladen (bleibt der")
+            body.append("Thread?), Antwort schreiben und die 20-Sekunden-Sperre. Jeder")
+            body.append("Schritt läuft in einem eigenen Browser mit leerem Speicher.")
+            body.append("")
+            body.append(md_table([
+                ["Prüfschritte", f.get("checks", 0)],
+                ["Bestanden", f.get("passed", 0)],
+                ["Befunde", f.get("findings", 0)],
+            ], ["Messung", "Ergebnis"]))
+            body.append("")
     else:
         body.append("Noch kein vollständiger Lauf: `docs/qa/runtime.json` fehlt.")
         body.append("")
@@ -372,6 +389,7 @@ def main() -> int:
     body.append("python3 tools/qa_perf.py --base http://127.0.0.1:8809 --width 390 --height 844 --label mobil")
     body.append("python3 tools/qa_zoom.py --base http://127.0.0.1:8809")
     body.append("python3 tools/qa_motion.py --base http://127.0.0.1:8809")
+    body.append("python3 tools/qa_forum.py --base http://127.0.0.1:8809")
     body.append("python3 tools/qa_report.py")
     body.append("```")
     body.append("")

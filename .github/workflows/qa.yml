@@ -33,6 +33,7 @@ jobs:
         run: |
           python3 tools/i18n_products.py --check
           python3 tools/i18n_cards.py --check
+          python3 tools/i18n_static.py --check
 
   browser:
     runs-on: ubuntu-latest
@@ -54,3 +55,5 @@ jobs:
         run: python3 tools/qa_xss.py --base http://127.0.0.1:8809
       - name: Tastaturbeduerung
         run: python3 tools/qa_keyboard.py --base http://127.0.0.1:8809
+      - name: Forum als Funktion
+        run: python3 tools/qa_forum.py --base http://127.0.0.1:8809

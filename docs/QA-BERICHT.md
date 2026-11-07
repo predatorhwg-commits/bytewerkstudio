@@ -50,6 +50,20 @@ Sprachwechsel DE→EN→DE und – unter 820 px – das Mobilmenü.
 
 Breiten: Desktop 1440 × 900, Tablet 768 × 1024, Mobil 390 × 844.
 
+### Forenfunktion
+
+`tools/qa_forum.py` bedient das Forum statt es nur zu laden:
+Suche mit Treffer und ohne, Sortierung, Kategoriefilter, die
+Kontopflicht beim Schreiben, Thread anlegen, Neuladen (bleibt der
+Thread?), Antwort schreiben und die 20-Sekunden-Sperre. Jeder
+Schritt läuft in einem eigenen Browser mit leerem Speicher.
+
+| Messung | Ergebnis |
+|---|---|
+| Prüfschritte | 9 |
+| Bestanden | 9 |
+| Befunde | 0 |
+
 ## 4. Sicherheit
 
 `tools/qa_security.py` prüft die Fehlerklassen, die bei einer
@@ -228,5 +242,6 @@ python3 tools/qa_perf.py --base http://127.0.0.1:8809
 python3 tools/qa_perf.py --base http://127.0.0.1:8809 --width 390 --height 844 --label mobil
 python3 tools/qa_zoom.py --base http://127.0.0.1:8809
 python3 tools/qa_motion.py --base http://127.0.0.1:8809
+python3 tools/qa_forum.py --base http://127.0.0.1:8809
 python3 tools/qa_report.py
 ```
