@@ -3,8 +3,8 @@
 Stand: 7. November 2026. Dieser Bericht wird von `tools/qa_report.py`
 aus den Messdateien in `docs/qa/` erzeugt. Alle Zahlen sind gemessen,
 nicht geschätzt. Rohdaten liegen in `docs/qa/`: `static.json`,
-`seo.json`, `runtime.json`, `security.json`, `a11y.json`, `perf.json`,
-`three.json`.
+`seo.json`, `runtime.json`, `security.json`, `xss.json`, `a11y.json`,
+`keyboard.json`, `perf.json`, `three.json`.
 
 ## 1. Statische Prüfung
 
@@ -33,19 +33,19 @@ Social-Tags; Konto-Seiten sind `noindex`.
 
 ## 3. Browserprüfung
 
-Gemessen: **102 Seitenaufrufe** über 3 Breiten (desktop: 34, tablet: 34, mobile: 34).
+Gemessen: **18 Seitenaufrufe** über 3 Breiten (desktop: 6, tablet: 6, mobile: 6).
 Jeder Aufruf prüft Konsolenfehler, horizontales Überlaufen,
 Sprachwechsel DE→EN→DE und – unter 820 px – das Mobilmenü.
 
 | Messung | Ergebnis |
 |---|---|
-| Seitenaufrufe | 102 |
+| Seitenaufrufe | 18 |
 | Seiten mit Konsolenfehler | 0 |
 | Seiten mit Überlauf | 0 |
 | Sprachwechsel fehlgeschlagen | 0 |
 | Mobilmenü fehlgeschlagen | 0 |
 | Abgebrochene Aufrufe | 0 |
-| Seiten mit Canvas | 34 |
+| Seiten mit Canvas | 6 |
 
 
 Breiten: Desktop 1440 × 900, Tablet 768 × 1024, Mobil 390 × 844.
@@ -67,6 +67,19 @@ Keine Beanstandung. Die CSP aller Seiten ist `script-src 'self'`
 ohne `'unsafe-inline'` und ohne `'unsafe-eval'`, zusätzlich
 `script-src-attr 'none'` und `frame-src 'none'`.
 
+### Eingaben im Browser
+
+`tools/qa_xss.py` ruft die Seiten mit präparierten Werten in
+Query, Fragment und Suchfeld auf: `<img onerror>`, `<svg onload>`,
+`</script><script>`, `javascript:` und ein `<iframe>`.
+
+| Messung | Ergebnis |
+|---|---|
+| Aufrufe mit Angriffsmustern | 61 |
+| Muster je Aufruf | 5 |
+| Befunde (Markup injiziert oder Code gelaufen) | 0 |
+| CSP blockiert nachträglichen Inline-Handler | ja |
+
 ## 5. Barrierefreiheit
 
 Automatisch geprüft: Textkontrast nach WCAG AA (4,5:1, große
@@ -85,6 +98,18 @@ Sprungmarke. Kein Ersatz für einen Screenreader-Test.
 | Seiten ohne <main> | 0 |
 | Seiten ohne Sprungmarke | 0 |
 
+### Tastaturbedienung
+
+`tools/qa_keyboard.py` prüft echtes Verhalten bei 390 px:
+Menü öffnen und per Escape schließen (Fokus zurück auf den
+Knopf), Suche per Strg+K, Sprachknöpfe, Sprungmarke.
+
+| Messung | Ergebnis |
+|---|---|
+| Seiten | 5 |
+| Einzelprüfungen | 55 |
+| Befunde | 0 |
+
 ## 6. Ladezeit und Gewicht
 
 Gemessen mit deaktiviertem Browser-Cache je Seite: übertragene
@@ -94,10 +119,10 @@ Server; im Netz kommen Latenz und TLS hinzu.
 | Messung | Ergebnis |
 |---|---|
 | Seiten | 34 |
-| Median übertragene Bytes | 879 KB |
-| Größte Seite | 1714 KB |
-| Median LCP | 852 ms |
-| Schlechtester LCP | 948 ms |
+| Median übertragene Bytes | 1159 KB |
+| Größte Seite | 1716 KB |
+| Median LCP | 864 ms |
+| Schlechtester LCP | 1032 ms |
 | Seiten mit CLS über 0,1 | 0 |
 
 Der größte Einzelposten ist three.js (`vendor/`, rund 700 KB) auf
@@ -156,6 +181,8 @@ python3 tools/qa_site.py --base http://127.0.0.1:8809 --out docs/qa --no-shots
 python3 tools/qa_three.py --base http://127.0.0.1:8809
 python3 tools/qa_security.py
 python3 tools/qa_a11y.py --base http://127.0.0.1:8809
+python3 tools/qa_xss.py --base http://127.0.0.1:8809
+python3 tools/qa_keyboard.py --base http://127.0.0.1:8809
 python3 tools/qa_perf.py --base http://127.0.0.1:8809
 python3 tools/qa_report.py
 ```

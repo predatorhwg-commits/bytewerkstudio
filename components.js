@@ -57,13 +57,13 @@
           ${langToggle}
           <div class="acct-slot" data-account-slot></div>
           <a class="btn btn-primary" href="kontakt.html" data-en="Start a project <span class=&quot;arr&quot;>→</span>">Projekt starten <span class="arr">→</span></a>
-          <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" data-en-aria="Open menu">
+          <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="bw-mobile-menu" data-en-aria="Open menu">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="16" x2="20" y2="16"/></svg>
           </button>
         </div>
       </div>
     </header>
-    <div class="mobile-menu">
+    <div class="mobile-menu" id="bw-mobile-menu">
       ${linksHTML(true)}
       <button class="nav-search" type="button" data-search-open aria-label="Suche öffnen" data-en-aria="Open search">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg>

@@ -215,8 +215,13 @@
     win.className = 'v5-win ' + meta.accent + (size ? ' v5-' + size : '');
     win.setAttribute('aria-hidden', 'true');
 
+    /* Maße nur setzen, wenn die Quelle sie kennt: sie tragen das
+       Seitenverhältnis und verhindern einen Layout-Sprung beim Laden. */
+    const iconSize = (options.iconW && options.iconH)
+      ? ' width="' + esc(options.iconW) + '" height="' + esc(options.iconH) + '"'
+      : '';
     const icon = options.icon
-      ? '<img src="' + esc(options.icon) + '" alt="" loading="lazy" decoding="async">'
+      ? '<img src="' + esc(options.icon) + '" alt=""' + iconSize + ' loading="lazy" decoding="async">'
       : '';
     const title = options.title ? '<div class="v5-title">' + esc(options.title) + '</div>' : '';
     const tag = options.tag === false ? '' : '<div class="v5-tag">' + esc(meta.tag) + '</div>';
@@ -244,7 +249,9 @@
       cat: ($('.cat', card) || {}).textContent || '',
       desc: ($('p', card) || {}).textContent || '',
       price: ($('.price', card) || {}).textContent || '',
-      icon: logo ? logo.getAttribute('src') : ''
+      icon: logo ? logo.getAttribute('src') : '',
+      iconW: logo ? logo.getAttribute('width') : '',
+      iconH: logo ? logo.getAttribute('height') : ''
     };
   }
 
@@ -255,7 +262,7 @@
 
     if (!panel.classList.contains('has-win')) {
       panel.classList.add('has-win');
-      panel.appendChild(buildWindow({ slug: info.slug, title: info.title, icon: info.icon }));
+      panel.appendChild(buildWindow({ slug: info.slug, title: info.title, icon: info.icon, iconW: info.iconW, iconH: info.iconH }));
     }
 
     if (!$('.v5-act', card)) {
@@ -305,17 +312,19 @@
     const title = titleEl ? titleEl.textContent.trim() : document.title.split('\u2014')[0].trim();
     const iconEl = $('.pd-thumbs img') || $('.pd-hero img');
     const icon = iconEl ? iconEl.getAttribute('src') : '';
+    const iconW = iconEl ? iconEl.getAttribute('width') : '';
+    const iconH = iconEl ? iconEl.getAttribute('height') : '';
 
     const hero = $('.pd-hero');
     if (hero && hero.classList.contains('app-mark-panel') && !hero.classList.contains('has-win')) {
       hero.classList.add('has-win');
-      hero.appendChild(buildWindow({ slug: slug, title: title, icon: icon, size: 'lg' }));
+      hero.appendChild(buildWindow({ slug: slug, title: title, icon: icon, iconW: iconW, iconH: iconH, size: 'lg' }));
     }
 
     $$('.pd-thumb').forEach((thumb, index) => {
       if (thumb.querySelector('img') || thumb.querySelector('.v5-win') || thumb.classList.contains('pd-screenshot')) return;
       thumb.classList.add('has-win');
-      thumb.appendChild(buildWindow({ slug: slug, title: title, icon: icon, size: 'sm', detail: index }));
+      thumb.appendChild(buildWindow({ slug: slug, title: title, icon: icon, iconW: iconW, iconH: iconH, size: 'sm', detail: index }));
     });
   })();
 
@@ -471,7 +480,7 @@
     lastFocus = document.activeElement;
 
     qvMedia.innerHTML = '';
-    qvMedia.appendChild(buildWindow({ slug: info.slug, title: info.title, icon: info.icon }));
+    qvMedia.appendChild(buildWindow({ slug: info.slug, title: info.title, icon: info.icon, iconW: info.iconW, iconH: info.iconH }));
     qvKicker.textContent = info.cat;
     qvTitle.textContent = info.title;
     qvDesc.textContent = info.desc;

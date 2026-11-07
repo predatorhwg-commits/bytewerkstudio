@@ -1,0 +1,9 @@
+{
+  "summary": {
+    "checks": 61,
+    "findings": 0,
+    "payloads": 5,
+    "csp_blocks_inline_handler": true
+  },
+  "findings": []
+}

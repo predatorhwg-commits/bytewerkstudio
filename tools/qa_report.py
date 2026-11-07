@@ -40,6 +40,8 @@ def main() -> int:
     three = load("three.json")
     security = load("security.json")
     a11y = load("a11y.json")
+    xss = load("xss.json")
+    keyboard = load("keyboard.json")
     perf = load("perf.json")
 
     s = static["summary"]
@@ -67,8 +69,8 @@ def main() -> int:
     body.append("Stand: 7. November 2026. Dieser Bericht wird von `tools/qa_report.py`")
     body.append("aus den Messdateien in `docs/qa/` erzeugt. Alle Zahlen sind gemessen,")
     body.append("nicht geschätzt. Rohdaten liegen in `docs/qa/`: `static.json`,")
-    body.append("`seo.json`, `runtime.json`, `security.json`, `a11y.json`, `perf.json`,")
-    body.append("`three.json`.")
+    body.append("`seo.json`, `runtime.json`, `security.json`, `xss.json`, `a11y.json`,")
+    body.append("`keyboard.json`, `perf.json`, `three.json`.")
     body.append("")
 
     body.append("## 1. Statische Prüfung")
@@ -167,6 +169,22 @@ def main() -> int:
             body.append("ohne `'unsafe-inline'` und ohne `'unsafe-eval'`, zusätzlich")
             body.append("`script-src-attr 'none'` und `frame-src 'none'`.")
         body.append("")
+        if xss:
+            x = xss.get("summary", {})
+            body.append("### Eingaben im Browser")
+            body.append("")
+            body.append("`tools/qa_xss.py` ruft die Seiten mit präparierten Werten in")
+            body.append("Query, Fragment und Suchfeld auf: `<img onerror>`, `<svg onload>`,")
+            body.append("`</script><script>`, `javascript:` und ein `<iframe>`.")
+            body.append("")
+            body.append(md_table([
+                ["Aufrufe mit Angriffsmustern", x.get("checks", 0)],
+                ["Muster je Aufruf", x.get("payloads", 0)],
+                ["Befunde (Markup injiziert oder Code gelaufen)", x.get("findings", 0)],
+                ["CSP blockiert nachträglichen Inline-Handler",
+                 "ja" if x.get("csp_blocks_inline_handler") else "nein"],
+            ], ["Messung", "Ergebnis"]))
+            body.append("")
     else:
         body.append("Noch keine Messung: `docs/qa/security.json` fehlt.")
         body.append("")
@@ -191,6 +209,20 @@ def main() -> int:
             ["Seiten ohne Sprungmarke", a.get("pages_without_skip", 0)],
         ], ["Messung", "Ergebnis"]))
         body.append("")
+        if keyboard:
+            k = keyboard.get("summary", {})
+            body.append("### Tastaturbedienung")
+            body.append("")
+            body.append("`tools/qa_keyboard.py` prüft echtes Verhalten bei 390 px:")
+            body.append("Menü öffnen und per Escape schließen (Fokus zurück auf den")
+            body.append("Knopf), Suche per Strg+K, Sprachknöpfe, Sprungmarke.")
+            body.append("")
+            body.append(md_table([
+                ["Seiten", k.get("pages", 0)],
+                ["Einzelprüfungen", k.get("checks", 0)],
+                ["Befunde", k.get("findings", 0)],
+            ], ["Messung", "Ergebnis"]))
+            body.append("")
     else:
         body.append("Noch keine Messung: `docs/qa/a11y.json` fehlt.")
         body.append("")
@@ -283,6 +315,8 @@ def main() -> int:
     body.append("python3 tools/qa_three.py --base http://127.0.0.1:8809")
     body.append("python3 tools/qa_security.py")
     body.append("python3 tools/qa_a11y.py --base http://127.0.0.1:8809")
+    body.append("python3 tools/qa_xss.py --base http://127.0.0.1:8809")
+    body.append("python3 tools/qa_keyboard.py --base http://127.0.0.1:8809")
     body.append("python3 tools/qa_perf.py --base http://127.0.0.1:8809")
     body.append("python3 tools/qa_report.py")
     body.append("```")

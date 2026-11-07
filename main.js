@@ -17,15 +17,29 @@
   const toggle = document.querySelector('.nav-toggle');
   const menu = document.querySelector('.mobile-menu');
   if (!toggle || !menu) return;
+  /* Der Knopf sagt an, was er als Nächstes tut — „Menü öffnen“ auch im
+     geöffneten Zustand wäre für Screenreader schlicht falsch. */
   const setOpen = (open) => {
     menu.classList.toggle('open', open);
     toggle.setAttribute('aria-expanded', String(open));
+    const en = (document.documentElement.lang || 'de').slice(0, 2) === 'en';
+    const label = open
+      ? (en ? 'Close menu' : 'Menü schließen')
+      : (en ? 'Open menu' : 'Menü öffnen');
+    toggle.setAttribute('aria-label', label);
+    toggle.setAttribute('data-en-aria', open ? 'Close menu' : 'Open menu');
   };
   toggle.addEventListener('click', () => setOpen(!menu.classList.contains('open')));
   menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
   window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') setOpen(false);
+    if (e.key !== 'Escape' || !menu.classList.contains('open')) return;
+    setOpen(false);
+    toggle.focus();
   });
+  /* Beim Wechsel auf Desktop-Breite bleibt kein unsichtbares Menü offen. */
+  const wide = window.matchMedia('(min-width: 901px)');
+  const closeOnWide = () => { if (wide.matches && menu.classList.contains('open')) setOpen(false); };
+  if (wide.addEventListener) wide.addEventListener('change', closeOnWide);
 })();
 
 /* ---------- Scroll reveal ----------

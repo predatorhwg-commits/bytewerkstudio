@@ -33,3 +33,24 @@ jobs:
         run: |
           python3 tools/i18n_products.py --check
           python3 tools/i18n_cards.py --check
+
+  browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Playwright installieren
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install playwright pillow
+          python3 -m playwright install --with-deps chromium
+      - name: Lokaler Server
+        run: python3 -m http.server 8809 --bind 127.0.0.1 &
+      - name: Barrierefreiheit
+        run: python3 tools/qa_a11y.py --base http://127.0.0.1:8809
+      - name: Eingaben im Browser
+        run: python3 tools/qa_xss.py --base http://127.0.0.1:8809
+      - name: Tastaturbeduerung
+        run: python3 tools/qa_keyboard.py --base http://127.0.0.1:8809

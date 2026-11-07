@@ -1,0 +1,340 @@
+{
+  "summary": {
+    "pages": 5,
+    "checks": 55,
+    "findings": 0
+  },
+  "checks": [
+    {
+      "page": "index.html",
+      "check": "Menü öffnet",
+      "ok": true,
+      "detail": "{\"expanded\": \"true\", \"label\": \"Menü schließen\", \"controls\": \"bw-mobile-menu\", \"open\": true, \"width\": 390}"
+    },
+    {
+      "page": "index.html",
+      "check": "Menü nennt sich geschlossen",
+      "ok": true,
+      "detail": "Menü schließen"
+    },
+    {
+      "page": "index.html",
+      "check": "Escape schließt Menü",
+      "ok": true,
+      "detail": "{\"expanded\": \"false\", \"open\": false, \"focused\": \"nav-toggle\", \"label\": \"Menü öffnen\"}"
+    },
+    {
+      "page": "index.html",
+      "check": "Fokus zurück auf Menüknopf",
+      "ok": true,
+      "detail": "nav-toggle"
+    },
+    {
+      "page": "index.html",
+      "check": "Knopf sagt wieder öffnen",
+      "ok": true,
+      "detail": "Menü öffnen"
+    },
+    {
+      "page": "index.html",
+      "check": "Strg+K öffnet die Suche",
+      "ok": true,
+      "detail": "{\"open\": true, \"focusInDialog\": true, \"modal\": \"true\", \"role\": \"dialog\"}"
+    },
+    {
+      "page": "index.html",
+      "check": "Fokus im Suchfeld",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "page": "index.html",
+      "check": "Escape schließt die Suche",
+      "ok": true,
+      "detail": "{\"open\": false, \"focus\": \"nav-search\"}"
+    },
+    {
+      "page": "index.html",
+      "check": "Sprachknöpfe vorhanden",
+      "ok": true,
+      "detail": "4"
+    },
+    {
+      "page": "index.html",
+      "check": "Sprachknopf sichtbar und groß genug",
+      "ok": true,
+      "detail": "{\"x\": 20, \"y\": 791.4375, \"width\": 39.203125, \"height\": 39.25}"
+    },
+    {
+      "page": "index.html",
+      "check": "Sprungmarke erreicht <main>",
+      "ok": true,
+      "detail": "{\"hash\": \"#main\", \"main\": true, \"inMain\": false}"
+    },
+    {
+      "page": "forum.html",
+      "check": "Menü öffnet",
+      "ok": true,
+      "detail": "{\"expanded\": \"true\", \"label\": \"Menü schließen\", \"controls\": \"bw-mobile-menu\", \"open\": true, \"width\": 390}"
+    },
+    {
+      "page": "forum.html",
+      "check": "Menü nennt sich geschlossen",
+      "ok": true,
+      "detail": "Menü schließen"
+    },
+    {
+      "page": "forum.html",
+      "check": "Escape schließt Menü",
+      "ok": true,
+      "detail": "{\"expanded\": \"false\", \"open\": false, \"focused\": \"nav-toggle\", \"label\": \"Menü öffnen\"}"
+    },
+    {
+      "page": "forum.html",
+      "check": "Fokus zurück auf Menüknopf",
+      "ok": true,
+      "detail": "nav-toggle"
+    },
+    {
+      "page": "forum.html",
+      "check": "Knopf sagt wieder öffnen",
+      "ok": true,
+      "detail": "Menü öffnen"
+    },
+    {
+      "page": "forum.html",
+      "check": "Strg+K öffnet die Suche",
+      "ok": true,
+      "detail": "{\"open\": true, \"focusInDialog\": true, \"modal\": \"true\", \"role\": \"dialog\"}"
+    },
+    {
+      "page": "forum.html",
+      "check": "Fokus im Suchfeld",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "page": "forum.html",
+      "check": "Escape schließt die Suche",
+      "ok": true,
+      "detail": "{\"open\": false, \"focus\": \"nav-search\"}"
+    },
+    {
+      "page": "forum.html",
+      "check": "Sprachknöpfe vorhanden",
+      "ok": true,
+      "detail": "4"
+    },
+    {
+      "page": "forum.html",
+      "check": "Sprachknopf sichtbar und groß genug",
+      "ok": true,
+      "detail": "{\"x\": 20, \"y\": 791.4375, \"width\": 39.203125, \"height\": 39.25}"
+    },
+    {
+      "page": "forum.html",
+      "check": "Sprungmarke erreicht <main>",
+      "ok": true,
+      "detail": "{\"hash\": \"#main\", \"main\": true, \"inMain\": false}"
+    },
+    {
+      "page": "shop.html",
+      "check": "Menü öffnet",
+      "ok": true,
+      "detail": "{\"expanded\": \"true\", \"label\": \"Menü schließen\", \"controls\": \"bw-mobile-menu\", \"open\": true, \"width\": 390}"
+    },
+    {
+      "page": "shop.html",
+      "check": "Menü nennt sich geschlossen",
+      "ok": true,
+      "detail": "Menü schließen"
+    },
+    {
+      "page": "shop.html",
+      "check": "Escape schließt Menü",
+      "ok": true,
+      "detail": "{\"expanded\": \"false\", \"open\": false, \"focused\": \"nav-toggle\", \"label\": \"Menü öffnen\"}"
+    },
+    {
+      "page": "shop.html",
+      "check": "Fokus zurück auf Menüknopf",
+      "ok": true,
+      "detail": "nav-toggle"
+    },
+    {
+      "page": "shop.html",
+      "check": "Knopf sagt wieder öffnen",
+      "ok": true,
+      "detail": "Menü öffnen"
+    },
+    {
+      "page": "shop.html",
+      "check": "Strg+K öffnet die Suche",
+      "ok": true,
+      "detail": "{\"open\": true, \"focusInDialog\": true, \"modal\": \"true\", \"role\": \"dialog\"}"
+    },
+    {
+      "page": "shop.html",
+      "check": "Fokus im Suchfeld",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "page": "shop.html",
+      "check": "Escape schließt die Suche",
+      "ok": true,
+      "detail": "{\"open\": false, \"focus\": \"nav-search\"}"
+    },
+    {
+      "page": "shop.html",
+      "check": "Sprachknöpfe vorhanden",
+      "ok": true,
+      "detail": "4"
+    },
+    {
+      "page": "shop.html",
+      "check": "Sprachknopf sichtbar und groß genug",
+      "ok": true,
+      "detail": "{\"x\": 20, \"y\": 791.4375, \"width\": 39.203125, \"height\": 39.25}"
+    },
+    {
+      "page": "shop.html",
+      "check": "Sprungmarke erreicht <main>",
+      "ok": true,
+      "detail": "{\"hash\": \"#main\", \"main\": true, \"inMain\": false}"
+    },
+    {
+      "page": "sicherheit.html",
+      "check": "Menü öffnet",
+      "ok": true,
+      "detail": "{\"expanded\": \"true\", \"label\": \"Menü schließen\", \"controls\": \"bw-mobile-menu\", \"open\": true, \"width\": 390}"
+    },
+    {
+      "page": "sicherheit.html",
+      "check": "Menü nennt sich geschlossen",
+      "ok": true,
+      "detail": "Menü schließen"
+    },
+    {
+      "page": "sicherheit.html",
+      "check": "Escape schließt Menü",
+      "ok": true,
+      "detail": "{\"expanded\": \"false\", \"open\": false, \"focused\": \"nav-toggle\", \"label\": \"Menü öffnen\"}"
+    },
+    {
+      "page": "sicherheit.html",
+      "check": "Fokus zurück auf Menüknopf",
+      "ok": true,
+      "detail": "nav-toggle"
+    },
+    {
+      "page": "sicherheit.html",
+      "check": "Knopf sagt wieder öffnen",
+      "ok": true,
+      "detail": "Menü öffnen"
+    },
+    {
+      "page": "sicherheit.html",
+      "check": "Strg+K öffnet die Suche",
+      "ok": true,
+      "detail": "{\"open\": true, \"focusInDialog\": true, \"modal\": \"true\", \"role\": \"dialog\"}"
+    },
+    {
+      "page": "sicherheit.html",
+      "check": "Fokus im Suchfeld",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "page": "sicherheit.html",
+      "check": "Escape schließt die Suche",
+      "ok": true,
+      "detail": "{\"open\": false, \"focus\": \"nav-search\"}"
+    },
+    {
+      "page": "sicherheit.html",
+      "check": "Sprachknöpfe vorhanden",
+      "ok": true,
+      "detail": "4"
+    },
+    {
+      "page": "sicherheit.html",
+      "check": "Sprachknopf sichtbar und groß genug",
+      "ok": true,
+      "detail": "{\"x\": 20, \"y\": 791.4375, \"width\": 39.203125, \"height\": 39.25}"
+    },
+    {
+      "page": "sicherheit.html",
+      "check": "Sprungmarke erreicht <main>",
+      "ok": true,
+      "detail": "{\"hash\": \"#main\", \"main\": true, \"inMain\": false}"
+    },
+    {
+      "page": "agb.html",
+      "check": "Menü öffnet",
+      "ok": true,
+      "detail": "{\"expanded\": \"true\", \"label\": \"Menü schließen\", \"controls\": \"bw-mobile-menu\", \"open\": true, \"width\": 390}"
+    },
+    {
+      "page": "agb.html",
+      "check": "Menü nennt sich geschlossen",
+      "ok": true,
+      "detail": "Menü schließen"
+    },
+    {
+      "page": "agb.html",
+      "check": "Escape schließt Menü",
+      "ok": true,
+      "detail": "{\"expanded\": \"false\", \"open\": false, \"focused\": \"nav-toggle\", \"label\": \"Menü öffnen\"}"
+    },
+    {
+      "page": "agb.html",
+      "check": "Fokus zurück auf Menüknopf",
+      "ok": true,
+      "detail": "nav-toggle"
+    },
+    {
+      "page": "agb.html",
+      "check": "Knopf sagt wieder öffnen",
+      "ok": true,
+      "detail": "Menü öffnen"
+    },
+    {
+      "page": "agb.html",
+      "check": "Strg+K öffnet die Suche",
+      "ok": true,
+      "detail": "{\"open\": true, \"focusInDialog\": true, \"modal\": \"true\", \"role\": \"dialog\"}"
+    },
+    {
+      "page": "agb.html",
+      "check": "Fokus im Suchfeld",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "page": "agb.html",
+      "check": "Escape schließt die Suche",
+      "ok": true,
+      "detail": "{\"open\": false, \"focus\": \"nav-search\"}"
+    },
+    {
+      "page": "agb.html",
+      "check": "Sprachknöpfe vorhanden",
+      "ok": true,
+      "detail": "4"
+    },
+    {
+      "page": "agb.html",
+      "check": "Sprachknopf sichtbar und groß genug",
+      "ok": true,
+      "detail": "{\"x\": 20, \"y\": 791.4375, \"width\": 39.203125, \"height\": 39.25}"
+    },
+    {
+      "page": "agb.html",
+      "check": "Sprungmarke erreicht <main>",
+      "ok": true,
+      "detail": "{\"hash\": \"#main\", \"main\": true, \"inMain\": false}"
+    }
+  ],
+  "findings": []
+}

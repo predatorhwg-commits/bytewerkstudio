@@ -51,7 +51,11 @@
       href: href,
       img: img ? {
         src: img.getAttribute('src') || '',
-        alt: img.getAttribute('alt') || ''
+        alt: img.getAttribute('alt') || '',
+        /* Maße mitnehmen: ohne sie springt das Layout, sobald das Bild
+           geladen ist (CLS). Das CSS darf sie weiterhin überschreiben. */
+        width: img.getAttribute('width') || '',
+        height: img.getAttribute('height') || ''
       } : null,
       catEl: card.querySelector('.wc-cat'),
       titleEl: card.querySelector('h3'),
@@ -108,6 +112,8 @@
       var img = doc.createElement('img');
       img.src = item.img.src;
       img.alt = item.img.alt;
+      if (item.img.width) img.setAttribute('width', item.img.width);
+      if (item.img.height) img.setAttribute('height', item.img.height);
       img.decoding = 'async';
       img.loading = i === 0 ? 'eager' : 'lazy';
       frame.appendChild(img);
