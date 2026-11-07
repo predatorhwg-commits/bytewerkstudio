@@ -1,4 +1,2 @@
 User-agent: *
-Allow: /
-
-Sitemap: https://bytewerkstudio.com/sitemap.xml
+Disallow: /
