@@ -5,7 +5,7 @@
 <script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CaeQ8Q3geGyk4C+zSbiPIgg9xb3aa/Jes1V9wggsHR4='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CaeQ8Q3geGyk4C+zSbiPIgg9xb3aa/Jes1V9wggsHR4='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Werkstatt — Entwicklerbereich, Werkstatt-Forum und Abo — Bytewerk Studio</title>
 <meta name="description" content="Die Bytewerk Werkstatt: Forum für Entwickler, Code-Bausteine aus dem eigenen Stack, Abo für Studio und Team, Sicherheit zum Nachlesen. Deutsch, Englisch und Spanisch, ohne fremde Skripte.">
@@ -25,8 +25,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://bytewerkstudio.com/media/og-entwickler.png">
 <link rel="icon" href="logo.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="styles-v3.css">
 <link rel="stylesheet" href="styles-auth.css">
@@ -359,8 +358,8 @@ document.<span class="f">querySelectorAll</span>(<span class="s">'[data-scene3d]
 <pre class="wk-code"><code>&lt;meta http-equiv=<span class="s">"Content-Security-Policy"</span>
       content=<span class="s">"default-src 'self';
                script-src 'self';
-               style-src 'self' https://fonts.googleapis.com;
-               font-src https://fonts.gstatic.com;
+               style-src 'self';
+               font-src 'self';
                img-src 'self' data:;
                object-src 'none';
                base-uri 'self';
