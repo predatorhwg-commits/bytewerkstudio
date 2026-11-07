@@ -346,7 +346,7 @@ body::after {
 .footer { background: var(--paper-2); border-top-color: var(--line); }
 .footer-col a { color: var(--muted); }
 .footer-col a:hover { color: var(--accent-700); }
-.footer-col h4 { color: var(--faint); }
+.footer-col h3 { color: var(--faint); }
 .footer-blurb { color: var(--muted); }
 .footer-bottom { border-top-color: var(--line); }
 .footer-social a { background: var(--surface); border-color: var(--line-2); }

@@ -187,7 +187,7 @@ img { max-width: 100%; height: auto; }
   background: var(--st-green);
   box-shadow: 0 0 0 4px rgba(79, 122, 99, .14);
 }
-.st-sep { color: var(--st-line-strong); }
+.st-sep { color: #a39a88; }
 .st-title {
   margin: 0;
   font-family: 'Newsreader', Georgia, serif;
@@ -201,7 +201,7 @@ img { max-width: 100%; height: auto; }
 .st-title-soft { color: #8b8577; }
 .st-title-accent { color: var(--st-accent); }
 .st-dot { color: var(--st-accent); }
-.st-title-soft .st-dot { color: #b9b1a0; }
+.st-title-soft .st-dot { color: #98907f; }
 .st-hero .st-lead { margin: 28px 0 0; }
 .st-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
 .st-hero-facts {
@@ -559,7 +559,7 @@ img { max-width: 100%; height: auto; }
 /* ---------- Footer (shared markup, ruhiger) ---------- */
 .footer { border-top: 1px solid var(--st-line); background: var(--st-paper); padding-top: clamp(48px, 6vw, 72px); }
 .footer-top { gap: clamp(28px, 4vw, 56px); }
-.footer h4 { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--st-muted); }
+.footer h3 { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--st-muted); }
 .footer a { font-size: 14px; color: var(--st-soft); }
 .footer a:hover { color: var(--st-accent); }
 .footer-blurb { color: var(--st-muted); font-size: 14px; max-width: 34ch; }

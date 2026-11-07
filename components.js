@@ -29,7 +29,7 @@
   const langToggle = `
     <div class="lang-toggle" role="group" aria-label="Sprache / Language">
       <button data-lang-btn="de" aria-label="Deutsch">DE</button>
-      <span class="lang-sep">/</span>
+      <span class="lang-sep" aria-hidden="true">/</span>
       <button data-lang-btn="en" aria-label="English">EN</button>
     </div>`;
 
@@ -85,14 +85,14 @@
             <p class="footer-blurb" data-en="Software, web and app development, IT services and digital products from Ludwigshafen am Rhein.">Software, Web- &amp; App-Entwicklung, IT-Dienstleistungen und digitale Produkte aus Ludwigshafen am Rhein.</p>
           </div>
           <div class="footer-col">
-            <h4 data-en="Services">Leistungen</h4>
+            <h3 data-en="Services">Leistungen</h3>
             <a href="softwareentwicklung-ludwigshafen.html" data-en="Software development">Softwareentwicklung</a>
             <a href="softwareentwicklung-ludwigshafen.html#webentwicklung" data-en="Web development">Web-Entwicklung</a>
             <a href="softwareentwicklung-ludwigshafen.html#app-entwicklung" data-en="App development">App-Entwicklung</a>
             <a href="softwareentwicklung-ludwigshafen.html" data-en="IT services">IT-Dienstleistungen</a>
           </div>
           <div class="footer-col">
-            <h4 data-en="Studio">Studio</h4>
+            <h3 data-en="Studio">Studio</h3>
             <a href="studio.html" data-en="About us">Über uns</a>
             <a href="arbeiten.html" data-en="Work">Arbeiten</a>
             <a href="bauplan.html" data-en="Blueprint">Bauplan</a>
@@ -106,7 +106,7 @@
             <a href="kontakt.html" data-en="Contact">Kontakt</a>
           </div>
           <div class="footer-col">
-            <h4 data-en="Legal">Rechtliches</h4>
+            <h3 data-en="Legal">Rechtliches</h3>
             <a href="impressum.html" data-en="Imprint">Impressum</a>
             <a href="datenschutz.html" data-en="Privacy">Datenschutz</a>
             <a href="agb.html" data-en="Terms">AGB</a>
