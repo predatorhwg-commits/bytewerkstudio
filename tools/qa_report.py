@@ -42,6 +42,7 @@ def main() -> int:
     a11y = load("a11y.json")
     xss = load("xss.json")
     keyboard = load("keyboard.json")
+    design = load("design.json")
     perf = load("perf.json")
 
     s = static["summary"]
@@ -227,7 +228,38 @@ def main() -> int:
         body.append("Noch keine Messung: `docs/qa/a11y.json` fehlt.")
         body.append("")
 
-    body.append("## 6. Ladezeit und Gewicht")
+    body.append("## 6. Gestaltung")
+    body.append("")
+    if design:
+        d = design.get("summary", {})
+        body.append("`tools/qa_design.py` misst bei 390 px, was sich prüfen lässt und")
+        body.append("fast immer ein Fehler ist — Geschmack ist keine Messgröße. Die")
+        body.append("Ausnahmen der Norm sind eingebaut: Links mitten im Satz und")
+        body.append("Kästchen, deren Label die Trefferfläche bildet, zählen nicht.")
+        body.append("")
+        body.append(md_table([
+            ["Seiten", d.get("pages", 0)],
+            ["Tap-Ziele unter 24 × 24 px", d.get("tap_too_small", 0)],
+            ["Zeilen über 90 Zeichen", d.get("long_lines", 0)],
+            ["Schrift unter 12 px", d.get("font_below_12", 0)],
+            ["Zeilenhöhe unter 1,25", d.get("tight_leading", 0)],
+            ["Verzerrte Bilder", d.get("distorted_images", 0)],
+            ["Überlaufende Elemente", d.get("overflowing", 0)],
+            ["Text am Viewport-Rand", d.get("text_at_edge", 0)],
+        ], ["Messung", "Ergebnis"]))
+        body.append("")
+        body.append("Behoben wurden unter anderem die Breadcrumbs auf sechs Seiten")
+        body.append("(16–19 px hoch), der Showroom-Regler (18 × 22 px), die")
+        body.append("Aktionsspalte der Vergleichstabelle (21 px) und 18 Textstellen")
+        body.append("zwischen 9,5 und 11,5 px. Zusätzlich stand die Hinweiszeile der")
+        body.append("Marken-Bühne absolut am Abschnittsende und damit unter dem")
+        body.append("Kachelraster statt unter der Bühne; sie liegt jetzt im Fluss.")
+        body.append("")
+    else:
+        body.append("Noch keine Messung: `docs/qa/design.json` fehlt.")
+        body.append("")
+
+    body.append("## 7. Ladezeit und Gewicht")
     body.append("")
     if perf:
         p = perf.get("summary", {})
@@ -252,7 +284,7 @@ def main() -> int:
         body.append("Noch keine Messung: `docs/qa/perf.json` fehlt.")
         body.append("")
 
-    body.append("## 7. 3D-Bühnen (three.js)")
+    body.append("## 8. 3D-Bühnen (three.js)")
     body.append("")
     if three:
         rows = three.get("rows", [])
@@ -283,7 +315,7 @@ def main() -> int:
         body.append("```")
         body.append("")
 
-    body.append("## 8. Screenshots")
+    body.append("## 9. Screenshots")
     body.append("")
     shots = sorted(p.name for p in QA.glob("*-desktop.png"))
     body.append(f"`docs/qa/` enthält {len(shots)} Desktop-Aufnahmen (1440 × 900) sowie")
@@ -293,7 +325,7 @@ def main() -> int:
     body.append("Bühnen im Bild sind).")
     body.append("")
 
-    body.append("## 9. Was hier nicht geprüft wird")
+    body.append("## 10. Was hier nicht geprüft wird")
     body.append("")
     body.append("- **Echte Geräte.** Die Messung läuft in Chromium; Safari und Firefox")
     body.append("  werden nicht automatisch geprüft.")
@@ -305,7 +337,7 @@ def main() -> int:
     body.append("  selbst lässt sich im Browser nicht abschließend testen.")
     body.append("")
 
-    body.append("## 10. Wiederholen")
+    body.append("## 11. Wiederholen")
     body.append("")
     body.append("```")
     body.append("python3 tools/qa_site.py --static-only")
@@ -317,6 +349,7 @@ def main() -> int:
     body.append("python3 tools/qa_a11y.py --base http://127.0.0.1:8809")
     body.append("python3 tools/qa_xss.py --base http://127.0.0.1:8809")
     body.append("python3 tools/qa_keyboard.py --base http://127.0.0.1:8809")
+    body.append("python3 tools/qa_design.py --base http://127.0.0.1:8809")
     body.append("python3 tools/qa_perf.py --base http://127.0.0.1:8809")
     body.append("python3 tools/qa_report.py")
     body.append("```")

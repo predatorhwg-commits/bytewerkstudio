@@ -110,7 +110,32 @@ Knopf), Suche per Strg+K, Sprachknöpfe, Sprungmarke.
 | Einzelprüfungen | 55 |
 | Befunde | 0 |
 
-## 6. Ladezeit und Gewicht
+## 6. Gestaltung
+
+`tools/qa_design.py` misst bei 390 px, was sich prüfen lässt und
+fast immer ein Fehler ist — Geschmack ist keine Messgröße. Die
+Ausnahmen der Norm sind eingebaut: Links mitten im Satz und
+Kästchen, deren Label die Trefferfläche bildet, zählen nicht.
+
+| Messung | Ergebnis |
+|---|---|
+| Seiten | 34 |
+| Tap-Ziele unter 24 × 24 px | 0 |
+| Zeilen über 90 Zeichen | 0 |
+| Schrift unter 12 px | 0 |
+| Zeilenhöhe unter 1,25 | 0 |
+| Verzerrte Bilder | 0 |
+| Überlaufende Elemente | 0 |
+| Text am Viewport-Rand | 0 |
+
+Behoben wurden unter anderem die Breadcrumbs auf sechs Seiten
+(16–19 px hoch), der Showroom-Regler (18 × 22 px), die
+Aktionsspalte der Vergleichstabelle (21 px) und 18 Textstellen
+zwischen 9,5 und 11,5 px. Zusätzlich stand die Hinweiszeile der
+Marken-Bühne absolut am Abschnittsende und damit unter dem
+Kachelraster statt unter der Bühne; sie liegt jetzt im Fluss.
+
+## 7. Ladezeit und Gewicht
 
 Gemessen mit deaktiviertem Browser-Cache je Seite: übertragene
 Bytes, Requests, LCP und CLS. Die Zahlen gelten für den lokalen
@@ -129,7 +154,7 @@ Der größte Einzelposten ist three.js (`vendor/`, rund 700 KB) auf
 den Seiten mit 3D-Bühne. Er wird nur geladen, wenn eine Bühne in
 den Blick kommt; ohne WebGL bleibt die gezeichnete Ersatzbühne.
 
-## 7. 3D-Bühnen (three.js)
+## 8. 3D-Bühnen (three.js)
 
 Geprüft: **9 Seiten mit 3D-Szene**, gerendert: **9**.
 Messung: Canvas in den Blick scrollen, WebGL-Kontext abfragen, Bild
@@ -152,7 +177,7 @@ Alle Szenen laden three.js ausschließlich aus `vendor/`; das ist mit
 `script-src 'self'` vereinbar. Ohne WebGL bleibt die gezeichnete
 SVG-Bühne sichtbar, die Bedienelemente funktionieren weiter.
 
-## 8. Screenshots
+## 9. Screenshots
 
 `docs/qa/` enthält 34 Desktop-Aufnahmen (1440 × 900) sowie
 Startseite in Tablet und Mobil. Sie zeigen den ersten Bildschirm
@@ -160,7 +185,7 @@ jeder Seite und dienen der Sichtprüfung von Typografie, Abständen
 und 3D-Bühne. Erzeugt mit `tools/qa_shots.py` (WebGL an, damit die
 Bühnen im Bild sind).
 
-## 9. Was hier nicht geprüft wird
+## 10. Was hier nicht geprüft wird
 
 - **Echte Geräte.** Die Messung läuft in Chromium; Safari und Firefox
   werden nicht automatisch geprüft.
@@ -171,7 +196,7 @@ Bühnen im Bild sind).
 - **Formularversand.** `mailto:` öffnet ein Mailprogramm; der Versand
   selbst lässt sich im Browser nicht abschließend testen.
 
-## 10. Wiederholen
+## 11. Wiederholen
 
 ```
 python3 tools/qa_site.py --static-only
@@ -183,6 +208,7 @@ python3 tools/qa_security.py
 python3 tools/qa_a11y.py --base http://127.0.0.1:8809
 python3 tools/qa_xss.py --base http://127.0.0.1:8809
 python3 tools/qa_keyboard.py --base http://127.0.0.1:8809
+python3 tools/qa_design.py --base http://127.0.0.1:8809
 python3 tools/qa_perf.py --base http://127.0.0.1:8809
 python3 tools/qa_report.py
 ```
