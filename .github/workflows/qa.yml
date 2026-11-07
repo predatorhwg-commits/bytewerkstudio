@@ -59,3 +59,5 @@ jobs:
         run: python3 tools/qa_keyboard.py --base http://127.0.0.1:8809
       - name: Forum als Funktion
         run: python3 tools/qa_forum.py --base http://127.0.0.1:8809
+      - name: Entwickler-Abo bis ins Formular
+        run: python3 tools/qa_abo.py --base http://127.0.0.1:8809

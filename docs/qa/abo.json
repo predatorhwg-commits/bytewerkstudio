@@ -1,0 +1,44 @@
+{
+  "summary": {
+    "checks": 7,
+    "findings": 0,
+    "passed": 7
+  },
+  "checks": [
+    {
+      "check": "Drei Abo-Stufen sind sichtbar und bepreist",
+      "ok": true,
+      "detail": "Sandbox 0 € · Pro 29 € · Team 99 €"
+    },
+    {
+      "check": "Umschalter Monat/Jahr ändert die Beträge",
+      "ok": true,
+      "detail": "['29 €', '99 €'] -> ['24 €', '82 €']"
+    },
+    {
+      "check": "Kostenlose Stufe führt zur Sandbox",
+      "ok": true,
+      "detail": "Sandbox im Blick"
+    },
+    {
+      "check": "Stufe Pro landet im Kontaktformular",
+      "ok": true,
+      "detail": "Ich möchte die API-Stufe Pro nutzen (29 €/Monat, 50.000 Anfragen)."
+    },
+    {
+      "check": "Stufe Team landet im Kontaktformular",
+      "ok": true,
+      "detail": "Ich möchte die API-Stufe Team nutzen (99 €/Monat, 500.000 Anfragen)."
+    },
+    {
+      "check": "Allgemeine API-Anfrage landet im Kontaktformular",
+      "ok": true,
+      "detail": "Ich interessiere mich für die Bytewerk-API."
+    },
+    {
+      "check": "Englische Fassung übernimmt englisch",
+      "ok": true,
+      "detail": "I would like the API Pro plan (€29/month, 50,000 requests)."
+    }
+  ]
+}

@@ -1032,28 +1032,69 @@
 
   /* ---------- Start ---------- */
 
-  // Übernahme aus dem Projekt-Konfigurator (kontakt.html?typ=…&briefing=…).
+  // Übernahme aus dem Projekt-Konfigurator (kontakt.html?typ=…&briefing=…)
+  // und aus den Abo-Stufen der Entwickler-Seite (?thema=api|api-pro|api-team).
   (function prefill() {
     const params = new URLSearchParams(location.search);
     const wantType = params.get('typ');
     const briefing = params.get('briefing');
-    if (!wantType && !briefing) return;
-    let applied = false;
-    if (wantType) {
-      const hit = typeInputs.find((i) => i.value === wantType);
-      if (hit) { hit.checked = true; applied = true; }
-    }
-    if (briefing) {
-      const notesField = form.querySelector('#notes');
-      if (notesField && !notesField.value.trim()) {
-        notesField.value = briefing;
-        applied = true;
+    const thema = params.get('thema') || '';
+
+    // Was die Abo-Knöpfe bedeuten. Der Text landet in den Rahmen-
+    // bedingungen, weil es dort um den Auftrag geht; die Projektart
+    // steht als eigene Auswahl zur Verfügung.
+    const THEMEN = {
+      'api': {
+        type: 'API / Abo',
+        note: 'Ich interessiere mich für die Bytewerk-API.',
+        noteEn: 'I am interested in the Bytewerk API.',
+        source: 'Aus der Entwickler-Seite übernommen.',
+        sourceEn: 'Prefilled from the developer page.'
+      },
+      'api-pro': {
+        type: 'API / Abo',
+        note: 'Ich möchte die API-Stufe Pro nutzen (29 €/Monat, 50.000 Anfragen).',
+        noteEn: 'I would like the API Pro plan (€29/month, 50,000 requests).',
+        source: 'Stufe Pro aus der Entwickler-Seite übernommen.',
+        sourceEn: 'Pro plan prefilled from the developer page.'
+      },
+      'api-team': {
+        type: 'API / Abo',
+        note: 'Ich möchte die API-Stufe Team nutzen (99 €/Monat, 500.000 Anfragen).',
+        noteEn: 'I would like the API Team plan (€99/month, 500,000 requests).',
+        source: 'Stufe Team aus der Entwickler-Seite übernommen.',
+        sourceEn: 'Team plan prefilled from the developer page.'
       }
+    };
+    const themaHit = THEMEN[thema];
+
+    if (!wantType && !briefing && !themaHit) return;
+    let applied = false;
+    const pickType = (value) => {
+      const hit = typeInputs.find((i) => i.value === value);
+      if (hit && !hit.checked) { hit.checked = true; applied = true; }
+    };
+    if (wantType) pickType(wantType);
+    if (themaHit) pickType(themaHit.type);
+
+    const notesField = form.querySelector('#notes');
+    const note = themaHit
+      ? (document.documentElement.lang === 'en' ? themaHit.noteEn : themaHit.note)
+      : briefing;
+    if (note && notesField && !notesField.value.trim()) {
+      notesField.value = note;
+      applied = true;
     }
     if (!applied) return;
+
     typeInputs.forEach((i) => i.closest('.brf-type')?.classList.toggle('is-on', i.checked));
     if (restoreBar) restoreBar.hidden = true;
     const bar = document.getElementById('brf-prefill');
+    const barNote = document.getElementById('brf-prefill-note');
+    if (barNote && themaHit) {
+      barNote.textContent = document.documentElement.lang === 'en'
+        ? themaHit.sourceEn : themaHit.source;
+    }
     if (bar) {
       bar.hidden = false;
       const ok = document.getElementById('brf-prefill-ok');

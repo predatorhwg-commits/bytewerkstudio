@@ -48,6 +48,7 @@ def main() -> int:
     forum = load("forum.json")
     i18n = load("i18n.json")
     pixdiff = load("pixdiff.json")
+    abo = load("abo.json")
 
     s = static["summary"]
     seo_rows = seo.get("rows", [])
@@ -190,6 +191,22 @@ def main() -> int:
         body.append("python3 -m http.server 8809 --bind 127.0.0.1")
         body.append("python3 tools/qa_site.py --base http://127.0.0.1:8809 --out docs/qa")
         body.append("```")
+        body.append("")
+
+    if abo:
+        a2 = abo.get("summary", {})
+        body.append("### Entwickler-Abo")
+        body.append("")
+        body.append("`tools/qa_abo.py` prüft den Weg vom Knopf bis ins Formular:")
+        body.append("drei Stufen mit Preis, der Umschalter Monat/Jahr, der Sprung")
+        body.append("zur Sandbox und die Übernahme der gewählten Stufe ins")
+        body.append("Kontaktformular — deutsch und englisch.")
+        body.append("")
+        body.append(md_table([
+            ["Prüfschritte", a2.get("checks", 0)],
+            ["Bestanden", a2.get("passed", 0)],
+            ["Befunde", a2.get("findings", 0)],
+        ], ["Messung", "Ergebnis"]))
         body.append("")
 
     body.append("## 4. Sicherheit")
@@ -441,6 +458,7 @@ def main() -> int:
     body.append("python3 tools/qa_zoom.py --base http://127.0.0.1:8809")
     body.append("python3 tools/qa_motion.py --base http://127.0.0.1:8809")
     body.append("python3 tools/qa_forum.py --base http://127.0.0.1:8809")
+    body.append("python3 tools/qa_abo.py --base http://127.0.0.1:8809")
     body.append("python3 tools/csp_styles.py --check")
     body.append("python3 tools/qa_pixdiff.py --base http://127.0.0.1:8809 --compare /tmp/vorher")
     body.append("python3 tools/qa_report.py")

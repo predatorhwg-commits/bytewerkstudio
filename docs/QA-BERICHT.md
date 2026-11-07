@@ -87,6 +87,19 @@ Fehler: Viele davon sind Produktnamen, Preise, Adressen und
 Beiträge von Nutzern, die in beiden Sprachen gleich bleiben.
 Maßgeblich sind die ersten beiden Zeilen.
 
+### Entwickler-Abo
+
+`tools/qa_abo.py` prüft den Weg vom Knopf bis ins Formular:
+drei Stufen mit Preis, der Umschalter Monat/Jahr, der Sprung
+zur Sandbox und die Übernahme der gewählten Stufe ins
+Kontaktformular — deutsch und englisch.
+
+| Messung | Ergebnis |
+|---|---|
+| Prüfschritte | 7 |
+| Bestanden | 7 |
+| Befunde | 0 |
+
 ## 4. Sicherheit
 
 `tools/qa_security.py` prüft die Fehlerklassen, die bei einer
@@ -287,6 +300,7 @@ python3 tools/qa_perf.py --base http://127.0.0.1:8809 --width 390 --height 844 -
 python3 tools/qa_zoom.py --base http://127.0.0.1:8809
 python3 tools/qa_motion.py --base http://127.0.0.1:8809
 python3 tools/qa_forum.py --base http://127.0.0.1:8809
+python3 tools/qa_abo.py --base http://127.0.0.1:8809
 python3 tools/csp_styles.py --check
 python3 tools/qa_pixdiff.py --base http://127.0.0.1:8809 --compare /tmp/vorher
 python3 tools/qa_report.py

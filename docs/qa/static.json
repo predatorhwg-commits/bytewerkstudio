@@ -173,14 +173,14 @@
       "title": "Kontakt — Projektbrief | Bytewerk Studio",
       "lang": "de",
       "h1": 1,
-      "ids": 48,
+      "ids": 49,
       "duplicate_ids": [],
       "images_without_alt": [],
       "broken_refs": [],
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/kontakt.html",
-      "data_en": 100
+      "data_en": 102
     },
     {
       "page": "konto.html",
