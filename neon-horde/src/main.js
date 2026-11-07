@@ -46,7 +46,7 @@
     } catch (e2) {
       try { el.textContent = msg; } catch (e3) {} // Minimal-Fallback
     }
-    try { el.style.display = 'flex'; } catch (e4) {}
+    try { el.classList.add('nh-error-open'); } catch (e4) {}
   }
 
   function bindFatalHandlers() {

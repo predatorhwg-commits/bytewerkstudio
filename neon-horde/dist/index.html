@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-bSE/1ZEWM2BcIiKQNjyiJ5TK32QnkBeaPN+JC0tyc0Q='; style-src 'sha256-6Ig/NBD7vI5Hh3ihMuD5FwEk6v2SYMehJEV7tnmkOYE='; img-src 'self' data: blob:; font-src 'self'; media-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="description" content="NEON HORDE — Auto-Aim wave shooter. Buy weapons, upgrade them, survive endless waves. One file, no assets, by Bytewerk Studio.">
   <meta property="og:type" content="website">
@@ -13,28 +13,68 @@
   <title>NEON HORDE — Bytewerk Studio</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
   <style>
-    /* Boot-Basis: Module (ui.js) injizieren ihr Theme per NH.css.add() */
-    html, body {
-      margin: 0; padding: 0; width: 100%; height: 100%;
-      background: #0a0f16; overflow: hidden; overscroll-behavior: none;
-      font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
-    }
-    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-    #app { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
-    #game-canvas {
-      display: block; background: #0a0f16;
-      width: 100vw; height: 100vh;
-      width: min(100vw, 177.78vh); /* aspect 16:9 fit */
-      height: min(100vh, 56.25vw);
-      image-rendering: auto; touch-action: none;
-    }
-    #nh-bootline { position: fixed; bottom: 14px; left: 0; right: 0; text-align: center;
-      color: #5b6b80; font-size: 13px; letter-spacing: 1px; font-family: monospace; }
-    #nh-error {
-      position: fixed; inset: 0; display: none; align-items: center; justify-content: center;
-      background: rgba(4,8,14,0.97); z-index: 99999; color: #ff6b6b; font-family: monospace;
-      padding: 24px; text-align: center; white-space: pre-wrap;
-    }
+/* ============================================================
+   NEON HORDE — Boot-Basis
+   Frueher als <style> in index.html. Ausgelagert, damit die
+   Content-Security-Policy style-src ohne 'unsafe-inline' auskommt.
+   ============================================================ */
+
+/* Boot-Basis: Module (ui.js) injizieren ihr Theme per NH.css.add() */
+html, body {
+  margin: 0; padding: 0; width: 100%; height: 100%;
+  background: #0a0f16; overflow: hidden; overscroll-behavior: none;
+  font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+#app { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+#game-canvas {
+  display: block; background: #0a0f16;
+  width: 100vw; height: 100vh;
+  width: min(100vw, 177.78vh); /* aspect 16:9 fit */
+  height: min(100vh, 56.25vw);
+  image-rendering: auto; touch-action: none;
+}
+#nh-bootline { position: fixed; bottom: 14px; left: 0; right: 0; text-align: center;
+  color: #5b6b80; font-size: 13px; letter-spacing: 1px; font-family: monospace; }
+#nh-error {
+  position: fixed; inset: 0; display: none; align-items: center; justify-content: center;
+  background: rgba(4,8,14,0.97); z-index: 99999; color: #ff6b6b; font-family: monospace;
+  padding: 24px; text-align: center; white-space: pre-wrap;
+}
+
+/* ---------- Klassen statt Inline-Styles ----------
+   Die CSP erlaubt kein style-Attribut und kein Setzen ueber el.style.
+   Alles, was frueher dynamisch gesetzt wurde, laeuft jetzt ueber
+   Klassen oder data-Attribute. */
+
+.nh-pe-none { pointer-events: none; }
+.nh-pe-auto { pointer-events: auto; }
+.nh-fs-14 { font-size: 14px; }
+.nh-fs-15 { font-size: 15px; }
+#nh-error.nh-error-open { display: flex; }
+
+/* Farbtoene fuer Toasts und Banner (frueher style.color / borderColor) */
+.nh-tone-cyan { color: #35D2E8; }
+.nh-tone-red { color: #ff6b6b; }
+.nh-tone-gold { color: #ffd700; }
+.nh-tone-green { color: #7CFC00; }
+.nh-toast.nh-tone-cyan { border-color: rgba(53,210,232,.5); border-left-color: rgba(53,210,232,.85); }
+.nh-toast.nh-tone-red { border-color: rgba(255,107,107,.5); border-left-color: rgba(255,107,107,.85); }
+.nh-toast.nh-tone-gold { border-color: rgba(255,215,0,.5); border-left-color: rgba(255,215,0,.85); }
+.nh-toast.nh-tone-green { border-color: rgba(124,252,0,.5); border-left-color: rgba(124,252,0,.85); }
+
+/* Shop-Fallback-Overlay (frueher style.cssText in shop.js) */
+.nh-shop-fallback {
+  position: fixed;
+  inset: 0;
+  z-index: 8000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(4,8,14,.96);
+  padding: 18px;
+  overflow: auto;
+}
   </style>
 </head>
 <body>
@@ -46,7 +86,7 @@
 
   <!-- Lade-Reihenfolge: Basis -> Daten -> Vertrag -> Module -> Boot -->
     <script>
-/* ==== src/loader.js (5.1 KB) ==== */
+/* ==== src/loader.js (7.3 KB) ==== */
 /* ============================================================
  * NEON HORDE — Bytewerk Studio
  * loader.js — NH Namespace, Utilities, Event-Bus, i18n, DOM, CSS
@@ -142,16 +182,26 @@
           if (k === 'class') n.className = v;
           else if (k === 'text') n.textContent = v;
           else if (k === 'html') n.innerHTML = v;
-          else if (k === 'style' && typeof v === 'object') Object.assign(n.style, v);
+          else if (k === 'style') {
+            // Bewusst nicht unterstuetzt: die CSP verbietet style-Attribute.
+            // Stattdessen Klassen in boot.css verwenden.
+            console.warn('[NH:dom] style-Option ignoriert (CSP). Bitte Klasse verwenden.');
+          }
           else if (k.startsWith('on')) n.addEventListener(k.slice(2), v);
           else if (k === 'dataset') Object.assign(n.dataset, v);
           else n.setAttribute(k, v);
         }
       }
       if (children !== undefined && children !== null) {
-        if (typeof children === 'string' || typeof children === 'number') n.textContent = String(children);
-        else if (Array.isArray(children)) for (const c of children) if (c) n.appendChild(c);
-        else n.appendChild(children);
+        if (typeof children === 'string' || typeof children === 'number') {
+          n.textContent = String(children);
+        } else if (Array.isArray(children)) {
+          // Geschweifte Klammern sind hier Pflicht: ohne sie bindet das
+          // folgende else an `if (c)` und nicht an den Array-Zweig.
+          for (const c of children) if (c) n.appendChild(c);
+        } else {
+          n.appendChild(children);
+        }
       }
       return n;
     },
@@ -172,19 +222,67 @@
     $all(sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); },
   };
 
-  /* ---------- CSS injection (gathers module styles into one tag) ---------- */
+  /* ---------- CSS injection ----------
+     Frueher ein <style>-Tag, das die CSP (style-src 'self') blockt.
+     Jetzt ein konstruiertes Stylesheet (adoptedStyleSheets): das ist
+     kein Inline-Style und bleibt unter strikter CSP erlaubt. Aeltere
+     Browser ohne CSSStyleSheet-Konstruktor fallen auf ein <style>-Tag
+     zurueck — dort greift die CSP dann nicht, die Seite funktioniert
+     aber weiter. */
   NH.css = {
     _styles: [],
+    _sheet: null,
+    _rules: {},
+    _apply() {
+      const text = this._styles.join('\n');
+      if (this._sheet) { this._sheet.replaceSync(text); return; }
+      const tag = document.getElementById('nh-styles');
+      if (tag) { tag.textContent = text; return; }
+      const t = document.createElement('style');
+      t.id = 'nh-styles';
+      t.textContent = text;
+      (document.head || document.documentElement).appendChild(t);
+    },
     add(cssText) {
       this._styles.push(cssText);
-      let tag = NH.dom.$('#nh-styles');
-      if (tag && typeof tag.appendChild !== 'function') tag = null;
-      if (!tag) {
-        tag = document.createElement('style');
-        tag.id = 'nh-styles';
-        (document.head || document.documentElement).appendChild(tag);
+      if (!this._sheet && typeof CSSStyleSheet === 'function' && 'adoptedStyleSheets' in document) {
+        try {
+          this._sheet = new CSSStyleSheet();
+          document.adoptedStyleSheets = document.adoptedStyleSheets.concat([this._sheet]);
+        } catch (e) { this._sheet = null; }
       }
-      tag.appendChild(document.createTextNode(cssText));
+      this._apply();
+    },
+    /* Einmalige Regel anlegen (fuer dynamische Werte wie Balkenbreiten). */
+    rule(selector, decl) {
+      if (this._rules[selector]) return;
+      this._rules[selector] = true;
+      this._styles.push(selector + '{' + decl + '}');
+      this._apply();
+    },
+    /* Breite eines HUD-Balkens in Prozent, ohne style-Attribut. */
+    width(el, pct) {
+      if (!el) return;
+      const n = Math.max(0, Math.min(100, Math.round(pct)));
+      const cls = 'nh-w' + n;
+      if (el.nhWidthClass === cls) return;
+      this.rule('.nh-bar > .nh-bar-fill.' + cls, 'width:' + n + '%');
+      if (el.nhWidthClass) el.classList.remove(el.nhWidthClass);
+      el.classList.add(cls);
+      el.nhWidthClass = cls;
+    },
+    /* Farbton setzen: ersetzt style.color / style.borderColor. */
+    tone(el, color) {
+      if (!el) return;
+      const map = {
+        '#35d2e8': 'nh-tone-cyan',
+        '#ff6b6b': 'nh-tone-red',
+        '#ffd700': 'nh-tone-gold',
+        '#7cfc00': 'nh-tone-green'
+      };
+      const cls = map[String(color || '').toLowerCase()];
+      el.classList.remove('nh-tone-cyan', 'nh-tone-red', 'nh-tone-gold', 'nh-tone-green');
+      if (cls) el.classList.add(cls);
     },
     all() { return this._styles.join('\n'); },
   };
@@ -467,7 +565,7 @@
   };
 })();
 
-/* ==== src/api.js (13.0 KB) ==== */
+/* ==== src/api.js (13.1 KB) ==== */
 /* ============================================================
  * NEON HORDE — Bytewerk Studio
  * api.js — VERBINDLICHER MODUL-VERTRAG (Single Contract)
@@ -700,7 +798,7 @@
   // render: Welt (ents.render) + Player + HUD (ui.updateHUD) mit Shake-Offset.
 })();
 
-/* ==== src/lang.js (15.2 KB) ==== */
+/* ==== src/lang.js (15.3 KB) ==== */
 /* ============================================================
  * NEON HORDE — Bytewerk Studio
  * lang.js — DE/EN Übersetzungsdaten. Alle UI-Texte via NH.t().
@@ -3477,7 +3575,7 @@
   NH.events.on('nh:init', reset);
 })();
 
-/* ==== src/weapons.js (24.9 KB) ==== */
+/* ==== src/weapons.js (25.0 KB) ==== */
 /* ============================================================
  * NEON HORDE — Bytewerk Studio
  * weapons.js — Effektive Waffen-Stats, Auto-Aim, Feuermuster
@@ -4115,7 +4213,7 @@
   NH.events.on('nh:init', function () { init(); });
 })();
 
-/* ==== src/waves.js (7.3 KB) ==== */
+/* ==== src/waves.js (7.4 KB) ==== */
 /* ============================================================
  * NEON HORDE — Bytewerk Studio
  * waves.js — Wellen-Budget, Spawn-Queue, Skalierung, Bosse, Boni
@@ -4297,7 +4395,7 @@
 })();
 
 
-/* ==== src/shop.js (40.5 KB) ==== */
+/* ==== src/shop.js (40.0 KB) ==== */
 /* ============================================================
  * NEON HORDE — Bytewerk Studio
  * shop.js — Draft-Shop nach jeder Welle (Herzstück)
@@ -4835,12 +4933,9 @@
   function grab(card) {
     if (!card) return;
     const b = NH.dom.div(null, 'nh-burst');
+    // Richtung steckt in der Klasse (nh-dir-0..11), nicht im style-Attribut.
     for (let i = 0; i < 12; i++) {
-      const a = (Math.PI * 2 * i) / 12 + NH.u.rand(0, 0.6);
-      const dpx = 24 + NH.u.rand(0, 26);
-      const p = NH.dom.el('span', { class: 'nh-part' });
-      p.style.setProperty('--dx', (Math.cos(a) * dpx).toFixed(1) + 'px');
-      p.style.setProperty('--dy', (Math.sin(a) * dpx).toFixed(1) + 'px');
+      const p = NH.dom.el('span', { class: 'nh-part nh-dir-' + i });
       b.appendChild(p);
     }
     card.appendChild(b);
@@ -4932,7 +5027,6 @@
   }
   function fallbackOverlay() {
     const o = NH.dom.div(NH.t('shop.title'), 'nh-shop-fallback');
-    o.style.cssText = 'position:fixed;inset:0;z-index:8000;display:flex;flex-direction:column;align-items:center;background:rgba(4,8,14,.96);padding:18px;overflow:auto;';
     if (document.body) document.body.appendChild(o);
     return o;
   }
@@ -5084,6 +5178,9 @@
     },
   };
 
+  /* Partikelrichtungen: 12 feste Klassen statt --dx/--dy im style-Attribut. */
+  NH.css.add('.nh-part.nh-dir-0{--dx:34.0px;--dy:0.0px;}.nh-part.nh-dir-1{--dx:29.4px;--dy:17.0px;}.nh-part.nh-dir-2{--dx:17.0px;--dy:29.4px;}.nh-part.nh-dir-3{--dx:0.0px;--dy:34.0px;}.nh-part.nh-dir-4{--dx:-17.0px;--dy:29.4px;}.nh-part.nh-dir-5{--dx:-29.4px;--dy:17.0px;}.nh-part.nh-dir-6{--dx:-34.0px;--dy:0.0px;}.nh-part.nh-dir-7{--dx:-29.4px;--dy:-17.0px;}.nh-part.nh-dir-8{--dx:-17.0px;--dy:-29.4px;}.nh-part.nh-dir-9{--dx:-0.0px;--dy:-34.0px;}.nh-part.nh-dir-10{--dx:17.0px;--dy:-29.4px;}.nh-part.nh-dir-11{--dx:29.4px;--dy:-17.0px;}');
+
   /* ---------- Eigenes CSS (Basis-Layout liefert ui.js) ---------- */
   NH.css.add(
     '.nh-shop{width:min(1120px,96vw);max-height:100%;display:flex;flex-direction:column;gap:10px;padding:14px;overflow:auto;color:#cfe3f5;font-family:monospace;}' +
@@ -5159,7 +5256,7 @@
   NH.events.on('lang', onLang); // loader.lang.set emittiert 'lang'
 })();
 
-/* ==== src/ui.js (59.5 KB) ==== */
+/* ==== src/ui.js (59.6 KB) ==== */
 /* ============================================================
  * NEON HORDE — Bytewerk Studio
  * ui.js — Theme-CSS, HUD, Screens/Overlays, Toasts, Modals,
@@ -5403,7 +5500,7 @@
     if (document.getElementById('nh-app')) return;
     const app = NH.dom.el('div', { id: 'nh-app' });
     el.hud = NH.dom.el('div', { id: 'nh-hud' });
-    el.overlays = NH.dom.el('div', { id: 'nh-overlays', style: { pointerEvents: 'none' } });
+    el.overlays = NH.dom.el('div', { id: 'nh-overlays', class: 'nh-pe-none' });
     el.toasts = NH.dom.el('div', { id: 'nh-toasts' });
     el.banner = NH.dom.el('div', { id: 'nh-banner' });
     app.appendChild(el.hud);
@@ -5424,8 +5521,15 @@
     return { ov, wrap };
   }
 
+  /* Overlay-Ebene nur dann klickbar, wenn ein Fenster offen ist. */
+  function overlaysIdle() {
+    el.overlays.classList.remove('nh-pe-auto');
+    el.overlays.classList.add('nh-pe-none');
+  }
+
   function pushOverlay(title) {
-    el.overlays.style.pointerEvents = 'auto';
+    el.overlays.classList.remove('nh-pe-none');
+    el.overlays.classList.add('nh-pe-auto');
     const s = ovShell(title);
     el.overlays.appendChild(s.ov);
     return s;
@@ -5436,13 +5540,13 @@
     // Stub- und Browser-sicher, Reihenfolge = Stack-Reihenfolge)
     const kids = el.overlays && el.overlays.children;
     if (kids && kids.length) el.overlays.removeChild(kids[kids.length - 1]);
-    if (el.overlays && (!kids || !kids.length)) el.overlays.style.pointerEvents = 'none';
+    if (el.overlays && (!kids || !kids.length)) overlaysIdle();
   }
 
   function closeAll() {
     const kids = el.overlays && el.overlays.children;
     while (kids && kids.length) el.overlays.removeChild(kids[0]);
-    if (el.overlays) el.overlays.style.pointerEvents = 'none';
+    if (el.overlays) overlaysIdle();
   }
 
   function openScreen(name, opts) {
@@ -5590,7 +5694,9 @@
         const card = NH.dom.div(null, 'nh-ach-card' + (pr.claimed ? ' nh-ach-claimed' : (pr.unlocked ? ' nh-ach-unlocked' : '')));
         card.appendChild(NH.dom.el('div', { class: 'nh-card-title', text: NH.disp('a', a.id, a.name) }));
         card.appendChild(NH.dom.el('div', { class: 'nh-muted', text: NH.disp('ad', a.id, a.desc) || '' }));
-        const bar = NH.dom.div([NH.dom.el('div', { class: 'nh-bar-fill', style: { width: pct + '%' } })], 'nh-bar nh-ach-bar');
+        const fill = NH.dom.el('div', { class: 'nh-bar-fill' });
+        NH.css.width(fill, pct);
+        const bar = NH.dom.div([fill], 'nh-bar nh-ach-bar');
         card.appendChild(bar);
         card.appendChild(NH.dom.el('div', { class: 'nh-ach-progress', text: fmtPath2('ach.progress', fmtNum(pr.cur), fmtNum(pr.target)) }));
         card.appendChild(NH.dom.el('div', { class: 'nh-ach-reward', text: fmtPath('ach.reward', fmtNum(a.reward) + ' Scrap') }));
@@ -5841,7 +5947,7 @@
   function buildTutorial(wrap) {
     let idx = 0;
     const titleEl = NH.dom.el('div', { class: 'nh-title', text: L(TUT[0][0]) });
-    const bodyEl = NH.dom.el('div', { class: 'nh-muted', style: { fontSize: '15px' }, text: L(TUT[0][1]) });
+    const bodyEl = NH.dom.el('div', { class: 'nh-muted', class: 'nh-muted nh-fs-15', text: L(TUT[0][1]) });
     const dots = NH.dom.div(null, 'nh-tut-dots');
     const dotArr = [];
     for (let i = 0; i < TUT.length; i++) {
@@ -5996,7 +6102,7 @@
     if (hp !== hudCache.hp || maxHP !== hudCache.maxHP) {
       hudCache.hp = hp; hudCache.maxHP = maxHP;
       const fill = document.querySelector('#nh-hud-hpbar .nh-bar-fill');
-      if (fill) { fill.style.width = Math.round((hp / maxHP) * 100) + '%'; fill.style.transform = 'none'; }
+      if (fill) NH.css.width(fill, (hp / maxHP) * 100);
       const v = document.getElementById('nh-hud-hpval');
       if (v) v.textContent = Math.round(hp) + ' / ' + Math.round(maxHP);
     }
@@ -6038,7 +6144,7 @@
     if (Math.abs(comboTimer - hudCache.comboTimer) > 0.02 || comboDur !== hudCache.comboDur) {
       hudCache.comboTimer = comboTimer; hudCache.comboDur = comboDur;
       const fill = document.querySelector('#nh-hud-combobar .nh-bar-fill');
-      if (fill) fill.style.width = Math.round((comboDur > 0 ? Math.min(1, Math.max(0, comboTimer / comboDur)) : 0) * 100) + '%';
+      if (fill) NH.css.width(fill, (comboDur > 0 ? Math.min(1, Math.max(0, comboTimer / comboDur)) : 0) * 100);
     }
 
     /* Combo-Boost-Flag: nur solange der ×-Dauerboost aktiv ist — balance.SSOT über
@@ -6057,7 +6163,7 @@
     if (wave !== hudCache.wave) {
       hudCache.wave = wave;
       const w = document.getElementById('nh-hud-wave');
-      if (w) { w.textContent = L('hud.wave') + ' ' + wave; w.style.color = run.waveBoss ? '#ff6b6b' : ''; }
+      if (w) { w.textContent = L('hud.wave') + ' ' + wave; w.classList.toggle('nh-tone-red', !!run.waveBoss); }
     }
     const time = Math.max(0, run.waveTime | 0);
     if (time !== hudCache.time) {
@@ -6100,7 +6206,7 @@
       if (bossChanged || Math.round(bossHp) !== hudCache.bossHp || Math.round(mg) !== hudCache.bossMax) {
         hudCache.boss = bossId || ''; hudCache.bossHp = Math.round(bossHp); hudCache.bossMax = Math.round(mg);
         const fill = document.querySelector('#nh-hud-bossbar .nh-bar-fill');
-        if (fill) fill.style.width = Math.round(Math.max(0, Math.min(1, bossHp / mg)) * 100) + '%';
+        if (fill) NH.css.width(fill, Math.max(0, Math.min(1, bossHp / mg)) * 100);
       }
     } else if (hudCache.boss !== -1) {
       hudCache.boss = -1; hudCache.bossHp = -1; hudCache.bossMax = -1;
@@ -6180,8 +6286,7 @@
   function toast(text, color) {
     if (!el.toasts) return;
     const t = NH.dom.el('div', { class: 'nh-toast', text: String(text || '') });
-    if (color) t.style.borderColor = color;
-    if (color) t.style.borderLeftColor = color;
+    NH.css.tone(t, color);
     el.toasts.appendChild(t);
     lastToastKey++;
     const key = lastToastKey;
@@ -6202,7 +6307,7 @@
     NH.dom.clear(el.banner);
     el.banner.classList.remove('nh-out');
     const t = NH.dom.el('div', { class: 'nh-banner-title', text: String(title || '') });
-    if (color) t.style.color = color;
+    NH.css.tone(t, color);
     el.banner.appendChild(t);
     if (sub) el.banner.appendChild(NH.dom.el('div', { class: 'nh-banner-sub', text: String(sub) }));
     bannerTimer = setTimeout(function () {
@@ -6215,7 +6320,7 @@
     opts = opts || {};
     const s = pushOverlay(opts.title || '');
     return new Promise(function (resolve) {
-      if (opts.body) s.wrap.appendChild(NH.dom.el('div', { class: 'nh-muted', style: { fontSize: '14px' }, text: opts.body }));
+      if (opts.body) s.wrap.appendChild(NH.dom.el('div', { class: 'nh-muted nh-fs-14', text: opts.body }));
       const row = NH.dom.div(null, 'nh-flexrow');
       const ok = NH.dom.button(opts.okText || L('ui.confirmYes'), 'nh-btn nh-primary' + (opts.tone === 'danger' ? ' nh-danger' : ''), function () {
         closeTop();
@@ -7159,7 +7264,7 @@
   NH.game.snapshot = snapshot; // Run-Snapshot (Shop-Auto-Save, tester-freundlich)
 })();
 
-/* ==== src/main.js (10.1 KB) ==== */
+/* ==== src/main.js (10.2 KB) ==== */
 /* ============================================================
  * NEON HORDE — Bytewerk Studio
  * main.js — Boot-Sequenz & globaler Fehler-Handler
@@ -7208,7 +7313,7 @@
     } catch (e2) {
       try { el.textContent = msg; } catch (e3) {} // Minimal-Fallback
     }
-    try { el.style.display = 'flex'; } catch (e4) {}
+    try { el.classList.add('nh-error-open'); } catch (e4) {}
   }
 
   function bindFatalHandlers() {

@@ -241,7 +241,7 @@
     if (document.getElementById('nh-app')) return;
     const app = NH.dom.el('div', { id: 'nh-app' });
     el.hud = NH.dom.el('div', { id: 'nh-hud' });
-    el.overlays = NH.dom.el('div', { id: 'nh-overlays', style: { pointerEvents: 'none' } });
+    el.overlays = NH.dom.el('div', { id: 'nh-overlays', class: 'nh-pe-none' });
     el.toasts = NH.dom.el('div', { id: 'nh-toasts' });
     el.banner = NH.dom.el('div', { id: 'nh-banner' });
     app.appendChild(el.hud);
@@ -262,8 +262,15 @@
     return { ov, wrap };
   }
 
+  /* Overlay-Ebene nur dann klickbar, wenn ein Fenster offen ist. */
+  function overlaysIdle() {
+    el.overlays.classList.remove('nh-pe-auto');
+    el.overlays.classList.add('nh-pe-none');
+  }
+
   function pushOverlay(title) {
-    el.overlays.style.pointerEvents = 'auto';
+    el.overlays.classList.remove('nh-pe-none');
+    el.overlays.classList.add('nh-pe-auto');
     const s = ovShell(title);
     el.overlays.appendChild(s.ov);
     return s;
@@ -274,13 +281,13 @@
     // Stub- und Browser-sicher, Reihenfolge = Stack-Reihenfolge)
     const kids = el.overlays && el.overlays.children;
     if (kids && kids.length) el.overlays.removeChild(kids[kids.length - 1]);
-    if (el.overlays && (!kids || !kids.length)) el.overlays.style.pointerEvents = 'none';
+    if (el.overlays && (!kids || !kids.length)) overlaysIdle();
   }
 
   function closeAll() {
     const kids = el.overlays && el.overlays.children;
     while (kids && kids.length) el.overlays.removeChild(kids[0]);
-    if (el.overlays) el.overlays.style.pointerEvents = 'none';
+    if (el.overlays) overlaysIdle();
   }
 
   function openScreen(name, opts) {
@@ -428,7 +435,9 @@
         const card = NH.dom.div(null, 'nh-ach-card' + (pr.claimed ? ' nh-ach-claimed' : (pr.unlocked ? ' nh-ach-unlocked' : '')));
         card.appendChild(NH.dom.el('div', { class: 'nh-card-title', text: NH.disp('a', a.id, a.name) }));
         card.appendChild(NH.dom.el('div', { class: 'nh-muted', text: NH.disp('ad', a.id, a.desc) || '' }));
-        const bar = NH.dom.div([NH.dom.el('div', { class: 'nh-bar-fill', style: { width: pct + '%' } })], 'nh-bar nh-ach-bar');
+        const fill = NH.dom.el('div', { class: 'nh-bar-fill' });
+        NH.css.width(fill, pct);
+        const bar = NH.dom.div([fill], 'nh-bar nh-ach-bar');
         card.appendChild(bar);
         card.appendChild(NH.dom.el('div', { class: 'nh-ach-progress', text: fmtPath2('ach.progress', fmtNum(pr.cur), fmtNum(pr.target)) }));
         card.appendChild(NH.dom.el('div', { class: 'nh-ach-reward', text: fmtPath('ach.reward', fmtNum(a.reward) + ' Scrap') }));
@@ -679,7 +688,7 @@
   function buildTutorial(wrap) {
     let idx = 0;
     const titleEl = NH.dom.el('div', { class: 'nh-title', text: L(TUT[0][0]) });
-    const bodyEl = NH.dom.el('div', { class: 'nh-muted', style: { fontSize: '15px' }, text: L(TUT[0][1]) });
+    const bodyEl = NH.dom.el('div', { class: 'nh-muted', class: 'nh-muted nh-fs-15', text: L(TUT[0][1]) });
     const dots = NH.dom.div(null, 'nh-tut-dots');
     const dotArr = [];
     for (let i = 0; i < TUT.length; i++) {
@@ -834,7 +843,7 @@
     if (hp !== hudCache.hp || maxHP !== hudCache.maxHP) {
       hudCache.hp = hp; hudCache.maxHP = maxHP;
       const fill = document.querySelector('#nh-hud-hpbar .nh-bar-fill');
-      if (fill) { fill.style.width = Math.round((hp / maxHP) * 100) + '%'; fill.style.transform = 'none'; }
+      if (fill) NH.css.width(fill, (hp / maxHP) * 100);
       const v = document.getElementById('nh-hud-hpval');
       if (v) v.textContent = Math.round(hp) + ' / ' + Math.round(maxHP);
     }
@@ -876,7 +885,7 @@
     if (Math.abs(comboTimer - hudCache.comboTimer) > 0.02 || comboDur !== hudCache.comboDur) {
       hudCache.comboTimer = comboTimer; hudCache.comboDur = comboDur;
       const fill = document.querySelector('#nh-hud-combobar .nh-bar-fill');
-      if (fill) fill.style.width = Math.round((comboDur > 0 ? Math.min(1, Math.max(0, comboTimer / comboDur)) : 0) * 100) + '%';
+      if (fill) NH.css.width(fill, (comboDur > 0 ? Math.min(1, Math.max(0, comboTimer / comboDur)) : 0) * 100);
     }
 
     /* Combo-Boost-Flag: nur solange der ×-Dauerboost aktiv ist — balance.SSOT über
@@ -895,7 +904,7 @@
     if (wave !== hudCache.wave) {
       hudCache.wave = wave;
       const w = document.getElementById('nh-hud-wave');
-      if (w) { w.textContent = L('hud.wave') + ' ' + wave; w.style.color = run.waveBoss ? '#ff6b6b' : ''; }
+      if (w) { w.textContent = L('hud.wave') + ' ' + wave; w.classList.toggle('nh-tone-red', !!run.waveBoss); }
     }
     const time = Math.max(0, run.waveTime | 0);
     if (time !== hudCache.time) {
@@ -938,7 +947,7 @@
       if (bossChanged || Math.round(bossHp) !== hudCache.bossHp || Math.round(mg) !== hudCache.bossMax) {
         hudCache.boss = bossId || ''; hudCache.bossHp = Math.round(bossHp); hudCache.bossMax = Math.round(mg);
         const fill = document.querySelector('#nh-hud-bossbar .nh-bar-fill');
-        if (fill) fill.style.width = Math.round(Math.max(0, Math.min(1, bossHp / mg)) * 100) + '%';
+        if (fill) NH.css.width(fill, Math.max(0, Math.min(1, bossHp / mg)) * 100);
       }
     } else if (hudCache.boss !== -1) {
       hudCache.boss = -1; hudCache.bossHp = -1; hudCache.bossMax = -1;
@@ -1018,8 +1027,7 @@
   function toast(text, color) {
     if (!el.toasts) return;
     const t = NH.dom.el('div', { class: 'nh-toast', text: String(text || '') });
-    if (color) t.style.borderColor = color;
-    if (color) t.style.borderLeftColor = color;
+    NH.css.tone(t, color);
     el.toasts.appendChild(t);
     lastToastKey++;
     const key = lastToastKey;
@@ -1040,7 +1048,7 @@
     NH.dom.clear(el.banner);
     el.banner.classList.remove('nh-out');
     const t = NH.dom.el('div', { class: 'nh-banner-title', text: String(title || '') });
-    if (color) t.style.color = color;
+    NH.css.tone(t, color);
     el.banner.appendChild(t);
     if (sub) el.banner.appendChild(NH.dom.el('div', { class: 'nh-banner-sub', text: String(sub) }));
     bannerTimer = setTimeout(function () {
@@ -1053,7 +1061,7 @@
     opts = opts || {};
     const s = pushOverlay(opts.title || '');
     return new Promise(function (resolve) {
-      if (opts.body) s.wrap.appendChild(NH.dom.el('div', { class: 'nh-muted', style: { fontSize: '14px' }, text: opts.body }));
+      if (opts.body) s.wrap.appendChild(NH.dom.el('div', { class: 'nh-muted nh-fs-14', text: opts.body }));
       const row = NH.dom.div(null, 'nh-flexrow');
       const ok = NH.dom.button(opts.okText || L('ui.confirmYes'), 'nh-btn nh-primary' + (opts.tone === 'danger' ? ' nh-danger' : ''), function () {
         closeTop();

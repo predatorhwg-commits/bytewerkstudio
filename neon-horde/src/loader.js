@@ -93,16 +93,26 @@
           if (k === 'class') n.className = v;
           else if (k === 'text') n.textContent = v;
           else if (k === 'html') n.innerHTML = v;
-          else if (k === 'style' && typeof v === 'object') Object.assign(n.style, v);
+          else if (k === 'style') {
+            // Bewusst nicht unterstuetzt: die CSP verbietet style-Attribute.
+            // Stattdessen Klassen in boot.css verwenden.
+            console.warn('[NH:dom] style-Option ignoriert (CSP). Bitte Klasse verwenden.');
+          }
           else if (k.startsWith('on')) n.addEventListener(k.slice(2), v);
           else if (k === 'dataset') Object.assign(n.dataset, v);
           else n.setAttribute(k, v);
         }
       }
       if (children !== undefined && children !== null) {
-        if (typeof children === 'string' || typeof children === 'number') n.textContent = String(children);
-        else if (Array.isArray(children)) for (const c of children) if (c) n.appendChild(c);
-        else n.appendChild(children);
+        if (typeof children === 'string' || typeof children === 'number') {
+          n.textContent = String(children);
+        } else if (Array.isArray(children)) {
+          // Geschweifte Klammern sind hier Pflicht: ohne sie bindet das
+          // folgende else an `if (c)` und nicht an den Array-Zweig.
+          for (const c of children) if (c) n.appendChild(c);
+        } else {
+          n.appendChild(children);
+        }
       }
       return n;
     },
@@ -123,19 +133,67 @@
     $all(sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); },
   };
 
-  /* ---------- CSS injection (gathers module styles into one tag) ---------- */
+  /* ---------- CSS injection ----------
+     Frueher ein <style>-Tag, das die CSP (style-src 'self') blockt.
+     Jetzt ein konstruiertes Stylesheet (adoptedStyleSheets): das ist
+     kein Inline-Style und bleibt unter strikter CSP erlaubt. Aeltere
+     Browser ohne CSSStyleSheet-Konstruktor fallen auf ein <style>-Tag
+     zurueck — dort greift die CSP dann nicht, die Seite funktioniert
+     aber weiter. */
   NH.css = {
     _styles: [],
+    _sheet: null,
+    _rules: {},
+    _apply() {
+      const text = this._styles.join('\n');
+      if (this._sheet) { this._sheet.replaceSync(text); return; }
+      const tag = document.getElementById('nh-styles');
+      if (tag) { tag.textContent = text; return; }
+      const t = document.createElement('style');
+      t.id = 'nh-styles';
+      t.textContent = text;
+      (document.head || document.documentElement).appendChild(t);
+    },
     add(cssText) {
       this._styles.push(cssText);
-      let tag = NH.dom.$('#nh-styles');
-      if (tag && typeof tag.appendChild !== 'function') tag = null;
-      if (!tag) {
-        tag = document.createElement('style');
-        tag.id = 'nh-styles';
-        (document.head || document.documentElement).appendChild(tag);
+      if (!this._sheet && typeof CSSStyleSheet === 'function' && 'adoptedStyleSheets' in document) {
+        try {
+          this._sheet = new CSSStyleSheet();
+          document.adoptedStyleSheets = document.adoptedStyleSheets.concat([this._sheet]);
+        } catch (e) { this._sheet = null; }
       }
-      tag.appendChild(document.createTextNode(cssText));
+      this._apply();
+    },
+    /* Einmalige Regel anlegen (fuer dynamische Werte wie Balkenbreiten). */
+    rule(selector, decl) {
+      if (this._rules[selector]) return;
+      this._rules[selector] = true;
+      this._styles.push(selector + '{' + decl + '}');
+      this._apply();
+    },
+    /* Breite eines HUD-Balkens in Prozent, ohne style-Attribut. */
+    width(el, pct) {
+      if (!el) return;
+      const n = Math.max(0, Math.min(100, Math.round(pct)));
+      const cls = 'nh-w' + n;
+      if (el.nhWidthClass === cls) return;
+      this.rule('.nh-bar > .nh-bar-fill.' + cls, 'width:' + n + '%');
+      if (el.nhWidthClass) el.classList.remove(el.nhWidthClass);
+      el.classList.add(cls);
+      el.nhWidthClass = cls;
+    },
+    /* Farbton setzen: ersetzt style.color / style.borderColor. */
+    tone(el, color) {
+      if (!el) return;
+      const map = {
+        '#35d2e8': 'nh-tone-cyan',
+        '#ff6b6b': 'nh-tone-red',
+        '#ffd700': 'nh-tone-gold',
+        '#7cfc00': 'nh-tone-green'
+      };
+      const cls = map[String(color || '').toLowerCase()];
+      el.classList.remove('nh-tone-cyan', 'nh-tone-red', 'nh-tone-gold', 'nh-tone-green');
+      if (cls) el.classList.add(cls);
     },
     all() { return this._styles.join('\n'); },
   };

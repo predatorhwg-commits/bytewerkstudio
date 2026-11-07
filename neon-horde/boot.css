@@ -1,0 +1,62 @@
+/* ============================================================
+   NEON HORDE — Boot-Basis
+   Frueher als <style> in index.html. Ausgelagert, damit die
+   Content-Security-Policy style-src ohne 'unsafe-inline' auskommt.
+   ============================================================ */
+
+/* Boot-Basis: Module (ui.js) injizieren ihr Theme per NH.css.add() */
+html, body {
+  margin: 0; padding: 0; width: 100%; height: 100%;
+  background: #0a0f16; overflow: hidden; overscroll-behavior: none;
+  font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+#app { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+#game-canvas {
+  display: block; background: #0a0f16;
+  width: 100vw; height: 100vh;
+  width: min(100vw, 177.78vh); /* aspect 16:9 fit */
+  height: min(100vh, 56.25vw);
+  image-rendering: auto; touch-action: none;
+}
+#nh-bootline { position: fixed; bottom: 14px; left: 0; right: 0; text-align: center;
+  color: #5b6b80; font-size: 13px; letter-spacing: 1px; font-family: monospace; }
+#nh-error {
+  position: fixed; inset: 0; display: none; align-items: center; justify-content: center;
+  background: rgba(4,8,14,0.97); z-index: 99999; color: #ff6b6b; font-family: monospace;
+  padding: 24px; text-align: center; white-space: pre-wrap;
+}
+
+/* ---------- Klassen statt Inline-Styles ----------
+   Die CSP erlaubt kein style-Attribut und kein Setzen ueber el.style.
+   Alles, was frueher dynamisch gesetzt wurde, laeuft jetzt ueber
+   Klassen oder data-Attribute. */
+
+.nh-pe-none { pointer-events: none; }
+.nh-pe-auto { pointer-events: auto; }
+.nh-fs-14 { font-size: 14px; }
+.nh-fs-15 { font-size: 15px; }
+#nh-error.nh-error-open { display: flex; }
+
+/* Farbtoene fuer Toasts und Banner (frueher style.color / borderColor) */
+.nh-tone-cyan { color: #35D2E8; }
+.nh-tone-red { color: #ff6b6b; }
+.nh-tone-gold { color: #ffd700; }
+.nh-tone-green { color: #7CFC00; }
+.nh-toast.nh-tone-cyan { border-color: rgba(53,210,232,.5); border-left-color: rgba(53,210,232,.85); }
+.nh-toast.nh-tone-red { border-color: rgba(255,107,107,.5); border-left-color: rgba(255,107,107,.85); }
+.nh-toast.nh-tone-gold { border-color: rgba(255,215,0,.5); border-left-color: rgba(255,215,0,.85); }
+.nh-toast.nh-tone-green { border-color: rgba(124,252,0,.5); border-left-color: rgba(124,252,0,.85); }
+
+/* Shop-Fallback-Overlay (frueher style.cssText in shop.js) */
+.nh-shop-fallback {
+  position: fixed;
+  inset: 0;
+  z-index: 8000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(4,8,14,.96);
+  padding: 18px;
+  overflow: auto;
+}

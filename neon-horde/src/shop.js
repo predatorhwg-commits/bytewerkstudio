@@ -535,12 +535,9 @@
   function grab(card) {
     if (!card) return;
     const b = NH.dom.div(null, 'nh-burst');
+    // Richtung steckt in der Klasse (nh-dir-0..11), nicht im style-Attribut.
     for (let i = 0; i < 12; i++) {
-      const a = (Math.PI * 2 * i) / 12 + NH.u.rand(0, 0.6);
-      const dpx = 24 + NH.u.rand(0, 26);
-      const p = NH.dom.el('span', { class: 'nh-part' });
-      p.style.setProperty('--dx', (Math.cos(a) * dpx).toFixed(1) + 'px');
-      p.style.setProperty('--dy', (Math.sin(a) * dpx).toFixed(1) + 'px');
+      const p = NH.dom.el('span', { class: 'nh-part nh-dir-' + i });
       b.appendChild(p);
     }
     card.appendChild(b);
@@ -632,7 +629,6 @@
   }
   function fallbackOverlay() {
     const o = NH.dom.div(NH.t('shop.title'), 'nh-shop-fallback');
-    o.style.cssText = 'position:fixed;inset:0;z-index:8000;display:flex;flex-direction:column;align-items:center;background:rgba(4,8,14,.96);padding:18px;overflow:auto;';
     if (document.body) document.body.appendChild(o);
     return o;
   }
@@ -783,6 +779,9 @@
       } catch (e) { console.error('[NH:shop] startNextWave', e); }
     },
   };
+
+  /* Partikelrichtungen: 12 feste Klassen statt --dx/--dy im style-Attribut. */
+  NH.css.add('.nh-part.nh-dir-0{--dx:34.0px;--dy:0.0px;}.nh-part.nh-dir-1{--dx:29.4px;--dy:17.0px;}.nh-part.nh-dir-2{--dx:17.0px;--dy:29.4px;}.nh-part.nh-dir-3{--dx:0.0px;--dy:34.0px;}.nh-part.nh-dir-4{--dx:-17.0px;--dy:29.4px;}.nh-part.nh-dir-5{--dx:-29.4px;--dy:17.0px;}.nh-part.nh-dir-6{--dx:-34.0px;--dy:0.0px;}.nh-part.nh-dir-7{--dx:-29.4px;--dy:-17.0px;}.nh-part.nh-dir-8{--dx:-17.0px;--dy:-29.4px;}.nh-part.nh-dir-9{--dx:-0.0px;--dy:-34.0px;}.nh-part.nh-dir-10{--dx:17.0px;--dy:-29.4px;}.nh-part.nh-dir-11{--dx:29.4px;--dy:-17.0px;}');
 
   /* ---------- Eigenes CSS (Basis-Layout liefert ui.js) ---------- */
   NH.css.add(
