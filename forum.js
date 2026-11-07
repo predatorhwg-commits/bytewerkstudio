@@ -1941,17 +1941,19 @@
   /* ---------------------------------------------------------- */
 
   function render() {
+    const thread = route.view === 'thread' && route.slug ? findThread(route.slug) : null;
     if (route.view === 'thread') {
       renderThread();
-      if (route.slug) {
-        const th = findThread(route.slug);
-        document.title = th
-          ? txt(th.title) + ' — Bytewerk Forum'
-          : t('Thema nicht gefunden — Bytewerk Forum', 'Thread not found — Bytewerk Forum');
-        updateMeta(th);
-        if (th) {
-          missingSlug = null;
-        } else if (missingSlug !== route.slug) {
+      document.title = thread
+        ? txt(thread.title) + ' — Bytewerk Forum'
+        : t('Thema nicht gefunden — Bytewerk Forum', 'Thread not found — Bytewerk Forum');
+      updateMeta(thread);
+      if (thread) {
+        missingSlug = null;
+      } else {
+        // The thread view bailed out and left an empty list behind.
+        renderList();
+        if (missingSlug !== route.slug) {
           missingSlug = route.slug;
           toast(t('Dieses Thema gibt es nicht oder nicht mehr. Hier ist die Übersicht.',
                   'This thread does not exist or is gone. Here is the overview.'), 'err');
@@ -1969,7 +1971,7 @@
     }
     renderAccess();
     renderKnowledge();
-    document.body.classList.toggle('fm-is-thread', route.view === 'thread');
+    document.body.classList.toggle('fm-is-thread', route.view === 'thread' && !!thread);
     scheduleProgress();
   }
 

@@ -170,8 +170,9 @@ Webhook, der `profiles.plan` setzt — nicht einen Schalter im Browser.
   1440 px ohne Überlauf. Der Bruchschutz (`overflow-wrap: anywhere`) sitzt
   an Thread-Titel, Listentitel, Wissensarchiv, Beitragsnamen und
   Autorennamen; `pre` scrollt intern.
-- Unbekannter Deep-Link `#/t/<slug>`: Liste sichtbar, Thread verborgen,
-  einmaliger Hinweis „Dieses Thema gibt es nicht oder nicht mehr.“
+- Unbekannter Deep-Link `#/t/<slug>`: Liste sichtbar **und gefüllt**
+  (neun Themen), Thread verborgen, Fortschrittslinie aus, einmaliger
+  Hinweis „Dieses Thema gibt es nicht oder nicht mehr.“
 - CSP ohne `'unsafe-inline'` für Styles, mit `base-uri 'none'` und
   `form-action 'none'`: Dialog, Editor, Suche, Leerzustand, Sprachwechsel,
   Pro-Band und Toast geprüft — 0 `securitypolicyviolation`, keine
