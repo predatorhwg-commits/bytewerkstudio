@@ -75,7 +75,7 @@ Query, Fragment und Suchfeld auf: `<img onerror>`, `<svg onload>`,
 
 | Messung | Ergebnis |
 |---|---|
-| Aufrufe mit Angriffsmustern | 61 |
+| Aufrufe mit Angriffsmustern | 62 |
 | Muster je Aufruf | 5 |
 | Befunde (Markup injiziert oder Code gelaufen) | 0 |
 | CSP blockiert nachträglichen Inline-Handler | ja |

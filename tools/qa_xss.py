@@ -179,6 +179,49 @@ def main() -> int:
             findings.append({"page": "index.html", "param": "CSP-Gegenprobe",
                              "payload": "onclick", "executed": True})
 
+        # Clickjacking: Eine fremde Seite bettet die Startseite ein. Weil
+        # GitHub Pages keinen X-Frame-Options-Header liefert und
+        # frame-ancestors in einer <meta>-CSP unwirksam ist, muss die Seite
+        # selbst ausbrechen. Geprüft wird das Ergebnis, nicht der Code.
+        frame_path = ROOT / "__bw-frame-test.html"
+        frame_path.write_text(
+            "<!DOCTYPE html><html><head><meta charset='utf-8'><title>fremd</title></head>"
+            f"<body><h1>fremd</h1><iframe id='victim' src='{args.base}/index.html' "
+            "width='900' height='600'></iframe></body></html>",
+            encoding="utf-8")
+        framed = None
+        try:
+            state["page"].goto(f"{args.base}/__bw-frame-test.html",
+                               wait_until="domcontentloaded", timeout=30000)
+            state["page"].wait_for_timeout(1200)
+            framed = {
+                "url": state["page"].url,
+                "iframe_present": state["page"].evaluate(
+                    "() => !!document.getElementById('victim')"),
+            }
+        except Exception:
+            try:
+                fresh()
+                state["page"].goto(f"{args.base}/__bw-frame-test.html",
+                                   wait_until="domcontentloaded", timeout=30000)
+                state["page"].wait_for_timeout(1200)
+                framed = {"url": state["page"].url,
+                          "iframe_present": state["page"].evaluate(
+                              "() => !!document.getElementById('victim')")}
+            except Exception as exc:
+                framed = {"error": str(exc)[:120]}
+        finally:
+            try:
+                frame_path.unlink()
+            except OSError:
+                pass
+        escaped = bool(framed) and "url" in framed and not framed["url"].endswith(
+            "__bw-frame-test.html")
+        checks += 1
+        if not escaped:
+            findings.append({"page": "index.html", "param": "Clickjacking",
+                             "payload": "iframe", "detail": framed})
+
         # Aufräumen und Ergebnis
         try:
             state["ctx"].close()
@@ -187,7 +230,8 @@ def main() -> int:
             pass
 
     summary = {"checks": checks, "findings": len(findings), "payloads": len(PAYLOADS),
-               "csp_blocks_inline_handler": not csp_res["fired"]}
+               "csp_blocks_inline_handler": not csp_res["fired"],
+               "frame_buster_active": escaped}
     (outdir / "xss.json").write_text(
         json.dumps({"summary": summary, "findings": findings}, indent=2, ensure_ascii=False),
         encoding="utf-8")

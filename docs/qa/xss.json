@@ -1,9 +1,10 @@
 {
   "summary": {
-    "checks": 61,
+    "checks": 62,
     "findings": 0,
     "payloads": 5,
-    "csp_blocks_inline_handler": true
+    "csp_blocks_inline_handler": true,
+    "frame_buster_active": true
   },
   "findings": []
 }
