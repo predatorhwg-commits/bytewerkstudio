@@ -30,6 +30,7 @@
     subsKey: 'bw-forum-subs-v1',
     seenKey: 'bw-forum-seen-v1',
     proPreviewKey: 'bw-forum-pro-preview',
+    modPreviewKey: 'bw-forum-mod-preview',
     reportsKey: 'bw-forum-reports-v1',
     pageSize: 10,
     maxTitle: 110,
@@ -661,6 +662,13 @@
     try { return localStorage.getItem(CFG.proPreviewKey) === '1'; } catch (e) { return false; }
   }
 
+  /* Preview switch for moderation, same shape as the Pro preview: the
+     real boundary is the database, this only unlocks the buttons in a
+     local build. No personal address in shipped code. */
+  function modPreview() {
+    try { return localStorage.getItem(CFG.modPreviewKey) === '1'; } catch (e) { return false; }
+  }
+
   function isPro() {
     const u = user();
     if (u && u.plan === 'pro') return true;
@@ -1248,7 +1256,7 @@
     share.addEventListener('click', () => copyLink(th));
     actions.appendChild(share);
 
-    if (canModerate(th)) {
+    if (canModerate()) {
       const pin = el('button', { type: 'button', class: 'fm-act', aria: { label: t('Anpinnen', 'Pin') } });
       pin.appendChild(icon(ICONS.pin));
       pin.addEventListener('click', () => { th.pinned = !th.pinned; save(); renderThread(); toast(th.pinned ? t('Angepinnt.', 'Pinned.') : t('Gelöst von oben.', 'Unpinned.')); });
@@ -1307,10 +1315,22 @@
     save();
   }
 
-  function canModerate(th) {
+  /* Moderation is a role, not a person. The address that used to stand
+     here was a privacy leak in shipped JavaScript and no protection at
+     all: anyone can edit a value in their own browser. The real boundary
+     is the RLS trigger in supabase/forum-schema.sql. */
+  function canModerate() {
     const u = user();
     if (!u) return false;
-    return th.author.id === u.id || u.email === 'Haqmalh@icloud.com';
+    return u.plan === 'mod' || u.role === 'mod' || modPreview();
+  }
+
+  /* The person who asked decides which answer solved it — that is the
+     point of a question. Pinning stays with moderation. */
+  function canSolve(th) {
+    const u = user();
+    if (!u) return false;
+    return th.author.id === u.id || canModerate();
   }
 
   function copyLink(th) {
@@ -1416,7 +1436,7 @@
     });
     foot.appendChild(reply);
 
-    if (!post.isFirst && canModerate(th) && !th.solved) {
+    if (!post.isFirst && canSolve(th) && !th.solved) {
       const mark = el('button', { type: 'button', class: 'fm-link-btn fm-link-solve' });
       mark.appendChild(icon(ICONS.check));
       mark.appendChild(el('span', { text: t('Als Lösung markieren', 'Mark as solution') }));

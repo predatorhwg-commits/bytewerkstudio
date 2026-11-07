@@ -86,6 +86,18 @@ Das ist der Teil, der nicht verhandelbar ist.
     Feldgrenzen und verwirft eine unbekannte oder gesperrte Kategorie.
     Vorher warf ein Entwurf mit `title` als Objekt beim Setzen von
     `input.value` einen `pageerror`, und der Dialog ging gar nicht auf.
+13. **Moderation ist eine Rolle, keine Adresse.** In `forum.js` stand
+    eine persönliche E-Mail-Adresse als Moderationsschalter — ein
+    Datenschutzleck im ausgelieferten JavaScript und zugleich kein
+    Schutz, weil jeder den Wert im eigenen Browser ändern kann. Jetzt
+    entscheidet `plan`/`role`; für lokale Vorschauen gibt es den
+    bewussten Schalter `bw-forum-mod-preview`, genau wie beim Pro-Zugang.
+    Die echte Grenze bleibt der RLS-Trigger im Schema.
+
+**Wer darf was:** Pinnen und Moderationsfelder nur `mod`. Die Lösung
+markiert der Themen-Autor — er hat die Frage gestellt und weiß, welche
+Antwort geholfen hat. Vorher bekam der Autor den Lösungsknopf gar nicht,
+weil die Adressprüfung für ihn nicht griff.
 
 Geprüft mit einem XSS-Durchlauf im Browser: Titel und Beitrag mit
 `<img onerror>`, `<script>`, `<svg onload>`, `<iframe>`, `<math>`,
@@ -242,6 +254,12 @@ Webhook, der `profiles.plan` setzt — nicht einen Schalter im Browser.
 - Nachladen: 17 Themen bei `pageSize` 10 — erste Seite 10 Zeilen und
   Knopf „Weitere Themen laden“, nach Klick 17 und kein Knopf mehr;
   Suche setzt auf 10 zurück. 1440/390/320 px: 0 Überlauf.
+- Rollen: Autor sieht den Lösungsknopf (1), keinen Pin-Knopf (0) und
+  kann die Lösung setzen (`solved: true`, `solvedPost` gesetzt, Badge 1,
+  bleibt nach Reload). Mit `bw-forum-mod-preview` erscheint der
+  Pin-Knopf, ohne ihn nicht. Fremdes Thema: 0 Lösungsknöpfe.
+  `Haqmalh`/`icloud.com` kommt im ausgelieferten `forum.js` nicht mehr
+  vor. 0 Konsolenfehler, 0 Überlauf.
 - Spanisch: `lang='es'` liefert englische Oberfläche und `en-GB`-Datum,
   nie deutsche Texte.
 - Supabase-Schema in einer echten PostgreSQL-Instanz (`pgserver`, nicht
