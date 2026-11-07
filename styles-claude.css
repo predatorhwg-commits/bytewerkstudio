@@ -873,6 +873,12 @@ body:has(.pd-sticky.show) .bw-flash { bottom: 92px; }
   .bw-cmd-panel, .pd-sticky, .bw-top, .prod .ph::after { transition: none; }
   .prod:hover { transform: none; }
   .cfg-step.active { animation: none; }
+
+  /* Dauerbewegung ist bei "Bewegung reduzieren" Pflicht aus (WCAG 2.2.2).
+     Die Laufschrift wird angehalten, nicht ausgeblendet: der Text bleibt
+     lesbar, er steht nur still. */
+  .marquee-track { animation: none; }
+  .hero-badge .pulse::before { animation: none; }
 }
 
 @media print {
