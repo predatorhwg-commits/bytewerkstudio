@@ -2380,11 +2380,29 @@
     link.replaceWith(p);
   }
 
+  /* Two open tabs used to overwrite each other: each held its own copy in
+     memory and wrote the whole store back on the next action. Follow the
+     other tab instead of clobbering it. */
+  function watchOtherTabs() {
+    window.addEventListener('storage', e => {
+      if (e.key !== CFG.storeKey || !e.newValue) return;
+      const incoming = normalizeDb(readJSON(CFG.storeKey, null));
+      if (!incoming.threads.length) return;
+      db = incoming;
+      // Do not yank the reader out of a dialog or an open editor.
+      const busy = (composer.dialog && composer.dialog.open) ||
+        document.querySelector('[data-editing="1"]');
+      if (busy) return;
+      render();
+    });
+  }
+
   function boot() {
     db = load();
     parseRoute();
     wire();
     render();
+    watchOtherTabs();
 
     // deep-linked post: scroll once layout is ready
     if (route.view === 'thread') {

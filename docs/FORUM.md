@@ -254,6 +254,18 @@ Webhook, der `profiles.plan` setzt — nicht einen Schalter im Browser.
 - Nachladen: 17 Themen bei `pageSize` 10 — erste Seite 10 Zeilen und
   Knopf „Weitere Themen laden“, nach Klick 17 und kein Knopf mehr;
   Suche setzt auf 10 zurück. 1440/390/320 px: 0 Überlauf.
+- Tastatur nach dem Nachladen: `Enter` auf dem Knopf setzt den Fokus auf
+  die erste neue Zeile (`a.fm-item-main`), nicht auf `<body>`; ein
+  weiteres `Enter` öffnet das Thema.
+- Codeblöcke: `tabindex="0"` und `role="region"` nur, wenn der Block
+  wirklich seitlich scrollt — bei 320 px ja, bei 1440 px nein. Ohne das
+  war ein überlaufender Block nur mit der Maus erreichbar.
+- `aria-live` sitzt auf `#fm-result` (Trefferzahl), nicht mehr auf der
+  ganzen Liste. Vorher las ein Screenreader bei jedem Suchtastendruck
+  alle Zeilen neu vor.
+- Suche mit Sonderzeichen (`(`, `[`, `*`, `?`, `\`, `.*`, `+`, `a|b`,
+  `(((`) wirft nicht: `withHits()` arbeitet mit `indexOf`, nicht mit
+  `RegExp`. Kein Treffer zeigt den Leerzustand.
 - Rollen: Autor sieht den Lösungsknopf (1), keinen Pin-Knopf (0) und
   kann die Lösung setzen (`solved: true`, `solvedPost` gesetzt, Badge 1,
   bleibt nach Reload). Mit `bw-forum-mod-preview` erscheint der
