@@ -44,6 +44,36 @@ Preis, Code, der auch nach der Übergabe lesbar ist.
 5. **Shop als Beweis.** Produktseiten zeigen, was gebaut wurde; der Shop ist
    der kürzeste Weg vom Interesse zum Umsatz.
 
+## 3a. Vorschau in Suche und Chat
+
+Wenn jemand einen Link teilt, entscheidet die Vorschau, ob geklickt wird. Stand
+vor dieser Runde: 15 Seiten zeigten auf `logo.svg` — ein 28×28-SVG, das kaum
+eine Plattform als Bild anzeigt — und `arbeiten.html` zeigte auf ein
+`og-bytewerk.png`, das es nicht gab.
+
+Jetzt hat jede öffentliche Seite eine eigene 1200×630-Karte in
+`media/og-*.png`. Aufbau: Kicker, drei Zeilen Überschrift mit Terrakotta-Punkt,
+Untertitel, Domain, rechts eine Kachel mit dem Produktzeichen. Erzeugt von
+`tools/og-images.py`, damit die Karten reproduzierbar sind, wenn sich eine
+Überschrift ändert.
+
+| Seiten | Karte |
+|---|---|
+| Startseite, AGB, Datenschutz, Impressum | `og-bytewerk.png` |
+| `community.html`, `forum.html` | `og-community.png` |
+| `entwickler.html` | `og-entwickler.png` |
+| `shop.html`, `showroom.html`, `arbeiten.html`, `studio.html` | eigene Karte je Seite |
+| `marke.html`, `bauplan.html`, `kontakt.html`, `vergleich.html` | eigene Karte je Seite |
+| Produktseiten (9) | Karte mit Produktzeichen |
+| `checkout.html`, `produkt.html`, `lernreich-pro.html` | `og-lernreich-pro.png` |
+
+Dazu auf jeder Seite `og:image:width`, `:height`, `:type` und ein passendes
+`twitter:image`. `node tools/check-social.mjs .` prüft, dass die Datei
+existiert, die Maße stimmen und `og:url` zur kanonischen Adresse passt.
+
+Was das nicht ist: keine Werbung, kein Tracking. Es ist nur die Karte, die beim
+Teilen erscheint.
+
 ## 4. Texte für den Erstkontakt
 
 **Kurzbeschreibung (50 Wörter):**
