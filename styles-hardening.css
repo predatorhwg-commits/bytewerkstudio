@@ -1,0 +1,65 @@
+/* ============================================================
+   BYTEWERK STUDIO — HARDENING (07.11.2026)
+   ------------------------------------------------------------
+   Eine additive Schicht, zuletzt geladen. Sie ueberschreibt nur
+   Eigenschaften, die nachweislich zu schwach sind, und fasst
+   keine Gestaltung an, die schon funktioniert.
+
+   1  Kontrast: Sprachumschalter (alle Seiten)
+   2  Kontrast: Breadcrumb auf marke.html
+   3  Kontrast: Trennpunkte im Forum
+   4  Sichtbarer Tastaturfokus
+   5  Bewegung, Druck, Zwangsfarben
+
+   Gemessen mit WCAG 2.1 (AA): kleiner Text >= 4.5:1.
+   ============================================================ */
+
+/* ---------- 1. Sprachumschalter ----------
+   Der Trenner "/" stand auf --line-2 (#d8d1c0) = 1.44:1.
+   Jetzt #6b665c = 5.42:1 auf #faf9f5. */
+.lang-toggle .lang-sep {
+  color: #6b665c;
+}
+
+/* ---------- 2. Breadcrumb marke.html ----------
+   .mk-crumb erbte ebenfalls --line-2; der aktuelle Krümel ist
+   Inhalt, kein Dekor. */
+.mk-crumb,
+.mk-crumb span {
+  color: #6b665c;
+}
+
+/* ---------- 3. Forum-Trennpunkte ----------
+   .fm-dot stand auf --line-2 = 1.52:1. Die Punkte trennen
+   Zeitangaben, sind also mitlesbar. */
+.fm-dot {
+  color: #6b665c;
+}
+
+/* ---------- 4. Sichtbarer Tastaturfokus ----------
+   Vorher gab es seitenweit keine eigene :focus-visible-Regel;
+   es blieb beim Browser-Ring, der auf dunklen Flaechen oft
+   verschwindet. currentColor garantiert Kontrast zur eigenen
+   Textfarbe, egal ob Papier oder dunkle Buehne. */
+:where(a, button, summary, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Der Community-Bereich behaelt seinen Terrakotta-Ring. */
+.cm-page :where(a, button, summary, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--cm-accent);
+  outline-offset: 3px;
+}
+
+/* ---------- 5. Bewegung und Zwangsfarben ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+@media (forced-colors: active) {
+  :where(a, button, summary, input, select, textarea, [tabindex]):focus-visible {
+    outline: 3px solid Highlight;
+  }
+}
