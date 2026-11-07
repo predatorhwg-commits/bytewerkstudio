@@ -9,7 +9,7 @@
 # Header können frame-ancestors und HSTS, eine Meta-CSP nicht.
 
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; frame-ancestors 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; frame-ancestors 'none'; upgrade-insecure-requests
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
@@ -28,11 +28,10 @@
 /*.html
   Cache-Control: public, max-age=600, must-revalidate
 
-# Die Sicherheitsseite braucht kein 'unsafe-inline' für Skripte:
-# der Sprachstart liegt in bootstrap.js. Sobald die übrigen Seiten
-# nachgezogen sind, kann die Regel oben genauso gekürzt werden.
-/sicherheit.html
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; frame-ancestors 'none'; upgrade-insecure-requests
+# Stand 7. November 2026: alle 33 Seiten laden kein Inline-JavaScript
+# mehr. Der Sprachstart liegt in bootstrap.js, Seitenskripte in
+# inline/*.js. Deshalb gilt die strenge Regel oben für jede Seite und
+# es braucht keine Ausnahme pro Datei.
 
 /.well-known/security.txt
   Content-Type: text/plain; charset=utf-8
