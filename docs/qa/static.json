@@ -192,8 +192,8 @@
       "images_without_alt": [],
       "broken_refs": [],
       "csp": "yes",
-      "description": false,
-      "canonical": null,
+      "description": true,
+      "canonical": "https://bytewerkstudio.com/konto.html",
       "data_en": 60
     },
     {
@@ -221,7 +221,7 @@
       "broken_refs": [],
       "csp": "yes",
       "description": true,
-      "canonical": null,
+      "canonical": "https://bytewerkstudio.com/login.html",
       "data_en": 23
     },
     {
@@ -268,7 +268,7 @@
     },
     {
       "page": "musterbuch.html",
-      "title": "Musterbuch — finde die Handschrift deines Produkts · Bytewerk Studio",
+      "title": "Musterbuch — die Handschrift deines Produkts · Bytewerk Studio",
       "lang": "de",
       "h1": 1,
       "ids": 6,
@@ -304,8 +304,8 @@
       "images_without_alt": [],
       "broken_refs": [],
       "csp": "yes",
-      "description": false,
-      "canonical": null,
+      "description": true,
+      "canonical": "https://bytewerkstudio.com/passwort-vergessen.html",
       "data_en": 14
     },
     {
@@ -361,7 +361,7 @@
       "broken_refs": [],
       "csp": "yes",
       "description": true,
-      "canonical": null,
+      "canonical": "https://bytewerkstudio.com/register.html",
       "data_en": 26
     },
     {
@@ -394,7 +394,7 @@
     },
     {
       "page": "sicherheit.html",
-      "title": "Sicherheit für Web & Software — Audit, Härtung, Notfall | Bytewerk Studio",
+      "title": "Sicherheit für Web & Software — Audit & Härtung | Bytewerk Studio",
       "lang": "de",
       "h1": 1,
       "ids": 23,

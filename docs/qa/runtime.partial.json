@@ -108,7 +108,7 @@
           "title": "AGB — Bytewerk Studio",
           "errors": [],
           "lang_switch": null,
-          "mobile_menu": false
+          "mobile_menu": true
         }
       ]
     },
@@ -126,7 +126,7 @@
           "h1": 1,
           "lang": "de",
           "canonical": true,
-          "canvases": 2,
+          "canvases": 3,
           "title": "Arbeiten — elf eigene Produkte | Bytewerk Studio",
           "errors": [],
           "lang_switch": true,
@@ -143,7 +143,24 @@
           "h1": 1,
           "lang": "de",
           "canonical": true,
-          "canvases": 2,
+          "canvases": 3,
+          "title": "Arbeiten — elf eigene Produkte | Bytewerk Studio",
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
+          "overflowNodes": [],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
+          "canvases": 3,
           "title": "Arbeiten — elf eigene Produkte | Bytewerk Studio",
           "errors": [],
           "lang_switch": null,
@@ -165,13 +182,9 @@
           "h1": 1,
           "lang": "de",
           "canonical": true,
-          "canvases": 1,
+          "canvases": 2,
           "title": "BURGENWERK - Burg bauen, verteidigen, erobern · Bytewerk Studio",
-          "errors": [
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: Error creating WebGL context."
-          ],
+          "errors": [],
           "lang_switch": true,
           "mobile_menu": null
         },
@@ -186,13 +199,26 @@
           "h1": 1,
           "lang": "de",
           "canonical": true,
-          "canvases": 1,
+          "canvases": 2,
           "title": "BURGENWERK - Burg bauen, verteidigen, erobern · Bytewerk Studio",
-          "errors": [
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: Error creating WebGL context."
-          ],
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
+          "overflowNodes": [],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
+          "canvases": 2,
+          "title": "BURGENWERK - Burg bauen, verteidigen, erobern · Bytewerk Studio",
+          "errors": [],
           "lang_switch": null,
           "mobile_menu": true
         }
@@ -212,13 +238,9 @@
           "h1": 1,
           "lang": "de",
           "canonical": true,
-          "canvases": 1,
+          "canvases": 2,
           "title": "Bytewerk PDF Text Pro - PDF zu Text · Bytewerk Studio",
-          "errors": [
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: Error creating WebGL context."
-          ],
+          "errors": [],
           "lang_switch": true,
           "mobile_menu": null
         },
@@ -233,13 +255,26 @@
           "h1": 1,
           "lang": "de",
           "canonical": true,
-          "canvases": 1,
+          "canvases": 2,
           "title": "Bytewerk PDF Text Pro - PDF zu Text · Bytewerk Studio",
-          "errors": [
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: Error creating WebGL context."
-          ],
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
+          "overflowNodes": [],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
+          "canvases": 2,
+          "title": "Bytewerk PDF Text Pro - PDF zu Text · Bytewerk Studio",
+          "errors": [],
           "lang_switch": null,
           "mobile_menu": true
         }
@@ -271,6 +306,23 @@
           "height": 1024,
           "scrollW": 768,
           "clientW": 768,
+          "overflowNodes": [],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
+          "canvases": 1,
+          "title": "Download vorbereiten — Lernreich · Bytewerk Studio",
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
           "overflowNodes": [],
           "navH": 73,
           "h1": 1,
@@ -320,6 +372,23 @@
           "errors": [],
           "lang_switch": null,
           "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
+          "overflowNodes": [],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
+          "canvases": 1,
+          "title": "Datenschutz — Bytewerk Studio",
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
         }
       ]
     },
@@ -337,7 +406,7 @@
           "h1": 1,
           "lang": "de",
           "canonical": true,
-          "canvases": 1,
+          "canvases": 2,
           "title": "Entwickler — API, Sandbox und Abo | Bytewerk Studio",
           "errors": [],
           "lang_switch": true,
@@ -354,7 +423,26 @@
           "h1": 1,
           "lang": "de",
           "canonical": true,
-          "canvases": 1,
+          "canvases": 2,
+          "title": "Entwickler — API, Sandbox und Abo | Bytewerk Studio",
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
+          "overflowNodes": [
+            "CODE."
+          ],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
+          "canvases": 2,
           "title": "Entwickler — API, Sandbox und Abo | Bytewerk Studio",
           "errors": [],
           "lang_switch": null,
@@ -407,6 +495,32 @@
           "errors": [],
           "lang_switch": null,
           "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
+          "overflowNodes": [
+            "BUTTON.fm-cat",
+            "SPAN.fm-cat-left",
+            "SPAN.fm-cat-name",
+            "SPAN.fm-cat-n",
+            "BUTTON.fm-cat",
+            "SPAN.fm-cat-left",
+            "svg.[object SVGAnimatedString]",
+            "ellipse.[object SVGAnimatedString]"
+          ],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
+          "canvases": 2,
+          "title": "Forum — Fragen, Antworten und Werkstattwissen | Bytewerk Studio",
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
         }
       ]
     },
@@ -436,6 +550,23 @@
           "height": 1024,
           "scrollW": 768,
           "clientW": 768,
+          "overflowNodes": [],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
+          "canvases": 1,
+          "title": "Impressum — Bytewerk Studio",
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
           "overflowNodes": [],
           "navH": 73,
           "h1": 1,
@@ -503,6 +634,32 @@
           "errors": [],
           "lang_switch": null,
           "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
+          "overflowNodes": [
+            "DIV.marquee-track",
+            "SPAN.",
+            "SPAN.",
+            "SPAN.",
+            "SPAN.",
+            "SPAN.",
+            "SPAN.",
+            "SPAN."
+          ],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
+          "canvases": 3,
+          "title": "Bytewerk Studio — Software, Web & Apps aus Ludwigshafen",
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
         }
       ]
     },
@@ -532,6 +689,23 @@
           "height": 1024,
           "scrollW": 768,
           "clientW": 768,
+          "overflowNodes": [],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
+          "canvases": 1,
+          "title": "KeyForge Vault - Premium Passwort-Vault · Bytewerk Studio",
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
           "overflowNodes": [],
           "navH": 73,
           "h1": 1,
@@ -581,6 +755,23 @@
           "errors": [],
           "lang_switch": null,
           "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
+          "overflowNodes": [],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
+          "canvases": 2,
+          "title": "Kontakt — Projektbrief | Bytewerk Studio",
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
         }
       ]
     },
@@ -597,11 +788,11 @@
           "navH": 73,
           "h1": 1,
           "lang": "de",
-          "canonical": false,
+          "canonical": true,
           "canvases": 1,
           "title": "Anmelden — Bytewerk Studio Konto",
           "errors": [],
-          "lang_switch": true,
+          "lang_switch": null,
           "mobile_menu": null
         },
         {
@@ -614,7 +805,24 @@
           "navH": 73,
           "h1": 1,
           "lang": "de",
-          "canonical": false,
+          "canonical": true,
+          "canvases": 1,
+          "title": "Anmelden — Bytewerk Studio Konto",
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
+          "overflowNodes": [],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
           "canvases": 1,
           "title": "Anmelden — Bytewerk Studio Konto",
           "errors": [],
@@ -637,13 +845,9 @@
           "h1": 1,
           "lang": "de",
           "canonical": true,
-          "canvases": 1,
+          "canvases": 2,
           "title": "Lernreich Pro — Premium Windows-App · Bytewerk Studio",
-          "errors": [
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: Error creating WebGL context."
-          ],
+          "errors": [],
           "lang_switch": true,
           "mobile_menu": null
         },
@@ -658,13 +862,26 @@
           "h1": 1,
           "lang": "de",
           "canonical": true,
-          "canvases": 1,
+          "canvases": 2,
           "title": "Lernreich Pro — Premium Windows-App · Bytewerk Studio",
-          "errors": [
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: Error creating WebGL context."
-          ],
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
+          "overflowNodes": [],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
+          "canvases": 2,
+          "title": "Lernreich Pro — Premium Windows-App · Bytewerk Studio",
+          "errors": [],
           "lang_switch": null,
           "mobile_menu": true
         }
@@ -683,7 +900,7 @@
           "navH": 73,
           "h1": 1,
           "lang": "de",
-          "canonical": false,
+          "canonical": true,
           "canvases": 1,
           "title": "Anmelden — Bytewerk Studio Konto",
           "errors": [],
@@ -700,7 +917,24 @@
           "navH": 73,
           "h1": 1,
           "lang": "de",
-          "canonical": false,
+          "canonical": true,
+          "canvases": 1,
+          "title": "Anmelden — Bytewerk Studio Konto",
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
+          "overflowNodes": [],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
           "canvases": 1,
           "title": "Anmelden — Bytewerk Studio Konto",
           "errors": [],
@@ -723,13 +957,9 @@
           "h1": 1,
           "lang": "de",
           "canonical": true,
-          "canvases": 1,
+          "canvases": 2,
           "title": "LumaWeek Planner - Wochen- und Jahresplaner · Bytewerk Studio",
-          "errors": [
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: Error creating WebGL context."
-          ],
+          "errors": [],
           "lang_switch": true,
           "mobile_menu": null
         },
@@ -744,15 +974,28 @@
           "h1": 1,
           "lang": "de",
           "canonical": true,
-          "canvases": 1,
+          "canvases": 2,
           "title": "LumaWeek Planner - Wochen- und Jahresplaner · Bytewerk Studio",
-          "errors": [
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: Error creating WebGL context."
-          ],
+          "errors": [],
           "lang_switch": null,
-          "mobile_menu": false
+          "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
+          "overflowNodes": [],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
+          "canvases": 2,
+          "title": "LumaWeek Planner - Wochen- und Jahresplaner · Bytewerk Studio",
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
         }
       ]
     },
@@ -770,13 +1013,9 @@
           "h1": 1,
           "lang": "de",
           "canonical": true,
-          "canvases": 1,
+          "canvases": 2,
           "title": "Die Marke — Bytewerk Studio",
-          "errors": [
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: Error creating WebGL context."
-          ],
+          "errors": [],
           "lang_switch": true,
           "mobile_menu": null
         },
@@ -791,15 +1030,28 @@
           "h1": 1,
           "lang": "de",
           "canonical": true,
-          "canvases": 1,
+          "canvases": 2,
           "title": "Die Marke — Bytewerk Studio",
-          "errors": [
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: Error creating WebGL context."
-          ],
+          "errors": [],
           "lang_switch": null,
-          "mobile_menu": false
+          "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
+          "overflowNodes": [],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
+          "canvases": 2,
+          "title": "Die Marke — Bytewerk Studio",
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
         }
       ]
     },
@@ -839,6 +1091,23 @@
           "errors": [],
           "lang_switch": null,
           "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
+          "overflowNodes": [],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
+          "canvases": 1,
+          "title": "MASTIL - Mittelalter-Strategie & Tower Defense · Bytewerk Studio",
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
         }
       ]
     },
@@ -858,13 +1127,9 @@
           "h1": 1,
           "lang": "de",
           "canonical": true,
-          "canvases": 1,
-          "title": "Musterbuch — finde die Handschrift deines Produkts · Bytewerk Studio",
-          "errors": [
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: Error creating WebGL context."
-          ],
+          "canvases": 2,
+          "title": "Musterbuch — die Handschrift deines Produkts · Bytewerk Studio",
+          "errors": [],
           "lang_switch": true,
           "mobile_menu": null
         },
@@ -881,13 +1146,29 @@
           "h1": 1,
           "lang": "de",
           "canonical": true,
-          "canvases": 1,
-          "title": "Musterbuch — finde die Handschrift deines Produkts · Bytewerk Studio",
-          "errors": [
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: Error creating WebGL context."
+          "canvases": 2,
+          "title": "Musterbuch — die Handschrift deines Produkts · Bytewerk Studio",
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
+          "overflowNodes": [
+            "DIV.mb-hero-wash",
+            "CODE."
           ],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
+          "canvases": 2,
+          "title": "Musterbuch — die Handschrift deines Produkts · Bytewerk Studio",
+          "errors": [],
           "lang_switch": null,
           "mobile_menu": true
         }
@@ -929,6 +1210,23 @@
           "errors": [],
           "lang_switch": null,
           "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
+          "overflowNodes": [],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
+          "canvases": 1,
+          "title": "Neon Dominion - Neon-Tech Tower-Conquest · Bytewerk Studio",
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
         }
       ]
     },
@@ -945,7 +1243,7 @@
           "navH": 73,
           "h1": 1,
           "lang": "de",
-          "canonical": false,
+          "canonical": true,
           "canvases": 1,
           "title": "Passwort zurücksetzen — Bytewerk Studio",
           "errors": [],
@@ -962,7 +1260,24 @@
           "navH": 73,
           "h1": 1,
           "lang": "de",
-          "canonical": false,
+          "canonical": true,
+          "canvases": 1,
+          "title": "Passwort zurücksetzen — Bytewerk Studio",
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
+          "overflowNodes": [],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
           "canvases": 1,
           "title": "Passwort zurücksetzen — Bytewerk Studio",
           "errors": [],
@@ -987,11 +1302,7 @@
           "canonical": true,
           "canvases": 2,
           "title": "Probierstand — vier Werkzeuge live im Browser | Bytewerk Studio",
-          "errors": [
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: Error creating WebGL context."
-          ],
+          "errors": [],
           "lang_switch": true,
           "mobile_menu": null
         },
@@ -1008,11 +1319,24 @@
           "canonical": true,
           "canvases": 2,
           "title": "Probierstand — vier Werkzeuge live im Browser | Bytewerk Studio",
-          "errors": [
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: Error creating WebGL context."
-          ],
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
+          "overflowNodes": [],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
+          "canvases": 2,
+          "title": "Probierstand — vier Werkzeuge live im Browser | Bytewerk Studio",
+          "errors": [],
           "lang_switch": null,
           "mobile_menu": true
         }
@@ -1044,6 +1368,23 @@
           "height": 1024,
           "scrollW": 768,
           "clientW": 768,
+          "overflowNodes": [],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
+          "canvases": 1,
+          "title": "Lernreich — Lern-App · Bytewerk Studio",
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
           "overflowNodes": [],
           "navH": 73,
           "h1": 1,
@@ -1093,6 +1434,23 @@
           "errors": [],
           "lang_switch": null,
           "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
+          "overflowNodes": [],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
+          "canvases": 1,
+          "title": "Pruefungs-Countdown — Windows-App · Bytewerk Studio",
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
         }
       ]
     },
@@ -1109,7 +1467,7 @@
           "navH": 73,
           "h1": 1,
           "lang": "de",
-          "canonical": false,
+          "canonical": true,
           "canvases": 1,
           "title": "Konto erstellen — Bytewerk Studio",
           "errors": [],
@@ -1126,7 +1484,24 @@
           "navH": 73,
           "h1": 1,
           "lang": "de",
-          "canonical": false,
+          "canonical": true,
+          "canvases": 1,
+          "title": "Konto erstellen — Bytewerk Studio",
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
+          "overflowNodes": [],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
           "canvases": 1,
           "title": "Konto erstellen — Bytewerk Studio",
           "errors": [],
@@ -1149,7 +1524,7 @@
           "h1": 1,
           "lang": "de",
           "canonical": true,
-          "canvases": 1,
+          "canvases": 2,
           "title": "Shop — Bytewerk Studio Apps",
           "errors": [],
           "lang_switch": true,
@@ -1166,7 +1541,24 @@
           "h1": 1,
           "lang": "de",
           "canonical": true,
-          "canvases": 1,
+          "canvases": 2,
+          "title": "Shop — Bytewerk Studio Apps",
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
+          "overflowNodes": [],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
+          "canvases": 2,
           "title": "Shop — Bytewerk Studio Apps",
           "errors": [],
           "lang_switch": null,
@@ -1209,7 +1601,24 @@
           "title": "Showroom — elf Produkte in 3D — Bytewerk Studio",
           "errors": [],
           "lang_switch": null,
-          "mobile_menu": false
+          "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
+          "overflowNodes": [],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
+          "canvases": 2,
+          "title": "Showroom — elf Produkte in 3D — Bytewerk Studio",
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
         }
       ]
     },
@@ -1228,7 +1637,7 @@
           "lang": "de",
           "canonical": true,
           "canvases": 2,
-          "title": "Sicherheit für Web & Software — Audit, Härtung, Notfall | Bytewerk Studio",
+          "title": "Sicherheit für Web & Software — Audit & Härtung | Bytewerk Studio",
           "errors": [],
           "lang_switch": true,
           "mobile_menu": null
@@ -1245,7 +1654,24 @@
           "lang": "de",
           "canonical": true,
           "canvases": 2,
-          "title": "Sicherheit für Web & Software — Audit, Härtung, Notfall | Bytewerk Studio",
+          "title": "Sicherheit für Web & Software — Audit & Härtung | Bytewerk Studio",
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
+          "overflowNodes": [],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
+          "canvases": 2,
+          "title": "Sicherheit für Web & Software — Audit & Härtung | Bytewerk Studio",
           "errors": [],
           "lang_switch": null,
           "mobile_menu": true
@@ -1287,7 +1713,24 @@
           "title": "Softwareentwicklung Ludwigshafen — Bytewerk Studio",
           "errors": [],
           "lang_switch": null,
-          "mobile_menu": false
+          "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
+          "overflowNodes": [],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
+          "canvases": 1,
+          "title": "Softwareentwicklung Ludwigshafen — Bytewerk Studio",
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
         }
       ]
     },
@@ -1305,7 +1748,7 @@
           "h1": 1,
           "lang": "de",
           "canonical": true,
-          "canvases": 1,
+          "canvases": 2,
           "title": "Studio — Werkstatt für Software, Web und Apps | Bytewerk Studio",
           "errors": [],
           "lang_switch": true,
@@ -1322,7 +1765,24 @@
           "h1": 1,
           "lang": "de",
           "canonical": true,
-          "canvases": 1,
+          "canvases": 2,
+          "title": "Studio — Werkstatt für Software, Web und Apps | Bytewerk Studio",
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
+          "overflowNodes": [],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
+          "canvases": 2,
           "title": "Studio — Werkstatt für Software, Web und Apps | Bytewerk Studio",
           "errors": [],
           "lang_switch": null,
@@ -1344,13 +1804,9 @@
           "h1": 1,
           "lang": "de",
           "canonical": true,
-          "canvases": 1,
+          "canvases": 2,
           "title": "UpdatePilot - Windows Update-Manager · Bytewerk Studio",
-          "errors": [
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: Error creating WebGL context."
-          ],
+          "errors": [],
           "lang_switch": true,
           "mobile_menu": null
         },
@@ -1365,13 +1821,26 @@
           "h1": 1,
           "lang": "de",
           "canonical": true,
-          "canvases": 1,
+          "canvases": 2,
           "title": "UpdatePilot - Windows Update-Manager · Bytewerk Studio",
-          "errors": [
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: A WebGL context could not be created. Reason:  disabled by enterprise policy or commandline switch",
-            "THREE.WebGLRenderer: Error creating WebGL context."
-          ],
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
+          "overflowNodes": [],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
+          "canvases": 2,
+          "title": "UpdatePilot - Windows Update-Manager · Bytewerk Studio",
+          "errors": [],
           "lang_switch": null,
           "mobile_menu": true
         }
@@ -1422,6 +1891,23 @@
           "errors": [],
           "lang_switch": null,
           "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
+          "overflowNodes": [],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
+          "canvases": 1,
+          "title": "Produktvergleich — welche Bytewerk-App passt? | Bytewerk Studio",
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
         }
       ]
     },
@@ -1460,7 +1946,24 @@
           "title": "Zeichenwerk — 3D-Letterpress · Bytewerk Studio",
           "errors": [],
           "lang_switch": null,
-          "mobile_menu": false
+          "mobile_menu": true
+        },
+        {
+          "viewport": "mobile",
+          "width": 390,
+          "height": 844,
+          "scrollW": 390,
+          "clientW": 390,
+          "overflowNodes": [],
+          "navH": 73,
+          "h1": 1,
+          "lang": "de",
+          "canonical": true,
+          "canvases": 2,
+          "title": "Zeichenwerk — 3D-Letterpress · Bytewerk Studio",
+          "errors": [],
+          "lang_switch": null,
+          "mobile_menu": true
         }
       ]
     }

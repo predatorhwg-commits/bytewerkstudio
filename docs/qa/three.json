@@ -1,0 +1,274 @@
+{
+  "rows": [
+    {
+      "page": "index.html",
+      "anchor": "#schichtmodell",
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "webgl": null
+        },
+        {
+          "w": 575,
+          "h": 612,
+          "webgl": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+        },
+        {
+          "w": 300,
+          "h": 150,
+          "webgl": null
+        }
+      ],
+      "pixel_std": [
+        {
+          "index": 0,
+          "std": 42.0
+        },
+        {
+          "index": 1,
+          "std": 57.9
+        },
+        {
+          "index": 2,
+          "std": 1.1
+        }
+      ],
+      "rendered": true,
+      "page_errors": []
+    },
+    {
+      "page": "404.html",
+      "anchor": "canvas",
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "webgl": null
+        },
+        {
+          "w": 512,
+          "h": 502,
+          "webgl": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+        }
+      ],
+      "pixel_std": [
+        {
+          "index": 0,
+          "std": 45.5
+        },
+        {
+          "index": 1,
+          "std": 72.2
+        }
+      ],
+      "rendered": true,
+      "page_errors": []
+    },
+    {
+      "page": "arbeiten.html",
+      "anchor": "canvas",
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "webgl": null
+        },
+        {
+          "w": 1440,
+          "h": 520,
+          "webgl": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+        },
+        {
+          "w": 476,
+          "h": 381,
+          "webgl": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+        }
+      ],
+      "pixel_std": [
+        {
+          "index": 0,
+          "std": 26.7
+        },
+        {
+          "index": 1,
+          "std": 26.0
+        },
+        {
+          "index": 2,
+          "std": 0.5
+        }
+      ],
+      "rendered": true,
+      "page_errors": []
+    },
+    {
+      "page": "entwickler.html",
+      "anchor": "canvas",
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "webgl": null
+        },
+        {
+          "w": 1440,
+          "h": 775,
+          "webgl": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+        }
+      ],
+      "pixel_std": [
+        {
+          "index": 0,
+          "std": 29.0
+        },
+        {
+          "index": 1,
+          "std": 31.1
+        }
+      ],
+      "rendered": true,
+      "page_errors": []
+    },
+    {
+      "page": "forum.html",
+      "anchor": "canvas",
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "webgl": null
+        },
+        {
+          "w": 500,
+          "h": 424,
+          "webgl": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+        }
+      ],
+      "pixel_std": [
+        {
+          "index": 0,
+          "std": 32.4
+        },
+        {
+          "index": 1,
+          "std": 25.8
+        }
+      ],
+      "rendered": true,
+      "page_errors": []
+    },
+    {
+      "page": "probierstand.html",
+      "anchor": "canvas",
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "webgl": null
+        },
+        {
+          "w": 552,
+          "h": 425,
+          "webgl": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+        }
+      ],
+      "pixel_std": [
+        {
+          "index": 0,
+          "std": 32.5
+        },
+        {
+          "index": 1,
+          "std": 39.8
+        }
+      ],
+      "rendered": true,
+      "page_errors": []
+    },
+    {
+      "page": "shop.html",
+      "anchor": "canvas",
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "webgl": null
+        },
+        {
+          "w": 1440,
+          "h": 587,
+          "webgl": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+        }
+      ],
+      "pixel_std": [
+        {
+          "index": 0,
+          "std": 33.2
+        },
+        {
+          "index": 1,
+          "std": 36.9
+        }
+      ],
+      "rendered": true,
+      "page_errors": []
+    },
+    {
+      "page": "showroom.html",
+      "anchor": "canvas",
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "webgl": null
+        },
+        {
+          "w": 734,
+          "h": 510,
+          "webgl": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+        }
+      ],
+      "pixel_std": [
+        {
+          "index": 0,
+          "std": 34.5
+        },
+        {
+          "index": 1,
+          "std": 24.0
+        }
+      ],
+      "rendered": true,
+      "page_errors": []
+    },
+    {
+      "page": "sicherheit.html",
+      "anchor": "canvas",
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "webgl": null
+        },
+        {
+          "w": 508,
+          "h": 523,
+          "webgl": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+        }
+      ],
+      "pixel_std": [
+        {
+          "index": 0,
+          "std": 36.8
+        },
+        {
+          "index": 1,
+          "std": 43.4
+        }
+      ],
+      "rendered": true,
+      "page_errors": []
+    }
+  ]
+}

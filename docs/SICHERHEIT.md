@@ -23,16 +23,13 @@ serverseitigen Schutzschichten. Der interessante Teil ist der Browser.
 
 ## 2. Content-Security-Policy
 
-Auf 30 von 31 Seiten identisch (die Ausnahme ist die
-Google-Verifizierungsdatei `google3491bb2e3bfcb9d2.html`, reiner Text).
-`sicherheit.html` selbst ist strenger — dort fehlt `'unsafe-inline'` bei
-`script-src`:
+Auf allen 33 ausgelieferten Seiten identisch und ohne Ausnahme für Skripte:
 
 ```
 default-src 'self';
-script-src  'self' 'unsafe-inline';   /* sicherheit.html: 'self' */
-style-src   'self' 'unsafe-inline' https://fonts.googleapis.com;
-font-src    https://fonts.gstatic.com;
+script-src  'self';
+style-src   'self' 'unsafe-inline';
+font-src    'self' https://fonts.gstatic.com;
 img-src     'self' data:;
 object-src  'none';
 base-uri    'self';
@@ -41,49 +38,42 @@ connect-src 'self' https://*.supabase.co;
 upgrade-insecure-requests
 ```
 
+Die Google-Verifizierungsdatei `google3491bb2e3bfcb9d2.html` ist reiner Text
+ohne CSP — sie enthält aber auch kein HTML, das ausgeführt würde.
+
 ### Was das verhindert
 
+- `script-src 'self'` **ohne `'unsafe-inline'` und ohne `'unsafe-eval'`** —
+  injizierte `<script>`-Blöcke, `onerror=`-Attribute, `eval`, `new Function`
+  und String-Timer laufen nicht. Das ist der wichtigste Unterschied zu vorher.
 - `default-src 'self'` — kein Nachladen von Skripten, Bildern oder Frames von
-  fremden Hosts. Ein injizierter `<script src="https://cdn…">` läuft nicht.
-- `object-src 'none'` — kein Flash/PDF-Plugin-Einbettungskanal.
+  fremden Hosts.
+- `object-src 'none'` — kein Plugin-Einbettungskanal.
 - `base-uri 'self'` — kein `<base href>`-Trick, der relative URLs umbiegt.
-- kein `unsafe-eval` — `eval`, `new Function` und String-Timer sind blockiert.
 - `form-action` begrenzt, wohin Formulare senden dürfen.
 
-### Zwei echte Schwächen
+### Wie der Umbau aussieht
 
-**1. `script-src 'unsafe-inline'`.** Auf 30 der 31 Seiten. Jede hat mindestens ein
-Inline-Skript (Sprachstart, JSON-LD). Damit ist eine XSS-Lücke nicht automatisch
-harmlos: Wer HTML einschleusen kann, kann auch ein `<script>` einschleusen.
+Alle Inline-Skripte sind ausgelagert:
 
-`sicherheit.html` ist die **Ausnahme und der Beweis, dass es ohne geht**:
-die drei Zeilen Sprachstart liegen in `bootstrap.js`, die Seite läuft mit
-`script-src 'self'`. Geprüft mit einem eingeschleusten Inline-Skript — es
-wird blockiert, die Verletzung landet in der Konsole, JSON-LD parst weiter:
+| vorher | jetzt |
+|---|---|
+| `<script>document.documentElement.classList.add('js')…</script>` auf jeder Seite | `bootstrap.js` (synchron, vor dem ersten Paint) |
+| Seitenskripte in `<script>`-Blöcken | `inline/<seite>-<n>.js` (19 Dateien) |
+| `script-src 'self' 'unsafe-inline'` | `script-src 'self'` |
+| Forum mit SHA-256-Hash | `script-src 'self'`, kein Hash nötig |
 
-```
-inline script executed: False
-CSP violation logged:   True
-JSON-LD:                ok 4 nodes
-```
+JSON-LD bleibt inline, weil es kein ausführbares Skript ist (`type="application/ld+json"`);
+eine CSP mit `script-src 'self'` blockiert es nicht.
 
-Der Umbau für die übrigen Seiten ist drei Zeilen pro Datei:
+### Was noch offen ist
 
-1. `bootstrap.js` nach `<meta charset>` einbinden,
-2. den Inline-Block `<script>document.documentElement.classList.add('js')…</script>` löschen,
-3. in der CSP `script-src 'self' 'unsafe-inline'` auf `script-src 'self'` kürzen.
-
-Offen bleibt `style-src`: Die Reveal-Animationen und der Fortschrittsring
-setzen `style`-Attribute, die eine CSP ohne `'unsafe-inline'` blockt. Dieser
-Teil braucht Klassen statt Attributen und ist ein eigener Arbeitsschritt.
-
-**2. `style-src 'unsafe-inline'`.** Nötig, weil die Seite dynamische
-`style`-Attribute setzt (Fortschrittsring im Sicherheits-Check, Reveal-Delays).
-Risiko ist geringer als bei Skripten, aber real: Injektion von CSS kann über
+**`style-src 'unsafe-inline'`.** Nötig, weil die Seite dynamische
+`style`-Attribute setzt (Reveal-Delays, Fortschrittsring, 3D-Bühnen). Das
+Risiko ist geringer als bei Skripten, aber real: Injiziertes CSS kann über
 `background-image: url(…)` Daten abfließen lassen, wenn `img-src` es erlaubt.
-Hier ist `img-src 'self' data:` — fremde URLs bleiben blockiert.
-
-### Was fehlt
+Hier ist `img-src 'self' data:` — fremde URLs bleiben blockiert. Der Umbau auf
+Klassen statt Attributen ist ein eigener Arbeitsschritt.
 
 - **`frame-ancestors`** ist in einer `<meta>`-CSP wirkungslos. Auf GitHub Pages
   gibt es keine Antwort-Header, also **kein Clickjacking-Schutz**. Wer die Seite
@@ -93,7 +83,8 @@ Hier ist `img-src 'self' data:` — fremde URLs bleiben blockiert.
   gemischte Inhalte ab, nicht den ersten Aufruf über HTTP).
 - `_headers` im Wurzelverzeichnis ist die **Vorlage** für Netlify oder
   Cloudflare Pages. GitHub Pages ignoriert die Datei. Sie ist kein aktiver
-  Schutz, sondern ein Umzugsgut.
+  Schutz, sondern ein Umzugsgut — inzwischen mit derselben strengen
+  `script-src 'self'`-Regel wie das HTML.
 
 ## 3. Kein `innerHTML` für berechnete Inhalte
 
