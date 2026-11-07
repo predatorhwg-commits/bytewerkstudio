@@ -23,12 +23,14 @@ serverseitigen Schutzschichten. Der interessante Teil ist der Browser.
 
 ## 2. Content-Security-Policy
 
-Auf 31 von 32 Seiten identisch (die Ausnahme ist die
-Google-Verifizierungsdatei `google3491bb2e3bfcb9d2.html`, reiner Text):
+Auf 30 von 31 Seiten identisch (die Ausnahme ist die
+Google-Verifizierungsdatei `google3491bb2e3bfcb9d2.html`, reiner Text).
+`sicherheit.html` selbst ist strenger — dort fehlt `'unsafe-inline'` bei
+`script-src`:
 
 ```
 default-src 'self';
-script-src  'self' 'unsafe-inline';
+script-src  'self' 'unsafe-inline';   /* sicherheit.html: 'self' */
 style-src   'self' 'unsafe-inline' https://fonts.googleapis.com;
 font-src    https://fonts.gstatic.com;
 img-src     'self' data:;
@@ -50,15 +52,30 @@ upgrade-insecure-requests
 
 ### Zwei echte Schwächen
 
-**1. `script-src 'unsafe-inline'`.** Jede Seite hat mindestens ein Inline-Skript
-(Sprachstart, JSON-LD). Damit ist eine XSS-Lücke nicht automatisch harmlos:
-Wer HTML einschleusen kann, kann auch ein `<script>` einschleusen. Der Schutz
-kommt hier aus dem Code, nicht aus der Policy (siehe Abschnitt 3).
+**1. `script-src 'unsafe-inline'`.** Auf 30 der 31 Seiten. Jede hat mindestens ein
+Inline-Skript (Sprachstart, JSON-LD). Damit ist eine XSS-Lücke nicht automatisch
+harmlos: Wer HTML einschleusen kann, kann auch ein `<script>` einschleusen.
 
-Der saubere Weg wäre eine Nonce oder ein Hash pro Seite. Beides scheitert
-derzeit an GitHub Pages: Nonces müssen pro Antwort neu sein, und statische
-Dateien kennen keine Antwort-Header. Der Umbau würde alle Inline-Skripte in
-eigene Dateien verschieben — machbar, aber ein eigener Arbeitsschritt.
+`sicherheit.html` ist die **Ausnahme und der Beweis, dass es ohne geht**:
+die drei Zeilen Sprachstart liegen in `bootstrap.js`, die Seite läuft mit
+`script-src 'self'`. Geprüft mit einem eingeschleusten Inline-Skript — es
+wird blockiert, die Verletzung landet in der Konsole, JSON-LD parst weiter:
+
+```
+inline script executed: False
+CSP violation logged:   True
+JSON-LD:                ok 4 nodes
+```
+
+Der Umbau für die übrigen Seiten ist drei Zeilen pro Datei:
+
+1. `bootstrap.js` nach `<meta charset>` einbinden,
+2. den Inline-Block `<script>document.documentElement.classList.add('js')…</script>` löschen,
+3. in der CSP `script-src 'self' 'unsafe-inline'` auf `script-src 'self'` kürzen.
+
+Offen bleibt `style-src`: Die Reveal-Animationen und der Fortschrittsring
+setzen `style`-Attribute, die eine CSP ohne `'unsafe-inline'` blockt. Dieser
+Teil braucht Klassen statt Attributen und ist ein eigener Arbeitsschritt.
 
 **2. `style-src 'unsafe-inline'`.** Nötig, weil die Seite dynamische
 `style`-Attribute setzt (Fortschrittsring im Sicherheits-Check, Reveal-Delays).

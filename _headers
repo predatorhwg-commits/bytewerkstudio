@@ -28,6 +28,12 @@
 /*.html
   Cache-Control: public, max-age=600, must-revalidate
 
+# Die Sicherheitsseite braucht kein 'unsafe-inline' für Skripte:
+# der Sprachstart liegt in bootstrap.js. Sobald die übrigen Seiten
+# nachgezogen sind, kann die Regel oben genauso gekürzt werden.
+/sicherheit.html
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; frame-ancestors 'none'; upgrade-insecure-requests
+
 /.well-known/security.txt
   Content-Type: text/plain; charset=utf-8
   Cache-Control: public, max-age=86400
