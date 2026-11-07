@@ -108,7 +108,7 @@ und gültige Daten bleiben unverändert.
 | Suche | Feld im Kopf der Liste | `/` (die Site-Suche bleibt auf `Cmd`/`Strg` + `K`) |
 | Neues Thema | Knopf oben rechts | `n` |
 | Senden | Knopf im Formular | `Strg`/`Cmd` + `Enter` |
-| Formular schließen | X oder Klick daneben | `Esc` — der Fokus kehrt zum Knopf zurück |
+| Formular schließen | X oder Klick daneben | `Esc` — der Fokus kehrt zum Knopf zurück (auch nach `n`) |
 | Thema öffnen | Klick auf die Zeile | `Tab`, dann `Enter` |
 | Pinwand drehen | ziehen | Pfeiltasten bei Fokus |
 

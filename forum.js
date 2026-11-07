@@ -1728,7 +1728,12 @@
     if (!requireAccount()) return;
     const d = composer.dialog;
     if (!d) return;
-    composer.opener = document.activeElement;
+    // Opened with "n", the cursor sits on <body>; Escape would then drop the
+    // reader at the top of the page. Fall back to the button that opens it.
+    const from = document.activeElement;
+    composer.opener = (from && from !== document.body && document.contains(from))
+      ? from
+      : document.querySelector('[data-fm-new]');
 
     composer.cat.replaceChildren();
     CATS.forEach(cat => {
