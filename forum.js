@@ -930,12 +930,20 @@
   let missingSlug = null;
   const viewedThisSession = new Set();
 
+  /* A link from outside can hold anything after #/t/ — a lone "%" makes
+     decodeURIComponent throw, which used to abort boot() and leave the
+     page empty. Decode defensively and fall back to the raw segment. */
+  function decodePart(raw) {
+    try { return decodeURIComponent(raw); }
+    catch (e) { return raw; }
+  }
+
   function parseRoute() {
     const hash = (location.hash || '').replace(/^#\/?/, '');
     const parts = hash.split('/').filter(Boolean);
     route.view = 'list'; route.cat = null; route.slug = null;
-    if (parts[0] === 't' && parts[1]) { route.view = 'thread'; route.slug = decodeURIComponent(parts[1]); }
-    else if (parts[0] === 'c' && parts[1]) { route.cat = decodeURIComponent(parts[1]); }
+    if (parts[0] === 't' && parts[1]) { route.view = 'thread'; route.slug = decodePart(parts[1]); }
+    else if (parts[0] === 'c' && parts[1]) { route.cat = decodePart(parts[1]); }
     else if (parts[0] === 'neu' || parts[0] === 'new') { route.view = 'new'; }
 
     // ?t=slug makes a thread link shareable before the hash is read
