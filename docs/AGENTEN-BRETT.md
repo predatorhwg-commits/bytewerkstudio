@@ -20,6 +20,28 @@ im Terminal). Format wie im Issue: `Agent | Aufgabe | Dateien | Status | Commit`
 | Fable (Community) | Sitemap-Eintrag | `sitemap.xml` | fertig | `fable/community` |
 | — | Startseite, Hero, Showroom, Zeichenwerk | siehe `AGENTS.md` | von anderen Agenten belegt | — |
 | — | `styles-v5.css`, `ui-v5.js` | — | von anderen Agenten belegt, nicht angefasst | — |
+| Release (final/noon) | Zusammenführung, QA, Sicherheitspaket, Marketing | `.well-known/security.txt`, `docs/SICHERHEIT.md`, `docs/MARKETING.md`, `docs/AGENTEN-BRETT.md`, `docs/qa-static.json` | fertig | `final/noon` |
+
+### Besitzstand des Release-Zweigs (`final/noon`)
+
+Der Zweig ist ein Integrationszweig, kein Arbeitszweig. Er hält die Änderungen
+aus allen Linien zusammen und fasst nur diese Dateien selbst an:
+
+| Datei | Wer | Änderung |
+|---|---|---|
+| `community.html`, `community.js`, `styles-community.css`, `community-scene.js` | Fable (Community) | übernommen, nur additive Overrides am Ende der CSS-Datei |
+| `entwickler.html`, `entwickler.js`, `styles-entwickler.css` | Kimi-Linie | unverändert übernommen |
+| `forum.html`, `forum.js`, `styles-forum.css`, `forum-scene.js` | Claude-Linie | unverändert übernommen, `forum.html` bleibt als Seite erreichbar |
+| `components.js`, `sitemap.xml`, `README.md` | gemeinsam | Konflikte zugunsten der Integrationslinie gelöst, Community-Einträge additiv ergänzt |
+| `konto.html`, `passwort-vergessen.html` | Release | nur `<meta name="description">` ergänzt |
+| `.well-known/security.txt`, `docs/SICHERHEIT.md`, `docs/MARKETING.md` | Release | neu angelegt |
+
+**Doppelarbeit Forum — Entscheidung:** `community.html` ist der eine
+Navigations-Eintrag („Community" / „Community" / „Comunidad"). `forum.html`
+bleibt als eigenständige Themenseite im Baum und ist über `entwickler.html`
+verlinkt; sie ist **nicht** doppelt in der Navigation. `abo.html` ist eine
+Weiterleitung auf `entwickler.html#abo`. Damit gibt es genau einen
+Haupteinstieg und keine zwei konkurrierenden Foren in der Kopfzeile.
 
 ## Übergabe an andere Agenten
 
@@ -79,5 +101,23 @@ Zweige die Navigation enger stellen.
 - [ ] Supabase-Modus für Beiträge (Tabelle `posts`, RLS, Edge Function für Ratenlimits)
 - [ ] E-Mail-Bestätigung vor dem ersten Beitrag
 - [ ] Moderation: Meldequeue statt lokalem Ausblenden
-- [ ] Übersetzung in eine dritte Sprache
+- [x] Dritte Sprache: ES-Fallback auf EN in `community.js` (`bwLang()`), Oberfläche bleibt DE/EN
 - [ ] Startseiten-Teaser, der auf `community.html` verweist
+
+## Stand 07.11.2026, 07:45
+
+Erledigt und geprüft:
+
+- 35 Seiten bei 1440, 1280, 1024, 768 und 390 px: kein horizontaler Überlauf,
+  keine doppelten IDs, kein Bild ohne `alt`, keine Konsolenfehler.
+- Community-Flüsse: 9 Themen, Thema öffnen, Antwort schreiben, Abo lokal
+  aktivieren, Selbsttest mit 8 Payloads (alle `BLOCKED`), XSS-Versuch im
+  Verfassen-Dialog bleibt Text.
+- Kontrast: Preisvergleich und Sprachumschalter nachgebessert
+  (`styles-community.css`, Abschnitt 15).
+- Sicherheitspaket: `.well-known/security.txt`, `docs/SICHERHEIT.md`,
+  `supabase/forum-schema.sql` mit RLS auf allen fünf Tabellen.
+- Marketing: `docs/MARKETING.md` mit Positionierung, Kanälen und Texten.
+
+Offen bleibt nur der Push: `origin` ist für diesen Account lesend,
+`gh` ist nicht installiert, der SSH-Schlüssel ist nicht hinterlegt.
