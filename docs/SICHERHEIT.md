@@ -107,6 +107,36 @@ Ergebnis der echten Render-Funktion (`blocked`), am Ende steht die Summe
 („7 of 7 attacks blocked"). Der Test läuft vollständig lokal und verändert keine
 Daten.
 
+## 5a. Kontrast: Messung und ein Fehlalarm
+
+Gemessen wird mit einem Browser-Skript über alle 35 Seiten bei 1440 px: es
+liest Textfarbe und die nächste deckende Hintergrundfarbe, rechnet beide in
+relative Luminanz um und vergleicht mit der WCAG-2.1-AA-Schwelle (4.5:1 für
+kleinen Text, 3:1 ab 24 px).
+
+Gefundene und behobene echte Fehler:
+
+| Element | vorher | nachher |
+|---|---|---|
+| `.lang-sep` (Sprachumschalter, alle Seiten) | 1.44:1 | 5.42:1 |
+| `.mk-crumb` (`marke.html`) | 1.44:1 | 5.42:1 |
+| `.fm-dot` (`forum.html`) | 1.52:1 | 5.42:1 |
+
+Der Prüfer meldet auf `community.html` zusätzlich 13 Treffer für die
+Avatar-Initialen (`.cm-ava`). Das ist ein Fehlalarm: die Initialen stehen weiß
+auf einem Farbverlauf, und der Prüfer kann Verläufe nicht auflösen — er nimmt
+den Seitenhintergrund an. Gegen den hellsten Farbstopp jedes Verlaufs gerechnet
+ergibt sich:
+
+```
+#2a2825 14.70:1   #55504a 7.98:1
+#37616b  6.81:1   #4a7682 4.99:1
+#6a4f5c  7.28:1   #8a6b79 4.71:1
+```
+
+Alle sechs Verläufe liegen über 4.5:1, der hellste bei 4.71:1. Es bleibt beim
+Ist-Zustand.
+
 ## 6. Konto und Passwörter (Vorschau-Modus)
 
 `auth.js` speichert im lokalen Modus nur einen PBKDF2-Hash mit zufälligem Salt
