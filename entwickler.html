@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#faf9f5">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Werkstatt — Entwicklerbereich, Werkstatt-Forum und Abo — Bytewerk Studio</title>
+<meta name="description" content="Die Bytewerk Werkstatt: Forum für Entwickler, Code-Bausteine aus dem eigenen Stack, Abo für Studio und Team, Sicherheit zum Nachlesen. Deutsch, Englisch und Spanisch, ohne fremde Skripte.">
+<link rel="canonical" href="https://bytewerkstudio.com/entwickler.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bytewerk Studio">
+<meta property="og:locale" content="de_DE">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:title" content="Bytewerk Werkstatt — Werkstatt-Forum, Code-Bausteine und Abo für Entwickler">
+<meta property="og:description" content="Werkstatt-Forum, Code-Bausteine, Sicherheit und ein Abo für Studio und Team. Gebaut mit three.js und der Claude-Palette.">
+<meta property="og:url" content="https://bytewerkstudio.com/entwickler.html">
+<meta property="og:image" content="https://bytewerkstudio.com/logo.svg">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles-v3.css">
+<link rel="stylesheet" href="styles-auth.css">
+<link rel="stylesheet" href="styles-claude.css">
+<link rel="stylesheet" href="styles-v5.css">
+<link rel="stylesheet" href="styles-3d.css">
+<link rel="stylesheet" href="styles-entwickler.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://bytewerkstudio.com/entwickler.html#page",
+      "url": "https://bytewerkstudio.com/entwickler.html",
+      "name": "Werkstatt — Entwicklerbereich, Werkstatt-Forum und Abo",
+      "inLanguage": "de",
+      "isPartOf": { "@id": "https://bytewerkstudio.com/#business" },
+      "about": ["Softwareentwicklung", "Entwicklerforum", "Three.js", "Web-Sicherheit"]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Start", "item": "https://bytewerkstudio.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Werkstatt", "item": "https://bytewerkstudio.com/entwickler.html" }
+      ]
+    },
+    {
+      "@type": "OfferCatalog",
+      "name": "Werkstatt-Abo",
+      "url": "https://bytewerkstudio.com/entwickler.html#abo",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "Solo",
+          "price": "0",
+          "priceCurrency": "EUR",
+          "description": "Forum lesen, Code-Bausteine und Verlauf."
+        },
+        {
+          "@type": "Offer",
+          "name": "Studio",
+          "price": "19",
+          "priceCurrency": "EUR",
+          "description": "Forum schreiben, alle Bausteine, monatliche Sprechstunde."
+        },
+        {
+          "@type": "Offer",
+          "name": "Team",
+          "price": "49",
+          "priceCurrency": "EUR",
+          "description": "Fünf Plätze, Code-Review, Priorität im Forum."
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main" data-en="Skip to content" data-es="Saltar al contenido">Zum Inhalt springen</a>
+<div data-include="header"></div>
+
+<main id="main">
+
+<!-- ============ KOPF ============ -->
+<section class="page-head wk-head" data-screen-label="Werkstatt Kopf">
+  <div class="page-head-bg" data-scene3d="contour" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="crumb reveal"><a href="index.html" data-en="Home" data-es="Inicio">Start</a> <span>/</span> <span data-en="Workshop" data-es="Taller">Werkstatt</span></div>
+    <h1 class="display reveal" data-d="1" data-en="For people<br>who build." data-es="Para quien<br>construye.">Für Leute,<br>die bauen.</h1>
+    <p class="lead reveal" data-d="2" data-en="A forum that answers, code you can copy, and terms you can read before you pay. No filler, no tracking, no external scripts." data-es="Un foro que responde, código que puedes copiar y condiciones que puedes leer antes de pagar. Sin relleno, sin rastreo, sin scripts de terceros.">
+      Ein Forum, das antwortet, Code zum Kopieren und Bedingungen, die du vor dem
+      Bezahlen lesen kannst. Kein Füllstoff, kein Tracking, keine fremden Skripte.
+    </p>
+    <div class="wk-head-meta reveal" data-d="3">
+      <span><b data-en="6">6</b> <span data-en="topics" data-es="temas">Themen</span></span>
+      <span><b data-en="3">3</b> <span data-en="languages" data-es="idiomas">Sprachen</span></span>
+      <span><b data-en="0 €">0 €</b> <span data-en="to read" data-es="para leer">zum Lesen</span></span>
+      <span><b data-en="0">0</b> <span data-en="third-party scripts" data-es="scripts de terceros">fremde Skripte</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABO ============ -->
+<section class="wk-sec" id="abo" data-screen-label="Abo">
+  <div class="wrap">
+    <div class="wk-sec-head reveal">
+      <div>
+        <span class="eyebrow" data-en="Membership" data-es="Suscripción">Mitgliedschaft</span>
+        <h2 class="h2" data-en="Three doors. One workshop." data-es="Tres puertas. Un taller.">Drei Türen. Eine Werkstatt.</h2>
+      </div>
+      <p data-en="Reading is free, always. Writing, review and the monthly session are what the subscription pays for — and it pays the people who answer." data-es="Leer es gratis, siempre. La suscripción paga el escribir, la revisión y la sesión mensual — y paga a quien responde.">
+        Lesen ist immer kostenlos. Bezahlt wird das Schreiben, das Review und die monatliche
+        Sprechstunde — und die Leute, die antworten.
+      </p>
+    </div>
+
+    <div class="wk-billing reveal" role="group" aria-label="Abrechnungszeitraum" data-en-aria="Billing period">
+      <button type="button" data-billing="month" aria-pressed="true" data-en="Monthly" data-es="Mensual">Monatlich</button>
+      <button type="button" data-billing="year" aria-pressed="false" data-en="Yearly" data-es="Anual">Jährlich</button>
+      <span class="wk-save" data-en="2 months free" data-es="2 meses gratis">2 Monate gratis</span>
+    </div>
+
+    <div class="wk-plans">
+      <article class="wk-plan reveal">
+        <span class="wk-plan-name">Solo</span>
+        <h3 class="wk-plan-title" data-en="Read along" data-es="Leer con nosotros">Mitlesen</h3>
+        <div class="wk-plan-price">
+          <span class="n" data-price="0">0 €</span>
+          <span class="u">/ für immer</span>
+        </div>
+        <p class="wk-plan-note">Kein Konto nötig.</p>
+        <ul>
+          <li data-en="Read every thread" data-es="Leer todos los hilos">Jeden Thread lesen</li>
+          <li data-en="Code snippets and changelog" data-es="Fragmentos de código y registro de cambios">Code-Bausteine und Verlauf</li>
+          <li data-en="Security notes" data-es="Notas de seguridad">Sicherheitshinweise</li>
+        </ul>
+        <a class="btn btn-ghost" href="#forum" data-en="Open the workshop forum" data-es="Abrir el foro del taller">Zum Werkstatt-Forum</a>
+      </article>
+
+      <article class="wk-plan is-featured reveal" data-d="1" data-plan="studio">
+        <span class="wk-plan-flag" data-en="Most chosen" data-es="La más elegida">Am häufigsten</span>
+        <span class="wk-plan-name">Studio</span>
+        <h3 class="wk-plan-title" data-en="Build with us" data-es="Construir con nosotros">Mitbauen</h3>
+        <div class="wk-plan-price">
+          <span class="n" data-price="19">19 €</span>
+          <span class="u">/ Monat</span>
+        </div>
+        <p class="wk-plan-note" data-note-month>Monatlich, jederzeit kündbar.</p>
+        <p class="wk-plan-note" data-note-year hidden>Jährlich: 190 € statt 228 €.</p>
+        <ul>
+          <li data-en="Write threads and replies" data-es="Escribir hilos y respuestas">Threads und Antworten schreiben</li>
+          <li data-en="All code blocks, no limits" data-es="Todos los bloques de código, sin límite">Alle Code-Bausteine, ohne Limit</li>
+          <li data-en="Monthly architecture session" data-es="Sesión mensual de arquitectura">Monatliche Architektur-Sprechstunde</li>
+          <li data-en="One project in the review" data-es="Un proyecto en la revisión">Ein Projekt im Review</li>
+        </ul>
+        <a class="btn btn-primary" href="kontakt.html?plan=studio" data-plan-cta="studio" data-en="Request access" data-es="Solicitar acceso">Zugang anfragen</a>
+      </article>
+
+      <article class="wk-plan reveal" data-d="2" data-plan="team">
+        <span class="wk-plan-name">Team</span>
+        <h3 class="wk-plan-title" data-en="Ship together" data-es="Entregar juntos">Gemeinsam liefern</h3>
+        <div class="wk-plan-price">
+          <span class="n" data-price="49">49 €</span>
+          <span class="u">/ Monat</span>
+        </div>
+        <p class="wk-plan-note" data-note-month>Monatlich, jederzeit kündbar.</p>
+        <p class="wk-plan-note" data-note-year hidden>Jährlich: 490 € statt 588 €.</p>
+        <ul>
+          <li data-en="Five seats" data-es="Cinco plazas">Fünf Plätze</li>
+          <li data-en="Everything in Studio" data-es="Todo lo de Studio">Alles aus Studio</li>
+          <li data-en="Code review on one repository" data-es="Revisión de código de un repositorio">Code-Review für ein Repository</li>
+          <li data-en="Priority in the forum" data-es="Prioridad en el foro">Vorrang im Forum</li>
+          <li data-en="Invoice with VAT" data-es="Factura con IVA">Rechnung mit MwSt.</li>
+        </ul>
+        <a class="btn btn-ghost" href="kontakt.html?plan=team" data-plan-cta="team" data-en="Request access" data-es="Solicitar acceso">Zugang anfragen</a>
+      </article>
+    </div>
+    <p class="wk-plan-fine reveal" data-en="All prices include 19 % VAT. Subscriptions are billed through the contact form; there is no automatic charge and no payment data on this page." data-es="Todos los precios incluyen el 19 % de IVA. Las suscripciones se facturan por el formulario de contacto; no hay cobro automático ni datos de pago en esta página.">
+      Alle Preise inkl. 19 % MwSt. Abos werden über das Kontaktformular abgerechnet;
+      auf dieser Seite gibt es keine automatische Abbuchung und keine Zahlungsdaten.
+    </p>
+  </div>
+</section>
+
+<!-- ============ FORUM ============ -->
+<section class="wk-sec" id="forum" data-screen-label="Forum">
+  <div class="wrap">
+    <div class="wk-sec-head reveal">
+      <div>
+        <span class="eyebrow" data-en="Workshop forum" data-es="Foro del taller">Werkstatt-Forum</span>
+        <h2 class="h2" data-en="Questions with an owner." data-es="Preguntas con responsable.">Fragen mit Zuständigkeit.</h2>
+      </div>
+      <div>
+        <p data-en="Six topics, one rule: every question gets an answer from someone who worked on the code. Search first, then ask." data-es="Seis temas, una regla: cada pregunta la responde alguien que trabajó en el código. Primero busca, luego pregunta.">
+          Sechs Themen, eine Regel: Auf jede Frage antwortet jemand, der am Code gearbeitet
+          hat. Erst suchen, dann fragen.
+        </p>
+        <p class="wk-sec-more"><a href="forum.html" data-full-forum hidden data-en="Everything else goes to the open forum →" data-es="Todo lo demás va al foro abierto →">Alles andere ins offene Forum →</a></p>
+      </div>
+    </div>
+
+    <div class="wk-board reveal">
+      <div class="wk-board-bar">
+        <div class="wk-search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg>
+          <label class="sr-only" for="wk-search" data-en="Search threads" data-es="Buscar hilos">Threads durchsuchen</label>
+          <input id="wk-search" type="search" autocomplete="off" data-en-ph="Search titles, tags, authors…" placeholder="Titel, Schlagwort, Autor durchsuchen …">
+        </div>
+        <label class="sr-only" for="wk-sort" data-en="Sort threads" data-es="Ordenar hilos">Threads sortieren</label>
+        <select class="wk-sort" id="wk-sort">
+          <option value="new" data-en="Newest" data-es="Más recientes">Neueste</option>
+          <option value="active" data-en="Most active" data-es="Más activos">Aktivste</option>
+          <option value="votes" data-en="Most votes" data-es="Más votos">Meiste Stimmen</option>
+        </select>
+        <button class="btn btn-primary wk-new" type="button" data-compose-toggle aria-expanded="false" aria-controls="wk-compose" data-en="New thread" data-es="Nuevo hilo">Neuer Beitrag</button>
+      </div>
+
+      <div class="wk-tags" role="group" aria-label="Schlagwörter" data-en-aria="Tags">
+        <button class="wk-tag" type="button" data-tag="all" aria-pressed="true" data-en="All" data-es="Todos">Alle</button>
+        <button class="wk-tag" type="button" data-tag="architektur" aria-pressed="false">Architektur</button>
+        <button class="wk-tag" type="button" data-tag="threejs" aria-pressed="false">Three.js</button>
+        <button class="wk-tag" type="button" data-tag="sicherheit" aria-pressed="false" data-en="Security" data-es="Seguridad">Sicherheit</button>
+        <button class="wk-tag" type="button" data-tag="barrierefreiheit" aria-pressed="false" data-en="Accessibility" data-es="Accesibilidad">Barrierefreiheit</button>
+        <button class="wk-tag" type="button" data-tag="abo" aria-pressed="false" data-en="Membership" data-es="Suscripción">Abo</button>
+      </div>
+
+      <div class="wk-compose" id="wk-compose" hidden>
+        <form data-thread-form novalidate>
+          <div class="wk-compose-grid">
+            <div class="wk-field">
+              <label for="wk-title" data-en="Title" data-es="Título">Titel</label>
+              <input id="wk-title" name="title" type="text" maxlength="120" required data-en-ph="What is it about, in one line?" placeholder="Worum geht es, in einer Zeile?">
+            </div>
+            <div class="wk-field">
+              <label for="wk-topic" data-en="Topic" data-es="Tema">Thema</label>
+              <select id="wk-topic" name="tag">
+                <option value="architektur">Architektur</option>
+                <option value="threejs">Three.js</option>
+                <option value="sicherheit" data-en="Security" data-es="Seguridad">Sicherheit</option>
+                <option value="barrierefreiheit" data-en="Accessibility" data-es="Accesibilidad">Barrierefreiheit</option>
+                <option value="abo" data-en="Membership" data-es="Suscripción">Abo</option>
+              </select>
+            </div>
+          </div>
+          <div class="wk-field" style="margin-top:12px">
+            <label for="wk-body" data-en="Message" data-es="Publicación">Beitrag</label>
+            <textarea id="wk-body" name="body" maxlength="2000" required data-en-ph="What did you try, what did you expect, what happened?" placeholder="Was hast du versucht, was hast du erwartet, was ist passiert?"></textarea>
+          </div>
+          <div class="wk-compose-foot">
+            <button class="btn btn-primary" type="submit" data-en="Publish" data-es="Publicar">Veröffentlichen</button>
+            <span class="wk-hint" data-en="Saved locally in this browser. No server, no tracking." data-es="Se guarda localmente en este navegador. Sin servidor, sin rastreo.">Wird lokal in diesem Browser gespeichert. Kein Server, kein Tracking.</span>
+            <span class="wk-status" role="status" aria-live="polite" data-status></span>
+          </div>
+        </form>
+      </div>
+
+      <div class="wk-signin" data-signin hidden>
+        <span data-en="Writing needs an account. Reading does not." data-es="Para escribir hace falta una cuenta. Para leer no.">Zum Schreiben brauchst du ein Konto. Zum Lesen nicht.</span>
+        <a class="btn btn-primary" href="login.html" data-en="Sign in" data-es="Iniciar sesión">Anmelden</a>
+        <a class="btn btn-ghost" href="register.html" data-en="Create account" data-es="Crear cuenta">Konto anlegen</a>
+      </div>
+
+      <ul class="wk-threads" data-threads aria-live="polite"></ul>
+      <div class="wk-empty" data-empty hidden data-en="Nothing matches that search. Try a shorter word." data-es="Nada coincide con esa búsqueda. Prueba con una palabra más corta.">Dazu passt nichts. Versuch es mit einem kürzeren Wort.</div>
+      <p class="sr-only" role="status" aria-live="polite" data-live></p>
+    </div>
+    <p class="wk-plan-fine" data-en="Preview: threads and replies are stored in localStorage on this device. The Supabase mode in auth-config.js is the path to shared threads." data-es="Vista previa: los hilos y respuestas se guardan en el localStorage de este dispositivo. El modo Supabase de auth-config.js es el camino a hilos compartidos.">
+      Vorschau: Threads und Antworten liegen im localStorage dieses Geräts. Der Supabase-Modus
+      in auth-config.js ist der Weg zu geteilten Threads.
+    </p>
+  </div>
+</section>
+
+<!-- ============ BAUSTEINE ============ -->
+<section class="wk-sec" id="bausteine" data-screen-label="Code-Bausteine">
+  <div class="wrap">
+    <div class="wk-sec-head reveal">
+      <div>
+        <span class="eyebrow" data-en="Code" data-es="Código">Code</span>
+        <h2 class="h2" data-en="Copy the parts that hurt." data-es="Copia las partes que duelen.">Kopier die Teile, die wehtun.</h2>
+      </div>
+      <p data-en="Four snippets from this repository: the ones we had to get right. Copy, paste, adapt — no licence friction for client work." data-es="Cuatro fragmentos de este repositorio: los que tuvimos que acertar. Copiar, pegar, adaptar — sin fricción de licencia para trabajo de cliente.">
+        Vier Ausschnitte aus diesem Repository: die Stellen, die wir richtig hinbekommen
+        mussten. Kopieren, einfügen, anpassen — ohne Lizenzhürde für Kundenprojekte.
+      </p>
+    </div>
+
+    <div class="wk-tabs reveal" role="tablist" aria-label="Code-Bausteine" data-en-aria="Code snippets">
+      <button class="wk-tab" role="tab" id="wk-tab-auth" aria-controls="wk-panel-auth" aria-selected="true" data-tab="auth">Auth</button>
+      <button class="wk-tab" role="tab" id="wk-tab-three" aria-controls="wk-panel-three" aria-selected="false" data-tab="three" tabindex="-1">Three.js</button>
+      <button class="wk-tab" role="tab" id="wk-tab-csp" aria-controls="wk-panel-csp" aria-selected="false" data-tab="csp" tabindex="-1">CSP</button>
+      <button class="wk-tab" role="tab" id="wk-tab-a11y" aria-controls="wk-panel-a11y" aria-selected="false" data-tab="a11y" tabindex="-1">A11y</button>
+    </div>
+
+    <div class="wk-blocks reveal">
+      <div id="wk-panel-auth" role="tabpanel" aria-labelledby="wk-tab-auth">
+        <div class="wk-code-wrap">
+          <div class="wk-code-head">
+            <span>auth.js — PBKDF2, 310k</span>
+            <button class="wk-copy" type="button" data-copy data-en="Copy" data-es="Copiar">Kopieren</button>
+          </div>
+<pre class="wk-code"><code><span class="c">// Passwort hashen, bevor es irgendwo liegt</span>
+<span class="k">const</span> key = <span class="k">await</span> crypto.subtle.<span class="f">importKey</span>(
+  <span class="s">'raw'</span>, <span class="k">new</span> TextEncoder().<span class="f">encode</span>(password),
+  <span class="s">'PBKDF2'</span>, <span class="k">false</span>, [<span class="s">'deriveBits'</span>]
+);
+<span class="k">const</span> bits = <span class="k">await</span> crypto.subtle.<span class="f">deriveBits</span>({
+  name: <span class="s">'PBKDF2'</span>,
+  salt: crypto.<span class="f">getRandomValues</span>(<span class="k">new</span> Uint8Array(<span class="s">16</span>)),
+  iterations: <span class="s">310000</span>,
+  hash: <span class="s">'SHA-256'</span>
+}, key, <span class="s">256</span>);
+<span class="c">// bits + salt speichern, niemals das Passwort</span></code></pre>
+        </div>
+      </div>
+
+      <div id="wk-panel-three" role="tabpanel" aria-labelledby="wk-tab-three" hidden>
+        <div class="wk-code-wrap">
+          <div class="wk-code-head">
+            <span>scene3d.js — Slot, Sichtbarkeit, Pause</span>
+            <button class="wk-copy" type="button" data-copy data-en="Copy" data-es="Copiar">Kopieren</button>
+          </div>
+<pre class="wk-code"><code><span class="c">// Erst laden, wenn der Platz in Sicht kommt</span>
+<span class="k">const</span> io = <span class="k">new</span> IntersectionObserver(entries =&gt; {
+  entries.<span class="f">forEach</span>(entry =&gt; {
+    <span class="k">if</span> (!entry.isIntersecting) <span class="k">return</span>;
+    io.<span class="f">unobserve</span>(entry.target);
+    <span class="f">mount</span>(entry.target);   <span class="c">// import('vendor/three.module.min.js')</span>
+  });
+}, { rootMargin: <span class="s">'320px 0px'</span> });
+
+document.<span class="f">querySelectorAll</span>(<span class="s">'[data-scene3d]'</span>)
+  .<span class="f">forEach</span>(el =&gt; io.<span class="f">observe</span>(el));
+
+<span class="c">// prefers-reduced-motion: ein statisches Bild, kein Tick</span>
+<span class="k">if</span> (matchMedia(<span class="s">'(prefers-reduced-motion: reduce)'</span>).matches) <span class="f">renderOnce</span>();</code></pre>
+        </div>
+      </div>
+
+      <div id="wk-panel-csp" role="tabpanel" aria-labelledby="wk-tab-csp" hidden>
+        <div class="wk-code-wrap">
+          <div class="wk-code-head">
+            <span>index.html — CSP ohne CDN</span>
+            <button class="wk-copy" type="button" data-copy data-en="Copy" data-es="Copiar">Kopieren</button>
+          </div>
+<pre class="wk-code"><code>&lt;meta http-equiv=<span class="s">"Content-Security-Policy"</span>
+      content=<span class="s">"default-src 'self';
+               script-src 'self';
+               style-src 'self' https://fonts.googleapis.com;
+               font-src https://fonts.gstatic.com;
+               img-src 'self' data:;
+               object-src 'none';
+               base-uri 'self';
+               form-action 'self' mailto:;
+               upgrade-insecure-requests"</span>&gt;</code></pre>
+        </div>
+        <p class="wk-plan-fine" data-en="Three.js sits in vendor/ for exactly this reason: script-src 'self' blocks every CDN, and the failure only shows up in the browser." data-es="Three.js está en vendor/ exactamente por esto: script-src 'self' bloquea cualquier CDN y el fallo solo aparece en el navegador.">
+          Three.js liegt genau deshalb in vendor/: <code>script-src 'self'</code> blockt jedes CDN,
+          und der Fehler fällt erst im Browser auf.
+        </p>
+      </div>
+
+      <div id="wk-panel-a11y" role="tabpanel" aria-labelledby="wk-tab-a11y" hidden>
+        <div class="wk-code-wrap">
+          <div class="wk-code-head">
+            <span>entwickler.js — Status, der gehört wird</span>
+            <button class="wk-copy" type="button" data-copy data-en="Copy" data-es="Copiar">Kopieren</button>
+          </div>
+<pre class="wk-code"><code><span class="c">// Eine Höflichkeitsmeldung, die Screenreader vorlesen</span>
+&lt;<span class="k">p</span> class=<span class="s">"wk-status"</span> role=<span class="s">"status"</span> aria-live=<span class="s">"polite"</span>&gt;&lt;/<span class="k">p</span>&gt;
+
+<span class="c">// Fokus nach dem Absenden nicht verlieren</span>
+form.<span class="f">addEventListener</span>(<span class="s">'submit'</span>, event =&gt; {
+  event.<span class="f">preventDefault</span>();
+  <span class="f">render</span>();
+  status.textContent = <span class="s">'Beitrag veröffentlicht.'</span>;
+  <span class="k">const</span> first = list.<span class="f">querySelector</span>(<span class="s">'.wk-thread-row'</span>);
+  first?.<span class="f">focus</span>();
+});</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SICHERHEIT ============ -->
+<section class="wk-sec" id="sicherheit" data-screen-label="Sicherheit">
+  <div class="wrap">
+    <div class="wk-sec-head reveal">
+      <div>
+        <span class="eyebrow" data-en="Security" data-es="Seguridad">Sicherheit</span>
+        <h2 class="h2" data-en="Boring on purpose." data-es="Aburrido a propósito.">Langweilig mit Absicht.</h2>
+      </div>
+      <p data-en="A static site has fewer doors. We keep the ones we have closed, and we say what we do — not what we wish were true." data-es="Un sitio estático tiene menos puertas. Las que hay las mantenemos cerradas, y decimos lo que hacemos, no lo que nos gustaría.">
+        Eine statische Seite hat weniger Türen. Die, die es gibt, halten wir zu — und wir
+        schreiben, was wir tun, nicht was wir gerne hätten.
+      </p>
+    </div>
+
+    <div class="wk-security reveal">
+      <article class="wk-sec-card">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4.5 6v6c0 4.2 3.1 7.6 7.5 9 4.4-1.4 7.5-4.8 7.5-9V6z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg>
+        <h3 data-en="No third-party scripts" data-es="Sin scripts de terceros">Keine fremden Skripte</h3>
+        <p data-en="The CSP allows script-src 'self'. three.js ships from vendor/, fonts are the only external request." data-es="La CSP permite script-src 'self'. Three.js viene de vendor/; las fuentes son la única petición externa.">Die CSP erlaubt <code>script-src 'self'</code>. Three.js kommt aus <code>vendor/</code>, Fonts sind die einzige externe Anfrage.</p>
+      </article>
+      <article class="wk-sec-card">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+        <h3 data-en="Passwords stay hashed" data-es="Las contraseñas siguen cifradas">Passwörter bleiben gehasht</h3>
+        <p data-en="PBKDF2-SHA256, 310,000 iterations, a random salt per account. The plain password never leaves the browser." data-es="PBKDF2-SHA256, 310.000 iteraciones, sal aleatoria por cuenta. La contraseña en claro nunca sale del navegador.">PBKDF2-SHA256, 310.000 Iterationen, zufälliges Salt pro Konto. Das Klartext-Passwort verlässt den Browser nie.</p>
+      </article>
+      <article class="wk-sec-card">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H4z"/><path d="M8 20h8M12 16v4"/></svg>
+        <h3 data-en="No tracking, no cookie banner" data-es="Sin rastreo, sin banner de cookies">Kein Tracking, kein Cookie-Banner</h3>
+        <p data-en="No analytics, no pixels, no advertising IDs. Storage holds language, motion choice and the local forum only." data-es="Sin analítica, sin píxeles, sin identificadores publicitarios. El almacenamiento guarda solo idioma, preferencia de movimiento y el foro local.">Keine Analyse, keine Pixel, keine Werbe-IDs. Im Speicher liegen Sprache, Bewegungswahl und das lokale Forum.</p>
+      </article>
+      <article class="wk-sec-card">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M5 8l7-5 7 5"/><path d="M5 8v8l7 5 7-5V8"/></svg>
+        <h3 data-en="Escaped by default" data-es="Escapado por defecto">Standardmäßig maskiert</h3>
+        <p data-en="Forum posts are written with textContent, never innerHTML. A pasted script tag shows up as text." data-es="Las publicaciones se escriben con textContent, nunca con innerHTML. Una etiqueta script pegada aparece como texto.">Forenbeiträge werden mit <code>textContent</code> geschrieben, nie mit <code>innerHTML</code>. Ein eingefügtes Script-Tag erscheint als Text.</p>
+      </article>
+      <article class="wk-sec-card">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h6l2-6 4 12 2-6h2"/></svg>
+        <h3 data-en="Small attack surface" data-es="Superficie de ataque pequeña">Kleine Angriffsfläche</h3>
+        <p data-en="Static HTML, one optional backend (Supabase), no server code of our own, no uploads, no file writes." data-es="HTML estático, un backend opcional (Supabase), sin servidor propio, sin subidas, sin escritura de archivos.">Statisches HTML, ein optionalen Backend (Supabase), kein eigener Servercode, keine Uploads, keine Dateischreibzugriffe.</p>
+      </article>
+      <article class="wk-sec-card">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v10"/><path d="m8 18 4 2 4-2"/><circle cx="12" cy="17" r="1"/></svg>
+        <h3 data-en="Headers where we control them" data-es="Cabeceras donde las controlamos">Header, wo wir sie kontrollieren</h3>
+        <p data-en="Referrer policy strict-origin-when-cross-origin on every page, object-src 'none', base-uri 'self', form-action limited." data-es="Política de referrer strict-origin-when-cross-origin en cada página, object-src 'none', base-uri 'self', form-action limitada.">Referrer-Policy <code>strict-origin-when-cross-origin</code> auf jeder Seite, <code>object-src 'none'</code>, <code>base-uri 'self'</code>, begrenzte <code>form-action</code>.</p>
+      </article>
+    </div>
+
+    <div class="wk-disclosure reveal">
+      <p>
+        <span data-en="Found something? Write to <a href='mailto:Haqmalh@icloud.com'>Haqmalh@icloud.com</a> with the steps to reproduce. We answer within three working days and credit you if you want." data-es="¿Encontraste algo? Escribe a <a href='mailto:Haqmalh@icloud.com'>Haqmalh@icloud.com</a> con los pasos para reproducirlo. Respondemos en tres días laborables y te damos crédito si quieres.">Etwas gefunden? Schreib an <a href="mailto:Haqmalh@icloud.com">Haqmalh@icloud.com</a> mit den Schritten zum Nachstellen. Wir antworten innerhalb von drei Werktagen und nennen dich, wenn du möchtest.</span>
+      </p>
+      <a class="btn btn-ghost" href="mailto:Haqmalh@icloud.com?subject=Security%20report" data-en="Report a vulnerability" data-es="Informar de una vulnerabilidad">Schwachstelle melden</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VERLAUF ============ -->
+<section class="wk-sec" id="verlauf" data-screen-label="Verlauf">
+  <div class="wrap">
+    <div class="wk-sec-head reveal">
+      <div>
+        <span class="eyebrow" data-en="Changelog" data-es="Registro de cambios">Verlauf</span>
+        <h2 class="h2" data-en="What changed, and when." data-es="Qué cambió y cuándo.">Was sich geändert hat.</h2>
+      </div>
+      <p data-en="Short entries, real dates. If an entry is missing, it did not ship." data-es="Entradas cortas, fechas reales. Si falta una entrada, no se publicó.">
+        Kurze Einträge, echte Daten. Fehlt ein Eintrag, ist er nicht live gegangen.
+      </p>
+    </div>
+    <ul class="wk-log reveal">
+      <li>
+        <time datetime="2026-11-06">06.11.2026</time>
+        <span><b data-en="Hero ends on the fold" data-es="El hero termina en el pliegue">Hero endet auf dem Fold</b> — <span data-en="product chip moved into the grid, short windows lose the extra air." data-es="el chip del producto pasa a la rejilla, las ventanas bajas pierden el aire extra.">Produkt-Chip in das Grid, kurze Fenster verlieren den Zusatzabstand.</span></span>
+        <span class="wk-log-tag">Layout</span>
+      </li>
+      <li>
+        <time datetime="2026-11-06">06.11.2026</time>
+        <span><b data-en="One Three.js build for all pages" data-es="Un solo build de Three.js para todas las páginas">Ein Three.js-Build für alle Seiten</b> — <span data-en="stratum in the hero, contour in five page heads, loaded only in view." data-es="stratum en el hero, contour en cinco cabeceras, cargados solo al estar a la vista.">stratum im Hero, contour in fünf Seitenköpfen, geladen erst in Sicht.</span></span>
+        <span class="wk-log-tag">3D</span>
+      </li>
+      <li>
+        <time datetime="2026-11-06">06.11.2026</time>
+        <span><b data-en="Workshop opens" data-es="Abre el taller">Werkstatt öffnet</b> — <span data-en="forum, code blocks, membership and this changelog." data-es="foro, bloques de código, suscripción y este registro.">Forum, Code-Bausteine, Mitgliedschaft und dieser Verlauf.</span></span>
+        <span class="wk-log-tag" data-en="New" data-es="Nuevo">Neu</span>
+      </li>
+      <li>
+        <time datetime="2026-11-03">03.11.2026</time>
+        <span><b data-en="Accounts and library" data-es="Cuentas y biblioteca">Konten und Bibliothek</b> — <span data-en="registration, sign-in, password reset, local hashing." data-es="registro, inicio de sesión, restablecer contraseña, hash local.">Registrierung, Anmeldung, Passwort-Reset, lokales Hashing.</span></span>
+        <span class="wk-log-tag">Auth</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="wk-sec" data-screen-label="Abschluss">
+  <div class="wrap">
+    <div class="wk-cta reveal">
+      <div>
+        <h2 class="h2" data-en="Bring a real problem." data-es="Trae un problema real.">Bring ein echtes Problem mit.</h2>
+        <p data-en="A question in the forum, a repository for review, or a project that needs a second pair of eyes. We answer ourselves." data-es="Una pregunta en el foro, un repositorio para revisar o un proyecto que necesita otros ojos. Respondemos nosotros.">
+          Eine Frage im Forum, ein Repository fürs Review oder ein Projekt, das einen zweiten
+          Blick braucht. Wir antworten selbst.
+        </p>
+      </div>
+      <div class="wk-cta-actions">
+        <a class="btn btn-primary btn-lg" href="kontakt.html" data-en="Start a project" data-es="Empezar un proyecto">Projekt starten</a>
+        <a class="btn btn-ghost btn-lg" href="#forum" data-en="Ask in the workshop forum" data-es="Preguntar en el foro del taller">Im Werkstatt-Forum fragen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<div data-include="footer"></div>
+
+<script src="components.js"></script>
+<script src="auth-config.js"></script>
+<script src="auth.js"></script>
+<script src="main.js"></script>
+<script src="ui-v3.js"></script>
+<script src="ui-v4.js"></script>
+<script src="ui-v5.js"></script>
+<script src="background.js"></script>
+<script src="scene3d.js"></script>
+<script src="entwickler.js"></script>
+</body>
+</html>
