@@ -60,9 +60,10 @@ Ergebnis: null eingeschleuste Elemente, null ausgelöste Handler, keine
 
 | Aktion | Maus/Touch | Tastatur |
 |---|---|---|
-| Suche | Feld im Kopf der Liste | `/` |
+| Suche | Feld im Kopf der Liste | `/` (die Site-Suche bleibt auf `Cmd`/`Strg` + `K`) |
 | Neues Thema | Knopf oben rechts | `n` |
 | Senden | Knopf im Formular | `Strg`/`Cmd` + `Enter` |
+| Formular schließen | X oder Klick daneben | `Esc` — der Fokus kehrt zum Knopf zurück |
 | Thema öffnen | Klick auf die Zeile | `Tab`, dann `Enter` |
 | Pinwand drehen | ziehen | Pfeiltasten bei Fokus |
 
@@ -71,12 +72,48 @@ Die Pinwand ist ein Canvas mit `aria-hidden`; die vier Karten im
 Bei `prefers-reduced-motion` wird ein Standbild gezeichnet, die Schleife
 läuft nicht.
 
+## Bearbeiten
+
+Eigene Beiträge lassen sich direkt im Thread ändern. Der erste Beitrag
+darf auch den Titel korrigieren; der Slug bleibt dabei stehen, damit
+geteilte Links (`forum.html#/t/slug`) nicht ins Leere laufen. Ein
+`editedAt`-Zeitstempel erscheint am Beitrag. `Esc` bricht ab, auch wenn
+der Fokus auf „Speichern“ oder im Titelfeld liegt; `Strg`/`Cmd` +
+`Enter` speichert. Beide Felder sind über `label for` beschriftet, die
+IDs kommen aus der Beitrags-ID.
+
+## Teilen
+
+`og:image` ist `media/og-forum.png` (1200 × 630, Papieroptik, gleiche
+Palette wie die Seite). Die Karte wird nicht vom Browser geladen,
+sondern nur von Crawlern — sie kostet also keine Ladezeit. Erzeugt aus
+einer HTML-Vorlage mit denselben Schriften; bei einer Textänderung neu
+rendern, sonst steht auf der Karte etwas anderes als im Titel.
+
+## Sprachen
+
+Die Seite ist auf Deutsch und Englisch geschrieben. `lang()` liest
+zuerst `window.bwLang()` (gesetzt von `components.js`), sonst
+`documentElement.lang`, und normalisiert auf `de`, `en` oder `es`.
+Spanisch fällt auf Englisch zurück — nie auf Deutsch. Datumsformate
+richten sich danach: `de-DE` nur bei `de`, sonst `en-GB`.
+
 ## Abo-Stufen
 
 - **Community (0 €):** lesen, fragen, antworten in vier offenen Kategorien.
-- **Studio Pro (9 €/Monat):** zusätzlich Studio- und Feedback-Kategorie,
-  Lösung markieren, Pro-Kennzeichen, Vorrang bei offenen Themen,
-  Vierteljährliche Sprechstunde.
+- **Studio Pro:** zusätzlich Studio- und Feedback-Kategorie, Lösung
+  markieren, Pro-Kennzeichen, Vorrang bei offenen Themen,
+  vierteljährliche Sprechstunde. Preis und Stufen stehen bewusst nur auf
+  `entwickler.html#abo` — eine Zahl an zwei Stellen läuft auseinander.
+
+Der Link setzt voraus, dass `entwickler.html` mit ausgeliefert wird —
+sie kommt aus dem Entwickler-Change-Set. Fehlt sie in einem Build, ersetzt
+`checkPlansLink()` den Link durch einen Satz. Das Signal ist die
+Kopfzeile: `components.js` baut Navigation und Forum-Link aus derselben
+Liste, ein fehlender Nav-Eintrag heißt also fehlende Seite. Kein
+`fetch`, kein `HEAD` — eine frühere Netzwerkprüfung erzeugte bei
+fehlender Seite einen 404 im Konsolenprotokoll und verstieß gegen die
+Regel „0 Konsolenfehler“.
 
 Im Vorschau-Modus gibt es keine Zahlung. `Pro anfragen` setzt
 `bw-forum-pro-preview` und zeigt den Zugang als „Pro (Vorschau)“ an. Für
@@ -92,3 +129,10 @@ Webhook, der `profiles.plan` setzt — nicht einen Schalter im Browser.
 - Ohne WebGL: `.is-flat`, vier klickbare Karten, Klick öffnet das Thema.
 - Speicher blockiert: Warnung in der Seitenleiste, kein Absturz.
 - DE/EN inklusive aller dynamisch erzeugten Texte geprüft.
+- Inline-Bearbeitung: Anlegen, Titel und Text ändern, Abbrechen,
+  `Esc` von Knopf und Titelfeld, `Strg+Enter`, zu kurzer Titel, zu
+  kurzer Text, Antwort ohne Titelfeld, Persistenz nach Reload — geprüft,
+  0 Fehler. Slug bleibt beim Titel-Edit erhalten.
+- 390 px und 320 px mit offenem Editor: 0 Überlauf, Knöpfe passen.
+- Spanisch: `lang='es'` liefert englische Oberfläche und `en-GB`-Datum,
+  nie deutsche Texte.
