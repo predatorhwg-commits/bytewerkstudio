@@ -593,8 +593,9 @@
         return;
       }
       slot.innerHTML =
-        '<div class="acct-wrap"><a class="acct-btn acct-guest" href="login.html">' +
-        '<span class="acct-avatar">' + ICON.user + '</span>' +
+        '<div class="acct-wrap"><a class="acct-btn acct-guest" href="login.html" aria-label="' +
+        t('Anmelden', 'Sign in') + '">' +
+        '<span class="acct-avatar" aria-hidden="true">' + ICON.user + '</span>' +
         '<span class="acct-label">' + t('Anmelden', 'Sign in') + '</span></a></div>';
       return;
     }

@@ -665,8 +665,19 @@ body.bw-cmd-open { overflow: hidden; }
   .st-case-lg { grid-column: auto; }
   .st-sheet { grid-template-columns: 36px 1fr; padding: 16px; }
   .st-sheet-m { display: none; }
-  .st-hero-facts { gap: 8px 18px; font-size: 12.5px; }
+  /* Mobil zuerst die Botschaft: Hero kuerzer, Stapel kleiner und darunter. */
+  .st-hero { padding-block: 32px 36px; }
+  .st-hero-grid { gap: 28px; }
+  .st-kicker { margin-bottom: 16px; }
+  .st-hero .st-lead { margin-top: 18px; font-size: 16.5px; }
+  .st-actions { margin-top: 22px; gap: 10px; }
+  .st-hero-facts { margin-top: 22px; padding-top: 16px; gap: 8px 18px; font-size: 12.5px; }
   .st-hero-facts b { font-size: 19px; }
+  .st-hero-visual { min-height: 0; }
+  .st-stack { height: 230px; }
+  .st-sheet { padding: 14px; }
+  .st-sheet-t { font-size: 18px; }
+  .st-stack-cap { margin-top: 12px; font-size: 12px; }
   .st-actions .btn { flex: 1 1 auto; justify-content: center; }
   .st-cta .st-actions { flex-direction: column; align-items: stretch; }
   .st-btn-light, .st-btn-outline { justify-content: center; }

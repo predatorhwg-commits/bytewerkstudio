@@ -79,35 +79,70 @@ def check(entry, label):
         p.append(f"{label}: external {entry['external']}")
 
 
-with sync_playwright() as p:
-    for width, height in VIEWPORTS:
-        browser = p.chromium.launch(args=["--disable-gpu", "--disable-dev-shm-usage"])
-        context = browser.new_context(viewport={"width": width, "height": height}, locale="de-DE")
-        for path in PAGES:
+def new_session(p, width, height):
+    browser = p.chromium.launch(args=["--disable-gpu", "--disable-dev-shm-usage"])
+    context = browser.new_context(viewport={"width": width, "height": height}, locale="de-DE")
+    return browser, context
+
+
+def measure(p, width, height, path, session):
+    """Misst eine Seite. Startet den Browser neu, wenn Chromium mittendrin abstuerzt."""
+    browser, context = session
+    for attempt in (1, 2, 3):
+        console, failed, external = [], [], set()
+        entry = {"viewport": width, "page": path, "console": console, "failed": failed}
+        try:
             page = context.new_page()
-            console, failed, external = [], [], set()
             page.on("pageerror", lambda e: console.append("pageerror: " + str(e)[:140]))
             page.on("console", lambda m: console.append(m.text[:140]) if m.type == "error" else None)
             page.on("response", lambda r: failed.append(f"{r.status} {r.url.split('/')[-1]}") if r.status >= 400 else None)
             page.on("request", lambda r: external.add(r.url.split("/")[2])
                     if r.url.startswith("http") and not r.url.startswith(BASE) else None)
-            entry = {"viewport": width, "page": path, "console": console, "failed": failed}
-            try:
-                resp = page.goto(BASE + path, wait_until="load", timeout=30000)
-                page.wait_for_timeout(350)
-                entry.update(page.evaluate(MEASURE))
-                entry["status"] = resp.status if resp else 0
-            except Exception as exc:
-                entry["error"] = str(exc)[:160]
+            resp = page.goto(BASE + path, wait_until="load", timeout=30000)
+            page.wait_for_timeout(350)
+            entry.update(page.evaluate(MEASURE))
+            entry["status"] = resp.status if resp else 0
             entry["external"] = sorted(external)
+            try:
+                page.close()
+            except Exception:
+                pass
+            return entry, session
+        except Exception as exc:
+            entry["error"] = str(exc)[:160]
+            entry["external"] = sorted(external)
+            try:
+                browser.close()
+            except Exception:
+                pass
+            if attempt == 3:
+                return entry, None
+            session = new_session(p, width, height)
+    return entry, session
+
+
+with sync_playwright() as p:
+    for width, height in VIEWPORTS:
+        session = new_session(p, width, height)
+        for path in PAGES:
+            if session is None:
+                session = new_session(p, width, height)
+            entry, session = measure(p, width, height, path, session)
+            if session is None:
+                report["results"].append(entry)
+                check(entry, f"{width} {path}")
+                print(f"{path:40} nach 3 Versuchen abgebrochen")
+                continue
             report["results"].append(entry)
             check(entry, f"{width} {path}")
             if width == 1440:
                 print(f"{path:40} h={entry.get('height', 0):6} ov={entry.get('overflow', '?')} "
-                      f"err={len(console)} ext={len(entry['external'])}")
-            page.close()
-        context.close()
-        browser.close()
+                      f"err={len(entry['console'])} ext={len(entry['external'])}")
+        if session is not None:
+            try:
+                session[0].close()
+            except Exception:
+                pass
 
 print(f"\nSeiten geprüft: {len(report['results'])} · Probleme: {len(report['problems'])}")
 for problem in report["problems"]:

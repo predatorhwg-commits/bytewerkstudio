@@ -14,11 +14,11 @@
     { id: 'updatepilot', name: 'UpdatePilot', price: '12,99 €', img: 'media/updatepilot-icon.svg', href: 'updatepilot.html', free: false, cat: 'Windows · Updates' },
     { id: 'pdf-text-pro', name: 'Bytewerk PDF Text Pro', price: '59,00 €', img: 'media/bytewerk-pdf-text-pro-icon.svg', href: 'bytewerk-pdf-text-pro.html', free: false, cat: 'Windows · PDF/OCR' },
     { id: 'neon-dominion', name: 'Neon Dominion', price: '20,00 €', img: 'media/neon-dominion-icon.svg', href: 'neon-dominion.html', free: false, cat: 'Windows · Spiel' },
-    { id: 'lernreich', name: 'Lernreich', price: tr('Kostenlos', 'Free'), img: 'media/lernreich-logo.png', href: 'produkt.html', free: true, cat: 'Windows · Lernen' },
-    { id: 'pruefungs-countdown', name: 'Prüfungs-Countdown', price: tr('Kostenlos', 'Free'), img: 'media/pruefungs-countdown-logo.png', href: 'pruefungs-countdown.html', free: true, cat: 'Windows · Prüfung' },
+    { id: 'lernreich', name: 'Lernreich', price: tr('Kostenlos', 'Free'), img: 'media/lernreich-logo-256.webp', href: 'produkt.html', free: true, cat: 'Windows · Lernen' },
+    { id: 'pruefungs-countdown', name: 'Prüfungs-Countdown', price: tr('Kostenlos', 'Free'), img: 'media/pruefungs-countdown-logo-220.webp', href: 'pruefungs-countdown.html', free: true, cat: 'Windows · Prüfung' },
     { id: 'neon-horde', name: 'NEON HORDE', price: tr('Kostenlos', 'Free'), img: 'media/neon-horde-icon.svg', href: 'neon-horde/', free: true, cat: 'Web · Spiel' },
     { id: 'burgenwerk', name: 'BURGENWERK', price: tr('Kostenlos', 'Free'), img: 'media/burgenwerk-logo.png', href: 'burgenwerk.html', free: true, cat: 'Web · Spiel' },
-    { id: 'mastil', name: 'MASTIL', price: tr('Demo frei', 'Free demo'), img: 'media/mastil-logo.jpg', href: 'mastil.html', free: true, cat: 'Web · Windows' }
+    { id: 'mastil', name: 'MASTIL', price: tr('Demo frei', 'Free demo'), img: 'media/mastil-logo-360.webp', href: 'mastil.html', free: true, cat: 'Web · Windows' }
   ];
 
   let state = user;
