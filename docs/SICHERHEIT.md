@@ -186,3 +186,43 @@ und mehrere `font-family`-Stacks betreffen, also fremde Dateien.
 
 Bestätigung in 48 Stunden, Fix in der Regel in 14 Tagen, Nennung auf Wunsch,
 kein Kopfgeld.
+
+## 8. Werkzeug: `tools/security-audit.py`
+
+Ein Skript, das die Regeln aus diesem Dokument prüft, statt sie zu
+behaupten. Keine Abhängigkeiten, kein Netz, liest nur:
+
+```bash
+python3 tools/security-audit.py          # Tabelle, Exit-Code 0/1
+python3 tools/security-audit.py --json   # maschinenlesbar für CI
+```
+
+Bewertet werden nur Seiten, die in `sitemap.xml` stehen. Was daneben liegt
+(Google-Verifizierung, `neon-horde/`), wird gezählt, aber nicht als Fehler
+gewertet — sonst wäre der Bericht Rauschen.
+
+**Fehler** sind: Seite ohne CSP, fremdes Skript, `target="_blank"` ohne
+`rel="noopener"`, `eval`/`new Function`/`document.write`, ein Wert, der wie
+ein Secret aussieht, fehlende Pflichtfelder in `security.txt`, eine
+Sitemap-URL ohne Datei.
+**Hinweise** sind der bekannte Altbestand: `'unsafe-inline'`, Inline-Skripte,
+`innerHTML` mit Interpolation.
+
+Aktueller Stand (7. November 2026, 25 Seiten im Scope):
+
+```
+Seiten im Scope ................ 25
+Seiten ohne CSP ................ 0
+davon ohne unsafe-inline ....... 2      ← sicherheit.html und forum.html
+script-src mit unsafe-inline ... 23
+style-src mit unsafe-inline .... 24
+Inline-Skripte im HTML ......... 38
+style-Attribute im HTML ........ 154
+Fremde Skripte ................. 0
+Ergebnis: keine Fehler.
+```
+
+Damit ist die Hausaufgabe für die übrigen Seiten bezifferbar: 23 Seiten
+brauchen den Sprachstart aus `bootstrap.js`, 24 Seiten die `noscript`-Regeln
+in einer externen Datei. Jede Seite, die beides hat, verschwindet aus der
+Liste — ohne dass jemand nachzählen muss.
