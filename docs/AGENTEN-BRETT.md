@@ -317,6 +317,60 @@ Vergleichs-Knopf im Schnellblick (`ui-v5.js`) bekam seinen Text erst beim
 | `tools/csp-hash.mjs --check` | 36 Seiten, 0 abweichend |
 | `tools/check-social.mjs` | 0 Probleme |
 
+## Stand 07.11.2026, 15:10 — Angriffe gemessen, Platzhalter geschlossen
+
+**`connect-src` ohne Platzhalter.** Vorher erlaubte jede Seite
+`https://*.supabase.co`. Ein Platzhalter über eine ganze Domain lässt sich
+ausnutzen: Wer ein eigenes Supabase-Projekt anlegt, bekommt einen passenden
+Host — und damit ein Ziel für ausgelesene Daten. Konten laufen lokal
+(`mode: 'local'`), also steht dort jetzt nur `'self'`. Für den Supabase-Modus
+steht der Hinweis auf den genauen Host in `auth-config.js` und in
+`docs/SICHERHEIT.md`. Neue Prüfung im Tor: **keine Platzhalter-Hosts**
+(13 Prüfungen, Gegenprobe rot → grün).
+
+**Angriffsprobe statt Zusicherung.** `tools/csp-attack.mjs` führt auf jeder
+Seite sieben Injektionen aus und belegt jede Blockade mit dem
+`securitypolicyviolation`-Ereignis:
+
+| Angriff | Ergebnis |
+|---|---|
+| Inline-Skript (`textContent`) | blockiert |
+| `onerror`-Attribut auf `<img>` | blockiert |
+| fremdes Skript (jsDelivr) | blockiert |
+| `style`-Attribut per `setAttribute` | blockiert |
+| fremdes Stylesheet (Bootstrap-CDN) | blockiert |
+| `iframe` auf example.com | blockiert (`frame-src`) |
+| Datenabfluss (`fetch` + Zählpixel) | blockiert (`connect-src`, `img-src`) |
+
+**35 Seiten × 7 Angriffe = 245, alle blockiert.** Gegenprobe: eine
+Kontrollseite ohne CSP lässt **7 von 7** durch. Damit ist belegt, dass die
+Probe anschlagen kann — ohne diese Gegenprobe wäre „alles blockiert" wertlos.
+
+Die Probe hat sich selbst zweimal korrigiert, beides ist im Werkzeug
+kommentiert, weil es leicht zu falschen Schlüssen führt:
+
+1. Ein blockierter `iframe` feuert trotzdem `load` (leeres `about:blank`).
+2. `performance.getEntriesByType('resource')` listet auch blockierte Abrufe,
+   und fremde Herkünfte melden ohne `Timing-Allow-Origin` immer
+   `transferSize: 0`. Ein Abruf, der nie stattfand, sieht dort aus wie einer
+   mit 0 Bytes.
+
+**Ein echter Fehler durch die CSP-Schließung.** Das Studio-SVG in
+`ui-entscheidung.js` trug sieben `style="--i:…"`-Attribute für die gestaffelte
+Animation. Seit `style-src 'self'` wurden sie blockiert — die Staffelung war
+weg. Jetzt Klassen `.ent-vol-0` … `.ent-vol-5` mit `--i` im Stylesheet.
+
+**Was CSP nicht verbietet** (für künftige Arbeiten wichtig): `style.cssText`
+und `style.setProperty()` sind CSSOM und bleiben erlaubt. Nur das
+`style`-Attribut per Markup oder `setAttribute` wird blockiert. Die
+verbleibenden `cssText`-Stellen (`provierstand.js` Kopierhilfe, `community.js`
+Renderer) sind damit unkritisch.
+
+**Header, die eine Meta-CSP nicht setzen kann.** `frame-ancestors`,
+`report-uri`, `nosniff` und HSTS wirken nur als HTTP-Header. In
+`docs/SICHERHEIT.md` steht jetzt der genaue Satz für den Fall, dass die Seite
+hinter einem eigenen Server läuft; auf GitHub Pages gibt es diese Header nicht.
+
 ### Datei-Hinweis
 
 `ui-v4.js` gehört laut `AGENTS.md` zu einer anderen Linie. Die Änderung ist ein

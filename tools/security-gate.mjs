@@ -184,6 +184,24 @@ function walk(dir, out = []) {
     : pass("style-src ohne 'unsafe-inline'", htmlFiles.filter((f) => !f.startsWith('google')).length + ' Seiten');
 }
 
+/* 11b. Keine Platzhalter in Ladedirektiven.
+   `https://*.supabase.co` erlaubt jede Unterdomain — und damit jedes
+   fremde Supabase-Projekt als Ziel fuer ausgelesene Daten. Erlaubt ist
+   nur 'self' oder ein ausgeschriebener Host. */
+{
+  const bad = [];
+  for (const file of htmlFiles) {
+    if (file.startsWith('google')) continue;
+    const html = readFileSync(join(siteDir, file), 'utf8');
+    for (const m of html.matchAll(/(?:connect-src|img-src|font-src|style-src|script-src|frame-src|form-action)\s+([^;"]*)/gi)) {
+      if (/\*\./.test(m[1])) bad.push(`${file}: ${m[0].trim().slice(0, 60)}`);
+    }
+  }
+  bad.length
+    ? fail('keine Platzhalter-Hosts', bad.slice(0, 3).join(' | '))
+    : pass('keine Platzhalter-Hosts', '0 Treffer');
+}
+
 /* 12. Links und Anker (nur mit --live) */
 if (live) {
   try {

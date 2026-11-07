@@ -39,13 +39,13 @@ object-src 'none';
 frame-src 'none';
 base-uri 'self';
 form-action 'self' mailto:;
-connect-src 'self' https://*.supabase.co;
+connect-src 'self';
 upgrade-insecure-requests
 ```
 
-Alle vier Laderichtungen — Skripte, Stile, Schriften, Bilder — kommen
-inzwischen ohne Fremdherkunft und ohne Pauschalausnahme aus. Was das im
-Einzelnen bedeutet, steht unten.
+Alle Laderichtungen — Skripte, Stile, Schriften, Bilder, Frames und
+Netzwerkziele — kommen ohne Fremdherkunft, ohne Platzhalter und ohne
+Pauschalausnahme aus. Was das im Einzelnen bedeutet, steht unten.
 
 **Skripte laufen über Hashes, nicht über `'unsafe-inline'`.** Jede Seite nennt
 die SHA-256-Hashes ihrer eigenen Inline-Skripte (Sprachstart im `<head>` und,
@@ -100,15 +100,59 @@ Data-URI, das siebte (eine Rauschtextur) wurde vollständig geschrieben.
 `object-src 'none'` verhindert Flash/PDF-Einbettung, `frame-src 'none'` das
 Einbetten in fremde Frames, `base-uri 'self'` Base-Tag-Hijacking.
 
-**Prüfbar.** `tools/security-gate.mjs` prüft jetzt zwölf Punkte, darunter
-„keine Inline-Stile" und „`style-src` ohne `'unsafe-inline'`". Gegenprobe mit
-einer absichtlich unsicheren Testseite: beide Prüfungen rot, nach dem Rückbau
-wieder grün. Zusätzlich wurden alle 35 Seiten mit einem
-`securitypolicyviolation`-Mitschnitt geladen: 0 Verstöße.
+**Kein Platzhalter im Netzwerkziel.** `connect-src` erlaubte bisher
+`https://*.supabase.co`. Ein Platzhalter auf einer ganzen Domain ist eine
+Einladung: Wer ein eigenes Supabase-Projekt anlegt, bekommt einen Host, der
+passt — und damit ein Ziel für ausgelesene Daten. Da Konten im Moment lokal
+laufen (`auth-config.js`, `mode: 'local'`), steht dort nur noch `'self'`.
+Wer den Supabase-Modus einschaltet, trägt den **genauen** Projekt-Host ein;
+`tools/security-gate.mjs` schlägt bei jedem Platzhalter in einer
+Ladedirektive an.
+
+**Angriffe im Browser, nicht nur auf dem Papier.** `tools/csp-attack.mjs`
+führt auf jeder Seite sieben echte Injektionen aus — Inline-Skript,
+`onerror`-Attribut, fremdes Skript von jsDelivr, `style`-Attribut, fremdes
+Stylesheet, `iframe` und Datenabfluss per `fetch`/Bild — und belegt jeden
+Block mit dem `securitypolicyviolation`-Ereignis. Ergebnis: **35 Seiten × 7
+Angriffe, alle blockiert.** Gegenprobe: dieselbe Probe gegen eine Seite ohne
+CSP lässt **7 von 7** durch. Ohne diese Gegenprobe wäre nicht belegt, dass die
+Probe überhaupt anschlagen kann.
+
+Zwei Messfallen sind dabei aufgefallen und im Werkzeug dokumentiert:
+
+- Ein blockierter `iframe` feuert trotzdem ein `load`-Ereignis (das leere
+  `about:blank`-Dokument). „`load` gefeuert" ist deshalb kein Beweis für
+  „geladen". Verlässlich ist das `frame-src`-Verstoßereignis.
+- `performance.getEntriesByType('resource')` führt auch blockierte Abrufe,
+  und fremde Herkünfte melden ohne `Timing-Allow-Origin` ohnehin
+  `transferSize: 0`. Auch das taugt nicht als Nachweis. Verlässlich ist der
+  Zustand des Abrufs (aufgelöst vs. abgelehnt) plus das Verstoßereignis.
+
+**Stile: was CSP nicht verbietet.** `style.cssText` und
+`style.setProperty()` sind CSSOM und bleiben erlaubt — CSP regelt das
+`style`-**Attribut**, nicht die Manipulation über das Style-Objekt. Ein per
+`setAttribute('style', …)` gesetztes Attribut wird dagegen nicht angewendet
+und meldet einen Verstoß. Beim Schließen von `style-src` fiel dadurch ein
+echter Fehler auf: das Studio-SVG in `ui-entscheidung.js` trug sieben
+`style="--i:…"`-Attribute für die Staffelung; sie sind jetzt Klassen
+(`.ent-vol-0` … `.ent-vol-5`), und die Animation läuft wieder gestaffelt.
+
+**Prüfbar.** `tools/security-gate.mjs` prüft jetzt dreizehn Punkte, darunter
+„keine Inline-Stile", „`style-src` ohne `'unsafe-inline'`" und „keine
+Platzhalter-Hosts". Gegenprobe mit einer absichtlich unsicheren Testseite:
+die Prüfungen werden rot, nach dem Rückbau wieder grün. Zusätzlich wurden alle
+35 Seiten mit einem `securitypolicyviolation`-Mitschnitt geladen: 0 Verstöße.
 
 Zusätzlich auf allen Seiten: `referrer` = `strict-origin-when-cross-origin`,
-`X-Content-Type-Options` soweit der Hoster es setzt, `noindex` auf Konto-,
-Login- und Checkout-Seiten.
+`noindex` auf Konto-, Login- und Checkout-Seiten.
+
+**Was eine Meta-CSP nicht kann.** `frame-ancestors` und `report-uri` werden im
+`<meta>`-Tag ignoriert — sie wirken nur als HTTP-Header. Wer die Seite hinter
+einem eigenen Server ausliefert, sollte dort zusätzlich setzen:
+`Content-Security-Policy: frame-ancestors 'none'`,
+`X-Content-Type-Options: nosniff` und
+`Strict-Transport-Security: max-age=31536000`. Auf GitHub Pages sind diese
+Header nicht verfügbar; die Meta-CSP deckt alles übrige ab.
 
 ## 3. Nutzertext ist niemals Code
 

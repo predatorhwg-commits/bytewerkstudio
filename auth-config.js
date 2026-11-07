@@ -13,6 +13,13 @@
                     aus supabase/schema.sql ausfuehren und URL sowie
                     anon key hier eintragen. Siehe docs/KONTO.md.
 
+                    Wichtig: Die CSP jeder Seite erlaubt nur 'self'.
+                    Fuer den Supabase-Modus muss dort der genaue Host
+                    ergaenzt werden, z. B.
+                    connect-src 'self' https://<projekt>.supabase.co;
+                    Kein Platzhalter (https://*.supabase.co): der
+                    erlaubt jedes fremde Supabase-Projekt als Ziel.
+
    Der anon key ist ein oeffentlicher Client-Key. Niemals den
    service_role key hier eintragen.
    ============================================================ */
