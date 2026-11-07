@@ -692,6 +692,7 @@
   /* ---------------------------------------------------------- */
 
   const route = { view: 'list', cat: null, slug: null };
+  let missingSlug = null;
 
   function parseRoute() {
     const hash = (location.hash || '').replace(/^#\/?/, '');
@@ -1796,6 +1797,13 @@
           ? txt(th.title) + ' — Bytewerk Forum'
           : t('Thema nicht gefunden — Bytewerk Forum', 'Thread not found — Bytewerk Forum');
         updateMeta(th);
+        if (th) {
+          missingSlug = null;
+        } else if (missingSlug !== route.slug) {
+          missingSlug = route.slug;
+          toast(t('Dieses Thema gibt es nicht oder nicht mehr. Hier ist die Übersicht.',
+                  'This thread does not exist or is gone. Here is the overview.'), 'err');
+        }
       }
     } else {
       const listWrap = document.getElementById('themen');

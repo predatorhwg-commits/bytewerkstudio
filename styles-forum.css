@@ -618,6 +618,7 @@
   color: var(--ink);
   margin: 0 0 5px;
   text-wrap: pretty;
+  overflow-wrap: anywhere;
 }
 .fm-item-excerpt {
   font-size: 13.5px;
@@ -641,7 +642,7 @@
 }
 
 .fm-item-meta { display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--muted); }
-.fm-item-author { color: var(--ink-soft); font-weight: 500; }
+.fm-item-author { color: var(--ink-soft); font-weight: 500; overflow-wrap: anywhere; }
 .fm-dot { color: var(--line-2); }
 .fm-time { color: var(--fm-quiet); }
 
@@ -725,7 +726,7 @@
   font-weight: 500;
   margin: 0 0 6px;
 }
-.fm-empty p { font-size: 14px; color: var(--muted); max-width: 42ch; margin: 0 auto 16px; }
+.fm-empty p { font-size: 14px; color: var(--muted); max-width: 42ch; margin: 0 auto 16px; overflow-wrap: anywhere; }
 
 /* ---------- Thread detail ---------- */
 .fm-thread { max-width: 100%; }
@@ -763,6 +764,7 @@
   margin: 0 0 12px;
   color: var(--ink);
   text-wrap: balance;
+  overflow-wrap: anywhere;
 }
 
 .fm-th-meta {
@@ -853,7 +855,7 @@
   margin-bottom: 10px;
   font-size: 13px;
 }
-.fm-post-name { font-weight: 600; color: var(--ink); }
+.fm-post-name { font-weight: 600; color: var(--ink); overflow-wrap: anywhere; }
 .fm-post-time { color: var(--fm-quiet); font-size: 12.5px; }
 .fm-post-edited { color: var(--fm-quiet); font-size: 11.5px; font-style: italic; }
 
@@ -1634,11 +1636,12 @@
   font-weight: 500;
   margin: 0;
   letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
 }
 .fm-know-title a { color: var(--ink); text-decoration: none; }
 .fm-know-title a:hover { color: var(--accent-700); }
 .fm-know-title a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
-.fm-know-answer { font-size: 13.5px; line-height: 1.55; color: var(--muted); margin: 0; }
+.fm-know-answer { font-size: 13.5px; line-height: 1.55; color: var(--muted); margin: 0; overflow-wrap: anywhere; }
 .fm-know-answer p { margin: 0; }
 .fm-know-answer code {
   font-family: var(--mono);
