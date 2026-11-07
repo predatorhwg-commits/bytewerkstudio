@@ -5,7 +5,7 @@
 <script src="bootstrap.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; script-src-attr 'none'; script-src-elem 'self'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; script-src-attr 'none'; script-src-elem 'self'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Bytewerk Studio — Software, Web & Apps aus Ludwigshafen</title>
 <meta name="description" content="Bytewerk Studio entwickelt Software, Websites, Apps und digitale Produkte in Ludwigshafen am Rhein. Klarer Ablauf, ehrliche Festpreise, Code, der dir gehört.">
@@ -84,6 +84,7 @@
   ]
 }
 </script>
+<link rel="stylesheet" href="styles-inline.css">
 </head>
 <body>
 
@@ -99,8 +100,8 @@
       <span class="hero-badge reveal">
         <span class="pulse" aria-hidden="true"></span>
         <span data-en="Studio for software, web &amp; apps">Studio für Software, Web &amp; Apps</span>
-        <span style="color:var(--faint)" aria-hidden="true">·</span>
-        <span style="color:var(--muted)" data-en="Ludwigshafen">Ludwigshafen</span>
+        <span aria-hidden="true" class="u-c-faint">·</span>
+        <span data-en="Ludwigshafen" class="u-c-muted">Ludwigshafen</span>
       </span>
 
       <h1 class="hero-v3-title reveal" data-d="1" data-en="<span class=&quot;line&quot;>Software<span class=&quot;line-dot&quot;>.</span></span><span class=&quot;line&quot;>Web<span class=&quot;line-dot&quot;>.</span></span><span class=&quot;line accent-line&quot;>Apps<span class=&quot;line-dot&quot;>.</span></span>">
@@ -121,7 +122,7 @@
 
       <div class="hero-v3-note reveal" data-d="4">
         <b data-en="Now available:">Jetzt verfügbar:</b>
-        <a href="neon-horde/" style="color:var(--accent-300)" data-en="NEON HORDE browser shooter">NEON HORDE Browserspiel</a>
+        <a href="neon-horde/" data-en="NEON HORDE browser shooter" class="u-c-accent-300">NEON HORDE Browserspiel</a>
         <span aria-hidden="true">·</span>
         <span data-en="11 own products">11 eigene Produkte</span>
       </div>
@@ -182,7 +183,7 @@
 <!-- ============ LEISTUNGEN ============ -->
 <section class="sec-pad" id="leistungen" data-screen-label="Leistungen">
   <div class="wrap">
-    <div class="sec-head reveal" style="margin-bottom:48px">
+    <div class="sec-head reveal u-mb-48px">
       <span class="eyebrow" data-en="What we build">Was wir bauen</span>
       <h2 class="h2" data-en="Software, websites, apps and IT.">Software, Websites, Apps und IT.</h2>
       <p class="lead" data-en="We plan, build and support digital solutions from the first draft to launch.">Wir planen, entwickeln und betreuen digitale Lösungen vom ersten Entwurf bis zur Veröffentlichung.</p>
@@ -217,7 +218,7 @@
         <div class="tags"><span class="tag">Apps</span><span class="tag">Learning Tools</span><span class="tag">DevOps</span></div>
       </article>
     </div>
-    <div class="reveal" data-d="2" style="margin-top:34px">
+    <div class="reveal u-mt-34px" data-d="2">
       <a class="btn btn-ghost" href="softwareentwicklung-ludwigshafen.html">
         <span data-en="Explore software development in Ludwigshafen">Softwareentwicklung in Ludwigshafen ansehen</span> <span class="arr">→</span>
       </a>
@@ -394,13 +395,13 @@
       </div>
     </div>
   </div>
-  <noscript><style>#schichtmodell .schm-panel[hidden]{display:block}#schichtmodell .schm-detail{display:grid;gap:14px}</style></noscript>
+  <noscript><link rel="stylesheet" href="nojs.css"></noscript>
 </section>
 
 <!-- ============ ARBEITEN ============ -->
-<section class="sec-pad" id="arbeiten" style="padding-top:0" data-screen-label="Arbeiten">
+<section class="sec-pad u-pt-0" id="arbeiten" data-screen-label="Arbeiten">
   <div class="wrap">
-    <div class="shop-head reveal" style="margin-bottom:44px">
+    <div class="shop-head reveal u-mb-44px">
       <div class="sec-head">
         <span class="eyebrow" data-en="Selected work">Ausgewählte Arbeiten</span>
         <h2 class="h2" data-en="Products people actually use.">Produkte, die wirklich benutzt werden.</h2>
@@ -456,7 +457,7 @@
 </section>
 
 <!-- ============ SHOP ============ -->
-<section class="sec-pad" id="shop" style="background:var(--paper-2);border-block:1px solid var(--line)" data-screen-label="Shop">
+<section class="sec-pad u-bg-paper-2_bb-1px-solid-line" id="shop" data-screen-label="Shop">
   <div class="wrap">
     <div class="shop-head reveal">
       <div class="sec-head">
@@ -467,7 +468,7 @@
       <a class="btn btn-ghost" href="shop.html"><span data-en="Browse all">Zum ganzen Shop</span> <span class="arr">→</span></a>
     </div>
 
-    <div class="shop-grid reveal" data-d="1" style="margin-top:46px">
+    <div class="shop-grid reveal u-mt-46px" data-d="1">
       <a class="prod" href="lernreich-pro.html">
         <div class="ph app-mark-panel"><span class="badge">Pro</span><img class="app-logo-mark" src="media/lernreich-pro-icon.svg" alt="Lernreich Pro Logo" width="256" height="256"></div>
         <div class="body">
@@ -529,7 +530,7 @@
 <!-- ============ PROZESS ============ -->
 <section class="sec-pad" id="prozess" data-screen-label="Prozess">
   <div class="wrap">
-    <div class="sec-head reveal" style="margin-bottom:44px">
+    <div class="sec-head reveal u-mb-44px">
       <span class="eyebrow" data-en="How we work">Wie wir arbeiten</span>
       <h2 class="h2" data-en="Clear process, clear results.">Klarer Ablauf, klare Ergebnisse.</h2>
     </div>
@@ -554,12 +555,12 @@
 </section>
 
 <!-- ============ STUDIO / WHY ============ -->
-<section class="sec-pad" id="studio-teaser" style="padding-top:0" data-screen-label="Studio">
+<section class="sec-pad u-pt-0" id="studio-teaser" data-screen-label="Studio">
   <div class="wrap studio-split">
     <div class="reveal">
       <span class="eyebrow" data-en="The studio">Das Studio</span>
-      <h2 class="h2" style="margin-top:18px" data-en="A small studio for software, web and apps.">Ein kleines Studio für Software, Web und Apps.</h2>
-      <p class="lead" style="margin-top:22px" data-en="Bytewerk Studio develops software, websites and apps for client projects and its own products. Communication is direct from the first conversation to launch.">
+      <h2 class="h2 u-mt-18px" data-en="A small studio for software, web and apps.">Ein kleines Studio für Software, Web und Apps.</h2>
+      <p class="lead u-mt-22px" data-en="Bytewerk Studio develops software, websites and apps for client projects and its own products. Communication is direct from the first conversation to launch.">
         Bytewerk Studio entwickelt Software, Websites und Apps für Kundenprojekte und eigene Produkte.
         Die Abstimmung bleibt direkt, vom ersten Gespräch bis zur Veröffentlichung.
       </p>
@@ -568,7 +569,7 @@
         <div class="pt"><span class="dot"></span> <span data-en="Code that's yours — full transparency">Code, der dir gehört — volle Transparenz</span></div>
         <div class="pt"><span class="dot"></span> <span data-en="Open-source friendly, published on GitHub">Open-Source-freundlich, veröffentlicht auf GitHub</span></div>
       </div>
-      <a class="btn btn-primary" style="margin-top:30px" href="studio.html"><span data-en="Get to know us">Lern uns kennen</span> <span class="arr">→</span></a>
+      <a class="btn btn-primary u-mt-30px" href="studio.html"><span data-en="Get to know us">Lern uns kennen</span> <span class="arr">→</span></a>
     </div>
     <div class="studio-visual reveal" data-d="1" aria-hidden="true">
       <div class="code-card">
@@ -587,9 +588,9 @@
 </section>
 
 <!-- ============ COMMUNITY & ENTWICKLER ============ -->
-<section class="sec-pad" id="community" style="padding-top:0" data-screen-label="Community und Entwickler">
+<section class="sec-pad u-pt-0" id="community" data-screen-label="Community und Entwickler">
   <div class="wrap">
-    <div class="sec-head reveal" style="margin-bottom:36px">
+    <div class="sec-head reveal u-mb-36px">
       <span class="eyebrow" data-en="Community &amp; developers">Community &amp; Entwickler</span>
       <h2 class="h2" data-en="Built with people who build.">Gebaut mit Menschen, die bauen.</h2>
       <p class="lead" data-en="A forum for real questions, an API with a free sandbox, and a security page that shows how we work. All three are public — no sales call required.">Ein Forum für echte Fragen, eine API mit kostenloser Sandbox und eine Sicherheitsseite, die zeigt, wie wir arbeiten. Alles drei ist offen — ohne Verkaufsgespräch.</p>
@@ -618,9 +619,9 @@
 </section>
 
 <!-- ============ PREISE ============ -->
-<section class="sec-pad" id="preise" style="background:var(--paper-2);border-block:1px solid var(--line)" data-screen-label="Preise">
+<section class="sec-pad u-bg-paper-2_bb-1px-solid-line" id="preise" data-screen-label="Preise">
   <div class="wrap">
-    <div class="sec-head reveal" style="margin-bottom:44px">
+    <div class="sec-head reveal u-mb-44px">
       <span class="eyebrow" data-en="Packages">Pakete</span>
       <h2 class="h2" data-en="A clear frame for your project.">Ein klarer Rahmen für dein Projekt.</h2>
       <p class="lead" data-en="Every project is quoted individually after a short call. These packages show the scope and the typical timeline.">Jedes Projekt wird nach einem kurzen Gespräch individuell kalkuliert. Die Pakete zeigen Umfang und typischen Zeitrahmen.</p>
@@ -671,14 +672,14 @@
         <a class="btn btn-ghost" href="kontakt.html" data-en="Ask about care">Betreuung anfragen</a>
       </article>
     </div>
-    <p class="reveal" style="margin-top:22px;font-size:12.5px;color:var(--faint);max-width:70ch" data-en="All prices are non-binding orientation. A final fixed price follows after the scope is defined. No hidden costs.">Alle Preise sind unverbindliche Orientierung. Ein endgültiger Festpreis folgt nach Definition des Umfangs. Keine versteckten Kosten.</p>
+    <p class="reveal u-mt-22px_fs-12_5px_c-faint_maxw-70ch" data-en="All prices are non-binding orientation. A final fixed price follows after the scope is defined. No hidden costs.">Alle Preise sind unverbindliche Orientierung. Ein endgültiger Festpreis folgt nach Definition des Umfangs. Keine versteckten Kosten.</p>
   </div>
 </section>
 
 <!-- ============ KONFIGURATOR ============ -->
-<section class="sec-pad" id="konfigurator" style="background:var(--paper-2);border-block:1px solid var(--line)" data-screen-label="Konfigurator">
+<section class="sec-pad u-bg-paper-2_bb-1px-solid-line" id="konfigurator" data-screen-label="Konfigurator">
   <div class="wrap">
-    <div class="sec-head reveal" style="margin-bottom:38px">
+    <div class="sec-head reveal u-mb-38px">
       <span class="eyebrow" data-en="Project configurator">Projekt-Konfigurator</span>
       <h2 class="h2" data-en="Three steps to a clear brief.">In drei Schritten zum klaren Briefing.</h2>
       <p class="lead" data-en="Choose what you need and get a realistic package recommendation plus a ready-to-send request. No account, no obligation.">Wähle, was du brauchst, und erhalte eine realistische Paket-Empfehlung plus eine fertige Anfrage. Ohne Konto, unverbindlich.</p>
@@ -738,8 +739,8 @@
               <small data-en="Full product with several areas">Volles Produkt mit mehreren Bereichen</small>
             </button>
           </div>
-          <div class="cfg-kicker" style="margin-top:22px" data-en="Extras (optional)">Extras (optional)</div>
-          <div class="cfg-opts" style="margin-top:10px">
+          <div class="cfg-kicker u-mt-22px" data-en="Extras (optional)">Extras (optional)</div>
+          <div class="cfg-opts u-mt-10px">
             <button class="cfg-opt" type="button" data-key="extras" data-val="login" data-multi aria-pressed="false">
               <span data-en="Login &amp; accounts">Login &amp; Konten</span>
             </button>
@@ -801,7 +802,7 @@
           <div class="cr-s" id="cfg-rec-sub">Typisch 6–12 Wochen</div>
         </div>
         <a class="btn btn-primary" data-cfg-mail href="mailto:Haqmalh@icloud.com"><span data-en="Send brief by email">Briefing per E-Mail</span> <span class="arr">&rarr;</span></a>
-        <a class="btn btn-ghost" data-cfg-contact href="kontakt.html" style="margin-top:8px" data-en="Open contact form">Im Kontaktformular öffnen</a>
+        <a class="btn btn-ghost u-mt-8px" data-cfg-contact href="kontakt.html" data-en="Open contact form">Im Kontaktformular öffnen</a>
         <p class="cfg-note" data-en="No obligation. The fixed price follows after a short call.">Unverbindlich. Der Festpreis folgt nach einem kurzen Gespräch.</p>
       </aside>
     </div>
@@ -815,7 +816,7 @@
       <span class="eyebrow" data-en="Questions">Fragen</span>
       <h2 class="h2" data-en="Good to know.">Gut zu wissen.</h2>
       <p class="lead" data-en="Short answers to the things people ask before starting. Something missing? Just send a message.">Kurze Antworten auf das, was vor einem Start gefragt wird. Etwas offen? Schreib einfach.</p>
-      <a class="btn btn-ghost" href="kontakt.html" style="margin-top:8px"><span data-en="Ask a question">Frage stellen</span> <span class="arr">→</span></a>
+      <a class="btn btn-ghost u-mt-8px" href="kontakt.html"><span data-en="Ask a question">Frage stellen</span> <span class="arr">→</span></a>
     </div>
 
     <div class="faq-list reveal" data-d="1">
@@ -848,16 +849,16 @@
 </section>
 
 <!-- ============ CTA ============ -->
-<section style="padding-bottom:clamp(72px,11vw,140px)" data-screen-label="CTA">
+<section data-screen-label="CTA" class="u-pb-clamp-72px-11vw-140px">
   <div class="wrap">
     <div class="cta-band reveal">
       <canvas id="cta-canvas" class="cta-grid-bg" aria-hidden="true"></canvas>
-      <span class="eyebrow" style="color:var(--accent-300);position:relative" data-en="Ready?">Bereit?</span>
-      <h2 class="h2" style="position:relative" data-en="Let's start your next project.">Lass uns dein nächstes Projekt starten.</h2>
-      <p class="lead" style="max-width:48ch" data-en="Send a short message and we will reply with the next step.">Schick eine kurze Nachricht, wir melden uns mit dem nächsten Schritt.</p>
-      <div style="display:flex;gap:14px;flex-wrap:wrap;position:relative">
+      <span class="eyebrow u-c-accent-300_pos-relative" data-en="Ready?">Bereit?</span>
+      <h2 class="h2 u-pos-relative" data-en="Let's start your next project.">Lass uns dein nächstes Projekt starten.</h2>
+      <p class="lead u-maxw-48ch" data-en="Send a short message and we will reply with the next step.">Schick eine kurze Nachricht, wir melden uns mit dem nächsten Schritt.</p>
+      <div class="u-d-flex_gap-14px_fxw-wrap_pos-relative">
         <a class="btn btn-primary btn-lg" href="kontakt.html"><span data-en="Start a project">Projekt starten</span> <span class="arr">→</span></a>
-        <a class="btn btn-ghost btn-lg" style="background:transparent;color:var(--accent-300);border-color:var(--line-2)" href="mailto:Haqmalh@icloud.com">Haqmalh@icloud.com</a>
+        <a class="btn btn-ghost btn-lg u-bg-transparent_c-accent-300_bdc-line-2" href="mailto:Haqmalh@icloud.com">Haqmalh@icloud.com</a>
       </div>
     </div>
   </div>

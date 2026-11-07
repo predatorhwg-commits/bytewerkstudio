@@ -5,7 +5,7 @@
 <script src="bootstrap.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; script-src-attr 'none'; script-src-elem 'self'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; script-src-attr 'none'; script-src-elem 'self'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Sicherheit für Web & Software — Audit & Härtung | Bytewerk Studio</title>
 <meta name="description" content="Sicherheits-Audit, Härtung und Begleitung für Web und Software aus Ludwigshafen: CSP, Rechte, Backups, Incident-Plan. Mit kostenlosem Sicherheits-Check in acht Fragen.">
@@ -136,6 +136,7 @@
 }
 </script>
 <link rel="stylesheet" href="styles-integration.css">
+<link rel="stylesheet" href="styles-inline.css">
 </head>
 <body>
 
@@ -627,7 +628,7 @@
             </p>
             <ul class="sich-code-facts">
               <li data-en="Applies to: every HTML page">Gilt für: jede HTML-Seite</li>
-              <li data-en="Trade-off: inline styles need 'unsafe-inline'">Kompromiss: Inline-Styles brauchen 'unsafe-inline'</li>
+              <li data-en="Inline styles moved into stylesheets: no 'unsafe-inline' needed">Inline-Stile liegen in Stylesheets: kein 'unsafe-inline' nötig</li>
               <li data-en="Next step: nonce or hash via build step">Nächster Schritt: Nonce oder Hash im Build</li>
             </ul>
           </div>
@@ -636,6 +637,7 @@
 <pre id="sich-snippet-csp"><code>&lt;meta http-equiv="Content-Security-Policy"
       content="default-src 'self';
                script-src 'self';
+               style-src 'self';
                object-src 'none';
                base-uri 'self';
                form-action 'self' mailto:;
@@ -944,14 +946,7 @@ create policy "threads_update_own"
 
 <div class="sich-toast" role="status" aria-live="polite" data-toast></div>
 
-<noscript>
-  <style>
-    .sich-code-panel[hidden] { display: block !important; }
-    .sich-code-panel { border-top: 1px solid var(--line); padding-top: 22px; margin-top: 22px; }
-    .sich-result { display: none; }
-    .sich-check::after { content: "Für den Selbsttest wird JavaScript benötigt. Die Fragen bleiben lesbar."; display: block; padding: 18px; border: 1px solid var(--line); border-radius: 12px; color: var(--muted); }
-  </style>
-</noscript>
+<noscript><link rel="stylesheet" href="nojs.css"></noscript>
 
 <script src="components.js"></script>
 <script src="auth-config.js"></script>

@@ -5,7 +5,7 @@
 <script src="bootstrap.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; script-src-attr 'none'; script-src-elem 'self'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; script-src-attr 'none'; script-src-elem 'self'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Musterbuch — die Handschrift deines Produkts · Bytewerk Studio</title>
 <meta name="description" content="Vier Entscheidungen, eine echte Vorschau: Ton, Schrift, Dichte und Kante. Das Musterbuch zeigt, wie deine Oberfläche aussieht — und liefert die Tokens als CSS oder Briefing.">
@@ -48,6 +48,7 @@
 }
 </script>
 <link rel="stylesheet" href="styles-integration.css">
+<link rel="stylesheet" href="styles-inline.css">
 </head>
 <body>
 
@@ -88,10 +89,10 @@
     <figure class="mb-stage reveal" data-d="2" data-mb-stage>
       <div class="mb-stage-art" data-mb-mount aria-hidden="true"></div>
       <div class="mb-stack" aria-hidden="true">
-        <span class="mb-sheet" style="--i:3;--c:#f1ebdc;--e:#ded5c1"></span>
-        <span class="mb-sheet" style="--i:2;--c:#4f7a63;--e:#40634f"></span>
-        <span class="mb-sheet" style="--i:1;--c:#b04f31;--e:#8d3d26"></span>
-        <span class="mb-sheet" style="--i:0;--c:#242220;--e:#141312"></span>
+        <span class="mb-sheet u---i-3_--c-f1ebdc_--e-ded5c1"></span>
+        <span class="mb-sheet u---i-2_--c-4f7a63_--e-40634f"></span>
+        <span class="mb-sheet u---i-1_--c-b04f31_--e-8d3d26"></span>
+        <span class="mb-sheet u---i-0_--c-242220_--e-141312"></span>
         <span class="mb-stack-mark" data-en="Sample book">Musterbuch</span>
       </div>
       <figcaption class="mb-caption">
@@ -99,10 +100,10 @@
         <span class="mb-caption-r" data-en="Drag to turn">Ziehen zum Drehen</span>
       </figcaption>
       <div class="mb-tones" role="group" aria-label="Ton im Probenbuch wählen" data-mb-tones>
-        <button type="button" class="mb-tone" data-tone="papier" aria-pressed="true" aria-label="Ton Papier"><span style="--c:#f1ebdc"></span></button>
-        <button type="button" class="mb-tone" data-tone="terrakotta" aria-pressed="false" aria-label="Ton Terrakotta"><span style="--c:#b04f31"></span></button>
-        <button type="button" class="mb-tone" data-tone="salbei" aria-pressed="false" aria-label="Ton Salbei"><span style="--c:#4f7a63"></span></button>
-        <button type="button" class="mb-tone" data-tone="tusche" aria-pressed="false" aria-label="Ton Tusche"><span style="--c:#242220"></span></button>
+        <button type="button" class="mb-tone" data-tone="papier" aria-pressed="true" aria-label="Ton Papier"><span class="u---c-f1ebdc"></span></button>
+        <button type="button" class="mb-tone" data-tone="terrakotta" aria-pressed="false" aria-label="Ton Terrakotta"><span class="u---c-b04f31"></span></button>
+        <button type="button" class="mb-tone" data-tone="salbei" aria-pressed="false" aria-label="Ton Salbei"><span class="u---c-4f7a63"></span></button>
+        <button type="button" class="mb-tone" data-tone="tusche" aria-pressed="false" aria-label="Ton Tusche"><span class="u---c-242220"></span></button>
       </div>
     </figure>
 
@@ -132,19 +133,19 @@
           </div>
           <div class="mb-opts tones">
             <button type="button" class="mb-opt mb-tone-opt" data-key="tone" data-val="papier" aria-pressed="true">
-              <span class="mb-swatch" style="--c:#faf9f5;--b:#e6e1d4"></span>
+              <span class="mb-swatch u---c-faf9f5_--b-e6e1d4"></span>
               <span class="mb-opt-t" data-en="Paper">Papier</span>
             </button>
             <button type="button" class="mb-opt mb-tone-opt" data-key="tone" data-val="terrakotta" aria-pressed="false">
-              <span class="mb-swatch" style="--c:#b04f31;--b:#8d3d26"></span>
+              <span class="mb-swatch u---c-b04f31_--b-8d3d26"></span>
               <span class="mb-opt-t" data-en="Terracotta">Terrakotta</span>
             </button>
             <button type="button" class="mb-opt mb-tone-opt" data-key="tone" data-val="salbei" aria-pressed="false">
-              <span class="mb-swatch" style="--c:#4f7a63;--b:#40634f"></span>
+              <span class="mb-swatch u---c-4f7a63_--b-40634f"></span>
               <span class="mb-opt-t" data-en="Sage">Salbei</span>
             </button>
             <button type="button" class="mb-opt mb-tone-opt" data-key="tone" data-val="tusche" aria-pressed="false">
-              <span class="mb-swatch" style="--c:#242220;--b:#141312"></span>
+              <span class="mb-swatch u---c-242220_--b-141312"></span>
               <span class="mb-opt-t" data-en="Ink">Tusche</span>
             </button>
           </div>

@@ -5,7 +5,7 @@
 <script src="bootstrap.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; script-src-attr 'none'; script-src-elem 'self'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; script-src-attr 'none'; script-src-elem 'self'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, follow">
 <meta property="og:type" content="website">
@@ -32,6 +32,7 @@
 <link rel="stylesheet" href="styles-auth.css">
 <link rel="stylesheet" href="styles-claude.css">
 <link rel="stylesheet" href="styles-integration.css">
+<link rel="stylesheet" href="styles-inline.css">
 </head>
 <body class="auth-page">
 
@@ -105,7 +106,7 @@
     <aside class="auth-aside">
       <div class="aa-brand">
         <svg viewBox="0 0 28 28" class="bw-logo"><rect x="1.5" y="1.5" width="11.5" height="11.5" rx="3" class="sq"/><rect x="15" y="1.5" width="11.5" height="11.5" rx="3" class="sq"/><rect x="1.5" y="15" width="11.5" height="11.5" rx="3" class="sq"/><circle cx="20.75" cy="20.75" r="5.95" class="dot"/></svg>
-        <span>Bytewerk <i style="color:var(--muted);font-style:normal">Studio</i></span>
+        <span>Bytewerk <i class="u-c-muted_fst-normal">Studio</i></span>
       </div>
       <div>
         <p class="aa-quote" data-en="Software that <em>stays.</em><br>Accounts that bring<br>everything together.">Software, die <em>bleibt.</em><br>Konten, die alles<br>an einem Ort bündeln.</p>
@@ -120,7 +121,7 @@
           </div>
           <span class="ar">→</span>
         </a>
-        <div class="aa-stats" style="margin-top:18px">
+        <div class="aa-stats u-mt-18px">
           <div class="s"><div class="n">11</div><div class="k" data-en="Products">Produkte</div></div>
           <div class="s"><div class="n">4</div><div class="k" data-en="Disciplines">Disziplinen</div></div>
           <div class="s"><div class="n">100%</div><div class="k" data-en="Handover">Übergabe</div></div>

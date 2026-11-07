@@ -47,6 +47,7 @@ def main() -> int:
     perf_mobil = load("perf-mobil.json")
     forum = load("forum.json")
     i18n = load("i18n.json")
+    pixdiff = load("pixdiff.json")
 
     s = static["summary"]
     seo_rows = seo.get("rows", [])
@@ -214,6 +215,30 @@ def main() -> int:
             body.append("ohne `'unsafe-inline'` und ohne `'unsafe-eval'`, zusätzlich")
             body.append("`script-src-attr 'none'` und `frame-src 'none'`.")
         body.append("")
+        body.append("### Stile ohne Ausnahme")
+        body.append("")
+        body.append("`style-src` steht auf `'self'` — auch hier kein `'unsafe-inline'`.")
+        body.append("Die 196 `style`-Attribute im Markup liegen jetzt als Klassen in")
+        body.append("`styles-inline.css`, die zwei `<noscript><style>`-Blöcke in")
+        body.append("`nojs.css`. `tools/csp_styles.py --check` hält den Stand in der CI.")
+        body.append("")
+        if pixdiff:
+            px = pixdiff.get("summary", {})
+            body.append("Dass der Umbau das Aussehen nicht verändert, ist gemessen:")
+            body.append("`tools/qa_pixdiff.py` vergleicht jede Seite vorher/nachher")
+            body.append("pixelweise, bei 1440 und 390 px Breite. Bewegung, Canvas und")
+            body.append("Zufallstexte sind dabei ausgeblendet, sonst vergliche man Rauschen.")
+            body.append("")
+            body.append(md_table([
+                ["Verglichene Aufnahmen", px.get("shots", 0)],
+                ["Abweichung über Schwelle", px.get("differing", 0)],
+                ["Beabsichtigte Abweichungen", px.get("expected", 0)],
+                ["Schwelle", f"{px.get('threshold_pct', 0)} % der Bildfläche"],
+            ], ["Messung", "Ergebnis"]))
+            body.append("")
+            if px.get("expected"):
+                body.append(f"Beabsichtigt: {px.get('reason', '')}.")
+                body.append("")
         if xss:
             x = xss.get("summary", {})
             body.append("### Eingaben im Browser")
@@ -416,6 +441,8 @@ def main() -> int:
     body.append("python3 tools/qa_zoom.py --base http://127.0.0.1:8809")
     body.append("python3 tools/qa_motion.py --base http://127.0.0.1:8809")
     body.append("python3 tools/qa_forum.py --base http://127.0.0.1:8809")
+    body.append("python3 tools/csp_styles.py --check")
+    body.append("python3 tools/qa_pixdiff.py --base http://127.0.0.1:8809 --compare /tmp/vorher")
     body.append("python3 tools/qa_report.py")
     body.append("```")
     body.append("")

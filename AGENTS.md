@@ -42,3 +42,15 @@ Statische Website für bytewerkstudio.com. GitHub Pages veröffentlicht direkt a
 | `background.js` | Bewegter Hintergrund, code-only |
 | `styles-studio3d.css` | Hero-Bühne (Studio-Modell), zuletzt geladen |
 | `scene-studio.js` | three.js-Szene der Hero-Bühne (r180 aus `vendor/`) |
+| `styles-inline.css` | Erzeugt aus den früheren `style`-Attributen (`tools/csp_styles.py`), lädt zuletzt |
+| `nojs.css` | Ersatz für die `<noscript><style>`-Blöcke, nur ohne JavaScript geladen |
+
+## Stile
+
+`style`-Attribute im Markup gibt es nicht mehr — die CSP steht auf
+`style-src 'self'`. Neue Einmal-Stile gehören als Klasse in
+`styles-inline.css` (über `tools/csp_styles.py` erzeugt) oder in eine der
+anderen CSS-Dateien. Einzelne Eigenschaften per JavaScript
+(`el.style.visibility = …`) sind erlaubt; ein eingeschobenes `<style>` oder
+`setAttribute('style', …)` blockiert die CSP. `tools/csp_styles.py --check`
+meldet beides und läuft in der CI.

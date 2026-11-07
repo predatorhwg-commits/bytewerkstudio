@@ -5,7 +5,7 @@
 <script src="bootstrap.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; script-src-attr 'none'; script-src-elem 'self'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; script-src-attr 'none'; script-src-elem 'self'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Lernreich — Lern-App · Bytewerk Studio</title>
 <meta name="description" content="Lernreich ist die aktuelle App von Bytewerk Studio: fokussiertes Lernen mit Fokus-Sanduhr, XP, Streaks, Heatmap, Journal und Wiederholungen.">
@@ -58,6 +58,7 @@
 }
 </script>
 <link rel="stylesheet" href="styles-integration.css">
+<link rel="stylesheet" href="styles-inline.css">
 </head>
 <body>
 
@@ -81,7 +82,7 @@
 
   <!-- INFO -->
   <div class="pd-info reveal" data-d="1">
-    <div class="crumb" style="margin-bottom:18px"><a href="shop.html" data-en="Shop">Shop</a> <span>/</span> <span data-en="App">App</span> <span>/</span> Lernreich</div>
+    <div class="crumb u-mb-18px"><a href="shop.html" data-en="Shop">Shop</a> <span>/</span> <span data-en="App">App</span> <span>/</span> Lernreich</div>
     <span class="cat" data-en="Windows · learning · productivity">Windows · Lernen · Produktivitaet</span>
     <h1>Lernreich</h1>
     <div class="pd-price">
@@ -104,7 +105,7 @@
       <div class="f"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg><span data-en="Works offline, no ads, calm by design">Offline nutzbar, werbefrei und ruhig gestaltet</span></div>
     </div>
 
-    <div class="pd-list" style="margin-top:30px">
+    <div class="pd-list u-mt-30px">
       <div class="row"><span class="key" data-en="Platform">Plattform</span><span class="val">Windows</span></div>
       <div class="row"><span class="key" data-en="Category">Kategorie</span><span class="val">Lernen · Fokus · Produktivitaet</span></div>
       <div class="row"><span class="key" data-en="Price">Preis</span><span class="val" data-en="Free">Kostenlos</span></div>
@@ -115,12 +116,12 @@
 </section>
 
 <!-- DOWNLOAD -->
-<section class="sec-pad" id="download" style="padding-top:0" data-screen-label="Download">
+<section class="sec-pad u-pt-0" id="download" data-screen-label="Download">
   <div class="wrap">
     <div class="cta-band reveal">
-      <span class="eyebrow" style="color:var(--accent-300);position:relative" data-en="Download">Download</span>
-      <h2 class="h2" style="position:relative" data-en="Open the official Lernreich download.">Offiziellen Lernreich-Download oeffnen.</h2>
-      <p class="lead" style="max-width:52ch" data-en="The download is provided through the official Lernreich website.">
+      <span class="eyebrow u-c-accent-300_pos-relative" data-en="Download">Download</span>
+      <h2 class="h2 u-pos-relative" data-en="Open the official Lernreich download.">Offiziellen Lernreich-Download oeffnen.</h2>
+      <p class="lead u-maxw-52ch" data-en="The download is provided through the official Lernreich website.">
         Der Download wird ueber die offizielle Lernreich-Website bereitgestellt.
       </p>
       <a class="btn btn-primary btn-lg" href="https://lernreich.pro/#download" target="_blank" rel="noopener"><span data-en="Go to download">Zum Download</span> <span class="arr">→</span></a>
@@ -129,9 +130,9 @@
 </section>
 
 <!-- RELATED -->
-<section class="sec-pad" style="padding-top:0" data-screen-label="Mehr">
+<section class="sec-pad u-pt-0" data-screen-label="Mehr">
   <div class="wrap">
-    <div class="sec-head reveal" style="margin-bottom:34px">
+    <div class="sec-head reveal u-mb-34px">
       <span class="eyebrow" data-en="Bytewerk Studio">Bytewerk Studio</span>
       <h2 class="h2" data-en="Software, web and app development behind Lernreich.">Software, Web- und App-Entwicklung hinter Lernreich.</h2>
     </div>

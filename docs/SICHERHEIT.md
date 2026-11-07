@@ -30,7 +30,7 @@ default-src 'self';
 script-src  'self';
 script-src-attr  'none';
 script-src-elem  'self';
-style-src   'self' 'unsafe-inline';
+style-src   'self';
 font-src    'self';
 img-src     'self' data:;
 object-src  'none';
@@ -76,17 +76,29 @@ Alle Inline-Skripte sind ausgelagert:
 JSON-LD bleibt inline, weil es kein ausführbares Skript ist (`type="application/ld+json"`);
 eine CSP mit `script-src 'self'` blockiert es nicht.
 
+### Stile ohne Ausnahme
+
+`style-src 'self'` gilt ohne `'unsafe-inline'`. Damit das möglich ist, sind
+alle 196 `style`-Attribute aus dem Markup in `styles-inline.css` überführt
+(Schritt `tools/csp_styles.py`). Die Klassen tragen `!important`, weil ein
+Attribut jede normale Stylesheet-Regel schlägt — ohne `!important` hätte eine
+spezifischere Regel wie `.cfg-summary .btn` die Oberhand gewonnen und das
+Aussehen verändert. Zwei `<noscript><style>`-Blöcke liegen jetzt in
+`nojs.css`, eingebunden per `<link>` innerhalb von `<noscript>`.
+
+Was weiterhin erlaubt ist und nicht von `style-src` erfasst wird: das Setzen
+einzelner Eigenschaften über die CSSOM (`element.style.visibility = …`). Das
+ist kein eingebettetes Stylesheet, sondern eine Änderung am DOM — Skripte, die
+das dürfen, dürfen ohnehin alles. Für eingeschleustes CSS über
+`background-image: url(…)` bleibt `img-src 'self' data:` die Schranke.
+
 ### Was noch offen ist
 
-**`style-src 'unsafe-inline'`.** Nötig, weil die Seite dynamische
-`style`-Attribute setzt (Reveal-Delays, Fortschrittsring, 3D-Bühnen). Das
-Risiko ist geringer als bei Skripten, aber real: Injiziertes CSS kann über
-`background-image: url(…)` Daten abfließen lassen, wenn `img-src` es erlaubt.
-Hier ist `img-src 'self' data:` — fremde URLs bleiben blockiert. Der Umbau auf
-Klassen statt Attributen ist ein eigener Arbeitsschritt.
-
 - **`frame-ancestors`** ist in einer `<meta>`-CSP wirkungslos. Auf GitHub Pages
-  gibt es keine Antwort-Header, also **kein Clickjacking-Schutz**. Für Hosts,
+  gibt es keine Antwort-Header, deshalb schützt `bootstrap.js` aktiv: Wird die
+  Seite in einem Frame geöffnet, blendet sie sich selbst aus und schickt den
+  obersten Frame auf die eigene Adresse. Das ist kein Header-Schutz, aber es
+  verhindert die typische Klickfalle. Für Hosts,
   die Header ausliefern, liegt die Regel in `_headers` (Netlify, Cloudflare
   Pages) und in `vercel.json`; beide setzen `frame-ancestors 'none'` und
   `X-Frame-Options: DENY`.

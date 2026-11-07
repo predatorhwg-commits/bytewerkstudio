@@ -440,6 +440,15 @@
   transform: none;
 }
 
+/* Staffelung der Bauteile. Stand früher als style="--i:N" im SVG und
+   wäre mit style-src 'self' blockiert worden. */
+#studio-teaser .ent-vol-0 { --i: 0; }
+#studio-teaser .ent-vol-1 { --i: 1; }
+#studio-teaser .ent-vol-2 { --i: 2; }
+#studio-teaser .ent-vol-3 { --i: 3; }
+#studio-teaser .ent-vol-4 { --i: 4; }
+#studio-teaser .ent-vol-5 { --i: 5; }
+
 #studio-teaser .ent-note,
 #studio-teaser .ent-dim,
 #studio-teaser .ent-titleblock {

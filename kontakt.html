@@ -5,7 +5,7 @@
 <script src="bootstrap.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; script-src-attr 'none'; script-src-elem 'self'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; script-src-attr 'none'; script-src-elem 'self'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Kontakt — Projektbrief | Bytewerk Studio</title>
 <meta name="description" content="Projektbrief in drei Schritten: Vorhaben, Umfang, Kontakt. Bytewerk Studio antwortet mit einer ehrlichen Einschätzung und dem nächsten sinnvollen Schritt.">
@@ -75,6 +75,7 @@
 <link rel="stylesheet" href="styles-integration.css">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://bytewerkstudio.com/media/og-bytewerk.png">
+<link rel="stylesheet" href="styles-inline.css">
 </head>
 <body>
 
@@ -338,7 +339,7 @@
               <input type="checkbox" id="consent" name="consent">
               <span data-en="I agree that my details may be stored to process this request. No newsletter, no sharing.">Ich bin damit einverstanden, dass meine Angaben zur Bearbeitung der Anfrage gespeichert werden. Kein Newsletter, keine Weitergabe.</span>
             </label>
-            <p class="brf-hint" style="margin:-2px 0 12px 26px">
+            <p class="brf-hint u-margin-2px-0-12px-26px">
               <a href="datenschutz.html" data-en="Privacy notice">Datenschutzhinweis</a>
             </p>
             <p class="brf-err" id="brf-consent-err" hidden data-en="Please confirm the privacy note.">Bitte den Datenschutzhinweis bestätigen.</p>

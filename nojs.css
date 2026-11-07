@@ -1,0 +1,4 @@
+/* Erzeugt von tools/csp_styles.py. Gilt nur ohne JavaScript:
+   eingebunden über <link> in <noscript>. */
+#schichtmodell .schm-panel[hidden]{display:block}#schichtmodell .schm-detail{display:grid;gap:14px}
+.sich-code-panel[hidden] { display: block !important; } .sich-code-panel { border-top: 1px solid var(--line); padding-top: 22px; margin-top: 22px; } .sich-result { display: none; } .sich-check::after { content: "Für den Selbsttest wird JavaScript benötigt. Die Fragen bleiben lesbar."; display: block; padding: 18px; border: 1px solid var(--line); border-radius: 12px; color: var(--muted); }

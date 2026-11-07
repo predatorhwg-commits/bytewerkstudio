@@ -30,7 +30,7 @@ ARGS = [
 ]
 
 AUDIT_JS = r"""
-() => {
+async () => {
   // Übergänge abschalten, sonst liefert getComputedStyle direkt nach dem
   // Fokus noch den alten Wert und ein vorhandener Fokusring wird übersehen.
   const kill = document.createElement('style');
@@ -137,6 +137,9 @@ AUDIT_JS = r"""
   for (const el of focusables.slice(0, 40)) {
     const before = ringOf(el);
     el.focus({preventScroll: true});
+    // Fokusringe dürfen eingeblendet werden (border-color/box-shadow mit
+    // Übergang). Ohne diese Pause misst man den Zustand davor.
+    await new Promise(r => setTimeout(r, 260));
     const after = ringOf(el);
     const s = getComputedStyle(el);
     const outline = s.outlineStyle !== 'none' && parseFloat(s.outlineWidth) > 0;

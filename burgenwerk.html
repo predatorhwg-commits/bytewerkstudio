@@ -5,7 +5,7 @@
 <script src="bootstrap.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; script-src-attr 'none'; script-src-elem 'self'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; script-src-attr 'none'; script-src-elem 'self'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>BURGENWERK - Burg bauen, verteidigen, erobern · Bytewerk Studio</title>
 <meta name="description" content="BURGENWERK ist das kostenlose HTML-Strategiespiel von Bytewerk Studio: Burg bauen, gegen Wellen verteidigen, Festungen erobern — direkt im Browser.">
@@ -61,6 +61,7 @@
 }
 </script>
 <link rel="stylesheet" href="styles-integration.css">
+<link rel="stylesheet" href="styles-inline.css">
 </head>
 <body>
 
@@ -82,7 +83,7 @@
   </div>
 
   <div class="pd-info reveal" data-d="1">
-    <div class="crumb" style="margin-bottom:18px"><a href="shop.html" data-en="Shop">Shop</a> <span>/</span> <span data-en="Game">Spiel</span> <span>/</span> BURGENWERK</div>
+    <div class="crumb u-mb-18px"><a href="shop.html" data-en="Shop">Shop</a> <span>/</span> <span data-en="Game">Spiel</span> <span>/</span> BURGENWERK</div>
     <span class="cat" data-en="Web · browser · strategy">Web · Browser · Strategie</span>
     <h1>BURGENWERK</h1>
     <div class="pd-price">
@@ -107,7 +108,7 @@
       <div class="f"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg><span data-en="Autosave, no download, no account, free">Automatisches Speichern, kein Download, kein Account, kostenlos</span></div>
     </div>
 
-    <div class="pd-list" style="margin-top:30px">
+    <div class="pd-list u-mt-30px">
       <div class="row"><span class="key" data-en="Platform">Plattform</span><span class="val" data-en="Web browser">Web-Browser</span></div>
       <div class="row"><span class="key" data-en="Category">Kategorie</span><span class="val">Spiel · Strategie · Aufbau · Tower Defense</span></div>
       <div class="row"><span class="key" data-en="Price">Preis</span><span class="val" data-en="Free">Kostenlos</span></div>
@@ -121,12 +122,12 @@
   </div>
 </section>
 
-<section class="sec-pad" id="spielen" style="padding-top:0" data-screen-label="BURGENWERK spielen">
+<section class="sec-pad u-pt-0" id="spielen" data-screen-label="BURGENWERK spielen">
   <div class="wrap">
     <div class="cta-band reveal">
-      <span class="eyebrow" style="color:var(--accent-300);position:relative" data-en="Now playable">Jetzt spielbar</span>
-      <h2 class="h2" style="position:relative" data-en="Start BURGENWERK directly in your browser.">BURGENWERK direkt im Browser starten.</h2>
-      <p class="lead" style="max-width:56ch" data-en="No download, no account: the game starts immediately and saves automatically. Build, defend and conquer - right in your browser.">
+      <span class="eyebrow u-c-accent-300_pos-relative" data-en="Now playable">Jetzt spielbar</span>
+      <h2 class="h2 u-pos-relative" data-en="Start BURGENWERK directly in your browser.">BURGENWERK direkt im Browser starten.</h2>
+      <p class="lead u-maxw-56ch" data-en="No download, no account: the game starts immediately and saves automatically. Build, defend and conquer - right in your browser.">
         Kein Download, kein Account: Das Spiel startet sofort und speichert automatisch. Bauen, verteidigen und erobern - direkt im Browser.
       </p>
       <a class="btn btn-primary btn-lg" href="https://bytewerkstudio.github.io/burgenwerk/" target="_blank" rel="noopener"><span data-en="Play BURGENWERK now">BURGENWERK jetzt spielen</span> <span class="arr">→</span></a>
@@ -134,9 +135,9 @@
   </div>
 </section>
 
-<section class="sec-pad" style="padding-top:0" data-screen-label="Mehr">
+<section class="sec-pad u-pt-0" data-screen-label="Mehr">
   <div class="wrap">
-    <div class="sec-head reveal" style="margin-bottom:34px">
+    <div class="sec-head reveal u-mb-34px">
       <span class="eyebrow" data-en="More games and apps">Weitere Spiele und Apps</span>
       <h2 class="h2" data-en="More releases from Bytewerk Studio.">Weitere Releases von Bytewerk Studio.</h2>
     </div>

@@ -78,8 +78,8 @@ Texte, die erst JavaScript erzeugt.
 | Seiten | 34 |
 | Umschaltfehler | 0 |
 | Deutsche Reste auf EN | 0 |
-| Statische Texte ohne EN | 356 |
-| Davon von JavaScript erzeugt | 307 |
+| Statische Texte ohne EN | 358 |
+| Davon von JavaScript erzeugt | 305 |
 | Nutzerinhalte (bleiben wie geschrieben) | 108 |
 
 Die Zahl der Texte ohne Attribut ist ein Arbeitsstand, kein
@@ -103,6 +103,27 @@ Repository, Klartextpasswörter und schwache PBKDF2-Parameter.
 Keine Beanstandung. Die CSP aller Seiten ist `script-src 'self'`
 ohne `'unsafe-inline'` und ohne `'unsafe-eval'`, zusätzlich
 `script-src-attr 'none'` und `frame-src 'none'`.
+
+### Stile ohne Ausnahme
+
+`style-src` steht auf `'self'` — auch hier kein `'unsafe-inline'`.
+Die 196 `style`-Attribute im Markup liegen jetzt als Klassen in
+`styles-inline.css`, die zwei `<noscript><style>`-Blöcke in
+`nojs.css`. `tools/csp_styles.py --check` hält den Stand in der CI.
+
+Dass der Umbau das Aussehen nicht verändert, ist gemessen:
+`tools/qa_pixdiff.py` vergleicht jede Seite vorher/nachher
+pixelweise, bei 1440 und 390 px Breite. Bewegung, Canvas und
+Zufallstexte sind dabei ausgeblendet, sonst vergliche man Rauschen.
+
+| Messung | Ergebnis |
+|---|---|
+| Verglichene Aufnahmen | 68 |
+| Abweichung über Schwelle | 0 |
+| Beabsichtigte Abweichungen | 2 |
+| Schwelle | 0.02 % der Bildfläche |
+
+Beabsichtigt: Sicherheitsseite nennt in der CSP jetzt style-src 'self' statt 'unsafe-inline'.
 
 ### Eingaben im Browser
 
@@ -266,5 +287,7 @@ python3 tools/qa_perf.py --base http://127.0.0.1:8809 --width 390 --height 844 -
 python3 tools/qa_zoom.py --base http://127.0.0.1:8809
 python3 tools/qa_motion.py --base http://127.0.0.1:8809
 python3 tools/qa_forum.py --base http://127.0.0.1:8809
+python3 tools/csp_styles.py --check
+python3 tools/qa_pixdiff.py --base http://127.0.0.1:8809 --compare /tmp/vorher
 python3 tools/qa_report.py
 ```

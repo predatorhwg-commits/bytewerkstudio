@@ -1,0 +1,81 @@
+/* Erzeugt von tools/csp_styles.py — nicht von Hand ändern.
+   Inline-Stile aus dem Markup, damit die CSP ohne
+   'unsafe-inline' auskommt.
+
+   Die Deklarationen stehen mit !important, weil ein style-Attribut
+   jede normale Regel der Stylesheets schlägt — auch spezifischere
+   wie .cfg-summary .btn. Ohne !important würde eine Klasse gegen
+   solche Regeln verlieren und das Aussehen ändern sich. */
+
+.u-fs-clamp-38px-5vw-68px_mt-18px { font-size:clamp(38px,5vw,68px) !important;margin-top:18px !important; }
+.u-pt-0 { padding-top:0 !important; }
+.u-c-accent-300_pos-relative { color:var(--accent-300) !important;position:relative !important; }
+.u-pos-relative { position:relative !important; }
+.u-maxw-46ch_pos-relative { max-width:46ch !important;position:relative !important; }
+.u-d-flex_gap-14px_fxw-wrap_pos-relative { display:flex !important;gap:14px !important;flex-wrap:wrap !important;position:relative !important; }
+.u-bg-transparent_c-accent-300_bdc-line-2 { background:transparent !important;color:var(--accent-300) !important;border-color:var(--line-2) !important; }
+.u-mb-18px { margin-bottom:18px !important; }
+.u-mt-30px { margin-top:30px !important; }
+.u-maxw-56ch { max-width:56ch !important; }
+.u-mb-34px { margin-bottom:34px !important; }
+.u-fs-clamp-38px-5_8vw-74px_mt-18px { font-size:clamp(38px,5.8vw,74px) !important;margin-top:18px !important; }
+.u-mt-22px { margin-top:22px !important; }
+.u-padding-24px { padding:24px !important; }
+.u-c-faint { color:var(--faint) !important; }
+.u-c-muted { color:var(--muted) !important; }
+.u-c-accent-300 { color:var(--accent-300) !important; }
+.u-mb-48px { margin-bottom:48px !important; }
+.u-mt-34px { margin-top:34px !important; }
+.u-mb-44px { margin-bottom:44px !important; }
+.u-bg-paper-2_bb-1px-solid-line { background:var(--paper-2) !important;border-block:1px solid var(--line) !important; }
+.u-mt-46px { margin-top:46px !important; }
+.u-mt-18px { margin-top:18px !important; }
+.u-mb-36px { margin-bottom:36px !important; }
+.u-mt-22px_fs-12_5px_c-faint_maxw-70ch { margin-top:22px !important;font-size:12.5px !important;color:var(--faint) !important;max-width:70ch !important; }
+.u-mb-38px { margin-bottom:38px !important; }
+.u-mt-10px { margin-top:10px !important; }
+.u-mt-8px { margin-top:8px !important; }
+.u-pb-clamp-72px-11vw-140px { padding-bottom:clamp(72px,11vw,140px) !important; }
+.u-maxw-48ch { max-width:48ch !important; }
+.u-maxw-54ch { max-width:54ch !important; }
+.u-margin-2px-0-12px-26px { margin:-2px 0 12px 26px !important; }
+.u-d-flex_gap-10px_fxw-wrap { display:flex !important;gap:10px !important;flex-wrap:wrap !important; }
+.u-fs-22px { font-size:22px !important; }
+.u-ff-body_fs-13_5px_ls-0 { font-family:var(--body) !important;font-size:13.5px !important;letter-spacing:0 !important; }
+.u-maxw-340px { max-width:340px !important; }
+.u-c-muted_fst-normal { color:var(--muted) !important;font-style:normal !important; }
+.u-fs-15px { font-size:15px !important; }
+.u-maxw-58ch { max-width:58ch !important; }
+.u---i-3_--c-f1ebdc_--e-ded5c1 { --i:3 !important;--c:#f1ebdc !important;--e:#ded5c1 !important; }
+.u---i-2_--c-4f7a63_--e-40634f { --i:2 !important;--c:#4f7a63 !important;--e:#40634f !important; }
+.u---i-1_--c-b04f31_--e-8d3d26 { --i:1 !important;--c:#b04f31 !important;--e:#8d3d26 !important; }
+.u---i-0_--c-242220_--e-141312 { --i:0 !important;--c:#242220 !important;--e:#141312 !important; }
+.u---c-f1ebdc { --c:#f1ebdc !important; }
+.u---c-b04f31 { --c:#b04f31 !important; }
+.u---c-4f7a63 { --c:#4f7a63 !important; }
+.u---c-242220 { --c:#242220 !important; }
+.u---c-faf9f5_--b-e6e1d4 { --c:#faf9f5 !important;--b:#e6e1d4 !important; }
+.u---c-b04f31_--b-8d3d26 { --c:#b04f31 !important;--b:#8d3d26 !important; }
+.u---c-4f7a63_--b-40634f { --c:#4f7a63 !important;--b:#40634f !important; }
+.u---c-242220_--b-141312 { --c:#242220 !important;--b:#141312 !important; }
+.u-mt-20px { margin-top:20px !important; }
+.u-margin-0 { margin:0 !important; }
+.u-ff-mono_fs-10_5px-c055d7 { font-family:var(--mono) !important;font-size:10.5px !important;letter-spacing:.07em !important;text-transform:uppercase !important;color:var(--faint) !important; }
+.u-maxw-52ch { max-width:52ch !important; }
+.u-pt-clamp-48px-7vw-80px { padding-top:clamp(48px,7vw,80px) !important; }
+.u-margin-0_fs-12_5px_c-faint { margin:0 !important;font-size:12.5px !important;color:var(--faint) !important; }
+.u-mt-40px_ff-mono_fs-13px_c-faint { margin-top:40px !important;font-family:var(--mono) !important;font-size:13px !important;color:var(--faint) !important; }
+.u-mt-28px { margin-top:28px !important; }
+.u-bg-paper-2_bbt-1px-solid-line { background:var(--paper-2) !important;border-bottom:1px solid var(--line) !important; }
+.u-ml-auto_bg-none-202446 { margin-left:auto !important;background:none !important;border:0 !important;color:var(--accent-700) !important;cursor:pointer !important; }
+.u-mb-30px { margin-bottom:30px !important; }
+.u-mt-18px_ff-mono_fs-12px_c-faint { margin-top:18px !important;font-family:var(--mono) !important;font-size:12px !important;color:var(--faint) !important; }
+.u-c-accent-700_pos-relative { color:var(--accent-700) !important;position:relative !important; }
+.u-maxw-52ch_pos-relative { max-width:52ch !important;position:relative !important; }
+.u-d-flex_gap-12px_fxw-wrap_pos-relative { display:flex !important;gap:12px !important;flex-wrap:wrap !important;position:relative !important; }
+.u-mt-26px { margin-top:26px !important; }
+.u---sw-b04f31 { --sw:#b04f31 !important; }
+.u---sw-27231f { --sw:#27231f !important; }
+.u---sw-4f7a63 { --sw:#4f7a63 !important; }
+.u-mb-40px { margin-bottom:40px !important; }
+.u-pos-relative_maxw-52ch { position:relative !important;max-width:52ch !important; }

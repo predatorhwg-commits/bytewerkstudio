@@ -2,8 +2,8 @@
   "summary": {
     "pages": 34,
     "errors": 0,
-    "texts_without_en": 356,
-    "dynamic_without_en": 307,
+    "texts_without_en": 358,
+    "dynamic_without_en": 305,
     "user_content": 108,
     "pages_with_missing": 32,
     "switch_failures": 0,
@@ -359,7 +359,7 @@
         {
           "text": "BURGENWERK",
           "tag": "DIV",
-          "cls": "crumb",
+          "cls": "crumb u-mb-18px",
           "user": false,
           "kind": "dynamisch"
         },
@@ -531,7 +531,7 @@
         {
           "text": "Bytewerk PDF Text Pro",
           "tag": "DIV",
-          "cls": "crumb",
+          "cls": "crumb u-mb-18px",
           "user": false,
           "kind": "dynamisch"
         },
@@ -2387,11 +2387,11 @@
           "kind": "statisch"
         },
         {
-          "text": "<style>#schichtmodell .schm-panel[hidden]{display:block}#sch",
+          "text": "<link rel=\"stylesheet\" href=\"nojs.css\">",
           "tag": "NOSCRIPT",
           "cls": "",
           "user": false,
-          "kind": "dynamisch"
+          "kind": "statisch"
         },
         {
           "text": "Security · Windows · 2026",
@@ -2718,7 +2718,7 @@
         {
           "text": "Haqmalh@icloud.com",
           "tag": "A",
-          "cls": "btn btn-ghost btn-lg",
+          "cls": "btn btn-ghost btn-lg u-bg-transparent_c-",
           "user": false,
           "kind": "statisch"
         },
@@ -2831,8 +2831,8 @@
       "lang_after": "en",
       "german_left": [],
       "german_left_count": 0,
-      "missing_static": 52,
-      "missing_dynamic": 31,
+      "missing_static": 53,
+      "missing_dynamic": 30,
       "missing_user": 0
     },
     {
@@ -2841,7 +2841,7 @@
         {
           "text": "KeyForge Vault",
           "tag": "DIV",
-          "cls": "crumb",
+          "cls": "crumb u-mb-18px",
           "user": false,
           "kind": "dynamisch"
         },
@@ -3101,7 +3101,7 @@
         {
           "text": "Studio",
           "tag": "I",
-          "cls": "",
+          "cls": "u-c-muted_fst-normal",
           "user": false,
           "kind": "dynamisch"
         },
@@ -3154,7 +3154,7 @@
         {
           "text": "Lernreich Pro",
           "tag": "DIV",
-          "cls": "crumb",
+          "cls": "crumb u-mb-18px",
           "user": false,
           "kind": "dynamisch"
         },
@@ -3326,7 +3326,7 @@
         {
           "text": "Studio",
           "tag": "I",
-          "cls": "",
+          "cls": "u-c-muted_fst-normal",
           "user": false,
           "kind": "statisch"
         },
@@ -3379,7 +3379,7 @@
         {
           "text": "LumaWeek Planner",
           "tag": "DIV",
-          "cls": "crumb",
+          "cls": "crumb u-mb-18px",
           "user": false,
           "kind": "dynamisch"
         },
@@ -3604,7 +3604,7 @@
         {
           "text": "MASTIL",
           "tag": "DIV",
-          "cls": "crumb",
+          "cls": "crumb u-mb-18px",
           "user": false,
           "kind": "dynamisch"
         },
@@ -3892,7 +3892,7 @@
         {
           "text": "Neon Dominion",
           "tag": "DIV",
-          "cls": "crumb",
+          "cls": "crumb u-mb-18px",
           "user": false,
           "kind": "dynamisch"
         },
@@ -4085,7 +4085,7 @@
         {
           "text": "Studio",
           "tag": "I",
-          "cls": "",
+          "cls": "u-c-muted_fst-normal",
           "user": false,
           "kind": "statisch"
         },
@@ -4171,7 +4171,7 @@
           "kind": "dynamisch"
         },
         {
-          "text": "pXaI1EFijUJ6yrWOKc*D",
+          "text": "UnN?0Fb3XtKwm1R=AZV=",
           "tag": "DIV",
           "cls": "pb-pw-field",
           "user": false,
@@ -4275,7 +4275,7 @@
         {
           "text": "Lernreich",
           "tag": "DIV",
-          "cls": "crumb",
+          "cls": "crumb u-mb-18px",
           "user": false,
           "kind": "dynamisch"
         },
@@ -4447,7 +4447,7 @@
         {
           "text": "Pruefungs-Countdown",
           "tag": "DIV",
-          "cls": "crumb",
+          "cls": "crumb u-mb-18px",
           "user": false,
           "kind": "dynamisch"
         },
@@ -4654,7 +4654,7 @@
         {
           "text": "Studio",
           "tag": "I",
-          "cls": "",
+          "cls": "u-c-muted_fst-normal",
           "user": false,
           "kind": "statisch"
         },
@@ -5175,11 +5175,11 @@
           "kind": "dynamisch"
         },
         {
-          "text": "<style> .sich-code-panel[hidden] { display: block !important",
+          "text": "<link rel=\"stylesheet\" href=\"nojs.css\">",
           "tag": "NOSCRIPT",
           "cls": "",
           "user": false,
-          "kind": "dynamisch"
+          "kind": "statisch"
         }
       ],
       "missing_count": 10,
@@ -5192,8 +5192,8 @@
       "lang_after": "en",
       "german_left": [],
       "german_left_count": 0,
-      "missing_static": 5,
-      "missing_dynamic": 5,
+      "missing_static": 6,
+      "missing_dynamic": 4,
       "missing_user": 0
     },
     {
@@ -5546,7 +5546,7 @@
         {
           "text": "UpdatePilot",
           "tag": "DIV",
-          "cls": "crumb",
+          "cls": "crumb u-mb-18px",
           "user": false,
           "kind": "dynamisch"
         },

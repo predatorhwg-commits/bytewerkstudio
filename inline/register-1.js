@@ -97,7 +97,7 @@
 
       if (result.needsConfirmation) {
         form.innerHTML =
-          '<div class="form-success show" style="display:flex">' +
+          '<div class="form-success show">' +
           '<div class="check"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></div>' +
           '<h3>Fast fertig</h3>' +
           '<p>Wir haben dir eine E-Mail an <strong>' + email.value + '</strong> geschickt. Bestätige die Adresse, dann kannst du dich anmelden.</p>' +

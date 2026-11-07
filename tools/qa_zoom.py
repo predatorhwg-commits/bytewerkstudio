@@ -99,6 +99,41 @@ AUDIT = r"""
 }
 """
 
+
+
+def inject_css(page, css: str) -> bool:
+    """CSS einspielen, das wie eine Nutzer-Regel wirken soll.
+
+    add_style_tag scheitert seit style-src 'self' an der CSP — zu Recht,
+    denn die Sperre gilt für die Seite. Der Textabstand-Test bildet aber
+    eine Nutzer-Regel nach (WCAG 1.4.12: Nutzer dürfen Zeilen-, Wort- und
+    Buchstabenabstand erhöhen), und Nutzer-Regeln prüft keine CSP.
+    Deshalb über die CSSOM: Ein zusammengesetztes Stylesheet wird nicht
+    als Inline-Stil geladen und ist davon nicht betroffen.
+
+    Rückgabe: True, wenn die Regeln nachweislich greifen.
+    """
+    applied = page.evaluate(
+        """(css) => {
+          try {
+            const sheet = new CSSStyleSheet();
+            sheet.replaceSync(css);
+            document.adoptedStyleSheets = [...document.adoptedStyleSheets, sheet];
+            const probe = document.querySelector('p, li, h2, span');
+            if (!probe) return false;
+            return getComputedStyle(probe).letterSpacing !== 'normal';
+          } catch (e) { return false; }
+        }""", css)
+    if applied:
+        return True
+    try:
+        page.add_style_tag(content=css)
+        return True
+    except Exception:
+        return False
+
+
+
 TEXT_SPACING = """
   * {
     line-height: 1.5 !important;
@@ -135,7 +170,8 @@ def run(pw, name, base, mode):
         page = ctx.new_page()
         page.goto(f"{base}/{name}", wait_until="domcontentloaded", timeout=45000)
         if mode == "spacing":
-            page.add_style_tag(content=TEXT_SPACING)
+            if not inject_css(page, TEXT_SPACING):
+                raise RuntimeError("Textabstand ließ sich nicht setzen")
         if mode == "contrast":
             page.emulate_media(forced_colors="active")
         page.wait_for_timeout(600)

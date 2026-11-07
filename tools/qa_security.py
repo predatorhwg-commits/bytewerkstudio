@@ -93,10 +93,17 @@ def scan_html(path: Path) -> list[dict]:
             add("csp-unsafe-eval", policy[:120])
         if re.search(r"script-src[^;]*'unsafe-inline'", policy):
             add("csp-inline-script", policy[:120])
+        if re.search(r"style-src[^;]*'unsafe-inline'", policy):
+            add("csp-inline-style", policy[:120])
         if "object-src 'none'" not in policy:
             add("csp-object-src", "object-src fehlt")
         if "base-uri" not in policy:
             add("csp-base-uri", "base-uri fehlt")
+
+    # Stil-Attribute im Markup: Sie zwingen style-src zu 'unsafe-inline'
+    # oder werden von der Policy blockiert.
+    for m in re.finditer(r'<[a-zA-Z][^>]*\sstyle="[^"]*"', html):
+        add("inline-style-attr", m.group(0)[:90].replace("\n", " "))
 
     # Inline-Skripte, die nicht JSON-LD sind
     for m in re.finditer(r"<script(?![^>]*\bsrc=)([^>]*)>(.*?)</script>", html, re.S | re.I):

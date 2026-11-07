@@ -1,0 +1,353 @@
+{
+  "summary": {
+    "shots": 68,
+    "differing": 0,
+    "expected": 2,
+    "reason": "Sicherheitsseite nennt in der CSP jetzt style-src 'self' statt 'unsafe-inline'",
+    "threshold_pct": 0.02
+  },
+  "rows": [
+    {
+      "page": "404.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "agb.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "arbeiten.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "burgenwerk.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "bytewerk-pdf-text-pro.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "checkout.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "datenschutz.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "entwickler.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "forum.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "impressum.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "index.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "keyforge-vault.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "kontakt.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "konto.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "lernreich-pro.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "login.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "lumaweek-planner.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "marke.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "mastil.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "musterbuch.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "neon-dominion.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "passwort-vergessen.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "probierstand.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "produkt.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "pruefungs-countdown.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "register.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "shop.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "showroom.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "sicherheit.html",
+      "width": "desktop",
+      "diff": 100.0,
+      "expected": "Sicherheitsseite nennt in der CSP jetzt style-src 'self' statt 'unsafe-inline'"
+    },
+    {
+      "page": "softwareentwicklung-ludwigshafen.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "studio.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "updatepilot.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "vergleich.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "zeichenwerk.html",
+      "width": "desktop",
+      "diff": 0.0
+    },
+    {
+      "page": "404.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "agb.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "arbeiten.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "burgenwerk.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "bytewerk-pdf-text-pro.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "checkout.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "datenschutz.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "entwickler.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "forum.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "impressum.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "index.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "keyforge-vault.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "kontakt.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "konto.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "lernreich-pro.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "login.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "lumaweek-planner.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "marke.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "mastil.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "musterbuch.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "neon-dominion.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "passwort-vergessen.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "probierstand.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "produkt.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "pruefungs-countdown.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "register.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "shop.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "showroom.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "sicherheit.html",
+      "width": "mobil",
+      "diff": 100.0,
+      "expected": "Sicherheitsseite nennt in der CSP jetzt style-src 'self' statt 'unsafe-inline'"
+    },
+    {
+      "page": "softwareentwicklung-ludwigshafen.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "studio.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "updatepilot.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "vergleich.html",
+      "width": "mobil",
+      "diff": 0.0
+    },
+    {
+      "page": "zeichenwerk.html",
+      "width": "mobil",
+      "diff": 0.0
+    }
+  ]
+}

@@ -5,7 +5,7 @@
 <script src="bootstrap.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; script-src-attr 'none'; script-src-elem 'self'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; script-src-attr 'none'; script-src-elem 'self'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Produktvergleich — welche Bytewerk-App passt? | Bytewerk Studio</title>
 <meta name="description" content="Alle Apps und Spiele von Bytewerk Studio im Vergleich: Plattform, Preis, Funktionen und Zielgruppe — als Tabelle und App-Finder.">
@@ -55,6 +55,7 @@
 }
 </script>
 <link rel="stylesheet" href="styles-integration.css">
+<link rel="stylesheet" href="styles-inline.css">
 </head>
 <body>
 
@@ -73,9 +74,9 @@
   </section>
 
   <!-- FINDER -->
-  <section class="sec-pad" id="finder" style="background:var(--paper-2);border-bottom:1px solid var(--line)" data-screen-label="App-Finder">
+  <section class="sec-pad u-bg-paper-2_bbt-1px-solid-line" id="finder" data-screen-label="App-Finder">
     <div class="wrap">
-      <div class="sec-head reveal" style="margin-bottom:34px">
+      <div class="sec-head reveal u-mb-34px">
         <span class="eyebrow" data-en="App finder">App-Finder</span>
         <h2 class="h2" data-en="Answer three questions.">Beantworte drei Fragen.</h2>
         <p class="lead" data-en="No tracking, no account. The selection stays in this browser tab.">Kein Tracking, kein Konto. Die Auswahl bleibt in diesem Browser-Tab.</p>
@@ -119,7 +120,7 @@
         <div class="fr-head">
           <h3 id="fr-title"></h3>
           <span id="fr-count"></span>
-          <button class="crumb" type="button" id="fr-reset" style="margin-left:auto;background:none;border:0;color:var(--accent-700);cursor:pointer" data-en="Reset">Zurücksetzen</button>
+          <button class="crumb u-ml-auto_bg-none-202446" type="button" id="fr-reset" data-en="Reset">Zurücksetzen</button>
         </div>
         <div class="fr-grid" id="fr-grid"></div>
       </div>
@@ -129,7 +130,7 @@
   <!-- TABLE -->
   <section class="sec-pad" id="tabelle" data-screen-label="Vergleichstabelle">
     <div class="wrap">
-      <div class="shop-head reveal" style="margin-bottom:30px">
+      <div class="shop-head reveal u-mb-30px">
         <div class="sec-head">
           <span class="eyebrow" data-en="All products">Alle Produkte</span>
           <h2 class="h2" data-en="Side by side.">Direkt nebeneinander.</h2>
@@ -254,17 +255,17 @@
           </tbody>
         </table>
       </div>
-      <p class="reveal" style="margin-top:18px;font-family:var(--mono);font-size:12px;color:var(--faint)" data-en="// Prices include VAT. Payment by PayPal after an email request.">// Preise inkl. MwSt. Zahlung per PayPal nach E-Mail-Anfrage.</p>
+      <p class="reveal u-mt-18px_ff-mono_fs-12px_c-faint" data-en="// Prices include VAT. Payment by PayPal after an email request.">// Preise inkl. MwSt. Zahlung per PayPal nach E-Mail-Anfrage.</p>
     </div>
   </section>
 
-  <section style="padding-bottom:clamp(72px,11vw,140px)" data-screen-label="CTA">
+  <section data-screen-label="CTA" class="u-pb-clamp-72px-11vw-140px">
     <div class="wrap">
       <div class="cta-band reveal">
-        <span class="eyebrow" style="color:var(--accent-700);position:relative" data-en="Still unsure?">Noch unsicher?</span>
-        <h2 class="h2" style="position:relative" data-en="Tell us what you need.">Sag uns, was du brauchst.</h2>
-        <p class="lead" style="max-width:52ch;position:relative" data-en="A short message is enough. You get a straight answer about which app fits — or whether a custom solution makes more sense.">Eine kurze Nachricht reicht. Du bekommst eine klare Antwort, welche App passt — oder ob eine individuelle Lösung sinnvoller ist.</p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;position:relative">
+        <span class="eyebrow u-c-accent-700_pos-relative" data-en="Still unsure?">Noch unsicher?</span>
+        <h2 class="h2 u-pos-relative" data-en="Tell us what you need.">Sag uns, was du brauchst.</h2>
+        <p class="lead u-maxw-52ch_pos-relative" data-en="A short message is enough. You get a straight answer about which app fits — or whether a custom solution makes more sense.">Eine kurze Nachricht reicht. Du bekommst eine klare Antwort, welche App passt — oder ob eine individuelle Lösung sinnvoller ist.</p>
+        <div class="u-d-flex_gap-12px_fxw-wrap_pos-relative">
           <a class="btn btn-primary btn-lg" href="kontakt.html"><span data-en="Ask a question">Frage stellen</span> <span class="arr">→</span></a>
           <a class="btn btn-ghost btn-lg" href="shop.html" data-en="Browse the shop">Zum Shop</a>
         </div>

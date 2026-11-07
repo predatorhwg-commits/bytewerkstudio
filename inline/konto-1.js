@@ -123,7 +123,7 @@
   function renderOrders() {
     const card = document.getElementById('orders-card');
     if (!state.orders.length) return;
-    card.innerHTML = '<table class="orders"><thead><tr><th>' + tr('Bestellung', 'Order') + '</th><th>' + tr('Datum', 'Date') + '</th><th>' + tr('Produkt', 'Product') + '</th><th style="text-align:right">' + tr('Betrag', 'Amount') + '</th></tr></thead><tbody>' +
+    card.innerHTML = '<table class="orders"><thead><tr><th>' + tr('Bestellung', 'Order') + '</th><th>' + tr('Datum', 'Date') + '</th><th>' + tr('Produkt', 'Product') + '</th><th class="o-right">' + tr('Betrag', 'Amount') + '</th></tr></thead><tbody>' +
       state.orders.map(o => '<tr><td class="o-id">' + esc(o.id) + '</td><td>' + esc(BWAuth.prettyDate(o.date)) + '</td><td>' + esc(o.product) + '</td><td class="o-amount">' + esc(o.amount) + '</td></tr>').join('') +
       '</tbody></table>';
   }
