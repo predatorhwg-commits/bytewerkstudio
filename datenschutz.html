@@ -2,19 +2,28 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
+<script src="bootstrap.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Datenschutz — Bytewerk Studio</title>
-<meta name="description" content="Datenschutzhinweise von Bytewerk Studio.">
+<meta name="description" content="Datenschutzhinweise von Bytewerk Studio: statische Website, keine Analyse, lokale Speicherung, Konto und Forum, Rechte nach DSGVO.">
 <link rel="icon" href="logo.svg" type="image/svg+xml">
 <link rel="icon" href="media/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="media/favicon-16.png" sizes="16x16" type="image/png">
 <link rel="apple-touch-icon" href="media/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <link rel="canonical" href="https://bytewerkstudio.com/datenschutz.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bytewerk Studio">
+<meta property="og:locale" content="de_DE">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:title" content="Datenschutz — Bytewerk Studio">
+<meta property="og:description" content="Statische Website, keine Analyse, lokale Speicherung, Konto und Forum, Rechte nach DSGVO.">
+<meta property="og:url" content="https://bytewerkstudio.com/datenschutz.html">
+<meta property="og:image" content="https://bytewerkstudio.com/media/og-bytewerk.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="fonts/fonts.css">
@@ -25,41 +34,80 @@
 <link rel="stylesheet" href="styles-integration.css">
 </head>
 <body>
+<a class="skip-link" href="#main" data-en="Skip to content">Zum Inhalt springen</a>
 <div data-include="header"></div>
-<main class="wrap legal-wrap">
+<main class="wrap legal-wrap" id="main">
   <div class="legal-grid">
     <aside class="legal-toc reveal">
-      <a href="#verantwortlicher">Verantwortlicher</a>
-      <a href="#grundsatz">Grundsatz</a>
-      <a href="#hosting">Hosting</a>
-      <a href="#kontakt">Kontakt</a>
-      <a href="#rechte">Rechte</a>
+      <a href="#verantwortlicher" data-en="Controller">Verantwortlicher</a>
+      <a href="#grundsatz" data-en="Principle">Grundsatz</a>
+      <a href="#hosting" data-en="Hosting">Hosting</a>
+      <a href="#schriften" data-en="Fonts">Schriften</a>
+      <a href="#speicher" data-en="Local storage">Lokale Speicherung</a>
+      <a href="#konto" data-en="Account and forum">Konto und Forum</a>
+      <a href="#kauf" data-en="Purchase">Kauf</a>
+      <a href="#kontakt" data-en="Contact">Kontakt</a>
+      <a href="#rechte" data-en="Your rights">Rechte</a>
     </aside>
     <section class="legal-copy reveal" data-d="1">
       <div>
-        <span class="eyebrow">Privacy</span>
-        <h1 class="display" style="font-size:clamp(38px,5vw,68px);margin-top:18px">Datenschutz</h1>
+        <span class="eyebrow" data-en="Privacy">Datenschutz</span>
+        <h1 class="display" style="font-size:clamp(38px,5vw,68px);margin-top:18px" data-en="Privacy">Datenschutz</h1>
       </div>
+
       <article id="verantwortlicher">
-        <h2>Verantwortlicher</h2>
-        <p>Bytewerk Studio<br>Inhaber: Hijratullah Haqmal<br>Heinigstraße 13, 67059 Ludwigshafen am Rhein<br>E-Mail: <a href="mailto:Haqmalh@icloud.com">Haqmalh@icloud.com</a></p>
+        <h2 data-en="Controller">Verantwortlicher</h2>
+        <p data-en="Bytewerk Studio<br>Owner: Hijratullah Haqmal<br>Heinigstraße 13, 67059 Ludwigshafen am Rhein<br>Email:">Bytewerk Studio<br>Inhaber: Hijratullah Haqmal<br>Heinigstraße 13, 67059 Ludwigshafen am Rhein<br>E-Mail:</p>
+        <p><a href="mailto:Haqmalh@icloud.com">Haqmalh@icloud.com</a></p>
       </article>
+
       <article id="grundsatz">
-        <h2>Grundsatz</h2>
-        <p>Diese statische Website verzichtet auf Tracking, Werbung und Analyse-Skripte. Beim Besuch koennen technisch notwendige Server-Logdaten durch den Hosting-Anbieter verarbeitet werden.</p>
+        <h2 data-en="Principle">Grundsatz</h2>
+        <p data-en="This is a static website. It sets no tracking cookies, loads no advertising and no analytics, and needs no consent banner because nothing is measured. We do not build a profile about you.">Diese Website ist statisch. Sie setzt keine Tracking-Cookies, lädt keine Werbung und keine Analyse-Skripte und braucht deshalb kein Einwilligungsbanner. Ein Profil über dich wird von uns nicht gebildet.</p>
+        <p data-en="Every file that makes up this site is delivered from this domain. Only the hosting provider processes access data — see the next section.">Alle Dateien, aus denen diese Seite besteht, kommen von dieser Domain. Zugriffsdaten verarbeitet ausschließlich der Hosting-Anbieter — dazu der nächste Abschnitt.</p>
       </article>
+
       <article id="hosting">
-        <h2>Hosting</h2>
-        <p>Die Website wird ueber GitHub Pages bereitgestellt. Beim Abruf koennen IP-Adresse, Zeitpunkt, angefragte Datei und technische Browserdaten verarbeitet werden, um die Seite auszuliefern und den Betrieb abzusichern.</p>
+        <h2 data-en="Hosting">Hosting</h2>
+        <p data-en="The site is served by GitHub Pages, a service of GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. When a page is requested, GitHub processes the IP address, time, requested file, referrer and browser details to deliver the page and to defend against attacks. GitHub is certified under the EU-US Data Privacy Framework; the legal basis is our legitimate interest in secure, fast delivery (Art. 6 (1) (f) GDPR).">Die Website wird über GitHub Pages bereitgestellt, einen Dienst der GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. Beim Abruf verarbeitet GitHub die IP-Adresse, den Zeitpunkt, die angefragte Datei, die Herkunftsseite und Browserdaten, um die Seite auszuliefern und Angriffe abzuwehren. GitHub ist nach dem EU-US Data Privacy Framework zertifiziert; Rechtsgrundlage ist unser berechtigtes Interesse an einer sicheren und schnellen Auslieferung (Art. 6 Abs. 1 lit. f DSGVO).</p>
+        <p data-en="We do not keep our own server logs. GitHub retains its logs according to its own retention rules.">Eigene Server-Logs führen wir nicht. GitHub speichert seine Protokolle nach den eigenen Aufbewahrungsregeln.</p>
       </article>
+
+      <article id="schriften">
+        <h2 data-en="Fonts">Schriften</h2>
+        <p data-en="The fonts (Newsreader, Inter, JetBrains Mono) are hosted on this domain as WOFF2 files. No request goes to Google Fonts or any other font CDN, so your IP address is never shared for typography.">Die Schriften (Newsreader, Inter, JetBrains Mono) liegen als WOFF2-Dateien auf dieser Domain. Es geht keine Anfrage an Google Fonts oder ein anderes Schrift-CDN, deine IP-Adresse wird für die Typografie also nicht weitergegeben.</p>
+      </article>
+
+      <article id="speicher">
+        <h2 data-en="Local storage in your browser">Lokale Speicherung im Browser</h2>
+        <p data-en="The site stores a few values in localStorage on your device: the chosen language, your motion preference, the comparison list and, if you use the trial page, a small counter. These entries never leave your device and are not advertising cookies.">Die Seite legt einige Werte im localStorage deines Geräts ab: die gewählte Sprache, deine Bewegungseinstellung, die Vergleichsliste und, wenn du die Probierstand-Seite nutzt, einen kleinen Zähler. Diese Einträge verlassen dein Gerät nicht und sind keine Werbe-Cookies.</p>
+        <p data-en="You can delete them at any time through your browser settings. Without them the site works, but it forgets your language choice.">Du kannst sie jederzeit über die Einstellungen deines Browsers löschen. Ohne sie funktioniert die Seite, sie merkt sich deine Sprachwahl dann aber nicht.</p>
+      </article>
+
+      <article id="konto">
+        <h2 data-en="Account and forum">Konto und Forum</h2>
+        <p data-en="You can use the account area and the forum without an email address. In the delivered version both run entirely in your browser: the account, the session, the threads you write and the subscriptions are stored in localStorage on your device and are not transmitted to us. Passwords are stored only as a PBKDF2-SHA256 hash with a random salt.">Konto und Forum lassen sich ohne E-Mail-Adresse nutzen. In der ausgelieferten Fassung laufen beide vollständig in deinem Browser: Konto, Sitzung, geschriebene Themen und Abonnements liegen im localStorage deines Geräts und werden nicht an uns übertragen. Passwörter werden ausschließlich als PBKDF2-SHA256-Hash mit zufälligem Salt gespeichert.</p>
+        <p data-en="If the studio switches the account mode to a hosted backend, this page will name the processor, the location and the retention period before the switch takes effect.">Stellt das Studio den Konten-Modus auf ein gehostetes Backend um, nennt diese Seite vorher den Auftragsverarbeiter, den Speicherort und die Aufbewahrungsfrist.</p>
+      </article>
+
+      <article id="kauf">
+        <h2 data-en="Purchase">Kauf</h2>
+        <p data-en="Paid products are ordered by email and paid via PayPal. Payment data is handled by PayPal; we receive the confirmation of payment, not your bank or card details. This website itself processes no payment data.">Kostenpflichtige Produkte werden per E-Mail bestellt und über PayPal bezahlt. Zahlungsdaten verarbeitet PayPal; wir erhalten die Zahlungsbestätigung, nicht deine Bank- oder Kartendaten. Diese Website verarbeitet selbst keine Zahlungsdaten.</p>
+      </article>
+
       <article id="kontakt">
-        <h2>Kontaktaufnahme</h2>
-        <p>Wenn du per E-Mail Kontakt aufnimmst, verarbeiten wir deine Angaben zur Bearbeitung der Anfrage. Die Kontaktseite sendet keine Daten an ein eigenes Backend, sondern oeffnet dein Mailprogramm.</p>
+        <h2 data-en="Contact">Kontaktaufnahme</h2>
+        <p data-en="If you contact us by email, we use your details to answer the request. The contact page sends nothing to our own backend; it opens your mail program.">Wenn du per E-Mail Kontakt aufnimmst, verarbeiten wir deine Angaben zur Bearbeitung der Anfrage. Die Kontaktseite sendet keine Daten an ein eigenes Backend, sondern öffnet dein Mailprogramm.</p>
       </article>
+
       <article id="rechte">
-        <h2>Deine Rechte</h2>
-        <p>Du kannst Auskunft, Berichtigung, Loeschung oder Einschraenkung der Verarbeitung verlangen. Schreibe dazu an <a href="mailto:Haqmalh@icloud.com">Haqmalh@icloud.com</a>.</p>
+        <h2 data-en="Your rights">Deine Rechte</h2>
+        <p data-en="You may request access, rectification, erasure or restriction of processing, and object to processing based on legitimate interest. Write to">Du kannst Auskunft, Berichtigung, Löschung oder Einschränkung der Verarbeitung verlangen und der Verarbeitung auf Grundlage berechtigten Interesses widersprechen. Schreibe dazu an</p>
+        <p><a href="mailto:Haqmalh@icloud.com">Haqmalh@icloud.com</a></p>
+        <p data-en="You also have the right to complain to a data protection supervisory authority, for example the one responsible for Rhineland-Palatinate.">Außerdem steht dir ein Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde zu, zum Beispiel der für Rheinland-Pfalz zuständigen.</p>
       </article>
+
+      <p class="small" data-en="The German version of this page is legally binding. The English text is a convenience translation. Status: 7 November 2026.">Die deutsche Fassung dieser Seite ist rechtlich verbindlich. Die englische Fassung ist eine Übersetzung zur Orientierung. Stand: 7. November 2026.</p>
     </section>
   </div>
 </main>

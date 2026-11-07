@@ -2,10 +2,10 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
+<script src="bootstrap.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Neon Dominion - Neon-Tech Tower-Conquest · Bytewerk Studio</title>
 <meta name="description" content="Neon Dominion ist ein Premium-Neon-Tech Tower-Conquest-Strategiespiel von Bytewerk Studio fuer Windows 10/11 mit 30 Offline-Missionen, lokalen Saves, Achievements, Upgrade Lab und Offline-Installer.">
@@ -188,19 +188,6 @@
 <script src="ui-v3.js"></script>
 <script src="ui-v4.js"></script>
 <script src="background.js"></script>
-<script>
-(function () {
-  const links = document.querySelectorAll('a[href^="mailto:"]');
-  const toast = document.getElementById('toast');
-  let timer;
-  if (links.length && toast) {
-    links.forEach(link => link.addEventListener('click', () => {
-      toast.classList.add('show');
-      clearTimeout(timer);
-      timer = setTimeout(() => toast.classList.remove('show'), 2600);
-    }));
-  }
-})();
-</script>
+<script src="inline/neon-dominion-1.js"></script>
 </body>
 </html>

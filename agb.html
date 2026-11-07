@@ -2,19 +2,28 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
+<script src="bootstrap.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>AGB — Bytewerk Studio</title>
-<meta name="description" content="Allgemeine Hinweise fuer Leistungen und digitale Produkte von Bytewerk Studio.">
+<meta name="description" content="Allgemeine Geschäftsbedingungen von Bytewerk Studio: Leistungen, digitale Produkte, Entwickler-Abo, Nutzungsrechte und Support.">
 <link rel="icon" href="logo.svg" type="image/svg+xml">
 <link rel="icon" href="media/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="media/favicon-16.png" sizes="16x16" type="image/png">
 <link rel="apple-touch-icon" href="media/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <link rel="canonical" href="https://bytewerkstudio.com/agb.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bytewerk Studio">
+<meta property="og:locale" content="de_DE">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:title" content="AGB — Bytewerk Studio">
+<meta property="og:description" content="Leistungen, digitale Produkte, Entwickler-Abo, Nutzungsrechte und Support.">
+<meta property="og:url" content="https://bytewerkstudio.com/agb.html">
+<meta property="og:image" content="https://bytewerkstudio.com/media/og-bytewerk.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="fonts/fonts.css">
@@ -25,36 +34,44 @@
 <link rel="stylesheet" href="styles-integration.css">
 </head>
 <body>
+<a class="skip-link" href="#main" data-en="Skip to content">Zum Inhalt springen</a>
 <div data-include="header"></div>
-<main class="wrap legal-wrap">
+<main class="wrap legal-wrap" id="main">
   <div class="legal-grid">
     <aside class="legal-toc reveal">
-      <a href="#leistungen">Leistungen</a>
-      <a href="#shop">Shop</a>
-      <a href="#nutzung">Nutzung</a>
-      <a href="#support">Support</a>
+      <a href="#leistungen" data-en="Services">Leistungen</a>
+      <a href="#shop" data-en="Digital products">Digitale Produkte</a>
+      <a href="#abo" data-en="Developer subscription">Entwickler-Abo</a>
+      <a href="#nutzung" data-en="Use of content">Nutzung</a>
+      <a href="#support" data-en="Support">Support</a>
     </aside>
     <section class="legal-copy reveal" data-d="1">
       <div>
-        <span class="eyebrow">Terms</span>
-        <h1 class="display" style="font-size:clamp(38px,5vw,68px);margin-top:18px">AGB</h1>
+        <span class="eyebrow" data-en="Terms">AGB</span>
+        <h1 class="display" style="font-size:clamp(38px,5vw,68px);margin-top:18px" data-en="Terms and conditions">AGB</h1>
       </div>
       <article id="leistungen">
-        <h2>Leistungen</h2>
-        <p>Bytewerk Studio entwickelt individuelle Software-, Web- und App-Loesungen sowie digitale Produkte. Konkrete Leistungen, Termine und Verguetung werden projektbezogen vereinbart.</p>
+        <h2 data-en="Services">Leistungen</h2>
+        <p data-en="Bytewerk Studio develops custom software, web and app solutions as well as digital products. Specific services, dates and remuneration are agreed per project.">Bytewerk Studio entwickelt individuelle Software-, Web- und App-Lösungen sowie digitale Produkte. Konkrete Leistungen, Termine und Vergütung werden projektbezogen vereinbart.</p>
       </article>
       <article id="shop">
-        <h2>Digitale Produkte</h2>
-        <p>Der Shop stellt die Apps, Spiele und digitalen Produkte von Bytewerk Studio vor. Kostenpflichtige Produkte werden per E-Mail bestellt und ueber PayPal abgewickelt. Auf dieser Website werden keine Zahlungsdaten verarbeitet.</p>
+        <h2 data-en="Digital products">Digitale Produkte</h2>
+        <p data-en="The shop presents the apps, games and digital products of Bytewerk Studio. Paid products are ordered by email and processed via PayPal. This website processes no payment data.">Der Shop stellt die Apps, Spiele und digitalen Produkte von Bytewerk Studio vor. Kostenpflichtige Produkte werden per E-Mail bestellt und über PayPal abgewickelt. Auf dieser Website werden keine Zahlungsdaten verarbeitet.</p>
+      </article>
+      <article id="abo">
+        <h2 data-en="Developer subscription">Entwickler-Abo</h2>
+        <p data-en="The developer subscription is available in the monthly plans Sandbox, Pro and Team described on the developers page. All prices are plus VAT. Monthly plans can be cancelled at any time with effect from the end of the billing period. Yearly billing corresponds to ten monthly payments.">Das Entwickler-Abo gibt es in den Monatsstufen Sandbox, Pro und Team nach der Beschreibung auf der Entwickler-Seite. Alle Preise verstehen sich zzgl. MwSt. Monatsstufen sind jederzeit zum Ende des Abrechnungszeitraums kündbar. Jährliche Zahlung entspricht zehn Monatsbeiträgen.</p>
+        <p data-en="Limits are soft: requests above the plan quota are answered with HTTP 429 and are never billed silently.">Limits sind weich: Anfragen über dem Kontingent der Stufe werden mit HTTP 429 beantwortet und nie stillschweigend berechnet.</p>
       </article>
       <article id="nutzung">
-        <h2>Nutzung</h2>
-        <p>Alle Inhalte, Designs und Software-Beispiele sind urheberrechtlich geschuetzt. Nutzungsrechte werden nur im vereinbarten Umfang eingeraeumt.</p>
+        <h2 data-en="Use of content">Nutzung</h2>
+        <p data-en="All content, designs and software examples are protected by copyright. Rights of use are granted only to the agreed extent.">Alle Inhalte, Designs und Software-Beispiele sind urheberrechtlich geschützt. Nutzungsrechte werden nur im vereinbarten Umfang eingeräumt.</p>
       </article>
       <article id="support">
-        <h2>Support</h2>
-        <p>Support und Wartung werden je nach Projekt separat geregelt. Fuer Anfragen erreichst du Bytewerk Studio per E-Mail.</p>
+        <h2 data-en="Support">Support</h2>
+        <p data-en="Support and maintenance are arranged separately per project. For enquiries you reach Bytewerk Studio by email.">Support und Wartung werden je nach Projekt separat geregelt. Für Anfragen erreichst du Bytewerk Studio per E-Mail.</p>
       </article>
+      <p class="small" data-en="The German version of this page is legally binding. The English text is a convenience translation. Status: 7 November 2026.">Die deutsche Fassung dieser Seite ist rechtlich verbindlich. Die englische Fassung ist eine Übersetzung zur Orientierung. Stand: 7. November 2026.</p>
     </section>
   </div>
 </main>

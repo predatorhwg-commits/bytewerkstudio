@@ -2,10 +2,10 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
+<script src="bootstrap.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Bytewerk Studio — Software, Web & Apps aus Ludwigshafen</title>
 <meta name="description" content="Bytewerk Studio entwickelt Software, Websites, Apps und digitale Produkte in Ludwigshafen am Rhein. Klarer Ablauf, ehrliche Festpreise, Code, der dir gehört.">
@@ -875,38 +875,7 @@
 <script src="ui-v5.js"></script>
 <script src="background.js"></script>
 <script type="module" src="schichtmodell.js"></script>
-<script>
-/* CTA band subtle grid canvas */
-(function () {
-  const c = document.getElementById('cta-canvas');
-  if (!c) return;
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const ctx = c.getContext('2d');
-  let w, h, dpr, t = 0, raf;
-  function size() {
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const r = c.getBoundingClientRect(); w = r.width; h = r.height;
-    c.width = w * dpr; c.height = h * dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
-  }
-  function draw() {
-    ctx.clearRect(0,0,w,h);
-    t += reduce ? 0 : 0.01;
-    const gap = 30;
-    for (let x = 0; x < w + gap; x += gap) {
-      for (let y = 0; y < h + gap; y += gap) {
-        const wv = Math.sin(x*0.02 + t) + Math.cos(y*0.02 - t);
-        const a = 0.06 + ((wv+2)/4)*0.16;
-        ctx.beginPath(); ctx.arc(x, y, 1.1, 0, Math.PI*2);
-        ctx.fillStyle = `rgba(232,164,92,${a})`; ctx.fill();
-      }
-    }
-    if (!reduce) raf = requestAnimationFrame(draw);
-  }
-  function start(){ cancelAnimationFrame(raf); size(); draw(); }
-  window.addEventListener('resize', start);
-  requestAnimationFrame(start);
-})();
-</script>
+<script src="inline/index-1.js"></script>
 <script src="work-gallery.js"></script>
 </body>
 </html>

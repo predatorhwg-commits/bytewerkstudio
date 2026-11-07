@@ -2,10 +2,10 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
+<script src="bootstrap.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>UpdatePilot - Windows Update-Manager · Bytewerk Studio</title>
 <meta name="description" content="UpdatePilot ist ein minimalistischer Windows Update-Manager von Bytewerk Studio mit winget-Scan, Update-Automation, Blocklisten, Technikerprofilen und PDF/CSV-Reports. Lebenslange Lizenz: 12,99 €.">
@@ -188,20 +188,7 @@
 <script src="ui-v3.js"></script>
 <script src="ui-v4.js"></script>
 <script src="background.js"></script>
-<script>
-(function () {
-  const btn = document.getElementById('buy-btn');
-  const toast = document.getElementById('toast');
-  let timer;
-  if (btn && toast) {
-    btn.addEventListener('click', () => {
-      toast.classList.add('show');
-      clearTimeout(timer);
-      timer = setTimeout(() => toast.classList.remove('show'), 2600);
-    });
-  }
-})();
-</script>
+<script src="inline/updatepilot-1.js"></script>
 <script type="module" src="produktbuehne.js"></script>
 </body>
 </html>

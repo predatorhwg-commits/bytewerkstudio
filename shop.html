@@ -2,10 +2,10 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
+<script src="bootstrap.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Shop — Bytewerk Studio Apps</title>
 <meta name="description" content="Apps und Spiele von Bytewerk Studio: Lernreich, Prüfungs-Countdown, Lernreich Pro, KeyForge Vault, LumaWeek Planner, UpdatePilot, Bytewerk PDF Text Pro, MASTIL, Neon Dominion, BURGENWERK und NEON HORDE.">
@@ -286,22 +286,7 @@
 <script src="ui-v3.js"></script>
 <script src="ui-v4.js"></script>
 <script src="background.js"></script>
-<script>
-/* Shop filtering */
-(function () {
-  const chips = document.querySelectorAll('.chip');
-  const items = document.querySelectorAll('.shop-page-grid .prod');
-  chips.forEach(chip => chip.addEventListener('click', () => {
-    chips.forEach(c => c.classList.remove('active'));
-    chip.classList.add('active');
-    const f = chip.dataset.filter;
-    items.forEach(it => {
-      const cats = (it.dataset.cat || '').split(' ');
-      it.classList.toggle('hide', !(f === 'all' || cats.includes(f)));
-    });
-  }));
-})();
-</script>
+<script src="inline/shop-1.js"></script>
 <script type="module" src="three-stage.js"></script>
 </body>
 </html>

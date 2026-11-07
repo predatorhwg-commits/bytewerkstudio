@@ -2,10 +2,10 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
+<script src="bootstrap.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Download vorbereiten — Lernreich · Bytewerk Studio</title>
 <meta name="description" content="Download- und Kontaktseite fuer Lernreich von Bytewerk Studio.">
@@ -94,49 +94,6 @@
 <script src="ui-v3.js"></script>
 <script src="ui-v4.js"></script>
 <script src="background.js"></script>
-<script>
-(function () {
-  const cart = [{ title: 'Lernreich', price: 'Kostenlos', qty: 1 }];
-
-  const list = document.getElementById('cart-list');
-  if (list) {
-    list.innerHTML = cart.map(item => `
-      <div class="row">
-        <span class="key">${item.qty || 1}x</span>
-        <span class="val"><strong>${item.title}</strong><br>${item.price}</span>
-      </div>
-    `).join('');
-  }
-
-  const form = document.getElementById('checkout-form');
-  if (!form) return;
-  const success = document.getElementById('checkout-success');
-  const fields = [...form.querySelectorAll('[required]')];
-  const mark = (field) => {
-    const wrap = field.closest('.field');
-    const invalid = !field.checkValidity() || !String(field.value || '').trim();
-    if (wrap) wrap.classList.toggle('invalid', invalid);
-    return !invalid;
-  };
-  fields.forEach(field => field.addEventListener('input', () => mark(field)));
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    if (!fields.map(mark).every(Boolean)) return;
-    const data = new FormData(form);
-    const body = [
-      'Lernreich Anfrage Bytewerk Studio',
-      '',
-      ...cart.map(item => '- ' + (item.qty || 1) + 'x ' + item.title + ' / ' + item.price),
-      '',
-      'Name: ' + data.get('name'),
-      'E-Mail: ' + data.get('email'),
-      'Notiz: ' + (data.get('note') || '-')
-    ].join('\n');
-    form.classList.add('sent');
-    if (success) success.classList.add('show');
-    window.location.href = 'mailto:Haqmalh@icloud.com?subject=' + encodeURIComponent('Lernreich Anfrage') + '&body=' + encodeURIComponent(body);
-  });
-})();
-</script>
+<script src="inline/checkout-1.js"></script>
 </body>
 </html>
