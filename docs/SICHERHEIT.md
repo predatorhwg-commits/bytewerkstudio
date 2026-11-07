@@ -25,13 +25,14 @@ serverseitigen Schutzschichten. Der interessante Teil ist der Browser.
 
 Auf 30 von 31 Seiten identisch (die Ausnahme ist die
 Google-Verifizierungsdatei `google3491bb2e3bfcb9d2.html`, reiner Text).
-`sicherheit.html` selbst ist strenger — dort fehlt `'unsafe-inline'` bei
-`script-src`:
+`sicherheit.html` selbst ist strenger — dort fehlt `'unsafe-inline'`
+in **beiden** Direktiven:
 
 ```
 default-src 'self';
 script-src  'self' 'unsafe-inline';   /* sicherheit.html: 'self' */
 style-src   'self' 'unsafe-inline' https://fonts.googleapis.com;
+                                      /* sicherheit.html: 'self' https://fonts.googleapis.com */
 font-src    https://fonts.gstatic.com;
 img-src     'self' data:;
 object-src  'none';
@@ -73,15 +74,36 @@ Der Umbau für die übrigen Seiten ist drei Zeilen pro Datei:
 2. den Inline-Block `<script>document.documentElement.classList.add('js')…</script>` löschen,
 3. in der CSP `script-src 'self' 'unsafe-inline'` auf `script-src 'self'` kürzen.
 
-Offen bleibt `style-src`: Die Reveal-Animationen und der Fortschrittsring
-setzen `style`-Attribute, die eine CSP ohne `'unsafe-inline'` blockt. Dieser
-Teil braucht Klassen statt Attributen und ist ein eigener Arbeitsschritt.
+Offen bleibt `style-src` für die übrigen Seiten: Reveal-Animationen und
+Fortschrittsringe arbeiten dort mit `style`-Attributen. Für diese Seite ist
+das erledigt, siehe Punkt 2.
 
-**2. `style-src 'unsafe-inline'`.** Nötig, weil die Seite dynamische
-`style`-Attribute setzt (Fortschrittsring im Sicherheits-Check, Reveal-Delays).
+**2. `style-src 'unsafe-inline'`.** Auf den übrigen 30 Seiten nötig, weil sie
+dynamische `style`-Attribute setzen (Fortschrittsringe, Reveal-Delays).
 Risiko ist geringer als bei Skripten, aber real: Injektion von CSS kann über
 `background-image: url(…)` Daten abfließen lassen, wenn `img-src` es erlaubt.
 Hier ist `img-src 'self' data:` — fremde URLs bleiben blockiert.
+
+`sicherheit.html` braucht auch diese Ausnahme nicht mehr. Drei Dinge waren
+nötig, alle in dieser Datei erledigt:
+
+1. **Der `<noscript>`-Block mit `<style>` ist weg.** Seine vier Regeln stehen
+   jetzt in `styles-sicherheit.css` unter `html:not(.js)`. Die Klasse `js`
+   setzt `bootstrap.js` — fehlt sie, ist JavaScript aus. Gleiche Wirkung,
+   kein `<style>`-Element.
+2. **Keine `style`-Attribute im Markup.** `grep -c 'style="'` ergibt 0.
+3. **Der Fortschrittsring** setzt `strokeDashoffset` über die CSSOM
+   (`element.style…`). Das ist keine Inline-Style-Deklaration im Sinne der
+   CSP und wird von `style-src` nicht blockiert — geprüft, nicht angenommen.
+
+Nachgewiesen im Browser mit `style-src 'self' https://fonts.googleapis.com`:
+
+```
+CSP violations:        []            (0 Verstöße, 6 Stylesheets, Fonts geladen)
+score 100 → ring       0.26522px     (Ring rechnet und zeichnet)
+ohne JavaScript        html ohne .js → Ergebnis aus, Hinweis an, Panels offen
+mit JavaScript         html.js      → Ergebnis an, Hinweis aus
+```
 
 ### Was fehlt
 

@@ -1393,3 +1393,25 @@
   .sich-code-block pre, .sich-code-bar { color: #1f1e1d; }
   .sich-code-bar { border-bottom-color: #ccc; }
 }
+
+/* ---------- 11. Ohne JavaScript ----------
+   Ersatz für den früheren <noscript>-Block: der brauchte ein
+   <style>-Element und damit 'unsafe-inline' in style-src. Die
+   html.js-Klasse setzt bootstrap.js — fehlt sie, ist JavaScript aus. */
+html:not(.js) .sich-code-panel[hidden] {
+  display: block !important;
+  border-top: 1px solid var(--line);
+  padding-top: 22px;
+  margin-top: 22px;
+}
+
+html:not(.js) .sich-result { display: none; }
+
+html:not(.js) .sich-check::after {
+  content: "Für den Selbsttest wird JavaScript benötigt. Die Fragen bleiben lesbar.";
+  display: block;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--muted);
+}
