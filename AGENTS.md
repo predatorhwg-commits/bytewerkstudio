@@ -48,6 +48,10 @@ Statische Website für bytewerkstudio.com. GitHub Pages veröffentlicht direkt a
 | `forum.js` | Forum-Logik: Markdown-Allowlist, Suche, Ratenlimits, localStorage |
 | `forum-scene.js` | three.js-Pinwand im Forum-Kopf, Modul |
 | `vendor/three.module.min.js` + `vendor/three.core.min.js` | Three.js r180, lokal - die CSP erlaubt nur `'self'` |
+| `community.html`, `styles-community.css`, `community.js` | Forum, Abo, Sicherheits-Selbsttest |
+| `community-scene.js` | Ideenregal der Community-Seite (three.js) |
+| `docs/COMMUNITY.md` | Aufbau und Sicherheitsmodell der Community-Seite |
+| `docs/AGENTEN-BRETT.md` | Datei-Ownership, solange das GitHub-Issue fehlt |
 
 #| `scene-notfound.js`, `styles-notfound.css` | Karteikasten auf der 404-Seite, three.js |
 # Three.js - eine Regel, ein Build
