@@ -29,6 +29,7 @@
 <link rel="stylesheet" href="styles-workstoff.css">
 <link rel="stylesheet" href="styles-schichtmodell.css">
 <link rel="stylesheet" href="styles-v5.css">
+<link rel="stylesheet" href="styles-community-teaser.css">
 <link rel="stylesheet" href="styles-3d.css">
 <link rel="stylesheet" href="styles-work.css">
 <link rel="stylesheet" href="styles-showroom.css">
@@ -679,134 +680,7 @@
   </div>
 </section>
 
-<style>
-  .bwcm-t { padding-block: clamp(68px, 10vw, 128px); border-top: 1px solid var(--line); }
-  .bwcm-t-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-    gap: clamp(32px, 5vw, 72px);
-    align-items: center;
-  }
-  .bwcm-t-copy .eyebrow { margin-bottom: 18px; }
-  .bwcm-t-copy h2 { margin: 0 0 20px; }
-  .bwcm-t-copy p { max-width: 46ch; }
-  .bwcm-t-meta {
-    display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
-    margin-top: 22px;
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--faint);
-  }
-  .bwcm-t-meta i {
-    width: 6px; height: 6px; border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 0 3px rgba(176, 79, 49, 0.12);
-  }
-  .bwcm-t-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-
-  /* --- Vorschau: drei Karten wie im Brett --- */
-  .bwcm-t-stack {
-    position: relative;
-    display: grid;
-    gap: 10px;
-    padding: 26px 22px;
-    border: 1px solid var(--line);
-    border-radius: 18px;
-    background:
-      radial-gradient(120% 90% at 100% 0%, rgba(176, 79, 49, 0.06), transparent 55%),
-      radial-gradient(100% 80% at 0% 100%, rgba(79, 122, 99, 0.05), transparent 60%),
-      var(--paper);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset,
-                0 24px 48px -34px rgba(31, 30, 29, 0.45);
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
-  }
-  .bwcm-t-stack:hover {
-    transform: translateY(-3px);
-    border-color: var(--line-2);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset,
-                0 34px 64px -32px rgba(31, 30, 29, 0.5);
-  }
-  .bwcm-t-card {
-    display: grid;
-    grid-template-columns: 34px minmax(0, 1fr) auto;
-    gap: 12px;
-    align-items: start;
-    padding: 13px 14px;
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    background: var(--surface, #fff);
-    box-shadow: 0 1px 2px rgba(31, 30, 29, 0.04);
-  }
-  .bwcm-t-card:nth-child(2) { transform: translateX(10px); }
-  .bwcm-t-card:nth-child(3) { transform: translateX(20px); }
-  .bwcm-t-ava {
-    width: 34px; height: 34px; border-radius: 50%;
-    display: grid; place-items: center;
-    font-family: var(--mono); font-size: 10.5px; font-weight: 600;
-    color: #fff; letter-spacing: 0.02em;
-  }
-  .bwcm-t-body { min-width: 0; }
-  .bwcm-t-cat {
-    display: inline-flex; align-items: center; gap: 5px;
-    font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.07em;
-    text-transform: uppercase; color: var(--muted);
-  }
-  .bwcm-t-cat i { width: 6px; height: 6px; border-radius: 2px; }
-  .bwcm-t-title {
-    margin: 4px 0 0;
-    font-size: 14px; line-height: 1.35; font-weight: 600;
-    color: var(--ink);
-    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  .bwcm-t-meta2 {
-    display: flex; gap: 10px;
-    margin-top: 7px;
-    font-family: var(--mono); font-size: 9.5px; color: var(--faint);
-  }
-  .bwcm-t-meta2 span { display: inline-flex; align-items: center; gap: 3px; }
-  .bwcm-t-solved {
-    display: inline-flex; align-items: center; gap: 3px;
-    font-family: var(--mono); font-size: 9px; letter-spacing: 0.04em;
-    color: #3f6650;
-    background: rgba(79, 122, 99, 0.09);
-    border: 1px solid rgba(79, 122, 99, 0.22);
-    border-radius: 4px; padding: 2px 5px;
-    white-space: nowrap;
-  }
-  .bwcm-t-foot {
-    display: flex; flex-wrap: wrap; align-items: center;
-    justify-content: space-between; gap: 8px;
-    margin-top: 16px; padding-top: 14px;
-    border-top: 1px dashed var(--line-2);
-    font-family: var(--mono); font-size: 10px;
-    letter-spacing: 0.05em; text-transform: uppercase;
-    color: var(--faint);
-  }
-  .bwcm-t-foot b { color: var(--accent-700); font-weight: 600; }
-
-  @media (max-width: 900px) {
-    .bwcm-t-grid { grid-template-columns: 1fr; gap: 34px; }
-    .bwcm-t-card:nth-child(2),
-    .bwcm-t-card:nth-child(3) { transform: none; }
-  }
-  @media (max-width: 420px) {
-    .bwcm-t-stack { padding: 16px 14px; }
-    .bwcm-t-card { grid-template-columns: 30px minmax(0, 1fr); }
-    .bwcm-t-solved { display: none; }
-    .bwcm-t-actions .btn { flex: 1 1 auto; justify-content: center; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .bwcm-t-stack,
-    .bwcm-t-card { transition: none; }
-    .bwcm-t-stack:hover { transform: none; }
-  }
-</style>
-
+<!-- ============ COMMUNITY ============ -->
 <section class="bwcm-t" id="community" aria-labelledby="cm-teaser-title" data-screen-label="Community">
   <div class="wrap bwcm-t-grid">
     <div class="bwcm-t-copy reveal">
