@@ -142,6 +142,31 @@ Erledigt und geprüft:
 - **Meldeweg:** `SECURITY.md` im Wurzelverzeichnis, `security.txt` zusätzlich im
   Wurzelpfad (Legacy-Pfad), Links im Sicherheitsabschnitt der Community-Seite.
 
+## Stand 07.11.2026, 11:40 — zweite Härtungsrunde
+
+- **Feldgrenzen:** 27 sichtbare Text- und Passwortfelder hatten kein
+  `maxlength` (u. a. Kontakt, Checkout, Login, Suche, PDF-Text). Jetzt begrenzt;
+  nur die zwei Honigfallen bleiben absichtlich frei.
+- **Bildmaße:** 105 `<img>`-Tags ohne `width`/`height` ergänzt, echte Maße aus
+  der Datei gelesen. Vorher/nachher geometrisch verglichen: 10 Seiten ×
+  2 Breiten, 0 Unterschied in Position und Seitenhöhe — die Attribute ändern
+  nichts am Layout, sie geben dem Browser nur das Seitenverhältnis vorher.
+- **Linkprüfer:** `tools/check-links.mjs` prüft 968 interne Ziele und Anker.
+  Gegenprobe mit absichtlich kaputtem Anker: wird gefunden, Exit 1.
+- **Ein Tor für alles:** `tools/security-gate.mjs` bündelt Syntax, CSP-Hashes,
+  `unsafe-inline`, Inline-Handler, `javascript:`-Links, `noopener`, Secrets,
+  `security.txt`, Referrer-Policy und optional Links (`--live`). Gegenprobe mit
+  einer absichtlich unsicheren Testseite: 5 von 10 Prüfungen rot, Datei gelöscht,
+  danach wieder alles grün.
+- **Sicherheitslage auf der Seite:** `community.html#cm-status` zeigt drei
+  Kacheln, die zur Laufzeit messen — Skript-Regel (Hash-Anzahl,
+  `unsafe-inline`), Eingabegrenzen (begrenzt/gesamt), Speicherzustand
+  (übernommene und verworfene Einträge aus `loadState()`).
+  Mit vergiftetem Speicher geprüft: 2 Themen übernommen, 1 Eintrag verworfen,
+  0 `on*`-Attribute im DOM, `window.__x` bleibt `undefined`.
+- **Header-Name:** Avatar-Initialen werden jetzt ebenfalls escaped
+  (`auth.js`). Vorher war der Name im Label schon escaped, die Initialen nicht.
+
 ### Datei-Hinweis
 
 `ui-v4.js` gehört laut `AGENTS.md` zu einer anderen Linie. Die Änderung ist ein
