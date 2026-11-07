@@ -709,6 +709,9 @@ body.fm-is-thread .fm-progress { opacity: 1; }
 .fm-views { display: flex; align-items: center; gap: 4px; font-size: 11px; color: var(--fm-quiet); }
 .fm-views svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.5; }
 .fm-last { font-size: 11px; color: var(--fm-quiet); }
+/* Only needed on phones, where the list header is hidden and the two
+   dates in the row footer would otherwise appear without a label. */
+.fm-last-word { display: none; }
 
 .fm-more {
   display: flex;
@@ -1582,6 +1585,7 @@ body.fm-is-thread .fm-progress { opacity: 1; }
     padding-top: 9px;
   }
   .fm-last { margin-left: auto; }
+  .fm-last-word { display: inline; }
   .fm-post { grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 16px; }
   .fm-post-side { flex-direction: row; align-items: center; gap: 10px; }
   .fm-vote { flex-direction: row; width: auto; padding: 4px 10px; gap: 5px; }

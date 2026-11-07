@@ -1116,16 +1116,27 @@
 
     const side = el('div', { class: 'fm-item-side' });
     const replies = el('div', { class: 'fm-count-block' });
-    replies.appendChild(el('b', { text: String(th.posts.length) }));
-    replies.appendChild(el('span', { text: t('Antworten', 'replies') }));
+    const n = th.posts.length;
+    replies.appendChild(el('b', { text: String(n) }));
+    // "1 Antworten" is wrong in both languages and was on every row.
+    replies.appendChild(el('span', {
+      text: n === 1 ? t('Antwort', 'reply') : t('Antworten', 'replies')
+    }));
     side.appendChild(replies);
 
     const views = el('div', { class: 'fm-views' });
     views.appendChild(icon(ICONS.eye));
     views.appendChild(el('span', { text: String(th.views || 0) }));
+    // Without this a screen reader announces a bare number after the row.
+    views.appendChild(el('span', { class: 'fm-visually-hidden', text: t('Aufrufe', 'views') }));
     side.appendChild(views);
 
-    side.appendChild(el('span', { class: 'fm-last', title: fullDate(last), text: fmtTime(last) }));
+    const lastEl = el('span', { class: 'fm-last', title: fullDate(last) });
+    // Only shown on phones, where the list header (and with it the word
+    // "Zuletzt") is hidden and two unlabelled dates would sit side by side.
+    lastEl.appendChild(el('span', { class: 'fm-last-word', text: t('zuletzt ', 'last ') }));
+    lastEl.appendChild(document.createTextNode(fmtTime(last)));
+    side.appendChild(lastEl);
     row.appendChild(side);
 
     return row;
