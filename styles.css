@@ -418,7 +418,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 600; line-height: 1.0
 .form-success.show { display: flex; }
 .form-success .check { width: 52px; height: 52px; border-radius: 999px; background: var(--accent-tint); display: grid; place-items: center; }
 .form-success .check svg { width: 26px; height: 26px; stroke: var(--accent-300); stroke-width: 2.4; fill: none; }
-.form-success h3 { font-size: 24px; }
+.form-success h3, .form-success .form-success-title { font-size: 24px; }
 .form-success p { color: var(--muted); }
 .form.sent .form-grid, .form.sent .form-foot { display: none; }
 

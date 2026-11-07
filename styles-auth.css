@@ -279,7 +279,7 @@
 .empty-state { border: 1px dashed var(--line-2); border-radius: 12px; padding: 34px 24px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; }
 .empty-state .es-i { width: 42px; height: 42px; border-radius: 999px; background: var(--accent-tint); display: grid; place-items: center; margin-bottom: 4px; }
 .empty-state .es-i svg { width: 20px; height: 20px; stroke: var(--accent-300); fill: none; stroke-width: 1.6; }
-.empty-state h4 { font-family: var(--display); font-size: 16px; }
+.empty-state h3, .empty-state h4 { font-family: var(--display); font-size: 16px; }
 .empty-state p { font-size: 13px; color: var(--muted); max-width: 42ch; }
 .empty-state .btn { margin-top: 8px; }
 
