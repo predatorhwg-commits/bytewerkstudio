@@ -221,7 +221,7 @@
 
             <div class="brf-field">
               <label for="goal" data-en="The project in one sentence *">Das Vorhaben in einem Satz <span class="req">*</span></label>
-              <textarea id="goal" name="goal" rows="3" required data-en-ph="For example: an online shop for our workshop that does not need a patchwork of plugins." placeholder="Zum Beispiel: Ein Online-Shop für unsere Manufaktur, der ohne Bastellösung auskommt."></textarea>
+              <textarea id="goal" name="goal" rows="3" required data-en-ph="For example: an online shop for our workshop that does not need a patchwork of plugins." placeholder="Zum Beispiel: Ein Online-Shop für unsere Manufaktur, der ohne Bastellösung auskommt." maxlength="2000"></textarea>
               <p class="brf-hint" data-en="One sentence is enough. Details come later, in conversation.">Ein Satz reicht. Details klären wir im Gespräch.</p>
               <p class="brf-err" id="brf-goal-err" hidden data-en="Please describe the project in a few words (at least 12 characters).">Bitte das Vorhaben in ein paar Worten beschreiben (mindestens 12 Zeichen).</p>
             </div>
@@ -289,7 +289,7 @@
 
             <div class="brf-field">
               <label for="notes" data-en="Constraints">Rahmenbedingungen</label>
-              <textarea id="notes" name="notes" rows="3" data-en-ph="Deadlines, interfaces, no-gos — anything that sets the frame." placeholder="Deadlines, Schnittstellen, No-Gos — alles, was den Rahmen setzt."></textarea>
+              <textarea id="notes" name="notes" rows="3" data-en-ph="Deadlines, interfaces, no-gos — anything that sets the frame." placeholder="Deadlines, Schnittstellen, No-Gos — alles, was den Rahmen setzt." maxlength="2000"></textarea>
               <p class="brf-hint" data-en="Optional. Leave it blank if nothing is fixed yet.">Optional. Leer lassen, wenn noch nichts feststeht.</p>
             </div>
           </fieldset>
@@ -303,24 +303,24 @@
             <div class="brf-row">
               <div class="brf-field">
                 <label for="name" data-en="Name *">Name <span class="req">*</span></label>
-                <input id="name" name="name" autocomplete="name" required>
+                <input id="name" name="name" autocomplete="name" required maxlength="100">
                 <p class="brf-err" id="brf-name-err" hidden data-en="Please enter your name.">Bitte Namen eintragen.</p>
               </div>
               <div class="brf-field">
                 <label for="email" data-en="E-Mail *">E-Mail <span class="req">*</span></label>
-                <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required>
+                <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="254">
                 <p class="brf-err" id="brf-email-err" hidden data-en="Please enter a valid email address.">Bitte eine gültige E-Mail-Adresse eintragen.</p>
               </div>
             </div>
 
             <div class="brf-field">
               <label for="company" data-en="Company / project">Firma / Projekt</label>
-              <input id="company" name="company" autocomplete="organization">
+              <input id="company" name="company" autocomplete="organization" maxlength="120">
             </div>
 
             <div class="brf-field">
               <label for="message" data-en="Anything else?">Noch etwas?</label>
-              <textarea id="message" name="message" rows="3" data-en-ph="Context, links, a sentence about you." placeholder="Kontext, Links, ein Satz zu dir."></textarea>
+              <textarea id="message" name="message" rows="3" data-en-ph="Context, links, a sentence about you." placeholder="Kontext, Links, ein Satz zu dir." maxlength="4000"></textarea>
             </div>
 
             <label class="brf-consent" for="consent">

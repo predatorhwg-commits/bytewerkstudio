@@ -137,6 +137,27 @@ ergibt sich:
 Alle sechs Verläufe liegen über 4.5:1, der hellste bei 4.71:1. Es bleibt beim
 Ist-Zustand.
 
+## 5b. Eingabefelder mit Obergrenze
+
+25 sichtbare Text- und Passwortfelder hatten keine `maxlength`. Ein Feld ohne
+Obergrenze lässt sich mit Megabytes füllen; landet der Wert im Speicher des
+Browsers, ist die Kopie des Besuchers kaputt, nicht der Server — trotzdem ist
+eine Grenze billig und richtig. Gesetzt:
+
+| Feldgruppe | Grenze |
+|---|---|
+| Suche (`shop-search`, `fm-q`, `cm-q`) | 80 |
+| Name, Firma | 100 / 120 |
+| E-Mail | 254 (RFC-Obergrenze) |
+| Passwort, Bestätigung | 200 |
+| Nachricht, Projektziel | 4000 / 2000 |
+| Notizen, Bestellnotiz | 2000 / 1000 |
+| PDF-Text im Probierstand | 50 000 |
+
+Ohne Grenze bleiben nur zwei Honigfallen (`cm-hp`, `website`) — sie sind
+absichtlich frei, damit ein Bot sie füllt — und zwei Nicht-Text-Felder
+(`number`, `date`), bei denen `maxlength` wirkungslos ist.
+
 ## 6. Konto und Passwörter (Vorschau-Modus)
 
 `auth.js` speichert im lokalen Modus nur einen PBKDF2-Hash mit zufälligem Salt

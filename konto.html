@@ -170,11 +170,11 @@
             <form class="profile-form" id="profile-form" novalidate>
               <div class="field">
                 <label for="pf-name" data-en="Name">Name</label>
-                <input id="pf-name" name="name" autocomplete="name" required>
+                <input id="pf-name" name="name" autocomplete="name" required maxlength="100">
               </div>
               <div class="field">
                 <label for="pf-email" data-en="Email">E-Mail</label>
-                <input id="pf-email" name="email" type="email" readonly>
+                <input id="pf-email" name="email" type="email" readonly maxlength="254">
               </div>
               <div class="field">
                 <label for="pf-lang" data-en="Language">Sprache</label>
@@ -224,15 +224,15 @@
             <form class="profile-form" id="pw-form" novalidate>
               <div class="field full">
                 <label for="pw-current" data-en="Current password">Aktuelles Passwort</label>
-                <input id="pw-current" name="current" type="password" autocomplete="current-password" required>
+                <input id="pw-current" name="current" type="password" autocomplete="current-password" required maxlength="200">
               </div>
               <div class="field">
                 <label for="pw-new" data-en="New password">Neues Passwort</label>
-                <input id="pw-new" name="next" type="password" autocomplete="new-password" required>
+                <input id="pw-new" name="next" type="password" autocomplete="new-password" required maxlength="200">
               </div>
               <div class="field">
                 <label for="pw-confirm" data-en="Repeat new password">Neues Passwort wiederholen</label>
-                <input id="pw-confirm" name="confirm" type="password" autocomplete="new-password" required>
+                <input id="pw-confirm" name="confirm" type="password" autocomplete="new-password" required maxlength="200">
               </div>
               <div class="profile-actions full">
                 <button class="btn btn-primary" type="submit" data-en="Update password">Passwort aktualisieren</button>
@@ -246,7 +246,7 @@
             <p data-en="This removes the account and its library from this browser. This cannot be undone.">Dies entfernt das Konto und seine Bibliothek aus diesem Browser. Das kann nicht rückgängig gemacht werden.</p>
             <div class="field" style="max-width:340px">
               <label for="del-confirm" data-en="Type DELETE to confirm">Zum Bestätigen LÖSCHEN eintippen</label>
-              <input id="del-confirm" placeholder="LÖSCHEN" autocomplete="off">
+              <input id="del-confirm" placeholder="LÖSCHEN" autocomplete="off" maxlength="20">
             </div>
             <div class="field" style="max-width:340px">
               <label for="del-password" data-en="Password">Passwort</label>

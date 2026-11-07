@@ -58,17 +58,17 @@
       <div class="form-grid">
         <div class="field">
           <label for="checkout-name" data-en="Name *">Name <span class="req">*</span></label>
-          <input id="checkout-name" name="name" autocomplete="name" required>
+          <input id="checkout-name" name="name" autocomplete="name" required maxlength="100">
           <span class="err" data-en="Please enter your name.">Bitte Namen eintragen.</span>
         </div>
         <div class="field">
           <label for="checkout-email" data-en="E-Mail *">E-Mail <span class="req">*</span></label>
-          <input id="checkout-email" name="email" type="email" autocomplete="email" required>
+          <input id="checkout-email" name="email" type="email" autocomplete="email" required maxlength="254">
           <span class="err" data-en="Please enter a valid email.">Bitte gueltige E-Mail eintragen.</span>
         </div>
         <div class="field full">
           <label for="checkout-note" data-en="Note">Notiz</label>
-          <textarea id="checkout-note" name="note" data-en-ph="Optional: platform, billing details or questions" placeholder="Optional: Plattform, Rechnungsdaten oder Rueckfrage"></textarea>
+          <textarea id="checkout-note" name="note" data-en-ph="Optional: platform, billing details or questions" placeholder="Optional: Plattform, Rechnungsdaten oder Rueckfrage" maxlength="1000"></textarea>
         </div>
       </div>
       <div class="form-foot">

@@ -40,7 +40,7 @@
         <div class="auth-field" id="f-name">
           <label for="name" data-en="Name">Name</label>
           <div class="input-wrap">
-            <input id="name" name="name" type="text" autocomplete="name" placeholder="Vor- und Nachname" required>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="Vor- und Nachname" required maxlength="100">
             <svg class="in-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c.6-3.4 3.4-5.4 7-5.4s6.4 2 7 5.4"/></svg>
           </div>
           <span class="auth-err" data-en="Please enter at least 2 characters.">Bitte mindestens 2 Zeichen eintragen.</span>
@@ -49,7 +49,7 @@
         <div class="auth-field" id="f-email">
           <label for="email" data-en="Email">E-Mail</label>
           <div class="input-wrap">
-            <input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="du@beispiel.de" required>
+            <input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="du@beispiel.de" required maxlength="254">
             <svg class="in-icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
           </div>
           <span class="auth-err" data-en="Please enter a valid email address.">Bitte eine gültige E-Mail-Adresse eintragen.</span>
@@ -58,7 +58,7 @@
         <div class="auth-field" id="f-password">
           <label for="password" data-en="Password">Passwort</label>
           <div class="input-wrap has-toggle">
-            <input id="password" name="password" type="password" autocomplete="new-password" placeholder="Mindestens 10 Zeichen" required>
+            <input id="password" name="password" type="password" autocomplete="new-password" placeholder="Mindestens 10 Zeichen" required maxlength="200">
             <svg class="in-icon" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7.5a4 4 0 0 1 8 0V10"/></svg>
             <button type="button" class="pw-toggle" data-pw-toggle="password" aria-label="Passwort anzeigen" data-en-aria="Show password">
               <svg viewBox="0 0 24 24"><path d="M2.5 12S6 5.8 12 5.8 21.5 12 21.5 12 18 18.2 12 18.2 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/></svg>
@@ -74,7 +74,7 @@
         <div class="auth-field" id="f-confirm">
           <label for="confirm" data-en="Repeat password">Passwort wiederholen</label>
           <div class="input-wrap has-toggle">
-            <input id="confirm" name="confirm" type="password" autocomplete="new-password" placeholder="••••••••••" required>
+            <input id="confirm" name="confirm" type="password" autocomplete="new-password" placeholder="••••••••••" required maxlength="200">
             <svg class="in-icon" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7.5a4 4 0 0 1 8 0V10"/></svg>
             <button type="button" class="pw-toggle" data-pw-toggle="confirm" aria-label="Passwort anzeigen" data-en-aria="Show password">
               <svg viewBox="0 0 24 24"><path d="M2.5 12S6 5.8 12 5.8 21.5 12 21.5 12 18 18.2 12 18.2 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/></svg>
@@ -119,7 +119,7 @@
       </div>
       <div>
         <a class="aa-product" href="updatepilot.html">
-          <img src="media/updatepilot-icon.svg" alt="">
+          <img src="media/updatepilot-icon.svg" alt="" width="512" height="512">
           <div>
             <div class="t">UpdatePilot</div>
             <div class="s" data-en="Lifetime license · Windows">Lebenslange Lizenz · Windows</div>
