@@ -87,7 +87,7 @@ body::after {
   pointer-events: none;
   opacity: 0.028;
   mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='180' height='180' filter='url(%23n)' opacity='0.55'/></svg>");
+  background-image: url("media/ui/data-06648311fd.svg");
   background-size: 180px 180px;
 }
 
@@ -316,7 +316,7 @@ body::after {
 .package .pk-desc { color: var(--muted); }
 .package li { color: var(--ink-soft); }
 .package li::before {
-  background: var(--accent-tint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c96442' stroke-width='3'%3E%3Cpath d='m5 13 4 4L19 7'/%3E%3C/svg%3E") center/10px no-repeat;
+  background: var(--accent-tint) url("media/ui/data-79f4525ab0.svg") center/10px no-repeat;
 }
 .pk-tag { background: var(--accent); color: #fff; }
 
@@ -502,7 +502,7 @@ body::after {
   padding: 11px 34px 11px 13px;
   appearance: none;
   cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b665c' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-image: url("media/ui/data-dbde2bb48d.svg");
   background-repeat: no-repeat;
   background-position: right 11px center;
   background-size: 14px;

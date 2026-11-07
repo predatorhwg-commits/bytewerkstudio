@@ -172,7 +172,7 @@
   height: 14px;
   margin-top: 2px;
   border-radius: 0;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b04f31' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 13 5 5L20 6'/%3E%3C/svg%3E") center/12px no-repeat;
+  background: url("media/ui/data-7295c67e48.svg") center/12px no-repeat;
 }
 
 #preise .package .btn {
@@ -374,7 +374,7 @@
   width: 13px;
   height: 13px;
   flex: none;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b04f31' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 13 5 5L20 6'/%3E%3C/svg%3E") center/13px no-repeat;
+  background: url("media/ui/data-f38ca6b74b.svg") center/13px no-repeat;
 }
 
 .ent-table .ent-no {

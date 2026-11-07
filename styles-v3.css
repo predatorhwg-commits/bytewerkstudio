@@ -223,7 +223,7 @@
 .package li { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--ink-soft); }
 .package li::before {
   content: ""; width: 15px; height: 15px; flex-shrink: 0; margin-top: 2px; border-radius: 999px;
-  background: var(--accent-tint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e8a45c' stroke-width='3'%3E%3Cpath d='m5 13 4 4L19 7'/%3E%3C/svg%3E") center/10px no-repeat;
+  background: var(--accent-tint) url("media/ui/data-dfda6ff84a.svg") center/10px no-repeat;
 }
 .package .btn { margin-top: auto; justify-content: center; }
 
