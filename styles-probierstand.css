@@ -913,6 +913,28 @@
   transition: color 0.15s var(--ease);
 }
 .pb-task button:hover { color: var(--accent); }
+/* Aufgaben-Text ist selbst der Schalter: er soll wie Text aussehen,
+   nicht wie ein Button, und die verfuegbare Breite fuellen. */
+.pb-task-toggle {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+/* Unsichtbarer Kopier-Helfer, bleibt fuer Screenreader unerreichbar. */
+.pb-offscreen {
+  position: fixed;
+  top: -1000px;
+  left: 0;
+  opacity: 0;
+}
 .pb-task.is-done { text-decoration: line-through; color: var(--faint); background: rgba(255, 255, 255, 0.45); }
 .pb-day-add {
   appearance: none;

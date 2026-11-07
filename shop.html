@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://*.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://*.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests">
 <script src="boot.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
@@ -26,6 +26,7 @@
 <link rel="stylesheet" href="styles-claude.css">
 <link rel="stylesheet" href="styles-v5.css">
   <link rel="stylesheet" href="styles-3d.css">
+  <link rel="stylesheet" href="styles-util.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -118,7 +119,7 @@
 </section>
 
 <!-- SHOP GRID -->
-<section class="sec-pad" style="padding-top:clamp(48px,7vw,80px)" data-screen-label="Shop Grid">
+<section class="sec-pad u-pt-48" data-screen-label="Shop Grid">
   <div class="wrap">
     <div class="shop-tools reveal">
       <label class="shop-search" for="shop-search">
@@ -134,7 +135,7 @@
       <span class="shop-count" id="shop-count" aria-live="polite"></span>
     </div>
     <div class="shop-tools-extra reveal">
-      <p style="margin:0;font-size:12.5px;color:var(--faint)" data-en="Offline apps, lifetime licenses, no account required.">Offline-Apps, Lifetime-Lizenzen, kein Konto nötig.</p>
+      <p class="u-note-sm" data-en="Offline apps, lifetime licenses, no account required.">Offline-Apps, Lifetime-Lizenzen, kein Konto nötig.</p>
       <a class="btn btn-primary btn-sm" href="probierstand.html"><span data-en="Try four tools live">Vier Werkzeuge live testen</span> <span class="arr">&rarr;</span></a>
       <a class="btn btn-ghost btn-sm" href="vergleich.html"><span data-en="Compare all products">Alle Produkte vergleichen</span> <span class="arr">&rarr;</span></a>
     </div>
@@ -263,7 +264,7 @@
       <div class="recent-row" id="recent-row"></div>
     </div>
 
-    <p class="reveal" style="margin-top:40px;font-family:var(--mono);font-size:13px;color:var(--faint)" data-en="// Offline apps, lifetime licenses, no account required. Questions and purchases by email.">// Alle Apps laufen offline. Fragen und Kauf per E-Mail: Haqmalh@icloud.com</p>
+    <p class="reveal u-mt-40 u-mono-13" data-en="// Offline apps, lifetime licenses, no account required. Questions and purchases by email.">// Alle Apps laufen offline. Fragen und Kauf per E-Mail: Haqmalh@icloud.com</p>
   </div>
 </section>
 

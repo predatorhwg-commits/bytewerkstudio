@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://*.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://*.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests">
 <script src="boot.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="styles-claude.css">
 <link rel="stylesheet" href="styles-v5.css">
   <link rel="stylesheet" href="styles-3d.css">
+  <link rel="stylesheet" href="styles-util.css">
 </head>
 <body class="dash-page">
 
@@ -36,7 +37,7 @@
           </div>
         </div>
       </div>
-      <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <div class="u-row-10">
         <a class="btn btn-ghost" href="shop.html"><span data-en="Browse shop">Zum Shop</span> <span class="arr">→</span></a>
         <button class="btn btn-ghost" type="button" data-logout data-en="Sign out">Abmelden</button>
       </div>
@@ -97,7 +98,7 @@
             </div>
             <div class="stat-tile">
               <span class="st-k" data-en="Member since">Mitglied seit</span>
-              <span class="st-n" id="stat-since" style="font-size:22px">—</span>
+              <span class="st-n u-fs-22" id="stat-since">—</span>
               <span class="st-s" data-en="Free account">Kostenloses Konto</span>
               <a class="st-link" href="#profil" data-en="Edit profile →">Profil bearbeiten →</a>
             </div>
@@ -107,7 +108,7 @@
             <div class="dash-card">
               <h3 data-en="Quick start">Schnellstart</h3>
               <p class="dc-sub" data-en="Add free tools to your library or pick a premium app.">Füge kostenlose Tools deiner Bibliothek hinzu oder wähle eine Premium-App.</p>
-              <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <div class="u-row-10">
                 <a class="btn btn-primary" href="#bibliothek" data-en="Browse library">Bibliothek ansehen</a>
                 <a class="btn btn-ghost" href="shop.html" data-en="All products">Alle Produkte</a>
               </div>
@@ -187,7 +188,7 @@
                 <input id="pf-plan" name="plan" readonly value="Free">
               </div>
               <div class="field full">
-                <label class="checkline" for="pf-marketing" style="font-family:var(--body);font-size:13.5px;letter-spacing:0">
+                <label class="checkline u-checkline" for="pf-marketing">
                   <input type="checkbox" id="pf-marketing" name="marketing">
                   <span data-en="Send me occasional product news. No spam, unsubscribe anytime.">Schick mir gelegentlich Produktneuigkeiten. Kein Spam, jederzeit abbestellbar.</span>
                 </label>
@@ -201,7 +202,7 @@
           <div class="dash-card">
             <h3 data-en="Your data">Deine Daten</h3>
             <p class="dc-sub" data-en="Download everything stored about your account as JSON.">Lade alles, was zu deinem Konto gespeichert ist, als JSON herunter.</p>
-            <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <div class="u-row-10">
               <button class="btn btn-ghost" type="button" id="export-data" data-en="Export data">Daten exportieren</button>
               <a class="btn btn-ghost" href="datenschutz.html" data-en="Privacy policy">Datenschutzerklärung</a>
             </div>
@@ -243,11 +244,11 @@
           <div class="danger-zone">
             <h4 data-en="Delete account">Konto löschen</h4>
             <p data-en="This removes the account and its library from this browser. This cannot be undone.">Dies entfernt das Konto und seine Bibliothek aus diesem Browser. Das kann nicht rückgängig gemacht werden.</p>
-            <div class="field" style="max-width:340px">
+            <div class="field u-max-340">
               <label for="del-confirm" data-en="Type DELETE to confirm">Zum Bestätigen LÖSCHEN eintippen</label>
               <input id="del-confirm" placeholder="LÖSCHEN" autocomplete="off">
             </div>
-            <div class="field" style="max-width:340px">
+            <div class="field u-max-340">
               <label for="del-password" data-en="Password">Passwort</label>
               <input id="del-password" type="password" autocomplete="current-password">
             </div>

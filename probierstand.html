@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://*.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://*.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests">
 <script src="boot.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="styles-auth.css">
 <link rel="stylesheet" href="styles-claude.css">
 <link rel="stylesheet" href="styles-probierstand.css">
+<link rel="stylesheet" href="styles-util.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -178,7 +179,7 @@
           </div>
 
           <div class="pb-slider">
-            <label class="pb-label" for="pb-pw-len" style="margin:0" data-en="Length">Länge</label>
+            <label class="pb-label u-m-0" for="pb-pw-len" data-en="Length">Länge</label>
             <input type="range" id="pb-pw-len" min="12" max="48" value="20" step="1" data-pw-len>
             <output for="pb-pw-len" data-pw-len-out>20</output>
           </div>
@@ -304,7 +305,7 @@ Ein Antrag auf Fristverlängerung muss spätestens zwei Wochen&#10;vor dem Prüf
           </div>
 
           <div class="pb-row pb-row-between">
-            <span style="font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--faint)" data-en="Nothing leaves this page">Nichts verlässt diese Seite</span>
+            <span class="u-eyebrow-mono" data-en="Nothing leaves this page">Nichts verlässt diese Seite</span>
             <button class="pb-btn" type="button" data-tx-copy>
               <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg>
               <span data-en="Copy result">Ergebnis kopieren</span>

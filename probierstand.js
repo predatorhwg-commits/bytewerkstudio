@@ -82,7 +82,7 @@
       const area = document.createElement('textarea');
       area.value = text;
       area.setAttribute('readonly', '');
-      area.style.cssText = 'position:fixed;top:-1000px;left:0;opacity:0';
+      area.className = 'pb-offscreen';
       document.body.appendChild(area);
       area.select();
       let ok = false;
@@ -573,7 +573,7 @@
         const toggle = document.createElement('button');
         toggle.type = 'button';
         toggle.textContent = task.t;
-        toggle.style.cssText = 'appearance:none;border:0;background:transparent;padding:0;margin:0;font:inherit;color:inherit;text-align:left;cursor:pointer;flex:1 1 auto;min-width:0';
+        toggle.className = 'pb-task-toggle';
         toggle.setAttribute('aria-pressed', String(!!task.d));
         toggle.setAttribute('aria-label', (task.d ? t('markOpen') : t('markDone')) + task.t);
         toggle.addEventListener('click', () => {

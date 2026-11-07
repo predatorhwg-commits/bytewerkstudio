@@ -289,6 +289,7 @@
 .orders tr:last-child td { border-bottom: none; }
 .orders .o-id { font-family: var(--mono); font-size: 11.5px; color: var(--faint); }
 .orders .o-amount { text-align: right; color: var(--ink); font-weight: 600; }
+.orders .o-num { text-align: right; }
 
 .profile-form { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .profile-form .full { grid-column: 1 / -1; }

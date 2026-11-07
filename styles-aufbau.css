@@ -199,10 +199,10 @@
   flex: none;
 }
 
-.bp-fb-plate:nth-child(1) { --fb-accent: #b04f31; }
-.bp-fb-plate:nth-child(2) { --fb-accent: #9a7733; }
-.bp-fb-plate:nth-child(3) { --fb-accent: #4f7a63; }
-.bp-fb-plate:nth-child(4) { --fb-accent: #4b6478; }
+.bp-fb-plate:nth-child(1) { --fb-accent: #b04f31; --i: 0; }
+.bp-fb-plate:nth-child(2) { --fb-accent: #9a7733; --i: 1; }
+.bp-fb-plate:nth-child(3) { --fb-accent: #4f7a63; --i: 2; }
+.bp-fb-plate:nth-child(4) { --fb-accent: #4b6478; --i: 3; }
 
 .bp-fb-n {
   font-family: var(--display);
