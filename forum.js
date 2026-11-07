@@ -2040,6 +2040,19 @@
   /* 18. Boot                                                    */
   /* ---------------------------------------------------------- */
 
+  /* The plan prices live on the developer page. That page ships with its
+     own change set. Because the header is built from the same navigation
+     list, its link is a reliable, network-free signal: no link there, no
+     page in this build — then a sentence beats a dead link. */
+  function checkPlansLink() {
+    const link = document.querySelector('[data-fm-plans-link]');
+    if (!link) return;
+    if (document.querySelector('header a[href="entwickler.html"]')) return;
+    const p = document.createElement('span');
+    p.textContent = t('Preise folgen mit der Entwickler-Seite.', 'Pricing follows with the developer page.');
+    link.replaceWith(p);
+  }
+
   function boot() {
     db = load();
     parseRoute();
@@ -2056,6 +2069,7 @@
     }
 
     document.documentElement.classList.add('fm-ready');
+    checkPlansLink();
   }
 
   if (document.readyState === 'loading') {

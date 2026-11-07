@@ -107,10 +107,13 @@ richten sich danach: `de-DE` nur bei `de`, sonst `en-GB`.
   `entwickler.html#abo` — eine Zahl an zwei Stellen läuft auseinander.
 
 Der Link setzt voraus, dass `entwickler.html` mit ausgeliefert wird —
-sie kommt aus dem Entwickler-Change-Set. Eine Prüfung per `HEAD` gab es
-kurzzeitig, sie erzeugte aber bei fehlender Seite einen 404 im
-Konsolenprotokoll und verstößt damit gegen die Regel „0 Konsolenfehler“.
-Deshalb steht dort ein normaler Link.
+sie kommt aus dem Entwickler-Change-Set. Fehlt sie in einem Build, ersetzt
+`checkPlansLink()` den Link durch einen Satz. Das Signal ist die
+Kopfzeile: `components.js` baut Navigation und Forum-Link aus derselben
+Liste, ein fehlender Nav-Eintrag heißt also fehlende Seite. Kein
+`fetch`, kein `HEAD` — eine frühere Netzwerkprüfung erzeugte bei
+fehlender Seite einen 404 im Konsolenprotokoll und verstieß gegen die
+Regel „0 Konsolenfehler“.
 
 Im Vorschau-Modus gibt es keine Zahlung. `Pro anfragen` setzt
 `bw-forum-pro-preview` und zeigt den Zugang als „Pro (Vorschau)“ an. Für
