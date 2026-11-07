@@ -5,7 +5,7 @@
 <script src="bootstrap.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; script-src-attr 'none'; script-src-elem 'self'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Download vorbereiten — Lernreich · Bytewerk Studio</title>
 <meta name="description" content="Download vorbereiten: Die kostenlose Lernreich-App für Windows herunterladen und in wenigen Schritten starten.">
@@ -37,9 +37,11 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main" data-en="Skip to content">Zum Inhalt springen</a>
+
 <div data-include="header"></div>
 
-<main class="wrap contact-grid" data-screen-label="Checkout">
+<main id="main" class="wrap contact-grid" data-screen-label="Checkout">
   <aside class="contact-info reveal">
     <div>
       <span class="eyebrow">Lernreich</span>

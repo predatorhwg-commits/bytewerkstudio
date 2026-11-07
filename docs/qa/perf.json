@@ -1,0 +1,1114 @@
+{
+  "summary": {
+    "pages": 34,
+    "errors": 0,
+    "median_bytes": 900759,
+    "max_bytes": 1755937,
+    "median_lcp": 852,
+    "worst_lcp": 948,
+    "pages_cls_over_01": 0,
+    "images_without_dims": 100
+  },
+  "rows": [
+    {
+      "page": "404.html",
+      "lcp": 124,
+      "cls": 0.001,
+      "dom": 119,
+      "load": 119,
+      "bytes": 1227257,
+      "requests": 26,
+      "biggest": [
+        {
+          "url": "/vendor/three.core.min.js",
+          "bytes": 381124
+        },
+        {
+          "url": "/vendor/three.module.min.js",
+          "bytes": 338908
+        },
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 39985
+        }
+      ],
+      "images_total": 0,
+      "images_lazy": 0,
+      "images_no_dims": 0,
+      "images_oversize": 0
+    },
+    {
+      "page": "agb.html",
+      "lcp": 848,
+      "cls": 0.001,
+      "dom": 51,
+      "load": 52,
+      "bytes": 425571,
+      "requests": 18,
+      "biggest": [
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 39985
+        },
+        {
+          "url": "/ui-v4.js",
+          "bytes": 37295
+        },
+        {
+          "url": "/styles.css",
+          "bytes": 31487
+        }
+      ],
+      "images_total": 0,
+      "images_lazy": 0,
+      "images_no_dims": 0,
+      "images_oversize": 0
+    },
+    {
+      "page": "arbeiten.html",
+      "lcp": 844,
+      "cls": 0.001,
+      "dom": 102,
+      "load": 102,
+      "bytes": 1755937,
+      "requests": 27,
+      "biggest": [
+        {
+          "url": "/vendor/three.core.min.js",
+          "bytes": 381124
+        },
+        {
+          "url": "/vendor/three.module.min.js",
+          "bytes": 338908
+        },
+        {
+          "url": "/media/mastil-start-bg.jpg",
+          "bytes": 314771
+        },
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/media/keyforge-vault-dashboard.png",
+          "bytes": 115364
+        }
+      ],
+      "images_total": 3,
+      "images_lazy": 3,
+      "images_no_dims": 3,
+      "images_oversize": 0
+    },
+    {
+      "page": "burgenwerk.html",
+      "lcp": 872,
+      "cls": 0.001,
+      "dom": 115,
+      "load": 115,
+      "bytes": 1250726,
+      "requests": 26,
+      "biggest": [
+        {
+          "url": "/vendor/three.core.min.js",
+          "bytes": 381124
+        },
+        {
+          "url": "/vendor/three.module.min.js",
+          "bytes": 338908
+        },
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/media/mastil-logo.jpg",
+          "bytes": 74087
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        }
+      ],
+      "images_total": 4,
+      "images_lazy": 0,
+      "images_no_dims": 4,
+      "images_oversize": 0
+    },
+    {
+      "page": "bytewerk-pdf-text-pro.html",
+      "bytes": 0,
+      "note": "Neustart ohne Bytezählung: Page.wait_for_timeout: Target page, context or browser has been closed"
+    },
+    {
+      "page": "checkout.html",
+      "lcp": 784,
+      "cls": 0.006,
+      "dom": 46,
+      "load": 46,
+      "bytes": 426697,
+      "requests": 19,
+      "biggest": [
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 39985
+        },
+        {
+          "url": "/ui-v4.js",
+          "bytes": 37295
+        },
+        {
+          "url": "/styles.css",
+          "bytes": 31487
+        }
+      ],
+      "images_total": 0,
+      "images_lazy": 0,
+      "images_no_dims": 0,
+      "images_oversize": 0
+    },
+    {
+      "page": "datenschutz.html",
+      "lcp": 852,
+      "cls": 0.001,
+      "dom": 44,
+      "load": 44,
+      "bytes": 430290,
+      "requests": 18,
+      "biggest": [
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 39985
+        },
+        {
+          "url": "/ui-v4.js",
+          "bytes": 37295
+        },
+        {
+          "url": "/styles.css",
+          "bytes": 31487
+        }
+      ],
+      "images_total": 0,
+      "images_lazy": 0,
+      "images_no_dims": 0,
+      "images_oversize": 0
+    },
+    {
+      "page": "entwickler.html",
+      "lcp": 928,
+      "cls": 0.001,
+      "dom": 88,
+      "load": 88,
+      "bytes": 1307663,
+      "requests": 26,
+      "biggest": [
+        {
+          "url": "/vendor/three.core.min.js",
+          "bytes": 381124
+        },
+        {
+          "url": "/vendor/three.module.min.js",
+          "bytes": 338908
+        },
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        },
+        {
+          "url": "/entwickler.html",
+          "bytes": 43170
+        }
+      ],
+      "images_total": 0,
+      "images_lazy": 0,
+      "images_no_dims": 0,
+      "images_oversize": 0
+    },
+    {
+      "page": "forum.html",
+      "lcp": 84,
+      "cls": 0.015,
+      "dom": 163,
+      "load": 165,
+      "bytes": 1345697,
+      "requests": 24,
+      "biggest": [
+        {
+          "url": "/vendor/three.core.min.js",
+          "bytes": 381124
+        },
+        {
+          "url": "/vendor/three.module.min.js",
+          "bytes": 338908
+        },
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/forum.js",
+          "bytes": 94595
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        }
+      ],
+      "images_total": 0,
+      "images_lazy": 0,
+      "images_no_dims": 0,
+      "images_oversize": 0
+    },
+    {
+      "page": "impressum.html",
+      "lcp": 880,
+      "cls": 0.001,
+      "dom": 60,
+      "load": 60,
+      "bytes": 424262,
+      "requests": 18,
+      "biggest": [
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 39985
+        },
+        {
+          "url": "/ui-v4.js",
+          "bytes": 37295
+        },
+        {
+          "url": "/styles.css",
+          "bytes": 31487
+        }
+      ],
+      "images_total": 0,
+      "images_lazy": 0,
+      "images_no_dims": 0,
+      "images_oversize": 0
+    },
+    {
+      "page": "index.html",
+      "lcp": 948,
+      "cls": 0.001,
+      "dom": 111,
+      "load": 111,
+      "bytes": 1147408,
+      "requests": 34,
+      "biggest": [
+        {
+          "url": "/media/mastil-start-bg.jpg",
+          "bytes": 314771
+        },
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/media/keyforge-vault-dashboard.png",
+          "bytes": 115364
+        },
+        {
+          "url": "/media/neon-dominion-gameplay.jpg",
+          "bytes": 108830
+        },
+        {
+          "url": "/index.html",
+          "bytes": 60354
+        }
+      ],
+      "images_total": 19,
+      "images_lazy": 8,
+      "images_no_dims": 19,
+      "images_oversize": 0
+    },
+    {
+      "page": "keyforge-vault.html",
+      "lcp": 884,
+      "cls": 0.001,
+      "dom": 71,
+      "load": 71,
+      "bytes": 685757,
+      "requests": 27,
+      "biggest": [
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/media/keyforge-vault-dashboard.png",
+          "bytes": 115364
+        },
+        {
+          "url": "/media/lernreich-logo.png",
+          "bytes": 68670
+        },
+        {
+          "url": "/media/pruefungs-countdown-logo.png",
+          "bytes": 60789
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        }
+      ],
+      "images_total": 8,
+      "images_lazy": 0,
+      "images_no_dims": 8,
+      "images_oversize": 0
+    },
+    {
+      "page": "kontakt.html",
+      "lcp": 72,
+      "cls": 0.001,
+      "dom": 59,
+      "load": 59,
+      "bytes": 1222014,
+      "requests": 22,
+      "biggest": [
+        {
+          "url": "/vendor/three.core.min.js",
+          "bytes": 381124
+        },
+        {
+          "url": "/vendor/three.module.min.js",
+          "bytes": 338908
+        },
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 39985
+        }
+      ],
+      "images_total": 0,
+      "images_lazy": 0,
+      "images_no_dims": 0,
+      "images_oversize": 0
+    },
+    {
+      "page": "konto.html",
+      "lcp": 60,
+      "cls": 0,
+      "dom": 21,
+      "load": 21,
+      "bytes": 447086,
+      "requests": 21,
+      "biggest": [
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 39985
+        },
+        {
+          "url": "/ui-v4.js",
+          "bytes": 37295
+        },
+        {
+          "url": "/styles.css",
+          "bytes": 31487
+        }
+      ],
+      "images_total": 1,
+      "images_lazy": 0,
+      "images_no_dims": 1,
+      "images_oversize": 0
+    },
+    {
+      "page": "lernreich-pro.html",
+      "lcp": 864,
+      "cls": 0.001,
+      "dom": 98,
+      "load": 98,
+      "bytes": 1307945,
+      "requests": 30,
+      "biggest": [
+        {
+          "url": "/vendor/three.core.min.js",
+          "bytes": 381124
+        },
+        {
+          "url": "/vendor/three.module.min.js",
+          "bytes": 338908
+        },
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/media/lernreich-logo.png",
+          "bytes": 68670
+        },
+        {
+          "url": "/media/pruefungs-countdown-logo.png",
+          "bytes": 60789
+        }
+      ],
+      "images_total": 7,
+      "images_lazy": 0,
+      "images_no_dims": 7,
+      "images_oversize": 0
+    },
+    {
+      "page": "login.html",
+      "lcp": 88,
+      "cls": 0,
+      "dom": 68,
+      "load": 68,
+      "bytes": 431440,
+      "requests": 20,
+      "biggest": [
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 39985
+        },
+        {
+          "url": "/ui-v4.js",
+          "bytes": 37295
+        },
+        {
+          "url": "/styles.css",
+          "bytes": 31487
+        }
+      ],
+      "images_total": 1,
+      "images_lazy": 0,
+      "images_no_dims": 1,
+      "images_oversize": 0
+    },
+    {
+      "page": "lumaweek-planner.html",
+      "bytes": 0,
+      "note": "Neustart ohne Bytezählung: Page.wait_for_timeout: Target page, context or browser has been closed"
+    },
+    {
+      "page": "marke.html",
+      "lcp": 880,
+      "cls": 0.001,
+      "dom": 142,
+      "load": 143,
+      "bytes": 1247312,
+      "requests": 24,
+      "biggest": [
+        {
+          "url": "/vendor/three.core.min.js",
+          "bytes": 381124
+        },
+        {
+          "url": "/vendor/three.module.min.js",
+          "bytes": 338908
+        },
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 39985
+        }
+      ],
+      "images_total": 0,
+      "images_lazy": 0,
+      "images_no_dims": 0,
+      "images_oversize": 0
+    },
+    {
+      "page": "mastil.html",
+      "lcp": 852,
+      "cls": 0.001,
+      "dom": 54,
+      "load": 54,
+      "bytes": 900759,
+      "requests": 26,
+      "biggest": [
+        {
+          "url": "/media/mastil-start-bg.jpg",
+          "bytes": 314771
+        },
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/media/mastil-logo.jpg",
+          "bytes": 74087
+        },
+        {
+          "url": "/media/lernreich-logo.png",
+          "bytes": 68670
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        }
+      ],
+      "images_total": 8,
+      "images_lazy": 0,
+      "images_no_dims": 8,
+      "images_oversize": 0
+    },
+    {
+      "page": "musterbuch.html",
+      "lcp": 920,
+      "cls": 0.001,
+      "dom": 102,
+      "load": 102,
+      "bytes": 1202750,
+      "requests": 22,
+      "biggest": [
+        {
+          "url": "/vendor/three.core.min.js",
+          "bytes": 381124
+        },
+        {
+          "url": "/vendor/three.module.min.js",
+          "bytes": 338908
+        },
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 39985
+        }
+      ],
+      "images_total": 0,
+      "images_lazy": 0,
+      "images_no_dims": 0,
+      "images_oversize": 0
+    },
+    {
+      "page": "neon-dominion.html",
+      "lcp": 856,
+      "cls": 0.001,
+      "dom": 75,
+      "load": 76,
+      "bytes": 624078,
+      "requests": 25,
+      "biggest": [
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/media/neon-dominion-gameplay.jpg",
+          "bytes": 108830
+        },
+        {
+          "url": "/media/mastil-logo.jpg",
+          "bytes": 74087
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 39985
+        }
+      ],
+      "images_total": 7,
+      "images_lazy": 0,
+      "images_no_dims": 7,
+      "images_oversize": 0
+    },
+    {
+      "page": "passwort-vergessen.html",
+      "lcp": 72,
+      "cls": 0,
+      "dom": 49,
+      "load": 49,
+      "bytes": 427183,
+      "requests": 19,
+      "biggest": [
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 39985
+        },
+        {
+          "url": "/ui-v4.js",
+          "bytes": 37295
+        },
+        {
+          "url": "/styles.css",
+          "bytes": 31487
+        }
+      ],
+      "images_total": 0,
+      "images_lazy": 0,
+      "images_no_dims": 0,
+      "images_oversize": 0
+    },
+    {
+      "page": "probierstand.html",
+      "lcp": 84,
+      "cls": 0.001,
+      "dom": 148,
+      "load": 149,
+      "bytes": 1232218,
+      "requests": 23,
+      "biggest": [
+        {
+          "url": "/vendor/three.core.min.js",
+          "bytes": 381124
+        },
+        {
+          "url": "/vendor/three.module.min.js",
+          "bytes": 338908
+        },
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 39985
+        }
+      ],
+      "images_total": 0,
+      "images_lazy": 0,
+      "images_no_dims": 0,
+      "images_oversize": 0
+    },
+    {
+      "page": "produkt.html",
+      "lcp": 860,
+      "cls": 0.001,
+      "dom": 50,
+      "load": 50,
+      "bytes": 568476,
+      "requests": 26,
+      "biggest": [
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/media/lernreich-logo.png",
+          "bytes": 68670
+        },
+        {
+          "url": "/media/pruefungs-countdown-logo.png",
+          "bytes": 60789
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 39985
+        }
+      ],
+      "images_total": 7,
+      "images_lazy": 0,
+      "images_no_dims": 7,
+      "images_oversize": 0
+    },
+    {
+      "page": "pruefungs-countdown.html",
+      "lcp": 860,
+      "cls": 0.001,
+      "dom": 54,
+      "load": 54,
+      "bytes": 569166,
+      "requests": 26,
+      "biggest": [
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/media/lernreich-logo.png",
+          "bytes": 68670
+        },
+        {
+          "url": "/media/pruefungs-countdown-logo.png",
+          "bytes": 60789
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 39985
+        }
+      ],
+      "images_total": 7,
+      "images_lazy": 0,
+      "images_no_dims": 7,
+      "images_oversize": 0
+    },
+    {
+      "page": "register.html",
+      "lcp": 68,
+      "cls": 0,
+      "dom": 46,
+      "load": 46,
+      "bytes": 435256,
+      "requests": 20,
+      "biggest": [
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 39985
+        },
+        {
+          "url": "/ui-v4.js",
+          "bytes": 37295
+        },
+        {
+          "url": "/styles.css",
+          "bytes": 31487
+        }
+      ],
+      "images_total": 1,
+      "images_lazy": 0,
+      "images_no_dims": 1,
+      "images_oversize": 0
+    },
+    {
+      "page": "shop.html",
+      "lcp": 852,
+      "cls": 0.001,
+      "dom": 94,
+      "load": 94,
+      "bytes": 1392730,
+      "requests": 34,
+      "biggest": [
+        {
+          "url": "/vendor/three.core.min.js",
+          "bytes": 381124
+        },
+        {
+          "url": "/vendor/three.module.min.js",
+          "bytes": 338908
+        },
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/media/mastil-logo.jpg",
+          "bytes": 74087
+        },
+        {
+          "url": "/media/lernreich-logo.png",
+          "bytes": 68670
+        }
+      ],
+      "images_total": 11,
+      "images_lazy": 0,
+      "images_no_dims": 11,
+      "images_oversize": 0
+    },
+    {
+      "page": "showroom.html",
+      "bytes": 0,
+      "note": "Neustart ohne Bytezählung: Page.wait_for_timeout: Target page, context or browser has been closed"
+    },
+    {
+      "page": "sicherheit.html",
+      "lcp": 876,
+      "cls": 0.001,
+      "dom": 75,
+      "load": 75,
+      "bytes": 1290406,
+      "requests": 24,
+      "biggest": [
+        {
+          "url": "/vendor/three.core.min.js",
+          "bytes": 381124
+        },
+        {
+          "url": "/vendor/three.module.min.js",
+          "bytes": 338908
+        },
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/sicherheit.html",
+          "bytes": 53597
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        }
+      ],
+      "images_total": 0,
+      "images_lazy": 0,
+      "images_no_dims": 0,
+      "images_oversize": 0
+    },
+    {
+      "page": "softwareentwicklung-ludwigshafen.html",
+      "lcp": 860,
+      "cls": 0.001,
+      "dom": 56,
+      "load": 56,
+      "bytes": 657104,
+      "requests": 28,
+      "biggest": [
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/media/mastil-logo.jpg",
+          "bytes": 74087
+        },
+        {
+          "url": "/media/lernreich-logo.png",
+          "bytes": 68670
+        },
+        {
+          "url": "/media/pruefungs-countdown-logo.png",
+          "bytes": 60789
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        }
+      ],
+      "images_total": 10,
+      "images_lazy": 0,
+      "images_no_dims": 10,
+      "images_oversize": 0
+    },
+    {
+      "page": "studio.html",
+      "lcp": 868,
+      "cls": 0.001,
+      "dom": 55,
+      "load": 55,
+      "bytes": 1185520,
+      "requests": 22,
+      "biggest": [
+        {
+          "url": "/vendor/three.core.min.js",
+          "bytes": 381124
+        },
+        {
+          "url": "/vendor/three.module.min.js",
+          "bytes": 338908
+        },
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 39985
+        }
+      ],
+      "images_total": 0,
+      "images_lazy": 0,
+      "images_no_dims": 0,
+      "images_oversize": 0
+    },
+    {
+      "page": "updatepilot.html",
+      "lcp": 884,
+      "cls": 0.001,
+      "dom": 112,
+      "load": 112,
+      "bytes": 1178300,
+      "requests": 28,
+      "biggest": [
+        {
+          "url": "/vendor/three.core.min.js",
+          "bytes": 381124
+        },
+        {
+          "url": "/vendor/three.module.min.js",
+          "bytes": 338908
+        },
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 39985
+        }
+      ],
+      "images_total": 6,
+      "images_lazy": 0,
+      "images_no_dims": 6,
+      "images_oversize": 0
+    },
+    {
+      "page": "vergleich.html",
+      "lcp": 844,
+      "cls": 0.001,
+      "dom": 58,
+      "load": 58,
+      "bytes": 445676,
+      "requests": 19,
+      "biggest": [
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 39985
+        },
+        {
+          "url": "/ui-v4.js",
+          "bytes": 37295
+        },
+        {
+          "url": "/styles.css",
+          "bytes": 31487
+        }
+      ],
+      "images_total": 0,
+      "images_lazy": 0,
+      "images_no_dims": 0,
+      "images_oversize": 0
+    },
+    {
+      "page": "zeichenwerk.html",
+      "lcp": 88,
+      "cls": 0.001,
+      "dom": 76,
+      "load": 76,
+      "bytes": 1261975,
+      "requests": 24,
+      "biggest": [
+        {
+          "url": "/vendor/three.core.min.js",
+          "bytes": 381124
+        },
+        {
+          "url": "/vendor/three.module.min.js",
+          "bytes": 338908
+        },
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 39985
+        }
+      ],
+      "images_total": 0,
+      "images_lazy": 0,
+      "images_no_dims": 0,
+      "images_oversize": 0
+    }
+  ]
+}

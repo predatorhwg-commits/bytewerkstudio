@@ -38,6 +38,9 @@ def main() -> int:
     seo = load("seo.json") or {"problems": [], "rows": []}
     runtime = load("runtime.json")
     three = load("three.json")
+    security = load("security.json")
+    a11y = load("a11y.json")
+    perf = load("perf.json")
 
     s = static["summary"]
     seo_rows = seo.get("rows", [])
@@ -63,8 +66,9 @@ def main() -> int:
     body.append("")
     body.append("Stand: 7. November 2026. Dieser Bericht wird von `tools/qa_report.py`")
     body.append("aus den Messdateien in `docs/qa/` erzeugt. Alle Zahlen sind gemessen,")
-    body.append("nicht geschätzt. Rohdaten: `docs/qa/static.json`, `docs/qa/seo.json`,")
-    body.append("`docs/qa/runtime.json`.")
+    body.append("nicht geschätzt. Rohdaten liegen in `docs/qa/`: `static.json`,")
+    body.append("`seo.json`, `runtime.json`, `security.json`, `a11y.json`, `perf.json`,")
+    body.append("`three.json`.")
     body.append("")
 
     body.append("## 1. Statische Prüfung")
@@ -140,7 +144,83 @@ def main() -> int:
         body.append("```")
         body.append("")
 
-    body.append("## 4. 3D-Bühnen (three.js)")
+    body.append("## 4. Sicherheit")
+    body.append("")
+    if security:
+        sec = security.get("summary", {})
+        body.append("`tools/qa_security.py` prüft die Fehlerklassen, die bei einer")
+        body.append("statischen Seite vorkommen: gemischte Inhalte, fremde Skripte,")
+        body.append("Inline-Handler, `javascript:`-URLs, `target=\"_blank\"` ohne")
+        body.append("`noopener`, fremde Formularziele, eine zu weite CSP, Secrets im")
+        body.append("Repository, Klartextpasswörter und schwache PBKDF2-Parameter.")
+        body.append("")
+        body.append(md_table([
+            ["Geprüfte Seiten", sec.get("pages", 0)],
+            ["Befunde", sec.get("findings", 0)],
+        ], ["Prüfung", "Ergebnis"]))
+        body.append("")
+        kinds = sec.get("by_kind", {})
+        if kinds:
+            body.append(md_table([[k, v] for k, v in sorted(kinds.items())], ["Art", "Anzahl"]))
+        else:
+            body.append("Keine Beanstandung. Die CSP aller Seiten ist `script-src 'self'`")
+            body.append("ohne `'unsafe-inline'` und ohne `'unsafe-eval'`, zusätzlich")
+            body.append("`script-src-attr 'none'` und `frame-src 'none'`.")
+        body.append("")
+    else:
+        body.append("Noch keine Messung: `docs/qa/security.json` fehlt.")
+        body.append("")
+
+    body.append("## 5. Barrierefreiheit")
+    body.append("")
+    if a11y:
+        a = a11y.get("summary", {})
+        body.append("Automatisch geprüft: Textkontrast nach WCAG AA (4,5:1, große")
+        body.append("Schrift 3:1), sichtbarer Tastaturfokus, Formularbeschriftungen,")
+        body.append("zugängliche Namen, ARIA-Referenzen, `<main>`-Landmarke und")
+        body.append("Sprungmarke. Kein Ersatz für einen Screenreader-Test.")
+        body.append("")
+        body.append(md_table([
+            ["Seiten", a.get("pages", 0)],
+            ["Kontrastfehler", a.get("contrast_findings", 0)],
+            ["Fokus nicht sichtbar", a.get("focus_findings", 0)],
+            ["Feld ohne Beschriftung", a.get("label_findings", 0)],
+            ["Element ohne zugänglichen Namen", a.get("name_findings", 0)],
+            ["ARIA-Referenz ohne Ziel", a.get("aria_findings", 0)],
+            ["Seiten ohne <main>", a.get("pages_without_main", 0)],
+            ["Seiten ohne Sprungmarke", a.get("pages_without_skip", 0)],
+        ], ["Messung", "Ergebnis"]))
+        body.append("")
+    else:
+        body.append("Noch keine Messung: `docs/qa/a11y.json` fehlt.")
+        body.append("")
+
+    body.append("## 6. Ladezeit und Gewicht")
+    body.append("")
+    if perf:
+        p = perf.get("summary", {})
+        body.append("Gemessen mit deaktiviertem Browser-Cache je Seite: übertragene")
+        body.append("Bytes, Requests, LCP und CLS. Die Zahlen gelten für den lokalen")
+        body.append("Server; im Netz kommen Latenz und TLS hinzu.")
+        body.append("")
+        body.append(md_table([
+            ["Seiten", p.get("pages", 0)],
+            ["Median übertragene Bytes", f"{p.get('median_bytes', 0) // 1024} KB"],
+            ["Größte Seite", f"{p.get('max_bytes', 0) // 1024} KB"],
+            ["Median LCP", f"{p.get('median_lcp', 0)} ms"],
+            ["Schlechtester LCP", f"{p.get('worst_lcp', 0)} ms"],
+            ["Seiten mit CLS über 0,1", p.get("pages_cls_over_01", 0)],
+        ], ["Messung", "Ergebnis"]))
+        body.append("")
+        body.append("Der größte Einzelposten ist three.js (`vendor/`, rund 700 KB) auf")
+        body.append("den Seiten mit 3D-Bühne. Er wird nur geladen, wenn eine Bühne in")
+        body.append("den Blick kommt; ohne WebGL bleibt die gezeichnete Ersatzbühne.")
+        body.append("")
+    else:
+        body.append("Noch keine Messung: `docs/qa/perf.json` fehlt.")
+        body.append("")
+
+    body.append("## 7. 3D-Bühnen (three.js)")
     body.append("")
     if three:
         rows = three.get("rows", [])
@@ -171,7 +251,7 @@ def main() -> int:
         body.append("```")
         body.append("")
 
-    body.append("## 5. Screenshots")
+    body.append("## 8. Screenshots")
     body.append("")
     shots = sorted(p.name for p in QA.glob("*-desktop.png"))
     body.append(f"`docs/qa/` enthält {len(shots)} Desktop-Aufnahmen (1440 × 900) sowie")
@@ -181,7 +261,7 @@ def main() -> int:
     body.append("Bühnen im Bild sind).")
     body.append("")
 
-    body.append("## 6. Was hier nicht geprüft wird")
+    body.append("## 9. Was hier nicht geprüft wird")
     body.append("")
     body.append("- **Echte Geräte.** Die Messung läuft in Chromium; Safari und Firefox")
     body.append("  werden nicht automatisch geprüft.")
@@ -193,7 +273,7 @@ def main() -> int:
     body.append("  selbst lässt sich im Browser nicht abschließend testen.")
     body.append("")
 
-    body.append("## 7. Wiederholen")
+    body.append("## 10. Wiederholen")
     body.append("")
     body.append("```")
     body.append("python3 tools/qa_site.py --static-only")
@@ -201,6 +281,9 @@ def main() -> int:
     body.append("python3 -m http.server 8809 --bind 127.0.0.1 &")
     body.append("python3 tools/qa_site.py --base http://127.0.0.1:8809 --out docs/qa --no-shots")
     body.append("python3 tools/qa_three.py --base http://127.0.0.1:8809")
+    body.append("python3 tools/qa_security.py")
+    body.append("python3 tools/qa_a11y.py --base http://127.0.0.1:8809")
+    body.append("python3 tools/qa_perf.py --base http://127.0.0.1:8809")
     body.append("python3 tools/qa_report.py")
     body.append("```")
     body.append("")

@@ -297,7 +297,7 @@
           "canvases": 1,
           "title": "Download vorbereiten — Lernreich · Bytewerk Studio",
           "errors": [],
-          "lang_switch": true,
+          "lang_switch": null,
           "mobile_menu": null
         },
         {
@@ -792,7 +792,7 @@
           "canvases": 1,
           "title": "Anmelden — Bytewerk Studio Konto",
           "errors": [],
-          "lang_switch": null,
+          "lang_switch": true,
           "mobile_menu": null
         },
         {

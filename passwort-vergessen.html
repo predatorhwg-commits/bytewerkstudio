@@ -5,7 +5,7 @@
 <script src="bootstrap.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; script-src-attr 'none'; script-src-elem 'self'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow">
 <meta name="description" content="Passwort für dein Bytewerk-Studio-Konto zurücksetzen. Der Link stellt den Zugang zu Bibliothek, Lizenzen und Bestellungen wieder her.">
@@ -35,9 +35,11 @@
 </head>
 <body class="auth-page">
 
+<a class="skip-link" href="#main" data-en="Skip to content">Zum Inhalt springen</a>
+
 <div data-include="header"></div>
 
-<main class="auth-main">
+<main id="main" class="auth-main">
   <div class="auth-shell">
 
     <section class="auth-card">

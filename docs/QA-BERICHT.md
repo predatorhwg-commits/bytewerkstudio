@@ -2,8 +2,9 @@
 
 Stand: 7. November 2026. Dieser Bericht wird von `tools/qa_report.py`
 aus den Messdateien in `docs/qa/` erzeugt. Alle Zahlen sind gemessen,
-nicht geschätzt. Rohdaten: `docs/qa/static.json`, `docs/qa/seo.json`,
-`docs/qa/runtime.json`.
+nicht geschätzt. Rohdaten liegen in `docs/qa/`: `static.json`,
+`seo.json`, `runtime.json`, `security.json`, `a11y.json`, `perf.json`,
+`three.json`.
 
 ## 1. Statische Prüfung
 
@@ -49,7 +50,61 @@ Sprachwechsel DE→EN→DE und – unter 820 px – das Mobilmenü.
 
 Breiten: Desktop 1440 × 900, Tablet 768 × 1024, Mobil 390 × 844.
 
-## 4. 3D-Bühnen (three.js)
+## 4. Sicherheit
+
+`tools/qa_security.py` prüft die Fehlerklassen, die bei einer
+statischen Seite vorkommen: gemischte Inhalte, fremde Skripte,
+Inline-Handler, `javascript:`-URLs, `target="_blank"` ohne
+`noopener`, fremde Formularziele, eine zu weite CSP, Secrets im
+Repository, Klartextpasswörter und schwache PBKDF2-Parameter.
+
+| Prüfung | Ergebnis |
+|---|---|
+| Geprüfte Seiten | 34 |
+| Befunde | 0 |
+
+Keine Beanstandung. Die CSP aller Seiten ist `script-src 'self'`
+ohne `'unsafe-inline'` und ohne `'unsafe-eval'`, zusätzlich
+`script-src-attr 'none'` und `frame-src 'none'`.
+
+## 5. Barrierefreiheit
+
+Automatisch geprüft: Textkontrast nach WCAG AA (4,5:1, große
+Schrift 3:1), sichtbarer Tastaturfokus, Formularbeschriftungen,
+zugängliche Namen, ARIA-Referenzen, `<main>`-Landmarke und
+Sprungmarke. Kein Ersatz für einen Screenreader-Test.
+
+| Messung | Ergebnis |
+|---|---|
+| Seiten | 34 |
+| Kontrastfehler | 0 |
+| Fokus nicht sichtbar | 0 |
+| Feld ohne Beschriftung | 0 |
+| Element ohne zugänglichen Namen | 0 |
+| ARIA-Referenz ohne Ziel | 0 |
+| Seiten ohne <main> | 0 |
+| Seiten ohne Sprungmarke | 0 |
+
+## 6. Ladezeit und Gewicht
+
+Gemessen mit deaktiviertem Browser-Cache je Seite: übertragene
+Bytes, Requests, LCP und CLS. Die Zahlen gelten für den lokalen
+Server; im Netz kommen Latenz und TLS hinzu.
+
+| Messung | Ergebnis |
+|---|---|
+| Seiten | 34 |
+| Median übertragene Bytes | 879 KB |
+| Größte Seite | 1714 KB |
+| Median LCP | 852 ms |
+| Schlechtester LCP | 948 ms |
+| Seiten mit CLS über 0,1 | 0 |
+
+Der größte Einzelposten ist three.js (`vendor/`, rund 700 KB) auf
+den Seiten mit 3D-Bühne. Er wird nur geladen, wenn eine Bühne in
+den Blick kommt; ohne WebGL bleibt die gezeichnete Ersatzbühne.
+
+## 7. 3D-Bühnen (three.js)
 
 Geprüft: **9 Seiten mit 3D-Szene**, gerendert: **9**.
 Messung: Canvas in den Blick scrollen, WebGL-Kontext abfragen, Bild
@@ -72,7 +127,7 @@ Alle Szenen laden three.js ausschließlich aus `vendor/`; das ist mit
 `script-src 'self'` vereinbar. Ohne WebGL bleibt die gezeichnete
 SVG-Bühne sichtbar, die Bedienelemente funktionieren weiter.
 
-## 5. Screenshots
+## 8. Screenshots
 
 `docs/qa/` enthält 34 Desktop-Aufnahmen (1440 × 900) sowie
 Startseite in Tablet und Mobil. Sie zeigen den ersten Bildschirm
@@ -80,7 +135,7 @@ jeder Seite und dienen der Sichtprüfung von Typografie, Abständen
 und 3D-Bühne. Erzeugt mit `tools/qa_shots.py` (WebGL an, damit die
 Bühnen im Bild sind).
 
-## 6. Was hier nicht geprüft wird
+## 9. Was hier nicht geprüft wird
 
 - **Echte Geräte.** Die Messung läuft in Chromium; Safari und Firefox
   werden nicht automatisch geprüft.
@@ -91,7 +146,7 @@ Bühnen im Bild sind).
 - **Formularversand.** `mailto:` öffnet ein Mailprogramm; der Versand
   selbst lässt sich im Browser nicht abschließend testen.
 
-## 7. Wiederholen
+## 10. Wiederholen
 
 ```
 python3 tools/qa_site.py --static-only
@@ -99,5 +154,8 @@ python3 tools/qa_seo.py
 python3 -m http.server 8809 --bind 127.0.0.1 &
 python3 tools/qa_site.py --base http://127.0.0.1:8809 --out docs/qa --no-shots
 python3 tools/qa_three.py --base http://127.0.0.1:8809
+python3 tools/qa_security.py
+python3 tools/qa_a11y.py --base http://127.0.0.1:8809
+python3 tools/qa_perf.py --base http://127.0.0.1:8809
 python3 tools/qa_report.py
 ```

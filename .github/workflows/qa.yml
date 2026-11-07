@@ -1,0 +1,35 @@
+name: Prüfung
+
+# Läuft bei jedem Push und jedem Pull Request. Die statischen Prüfungen
+# brauchen nur Python; der Browserlauf ist separat, weil er Playwright
+# und mehr Zeit benötigt.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  statisch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Links, IDs, Alt-Texte, CSP
+        run: python3 tools/qa_site.py --static-only
+      - name: Suchmaschinen und soziale Vorschau
+        run: python3 tools/qa_seo.py
+      - name: Sicherheit
+        run: python3 tools/qa_security.py
+      - name: Landmarken und Sprungmarken
+        run: python3 tools/a11y_landmarks.py --check
+      - name: CSP-Verschärfung vollständig
+        run: python3 tools/csp_harden.py --check
+      - name: Übersetzungen vollständig
+        run: |
+          python3 tools/i18n_products.py --check
+          python3 tools/i18n_cards.py --check

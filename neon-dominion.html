@@ -5,7 +5,7 @@
 <script src="bootstrap.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; script-src-attr 'none'; script-src-elem 'self'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Neon Dominion - Neon-Tech Tower-Conquest · Bytewerk Studio</title>
 <meta name="description" content="Neon Dominion: Neon-Tech-Tower-Conquest für Windows 10/11 mit 30 Offline-Missionen, lokalen Saves, Achievements und Upgrade Lab.">
@@ -64,7 +64,11 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main" data-en="Skip to content">Zum Inhalt springen</a>
+
 <div data-include="header"></div>
+
+<main id="main">
 
 <section class="wrap pd" data-screen-label="Neon Dominion">
   <div class="pd-media reveal">
@@ -176,6 +180,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <div data-include="footer"></div>
 

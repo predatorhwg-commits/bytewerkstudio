@@ -263,7 +263,8 @@ html.atl-ready .atl-tags { display: block; }
   font-family: var(--display);
   font-size: 26px;
   line-height: 1;
-  color: var(--line-2);
+  /* --line-2 ist eine Linienfarbe (1,5:1) und für Text zu blass. */
+  color: var(--muted);
   transition: color 0.3s ease;
 }
 .atl-step.is-active .atl-num { color: var(--accent); }

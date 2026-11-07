@@ -5,7 +5,7 @@
 <script src="bootstrap.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; script-src-attr 'none'; script-src-elem 'self'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>LumaWeek Planner - Wochen- und Jahresplaner · Bytewerk Studio</title>
 <meta name="description" content="LumaWeek Planner: Wochen- und Jahresplaner für Schule, Uni und Arbeit. Aufgaben, Notizen, Design Studio, PDF-Export. 5,99 €.">
@@ -63,7 +63,11 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main" data-en="Skip to content">Zum Inhalt springen</a>
+
 <div data-include="header"></div>
+
+<main id="main">
 
 <section class="wrap pd" data-screen-label="LumaWeek Planner">
   <div class="pd-media reveal">
@@ -184,6 +188,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <div data-include="footer"></div>
 

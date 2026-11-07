@@ -46,7 +46,7 @@
 
 .mk-crumb a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line-2); }
 .mk-crumb a:hover { color: var(--accent-700); border-bottom-color: var(--accent); }
-.mk-crumb span { color: var(--line-2); margin: 0 8px; }
+.mk-crumb span { color: var(--muted); margin: 0 8px; }
 
 .mk-title {
   font-family: var(--display);

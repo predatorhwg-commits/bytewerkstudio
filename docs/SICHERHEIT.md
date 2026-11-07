@@ -2,7 +2,7 @@
 
 Stand: 7. November 2026 · gilt für `main` dieser Website.
 
-Dieses Dokument beschreibt, was tatsächlich im Code steht — auch die zwei
+Dieses Dokument beschreibt, was tatsächlich im Code steht — auch die
 Stellen, die **nicht** ideal sind. Eine Sicherheitsseite, die nur Erfolge
 aufzählt, ist Marketing. Diese hier ist ein Prüfbericht.
 
@@ -15,7 +15,7 @@ aufzählt, ist Marketing. Diese hier ist ein Prüfbericht.
 | Datenbank | keine im Betrieb; Supabase nur als optionale Variante (`auth-config.js`, `mode: 'local'`) |
 | Formulare | Kontakt und Check laufen über `mailto:` bzw. rein im Browser |
 | Fremde Skripte | **keine** |
-| Fremde Requests | Google Fonts (`styles.css`, `styles-claude.css` per `@import`) — CSS und WOFF2, kein JavaScript |
+| Fremde Requests | **keine** — Schriften in `fonts/`, three.js in `vendor/` |
 | Tracking | keins, keine Cookies für Analyse, kein Pixel |
 
 Ohne Server gibt es keine serverseitigen Lücken — dafür auch keine
@@ -23,18 +23,22 @@ serverseitigen Schutzschichten. Der interessante Teil ist der Browser.
 
 ## 2. Content-Security-Policy
 
-Auf allen 33 ausgelieferten Seiten identisch und ohne Ausnahme für Skripte:
+Auf allen 34 ausgelieferten Seiten identisch und ohne Ausnahme:
 
 ```
 default-src 'self';
 script-src  'self';
+script-src-attr  'none';
+script-src-elem  'self';
 style-src   'self' 'unsafe-inline';
-font-src    'self' https://fonts.gstatic.com;
+font-src    'self';
 img-src     'self' data:;
 object-src  'none';
 base-uri    'self';
 form-action 'self' mailto:;
 connect-src 'self' https://*.supabase.co;
+frame-src   'none';
+worker-src  'none';
 upgrade-insecure-requests
 ```
 
@@ -46,7 +50,13 @@ ohne CSP — sie enthält aber auch kein HTML, das ausgeführt würde.
 - `script-src 'self'` **ohne `'unsafe-inline'` und ohne `'unsafe-eval'`** —
   injizierte `<script>`-Blöcke, `onerror=`-Attribute, `eval`, `new Function`
   und String-Timer laufen nicht. Das ist der wichtigste Unterschied zu vorher.
-- `default-src 'self'` — kein Nachladen von Skripten, Bildern oder Frames von
+- `script-src-attr 'none'` — Inline-Handler sind zusätzlich einzeln verboten,
+  auch wenn ein Browser `script-src` großzügiger auslegt.
+- `script-src-elem 'self'` — `<script src>` darf nur von der eigenen Domain
+  kommen; eine fremde Einbindung ist nicht möglich.
+- `frame-src 'none'` und `worker-src 'none'` — kein Nachladen von Frameworks
+  oder Workern von außen.
+- `default-src 'self'` — kein Nachladen von Bildern, Schriften oder Frames von
   fremden Hosts.
 - `object-src 'none'` — kein Plugin-Einbettungskanal.
 - `base-uri 'self'` — kein `<base href>`-Trick, der relative URLs umbiegt.
@@ -60,7 +70,7 @@ Alle Inline-Skripte sind ausgelagert:
 |---|---|
 | `<script>document.documentElement.classList.add('js')…</script>` auf jeder Seite | `bootstrap.js` (synchron, vor dem ersten Paint) |
 | Seitenskripte in `<script>`-Blöcken | `inline/<seite>-<n>.js` (19 Dateien) |
-| `script-src 'self' 'unsafe-inline'` | `script-src 'self'` |
+| `script-src 'self' 'unsafe-inline'` | `script-src 'self'` + `script-src-attr 'none'` |
 | Forum mit SHA-256-Hash | `script-src 'self'`, kein Hash nötig |
 
 JSON-LD bleibt inline, weil es kein ausführbares Skript ist (`type="application/ld+json"`);
@@ -76,32 +86,47 @@ Hier ist `img-src 'self' data:` — fremde URLs bleiben blockiert. Der Umbau auf
 Klassen statt Attributen ist ein eigener Arbeitsschritt.
 
 - **`frame-ancestors`** ist in einer `<meta>`-CSP wirkungslos. Auf GitHub Pages
-  gibt es keine Antwort-Header, also **kein Clickjacking-Schutz**. Wer die Seite
-  einbetten will, kann das.
-- **HSTS** lässt sich nicht setzen (GitHub Pages liefert keinen
-  `Strict-Transport-Security`-Header; `upgrade-insecure-requests` deckt nur
-  gemischte Inhalte ab, nicht den ersten Aufruf über HTTP).
+  gibt es keine Antwort-Header, also **kein Clickjacking-Schutz**. Für Hosts,
+  die Header ausliefern, liegt die Regel in `_headers` (Netlify, Cloudflare
+  Pages) und in `vercel.json`; beide setzen `frame-ancestors 'none'` und
+  `X-Frame-Options: DENY`.
+- **HSTS** lässt sich auf GitHub Pages nicht setzen. `_headers` und
+  `vercel.json` enthalten `Strict-Transport-Security` für den Umzug;
+  `upgrade-insecure-requests` deckt im HTML nur gemischte Inhalte ab, nicht
+  den ersten Aufruf über HTTP.
 - `_headers` im Wurzelverzeichnis ist die **Vorlage** für Netlify oder
   Cloudflare Pages. GitHub Pages ignoriert die Datei. Sie ist kein aktiver
-  Schutz, sondern ein Umzugsgut — inzwischen mit derselben strengen
-  `script-src 'self'`-Regel wie das HTML.
+  Schutz, sondern ein Umzugsgut — mit derselben strengen `script-src`-Regel
+  wie das HTML, plus Cache-Regeln für `fonts/`, `vendor/` und `media/`.
 
-## 3. Kein `innerHTML` für berechnete Inhalte
+## 3. `innerHTML`: was geprüft wurde
 
-Die Regel im neuen Code: Werte gehen über `textContent`, `createElement` oder
+Die Regel: Werte gehen über `textContent`, `createElement` oder
 `setAttribute`. `innerHTML` ist nur für konstantes Markup erlaubt (Icons,
 Skelette) und für die Sprachtabellen in `components.js`, die aus eigenen
 `data-en`-Attributen im HTML stammen — also aus dem Repository, nicht aus
 einer Eingabe.
 
-Geprüft: die Kommandosuche (`ui-v4.js`) ist die einzige Stelle, an der
-Besuchereingaben verarbeitet werden. Sie baut Ergebnisse mit
-`createElement`/`textContent`, nicht mit `innerHTML`.
+Stand 7. November 2026: **47 Zuweisungen in 10 Dateien**. Alle wurden
+einzeln geprüft:
 
-Ehrlich dazu: im Altbestand gibt es 45 `innerHTML`-Zuweisungen. Die
-überwiegende Zahl setzt Icons und Skelette. Eine vollständige Senken-Prüfung
-über alle Dateien steht aus — sie ist der nächste sinnvolle Schritt, nicht
-erledigt.
+| Quelle | Bewertung |
+|---|---|
+| `ui-v4.js`, `ui-v5.js`, `werkkorb.js` | Icons, Skelette, Katalogdaten aus `CATALOG` (statisches Objekt) |
+| `forum.js` | baut jeden Knoten mit `createElement`/`textContent`; `innerHTML` nur für konstante SVG-Pfade |
+| `auth.js` | Nutzername und E-Mail über `escapeHTML()`; Konten mit PBKDF2 |
+| `entwickler.js` | Sandbox-Antwort über `highlight()`, das `&`, `<`, `>` zuerst maskiert |
+| `nf-find.js` | Suchbegriff geht in `textContent`, nicht in `innerHTML` |
+| `ui-entscheidung.js` | Zellwerte aus dem Vergleichstabellen-Markup der Seite |
+
+Der Warenkorb liest seinen Stand aus `localStorage`. Dort kann jemand
+beliebige IDs eintragen; `load()` verwirft alles, was nicht in `CATALOG`
+steht oder keine Zahl zwischen 1 und 9 ist. Damit ist der einzige
+nutzereditierbare Speicher kein Einfallstor.
+
+Nachprüfbar mit `python3 tools/qa_security.py`: Es sucht Inline-Handler,
+`javascript:`-URLs, `eval`, `new Function`, fremde Skripte und Secrets und
+meldet **0 Befunde** über 34 Seiten.
 
 ## 4. Konten
 
@@ -125,15 +150,33 @@ Client-Key; der `service_role`-Key gehört **niemals** in den Client.
 
 ## 5. Drittanbieter
 
-Google Fonts ist der einzige fremde Host. Dabei wird die IP der Besucherin an
-Google übertragen — datenschutzrechtlich der bekannte Streitpunkt. Der
-Gegenentwurf (Schriften selbst hosten) liegt als eigenes Thema auf dem Tisch,
-ist aber nicht Teil dieser Änderung: Er würde `styles.css`, `styles-claude.css`
-und mehrere `font-family`-Stacks betreffen, also fremde Dateien.
+**Keine.** Schriften liegen als WOFF2 unter `fonts/` im Repository, three.js
+unter `vendor/`. Es gibt kein Analyse-Skript, keinen Pixel, keine externe Karte
+und keinen CDN-Aufruf. Ein Test im Browser zählt die Requests: alle gehen an
+die eigene Domain, bis auf die optionale Supabase-Verbindung, wenn
+`auth-config.js` auf `supabase` steht.
 
-## 6. Prüfungen, die zu dieser Seite gehören
+Das ist nicht nur Datenschutz, sondern auch Angriffsfläche: Ein fremder Host
+kann kompromittiert werden, ein lokaler nicht.
 
-`scene-sicherheit.js` und `sicherheit.js` sind gegen folgende Fälle getestet:
+## 6. Automatische Prüfungen
+
+Im Repository, ohne Zusatzsoftware lauffähig:
+
+| Werkzeug | Prüft |
+|---|---|
+| `tools/qa_security.py` | Inline-Handler, `javascript:`-URLs, fremde Skripte und Formularziele, `eval`, Secrets, PBKDF2-Stärke, CSP-Weite, Header-Vorlage |
+| `tools/qa_site.py --static-only` | tote Links, doppelte IDs, Alt-Texte, H1, CSP auf jeder Seite |
+| `tools/qa_seo.py` | Titel, Description, Canonical, Open Graph, JSON-LD |
+| `tools/qa_a11y.py` | Kontrast, Fokus, Beschriftungen, ARIA-Ziele, Landmarken |
+| `tools/csp_harden.py --check` | dass keine Seite hinter die aktuelle CSP zurückfällt |
+| `tools/a11y_landmarks.py --check` | dass keine Seite `<main>` oder Sprungmarke verliert |
+
+`.github/workflows/qa.yml` führt die statischen Prüfungen bei jedem Push und
+jedem Pull Request aus. Der Browserlauf bleibt lokal, weil er Playwright und
+mehr Zeit braucht.
+
+Die Sicherheitsseite selbst ist zusätzlich gegen folgende Fälle getestet:
 
 - 320 / 390 / 768 / 1440 px ohne horizontales Überlaufen
 - kein WebGL → SVG-Fallback statt leerer Leinwand

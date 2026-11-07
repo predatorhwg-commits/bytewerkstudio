@@ -944,3 +944,89 @@ body,
 .hero-v3.has-pointer::before {
   background: none;
 }
+
+/* ============================================================
+   TASTATURFOKUS UND DRUCK (07.11.2026)
+   ------------------------------------------------------------
+   :where() hat Spezifität 0 — Komponenten mit eigenem Fokusring
+   behalten ihn. Diese Regel fängt nur die Elemente ab, die sonst
+   den Browser-Standard zeigten (oder gar nichts).
+   ============================================================ */
+
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Nur für Tastatur und Screenreader, nicht sichtbar. */
+:where(.sr-only) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media print {
+  /* Papier: keine Navigation, keine Bühnen, keine Bedienelemente. */
+  .nav,
+  .footer,
+  .skip-link,
+  .mobile-menu,
+  canvas,
+  .bs-stage,
+  .schm-stage,
+  .cf-toolbar,
+  .shop-tools,
+  .wk-filter,
+  .bw-cmd,
+  .toast,
+  .cookie,
+  [data-no-print] {
+    display: none !important;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #111 !important;
+  }
+
+  body {
+    font-size: 11pt;
+  }
+
+  a {
+    color: #111 !important;
+    text-decoration: underline;
+  }
+
+  /* Adresse nach außen sichtbar machen, interne Anker nicht. */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #444;
+    word-break: break-all;
+  }
+
+  .wrap,
+  .sec-pad {
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  section,
+  article,
+  details {
+    break-inside: avoid;
+  }
+
+  h1, h2, h3 {
+    break-after: avoid;
+  }
+}

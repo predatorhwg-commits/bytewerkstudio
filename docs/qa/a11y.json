@@ -1,0 +1,729 @@
+{
+  "summary": {
+    "pages": 34,
+    "errors": 0,
+    "contrast_findings": 0,
+    "focus_findings": 0,
+    "label_findings": 0,
+    "name_findings": 0,
+    "aria_findings": 0,
+    "pages_without_main": 0,
+    "pages_without_skip": 0
+  },
+  "rows": [
+    {
+      "page": "404.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "agb.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "arbeiten.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "burgenwerk.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "bytewerk-pdf-text-pro.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "checkout.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "datenschutz.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "entwickler.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "forum.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 2,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "impressum.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "index.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 3,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "keyforge-vault.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "kontakt.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "konto.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "lernreich-pro.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "login.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "lumaweek-planner.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "marke.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "mastil.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "musterbuch.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 2,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "neon-dominion.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "passwort-vergessen.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "probierstand.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "produkt.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "pruefungs-countdown.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "register.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "shop.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "showroom.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "sicherheit.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "softwareentwicklung-ludwigshafen.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "studio.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "updatepilot.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "vergleich.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    },
+    {
+      "page": "zeichenwerk.html",
+      "contrast": [],
+      "focus": [],
+      "labels": [],
+      "names": [],
+      "aria": [],
+      "landmarks": {
+        "main": 1,
+        "header": 1,
+        "nav": 1,
+        "footer": 1,
+        "h1": 1
+      },
+      "skip": {
+        "text": "Skip to content",
+        "target": true
+      },
+      "lang": "en",
+      "problems": 0
+    }
+  ]
+}

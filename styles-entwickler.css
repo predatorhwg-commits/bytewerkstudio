@@ -833,7 +833,9 @@
     var(--ink);
   color: var(--paper);
 }
-.dev-cta-inner .eyebrow { color: var(--accent-300); }
+/* Auf dunklem Grund braucht das Eyebrow eine helle Farbe; --accent-300
+   ist im hellen Theme selbst dunkel (#96402a) und käme auf 2,4:1. */
+.dev-cta-inner .eyebrow { color: #e8a184; }
 .dev-cta-inner .h2 { margin-top: 14px; color: var(--paper); max-width: 24ch; }
 .dev-cta-inner .lead { margin-top: 16px; max-width: 52ch; color: rgba(250, 249, 245, 0.74); }
 .dev-cta-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }

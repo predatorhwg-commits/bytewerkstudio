@@ -33,56 +33,56 @@
       "title": "Arbeiten — elf eigene Produkte | Bytewerk Studio",
       "lang": "de",
       "h1": 1,
-      "ids": 2,
+      "ids": 3,
       "duplicate_ids": [],
       "images_without_alt": [],
       "broken_refs": [],
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/arbeiten.html",
-      "data_en": 47
+      "data_en": 48
     },
     {
       "page": "burgenwerk.html",
       "title": "BURGENWERK - Burg bauen, verteidigen, erobern · Bytewerk Studio",
       "lang": "de",
       "h1": 1,
-      "ids": 4,
+      "ids": 5,
       "duplicate_ids": [],
       "images_without_alt": [],
       "broken_refs": [],
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/burgenwerk.html",
-      "data_en": 33
+      "data_en": 34
     },
     {
       "page": "bytewerk-pdf-text-pro.html",
       "title": "Bytewerk PDF Text Pro - PDF zu Text · Bytewerk Studio",
       "lang": "de",
       "h1": 1,
-      "ids": 4,
+      "ids": 5,
       "duplicate_ids": [],
       "images_without_alt": [],
       "broken_refs": [],
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/bytewerk-pdf-text-pro.html",
-      "data_en": 31
+      "data_en": 32
     },
     {
       "page": "checkout.html",
       "title": "Download vorbereiten — Lernreich · Bytewerk Studio",
       "lang": "de",
       "h1": 1,
-      "ids": 6,
+      "ids": 7,
       "duplicate_ids": [],
       "images_without_alt": [],
       "broken_refs": [],
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/checkout.html",
-      "data_en": 15
+      "data_en": 16
     },
     {
       "page": "datenschutz.html",
@@ -124,7 +124,7 @@
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/forum.html",
-      "data_en": 85
+      "data_en": 86
     },
     {
       "page": "impressum.html",
@@ -159,14 +159,14 @@
       "title": "KeyForge Vault - Premium Passwort-Vault · Bytewerk Studio",
       "lang": "de",
       "h1": 1,
-      "ids": 4,
+      "ids": 5,
       "duplicate_ids": [],
       "images_without_alt": [],
       "broken_refs": [],
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/keyforge-vault.html",
-      "data_en": 33
+      "data_en": 34
     },
     {
       "page": "kontakt.html",
@@ -180,63 +180,63 @@
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/kontakt.html",
-      "data_en": 91
+      "data_en": 92
     },
     {
       "page": "konto.html",
       "title": "Mein Konto — Bytewerk Studio",
       "lang": "de",
       "h1": 1,
-      "ids": 32,
+      "ids": 33,
       "duplicate_ids": [],
       "images_without_alt": [],
       "broken_refs": [],
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/konto.html",
-      "data_en": 60
+      "data_en": 61
     },
     {
       "page": "lernreich-pro.html",
       "title": "Lernreich Pro — Premium Windows-App · Bytewerk Studio",
       "lang": "de",
       "h1": 1,
-      "ids": 4,
+      "ids": 5,
       "duplicate_ids": [],
       "images_without_alt": [],
       "broken_refs": [],
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/lernreich-pro.html",
-      "data_en": 28
+      "data_en": 29
     },
     {
       "page": "login.html",
       "title": "Anmelden — Bytewerk Studio Konto",
       "lang": "de",
       "h1": 1,
-      "ids": 10,
+      "ids": 11,
       "duplicate_ids": [],
       "images_without_alt": [],
       "broken_refs": [],
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/login.html",
-      "data_en": 23
+      "data_en": 24
     },
     {
       "page": "lumaweek-planner.html",
       "title": "LumaWeek Planner - Wochen- und Jahresplaner · Bytewerk Studio",
       "lang": "de",
       "h1": 1,
-      "ids": 4,
+      "ids": 5,
       "duplicate_ids": [],
       "images_without_alt": [],
       "broken_refs": [],
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/lumaweek-planner.html",
-      "data_en": 32
+      "data_en": 33
     },
     {
       "page": "marke.html",
@@ -257,14 +257,14 @@
       "title": "MASTIL - Mittelalter-Strategie & Tower Defense · Bytewerk Studio",
       "lang": "de",
       "h1": 1,
-      "ids": 4,
+      "ids": 5,
       "duplicate_ids": [],
       "images_without_alt": [],
       "broken_refs": [],
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/mastil.html",
-      "data_en": 33
+      "data_en": 34
     },
     {
       "page": "musterbuch.html",
@@ -285,28 +285,28 @@
       "title": "Neon Dominion - Neon-Tech Tower-Conquest · Bytewerk Studio",
       "lang": "de",
       "h1": 1,
-      "ids": 3,
+      "ids": 4,
       "duplicate_ids": [],
       "images_without_alt": [],
       "broken_refs": [],
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/neon-dominion.html",
-      "data_en": 32
+      "data_en": 33
     },
     {
       "page": "passwort-vergessen.html",
       "title": "Passwort zurücksetzen — Bytewerk Studio",
       "lang": "de",
       "h1": 1,
-      "ids": 6,
+      "ids": 7,
       "duplicate_ids": [],
       "images_without_alt": [],
       "broken_refs": [],
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/passwort-vergessen.html",
-      "data_en": 14
+      "data_en": 15
     },
     {
       "page": "probierstand.html",
@@ -320,63 +320,63 @@
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/probierstand.html",
-      "data_en": 83
+      "data_en": 84
     },
     {
       "page": "produkt.html",
       "title": "Lernreich — Lern-App · Bytewerk Studio",
       "lang": "de",
       "h1": 1,
-      "ids": 4,
+      "ids": 5,
       "duplicate_ids": [],
       "images_without_alt": [],
       "broken_refs": [],
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/produkt.html",
-      "data_en": 30
+      "data_en": 31
     },
     {
       "page": "pruefungs-countdown.html",
       "title": "Pruefungs-Countdown — Windows-App · Bytewerk Studio",
       "lang": "de",
       "h1": 1,
-      "ids": 4,
+      "ids": 5,
       "duplicate_ids": [],
       "images_without_alt": [],
       "broken_refs": [],
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/pruefungs-countdown.html",
-      "data_en": 31
+      "data_en": 32
     },
     {
       "page": "register.html",
       "title": "Konto erstellen — Bytewerk Studio",
       "lang": "de",
       "h1": 1,
-      "ids": 18,
+      "ids": 19,
       "duplicate_ids": [],
       "images_without_alt": [],
       "broken_refs": [],
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/register.html",
-      "data_en": 26
+      "data_en": 27
     },
     {
       "page": "shop.html",
       "title": "Shop — Bytewerk Studio Apps",
       "lang": "de",
       "h1": 1,
-      "ids": 6,
+      "ids": 7,
       "duplicate_ids": [],
       "images_without_alt": [],
       "broken_refs": [],
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/shop.html",
-      "data_en": 43
+      "data_en": 44
     },
     {
       "page": "showroom.html",
@@ -390,7 +390,7 @@
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/showroom.html",
-      "data_en": 49
+      "data_en": 50
     },
     {
       "page": "sicherheit.html",
@@ -404,21 +404,21 @@
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/sicherheit.html",
-      "data_en": 202
+      "data_en": 203
     },
     {
       "page": "softwareentwicklung-ludwigshafen.html",
       "title": "Softwareentwicklung Ludwigshafen — Bytewerk Studio",
       "lang": "de",
       "h1": 1,
-      "ids": 3,
+      "ids": 4,
       "duplicate_ids": [],
       "images_without_alt": [],
       "broken_refs": [],
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/softwareentwicklung-ludwigshafen.html",
-      "data_en": 45
+      "data_en": 46
     },
     {
       "page": "studio.html",
@@ -439,28 +439,28 @@
       "title": "UpdatePilot - Windows Update-Manager · Bytewerk Studio",
       "lang": "de",
       "h1": 1,
-      "ids": 4,
+      "ids": 5,
       "duplicate_ids": [],
       "images_without_alt": [],
       "broken_refs": [],
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/updatepilot.html",
-      "data_en": 32
+      "data_en": 33
     },
     {
       "page": "vergleich.html",
       "title": "Produktvergleich — welche Bytewerk-App passt? | Bytewerk Studio",
       "lang": "de",
       "h1": 1,
-      "ids": 8,
+      "ids": 9,
       "duplicate_ids": [],
       "images_without_alt": [],
       "broken_refs": [],
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/vergleich.html",
-      "data_en": 91
+      "data_en": 92
     },
     {
       "page": "zeichenwerk.html",
