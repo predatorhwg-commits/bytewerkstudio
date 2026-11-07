@@ -27,60 +27,72 @@
 <main id="main" class="wrap legal-wrap">
   <div class="legal-grid">
     <aside class="legal-toc reveal">
-      <a href="#meldeweg">Lücke melden</a>
-      <a href="#umfang">Was geprüft wird</a>
-      <a href="#massnahmen">Technische Maßnahmen</a>
-      <a href="#daten">Deine Daten</a>
+      <a href="#meldeweg" data-en="Report a vulnerability">Lücke melden</a>
+      <a href="#umfang" data-en="What is in scope">Was geprüft wird</a>
+      <a href="#massnahmen" data-en="Technical measures">Technische Maßnahmen</a>
+      <a href="#daten" data-en="Your data">Deine Daten</a>
     </aside>
     <section class="legal-copy reveal" data-d="1">
       <div>
         <span class="eyebrow">Security</span>
-        <h1 class="display u-display-68 u-mt-18">Sicherheit</h1>
+        <h1 class="display u-display-68 u-mt-18" data-en="Security">Sicherheit</h1>
       </div>
 
       <article id="meldeweg">
-        <h2>Eine Sicherheitslücke melden</h2>
-        <p>Wenn du eine Schwachstelle auf dieser Website findest, schreib bitte eine E-Mail an
+        <h2 data-en="Report a security vulnerability">Eine Sicherheitslücke melden</h2>
+        <p data-en="If you find a vulnerability on this website, please email
+          <a href=&quot;mailto:Haqmalh@icloud.com?subject=Sicherheitshinweis%20bytewerkstudio.com&quot;>Haqmalh@icloud.com</a>
+          with the subject &quot;security report&quot;. Helpful details are the affected address, a short description
+          and the steps that reproduce the behaviour.">Wenn du eine Schwachstelle auf dieser Website findest, schreib bitte eine E-Mail an
           <a href="mailto:Haqmalh@icloud.com?subject=Sicherheitshinweis%20bytewerkstudio.com">Haqmalh@icloud.com</a>
           mit dem Betreff „Sicherheitshinweis“. Hilfreich sind die betroffene Adresse, eine kurze Beschreibung
           und die Schritte, mit denen sich das Verhalten nachvollziehen lässt.</p>
-        <p>Bitte teste nur auf Seiten und Konten, die dir selbst gehören, verändere keine Daten und
+        <p data-en="Please only test pages and accounts that belong to you, do not modify data and
+          publish details only after we have had a chance to fix the issue. We usually reply within
+          72 hours.">Bitte teste nur auf Seiten und Konten, die dir selbst gehören, verändere keine Daten und
           veröffentliche Details erst, nachdem wir Gelegenheit zur Behebung hatten. Wir melden uns in der
           Regel innerhalb von 72 Stunden zurück.</p>
-        <p>Die maschinenlesbare Fassung steht unter
+        <p data-en="The machine-readable version is available at
+          <a href=&quot;/.well-known/security.txt&quot;>/.well-known/security.txt</a>.">Die maschinenlesbare Fassung steht unter
           <a href="/.well-known/security.txt">/.well-known/security.txt</a>.</p>
       </article>
 
       <article id="umfang">
-        <h2>Was geprüft wird</h2>
+        <h2 data-en="What is in scope">Was geprüft wird</h2>
         <ul>
-          <li>Diese Website und ihre Unterseiten unter bytewerkstudio.com</li>
-          <li>Die ausgelieferten Skripte, Stylesheets und Formulare</li>
-          <li>Die lokale Kontoverwaltung im Browser</li>
+          <li data-en="This website and its subpages under bytewerkstudio.com">Diese Website und ihre Unterseiten unter bytewerkstudio.com</li>
+          <li data-en="The delivered scripts, stylesheets and forms">Die ausgelieferten Skripte, Stylesheets und Formulare</li>
+          <li data-en="The local account management in the browser">Die lokale Kontoverwaltung im Browser</li>
         </ul>
-        <p>Nicht im Umfang: fremde Dienste, Social-Media-Profile und Angriffe auf die Infrastruktur des Hosters.</p>
+        <p data-en="Out of scope: third-party services, social media profiles and attacks on the hosting infrastructure.">Nicht im Umfang: fremde Dienste, Social-Media-Profile und Angriffe auf die Infrastruktur des Hosters.</p>
       </article>
 
       <article id="massnahmen">
-        <h2>Technische Maßnahmen</h2>
-        <p>Die Seite wird statisch über GitHub Pages ausgeliefert. Es gibt kein eigenes Backend, keine
+        <h2 data-en="Technical measures">Technische Maßnahmen</h2>
+        <p data-en="The site is served statically via GitHub Pages. There is no own backend, no
+          database and no server-side sessions.">Die Seite wird statisch über GitHub Pages ausgeliefert. Es gibt kein eigenes Backend, keine
           Datenbank und keine serverseitigen Sitzungen.</p>
         <ul>
-          <li><strong>Content Security Policy:</strong> Skripte und Schriften dürfen ausschließlich von der
+          <li data-en="<strong>Content Security Policy:</strong> scripts and fonts may only be loaded from
+            this domain. There are no inline scripts and no third-party CDN references."><strong>Content Security Policy:</strong> Skripte und Schriften dürfen ausschließlich von der
             eigenen Domain geladen werden. Es gibt keine Inline-Skripte und keine Fremd-CDN-Verweise.</li>
-          <li><strong>Keine externen Fonts:</strong> Schriften liegen lokal im Projekt, es findet keine
+          <li data-en="<strong>No external fonts:</strong> fonts are stored locally in the project, there is no
+            connection to Google Fonts."><strong>Keine externen Fonts:</strong> Schriften liegen lokal im Projekt, es findet keine
             Verbindung zu Google Fonts statt.</li>
-          <li><strong>Formulare:</strong> Alle Formulare nutzen <code>method="post"</code> und senden keine
+          <li data-en="<strong>Forms:</strong> all forms use <code>method=&quot;post&quot;</code> and send no
+            data to third parties. The contact form opens the local mail client."><strong>Formulare:</strong> Alle Formulare nutzen <code>method="post"</code> und senden keine
             Daten an Dritte. Das Kontaktformular öffnet das lokale Mailprogramm.</li>
-          <li><strong>Konten:</strong> Passwörter werden im Browser mit PBKDF2 abgeleitet und nur lokal
+          <li data-en="<strong>Accounts:</strong> passwords are derived in the browser with PBKDF2 and stored
+            locally only, as long as no account server is connected."><strong>Konten:</strong> Passwörter werden im Browser mit PBKDF2 abgeleitet und nur lokal
             gespeichert, solange kein Konto-Server verbunden ist.</li>
-          <li><strong>Kein Tracking:</strong> Keine Analyse-, Werbe- oder Social-Media-Skripte.</li>
+          <li data-en="<strong>No tracking:</strong> no analytics, advertising or social media scripts."><strong>Kein Tracking:</strong> Keine Analyse-, Werbe- oder Social-Media-Skripte.</li>
         </ul>
       </article>
 
       <article id="daten">
-        <h2>Deine Daten</h2>
-        <p>Welche Daten beim Besuch anfallen und wie du deine Rechte wahrnimmst, steht in der
+        <h2 data-en="Your data">Deine Daten</h2>
+        <p data-en="Which data occurs during a visit and how to exercise your rights is described in the
+          <a href=&quot;datenschutz.html&quot;>privacy policy</a>.">Welche Daten beim Besuch anfallen und wie du deine Rechte wahrnimmst, steht in der
           <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
       </article>
     </section>
