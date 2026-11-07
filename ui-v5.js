@@ -262,10 +262,10 @@
       const act = document.createElement('div');
       act.className = 'v5-act';
       act.innerHTML =
-        '<button class="v5-ibtn" role="button" tabindex="0" data-v5-cmp aria-pressed="false" aria-label="' + esc(T('Zum Vergleich', 'Add to compare')) + '">' +
+        '<button class="v5-ibtn" tabindex="0" data-v5-cmp aria-pressed="false" aria-label="' + esc(T('Zum Vergleich', 'Add to compare')) + '">' +
           '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h11"/><path d="M4 12h7"/><path d="M4 17h11"/><path d="m17 12 4 4-4 4"/></svg>' +
-        '</span>' +
-        '<button class="v5-ibtn" role="button" tabindex="0" data-v5-qv aria-label="' + esc(T('Schnellansicht', 'Quick view')) + '">' +
+        '</button>' +
+        '<button class="v5-ibtn" tabindex="0" data-v5-qv aria-label="' + esc(T('Schnellansicht', 'Quick view')) + '">' +
           '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.6"/></svg>' +
         '</button>';
       card.appendChild(act);
@@ -434,7 +434,7 @@
       '<div class="v5-dialog">' +
         '<button class="v5-qv-close" type="button" aria-label="' + esc(T('Schliessen', 'Close')) + '">' +
           '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>' +
-        '</span>' +
+        '</button>' +
         '<div class="v5-qv-media"></div>' +
         '<div class="v5-qv-body">' +
           '<div class="v5-qv-kicker"></div>' +
