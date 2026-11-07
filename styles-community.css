@@ -2149,3 +2149,12 @@ pre:hover .cm-copy, .cm-copy:focus-visible { opacity: 1; }
 
 .cm-stage:focus-visible { outline: 2px solid var(--cm-accent); outline-offset: 4px; }
 .cm-stage-chip.is-active { pointer-events: none; }
+
+/* ---------- 15. Kontrast-Nachbesserungen (QA 07:30) ----------
+   Gemessen mit WCAG 2.1: Ziel >= 4.5:1 fuer kleinen Text.
+   Nur Overrides, keine bestehenden Regeln werden ersetzt. */
+.cm-compare td:first-of-type { color: #6b665c; }
+.cm-page .lang-sep { color: #6b665c; }
+.cm-page .lang-toggle button { color: #6f6a60; }
+.cm-page .lang-toggle button.active { color: var(--cm-accent-700); }
+.cm-page .cm-textlink { min-height: 32px; }
