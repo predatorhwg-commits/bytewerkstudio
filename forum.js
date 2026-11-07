@@ -289,6 +289,12 @@
     }
   }
 
+  /* A key can hold anything; only arrays are lists. */
+  function readArray(key) {
+    const value = readJSON(key, []);
+    return Array.isArray(value) ? value : [];
+  }
+
   function writeJSON(key, value) {
     try {
       localStorage.setItem(key, JSON.stringify(value));
@@ -482,18 +488,136 @@
     };
   }
 
-  function load() {
-    let data = readJSON(CFG.storeKey, null);
-    if (!data || !Array.isArray(data.threads) || !data.threads.length) {
-      data = seed();
-      writeJSON(CFG.storeKey, data);
+  /* Stored data can be old, half-written or edited by hand. Repair it
+     instead of trusting it: one broken entry must not blank the forum. */
+  const ROLES = ['team', 'pro', 'member', 'free', 'guest'];
+
+  function cleanText(value, max) {
+    if (typeof value === 'string') return value.slice(0, max);
+    if (value && typeof value === 'object') {
+      const out = {};
+      ['de', 'en'].forEach(k => { if (typeof value[k] === 'string') out[k] = value[k].slice(0, max); });
+      return out;
     }
-    data.threads.forEach(th => {
-      th.posts = Array.isArray(th.posts) ? th.posts : [];
-      th.tags = Array.isArray(th.tags) ? th.tags : [];
-      th.votes = Array.isArray(th.votes) ? th.votes : [];
-      th.views = Number(th.views) || 0;
+    return '';
+  }
+
+  function cleanDate(value, fallback) {
+    const d = new Date(value);
+    return isNaN(d.getTime()) ? fallback : d.toISOString();
+  }
+
+  /* Keep an existing slug as it is; only strip what would break a fragment. */
+  function cleanSlug(value, fallback) {
+    const raw = typeof value === 'string' && value.trim() ? value : fallback;
+    const slug = String(raw)
+      .toLowerCase()
+      .trim()
+      .slice(0, 80)
+      .replace(/[^a-z0-9äöüß-]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+    return slug || slugify(fallback);
+  }
+
+  function cleanAuthor(value, fallbackName) {
+    const src = value && typeof value === 'object' ? value : {};
+    const name = typeof src.name === 'string' && src.name.trim()
+      ? src.name.trim().slice(0, 60)
+      : fallbackName;
+    return {
+      id: typeof src.id === 'string' && src.id ? src.id.slice(0, 80) : 'u-' + slugify(name),
+      name: name,
+      role: ROLES.indexOf(src.role) !== -1 ? src.role : 'member',
+      plan: src.plan === 'pro' ? 'pro' : 'free'
+    };
+  }
+
+  function cleanPost(value, threadId, index, fallbackTime, fallbackName) {
+    if (!value || typeof value !== 'object') return null;
+    const body = cleanText(value.body, CFG.maxBody);
+    if (!txt(body).trim()) return null;
+    return {
+      id: typeof value.id === 'string' && value.id ? value.id.slice(0, 80) : threadId + '-p' + index,
+      author: cleanAuthor(value.author, fallbackName),
+      createdAt: cleanDate(value.createdAt, fallbackTime),
+      editedAt: value.editedAt ? cleanDate(value.editedAt, null) : null,
+      votes: Array.isArray(value.votes) ? value.votes.filter(v => typeof v === 'string').slice(0, 500) : [],
+      body: body,
+      replyTo: typeof value.replyTo === 'string' ? value.replyTo.slice(0, 80) : null
+    };
+  }
+
+  function cleanThread(value, index, fallbackTime) {
+    if (!value || typeof value !== 'object') return null;
+    const title = cleanText(value.title, CFG.maxTitle);
+    const body = cleanText(value.body, CFG.maxBody);
+    if (!txt(title).trim() || !txt(body).trim()) return null;
+
+    const fallbackName = t('Unbekannt', 'Unknown');
+    const id = typeof value.id === 'string' && value.id ? value.id.slice(0, 80) : 'th-' + index + '-' + uid();
+    const created = cleanDate(value.createdAt, fallbackTime);
+    const posts = (Array.isArray(value.posts) ? value.posts : [])
+      .map((p, i) => cleanPost(p, id, i, created, fallbackName))
+      .filter(Boolean)
+      .slice(0, CFG.maxPostsPerThread);
+
+    return {
+      id: id,
+      slug: cleanSlug(value.slug, txt(title)),
+      cat: CATS.some(c => c.id === value.cat) ? value.cat : 'frontend',
+      type: ['question', 'bug', 'discussion'].indexOf(value.type) !== -1 ? value.type : 'question',
+      title: title,
+      body: body,
+      tags: (Array.isArray(value.tags) ? value.tags : [])
+        .filter(v => typeof v === 'string' && v.trim())
+        .slice(0, CFG.maxTags)
+        .map(v => v.slice(0, 24)),
+      author: cleanAuthor(value.author, fallbackName),
+      createdAt: created,
+      updatedAt: cleanDate(value.updatedAt, created),
+      pinned: value.pinned === true,
+      solved: value.solved === true,
+      solvedPost: typeof value.solvedPost === 'string' ? value.solvedPost.slice(0, 80) : null,
+      views: Math.max(0, Math.min(1e9, Math.floor(Number(value.views) || 0))),
+      votes: Array.isArray(value.votes) ? value.votes.filter(v => typeof v === 'string').slice(0, 500) : [],
+      official: value.official === true,
+      posts: posts
+    };
+  }
+
+  function normalizeDb(data) {
+    const raw = data && typeof data === 'object' && Array.isArray(data.threads) ? data.threads : [];
+    const now = nowISO();
+    const usedSlug = Object.create(null);
+    const usedId = Object.create(null);
+    const threads = [];
+
+    raw.slice(0, CFG.maxThreadsLocal * 2).forEach((value, i) => {
+      const th = cleanThread(value, i, now);
+      if (!th) return;
+      if (usedId[th.id]) th.id = th.id + '-' + i;
+      let slug = th.slug;
+      let n = 2;
+      while (usedSlug[slug]) slug = th.slug.slice(0, 55) + '-' + n++;
+      th.slug = slug;
+      usedSlug[slug] = true;
+      usedId[th.id] = true;
+      threads.push(th);
     });
+
+    return { version: 1, threads: threads.slice(0, CFG.maxThreadsLocal) };
+  }
+
+  function load() {
+    const stored = readJSON(CFG.storeKey, null);
+    const data = normalizeDb(stored);
+    if (!data.threads.length) {
+      const fresh = seed();
+      writeJSON(CFG.storeKey, fresh);
+      return fresh;
+    }
+    // Write back only when the repair changed something.
+    if (stored && JSON.stringify(data) !== JSON.stringify(stored)) writeJSON(CFG.storeKey, data);
     return data;
   }
 
@@ -566,7 +690,7 @@
   /* ---------------------------------------------------------- */
 
   function rateCheck() {
-    const stamps = readJSON(CFG.rateKey, []).filter(s => Date.now() - s < 60000);
+    const stamps = readArray(CFG.rateKey).filter(s => typeof s === 'number' && Date.now() - s < 60000);
     if (stamps.length >= CFG.maxPostsPerMinute) {
       return { ok: false, message: t('Zu viele Beiträge in einer Minute. Bitte kurz warten.',
                                     'Too many posts in one minute. Please wait a moment.') };
@@ -581,13 +705,13 @@
   }
 
   function rateMark() {
-    const stamps = readJSON(CFG.rateKey, []).filter(s => Date.now() - s < 60000);
+    const stamps = readArray(CFG.rateKey).filter(s => typeof s === 'number' && Date.now() - s < 60000);
     stamps.push(Date.now());
     writeJSON(CFG.rateKey, stamps);
   }
 
   function report(itemId, kind) {
-    const list = readJSON(CFG.reportsKey, []);
+    const list = readArray(CFG.reportsKey);
     list.push({ id: itemId, kind: kind, at: nowISO(), by: (user() && user().id) || 'guest' });
     writeJSON(CFG.reportsKey, list.slice(-100));
   }
@@ -596,7 +720,7 @@
   /* 8. Subscriptions                                            */
   /* ---------------------------------------------------------- */
 
-  function subscriptions() { return readJSON(CFG.subsKey, []); }
+  function subscriptions() { return readArray(CFG.subsKey).filter(s => typeof s === 'string'); }
 
   function isSubscribed(slug) { return subscriptions().indexOf(slug) !== -1; }
 
@@ -677,6 +801,34 @@
       .replace(/\s+/g, ' ')
       .trim()
       .slice(0, max || 160);
+  }
+
+  /* Mark search hits with <mark> nodes — never by building HTML. */
+  function withHits(node, text, query) {
+    const source = String(text || '');
+    const parts = String(query || '').toLowerCase().split(/\s+/).filter(Boolean).slice(0, 8);
+    if (!parts.length) { node.textContent = source; return node; }
+
+    const hay = source.toLowerCase();
+    let at = 0;
+    let marks = 0;
+    while (marks < 24) {
+      let best = -1;
+      let len = 0;
+      parts.forEach(part => {
+        const i = hay.indexOf(part, at);
+        if (i !== -1 && (best === -1 || i < best)) { best = i; len = part.length; }
+      });
+      if (best === -1) break;
+      if (best > at) node.appendChild(document.createTextNode(source.slice(at, best)));
+      const mark = el('mark', { class: 'fm-hit' });
+      mark.textContent = source.slice(best, best + len);
+      node.appendChild(mark);
+      at = best + len;
+      marks++;
+    }
+    node.appendChild(document.createTextNode(source.slice(at)));
+    return node;
   }
 
   function typeLabel(type) {
@@ -841,8 +993,8 @@
     }
 
     main.appendChild(top);
-    main.appendChild(el('h3', { class: 'fm-item-title', text: txt(th.title) }));
-    main.appendChild(el('p', { class: 'fm-item-excerpt', text: excerpt(txt(th.body)) }));
+    main.appendChild(withHits(el('h3', { class: 'fm-item-title' }), txt(th.title), state.q));
+    main.appendChild(withHits(el('p', { class: 'fm-item-excerpt' }), excerpt(txt(th.body)), state.q));
 
     if (th.tags && th.tags.length) {
       const tags = el('div', { class: 'fm-item-tags' });
@@ -1818,7 +1970,31 @@
     renderAccess();
     renderKnowledge();
     document.body.classList.toggle('fm-is-thread', route.view === 'thread');
+    scheduleProgress();
   }
+
+  /* ---- reading progress on a thread ---- */
+  const progressBar = document.getElementById('fm-progress');
+  let progressFrame = 0;
+
+  function updateProgress() {
+    progressFrame = 0;
+    const span = progressBar && progressBar.firstElementChild;
+    const thread = document.getElementById('fm-thread');
+    if (!span || !thread || route.view !== 'thread') return;
+    const start = thread.getBoundingClientRect().top + window.scrollY;
+    const range = document.documentElement.scrollHeight - window.innerHeight - start;
+    const ratio = range < 120 ? 1 : Math.min(1, Math.max(0, (window.scrollY - start) / range));
+    span.style.transform = 'scaleX(' + ratio.toFixed(4) + ')';
+  }
+
+  function scheduleProgress() {
+    if (progressFrame) return;
+    progressFrame = requestAnimationFrame(updateProgress);
+  }
+
+  window.addEventListener('scroll', scheduleProgress, { passive: true });
+  window.addEventListener('resize', scheduleProgress);
 
   /* ---- shareable metadata ---- */
   const META_DEFAULT = {

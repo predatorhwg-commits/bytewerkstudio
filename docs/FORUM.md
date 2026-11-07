@@ -45,16 +45,40 @@ Das ist der Teil, der nicht verhandelbar ist.
 6. **Honeypot** im Formular: ein unsichtbares Feld, das nur Bots füllen.
 7. **Keine Secrets im Repo.** Der Supabase-`anon`-Key ist öffentlich; der
    `service_role`-Key gehört nie in eine Datei, die ausgeliefert wird.
-8. **CSP bleibt:** keine Inline-Handler, keine externen Skripte. Die Seite
-   lädt three.js aus `vendor/`.
+8. **CSP ohne Ausnahme für Styles:** `style-src 'self'
+   https://fonts.googleapis.com` — kein `'unsafe-inline'`. Dazu
+   `base-uri 'none'` und `form-action 'none'`; das Formular wird
+   ausschließlich per JavaScript verarbeitet. Keine Inline-Handler, keine
+   externen Skripte, three.js aus `vendor/`. Der Inline-Block in
+   `forum.html` bleibt über seinen SHA-256-Hash erlaubt.
 9. **RLS im Schema:** Lesen für Angemeldete, Schreiben nur mit passendem
    Plan. `author_id`, `author_name`, `created_at` setzt ein Trigger aus
    `auth.uid()` — nicht der Client.
+10. **Gespeicherte Daten werden geprüft, nicht vertraut.** `normalizeDb()`
+    repariert `bw-forum-v1`: falsche Typen fliegen raus, Titel und Texte
+    werden auf die Grenzen gekürzt, unbekannte Kategorien fallen auf
+    `frontend` zurück, doppelte Slugs und IDs werden eindeutig, Daten
+    ohne gültigen Zeitstempel bekommen `jetzt`, und ein einzelner kaputter
+    Eintrag leert nicht mehr das ganze Forum. Ist nichts mehr zu retten,
+    wird neu aufgesetzt.
+11. **Auch die Nebenschlüssel sind typgeprüft.** `bw-forum-rate-v1`,
+    `bw-forum-subs-v1` und `bw-forum-reports-v1` laufen über `readArray()`;
+    ein Objekt oder String an dieser Stelle wirft nicht mehr, sondern
+    wird als leere Liste behandelt.
 
 Geprüft mit einem XSS-Durchlauf im Browser: Titel und Beitrag mit
-`<img onerror>`, `<script>`, `<svg onload>`, `<iframe>`, `javascript:`-Links.
-Ergebnis: null eingeschleuste Elemente, null ausgelöste Handler, keine
-`javascript:`-Hrefs.
+`<img onerror>`, `<script>`, `<svg onload>`, `<iframe>`, `<math>`,
+`javascript:`-Links (auch mit Tab und HTML-Entität), dazu vergifteter
+Speicher mit Nutzlasten in **jedem** Feld (Titel, Text, Tags, Autor, Slug,
+Kategorie, Typ, Datum, Stimmen, Lösung). Ergebnis: null eingeschleuste
+Elemente, null Handler, null `javascript:`-Hrefs, null Alerts, null
+Konsolenfehler — die Nutzlasten stehen als Text da.
+
+Speicher- und Schlüsseltests: sechs kaputte `bw-forum-v1`-Formen
+(`null`-Eintrag, String, fehlender Autor, `posts` als String, ungültiges
+Datum, `__proto__`) und fünf falsch typisierte Nebenschlüssel. Vorher
+legten drei Formen die Seite mit `pageerror` lahm; jetzt rendert jeder Fall,
+und gültige Daten bleiben unverändert.
 
 ## Bedienung
 
@@ -71,6 +95,13 @@ Die Pinwand ist ein Canvas mit `aria-hidden`; die vier Karten im
 `.fm-stage-fallback` sind echte Knöpfe und bleiben ohne WebGL sichtbar.
 Bei `prefers-reduced-motion` wird ein Standbild gezeichnet, die Schleife
 läuft nicht.
+
+Die Suche markiert ihre Treffer im Listentitel und im Auszug mit `<mark>`
+(mehrere Wörter, Groß-/Kleinschreibung egal, höchstens 24 Marken je Zeile).
+Im Thema zeigt eine zwei Pixel hohe Linie den Lesefortschritt; sie beginnt
+beim Öffnen bei 0, füllt sich beim Scrollen und ist auf der Liste unsichtbar.
+Ohne JavaScript erklärt eine `noscript`-Zeile, warum das Forum leer bleibt,
+und nennt eine Mailadresse.
 
 ## Bearbeiten
 
@@ -141,5 +172,14 @@ Webhook, der `profiles.plan` setzt — nicht einen Schalter im Browser.
   Autorennamen; `pre` scrollt intern.
 - Unbekannter Deep-Link `#/t/<slug>`: Liste sichtbar, Thread verborgen,
   einmaliger Hinweis „Dieses Thema gibt es nicht oder nicht mehr.“
+- CSP ohne `'unsafe-inline'` für Styles, mit `base-uri 'none'` und
+  `form-action 'none'`: Dialog, Editor, Suche, Leerzustand, Sprachwechsel,
+  Pro-Band und Toast geprüft — 0 `securitypolicyviolation`, keine
+  Konsolenfehler. `element.style.transform` für die Fortschrittslinie
+  bleibt davon unberührt (CSSOM, kein Style-Attribut).
+- Suche markiert mehrere Wörter (`three.js szene` → zwei Marken), der
+  Leerzustand bleibt bei „zzzz“ sichtbar. Fortschrittslinie: 0 oben,
+  `scaleX(1)` am Seitenende, auf der Liste `opacity: 0`.
+- Ohne JavaScript: `noscript`-Hinweis sichtbar.
 - Spanisch: `lang='es'` liefert englische Oberfläche und `en-GB`-Datum,
   nie deutsche Texte.

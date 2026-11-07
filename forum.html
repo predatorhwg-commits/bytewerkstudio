@@ -5,7 +5,7 @@
 <script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CaeQ8Q3geGyk4C+zSbiPIgg9xb3aa/Jes1V9wggsHR4='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CaeQ8Q3geGyk4C+zSbiPIgg9xb3aa/Jes1V9wggsHR4='; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow">
 <title>Forum — Fragen, Antworten und Werkstattwissen | Bytewerk Studio</title>
@@ -47,9 +47,17 @@
 </head>
 <body class="fm-page">
 
+<div class="fm-progress" id="fm-progress" aria-hidden="true"><span></span></div>
+
 <a class="fm-skip" href="#forum" data-en="Skip to forum">Zum Forum springen</a>
 
 <div data-include="header"></div>
+
+<noscript>
+  <div class="wrap">
+    <p class="fm-noscript">Das Forum lädt Themen, Antworten und die Suche im Browser. Bitte erlaube JavaScript für diese Seite — oder schreib uns direkt an <a href="mailto:hallo@bytewerkstudio.com">hallo@bytewerkstudio.com</a>.</p>
+  </div>
+</noscript>
 
 <main id="main">
 
