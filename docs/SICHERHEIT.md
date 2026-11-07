@@ -96,13 +96,17 @@ nötig, alle in dieser Datei erledigt:
    (`element.style…`). Das ist keine Inline-Style-Deklaration im Sinne der
    CSP und wird von `style-src` nicht blockiert — geprüft, nicht angenommen.
 
-Nachgewiesen im Browser mit `style-src 'self' https://fonts.googleapis.com`:
+Nachgewiesen im Browser mit `style-src 'self' https://fonts.googleapis.com`.
+Eingeschleuste Styles werden blockiert, die eigene Darstellung läuft weiter:
 
 ```
-CSP violations:        []            (0 Verstöße, 6 Stylesheets, Fonts geladen)
-score 100 → ring       0.26522px     (Ring rechnet und zeichnet)
-ohne JavaScript        html ohne .js → Ergebnis aus, Hinweis an, Panels offen
-mit JavaScript         html.js      → Ergebnis an, Hinweis aus
+eingeschleustes <style>      body-Hintergrund unverändert   → blockiert
+eingeschleustes style-Attr.  Farbe bleibt Ink, nicht Rot     → blockiert
+CSSOM-Zuweisung (Ring)       computed 326.7px               → erlaubt
+CSP-Verstöße im Betrieb      0                              (6 Stylesheets, Fonts geladen)
+score 100 → Ring             computed 0.26522px              → rechnet und zeichnet
+ohne JavaScript              html ohne .js → Ergebnis aus, Hinweis an, Panels offen
+mit JavaScript               html.js       → Ergebnis an, Hinweis aus
 ```
 
 ### Was fehlt
