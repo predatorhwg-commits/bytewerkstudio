@@ -2158,3 +2158,11 @@ pre:hover .cm-copy, .cm-copy:focus-visible { opacity: 1; }
 .cm-page .lang-toggle button { color: #6f6a60; }
 .cm-page .lang-toggle button.active { color: var(--cm-accent-700); }
 .cm-page .cm-textlink { min-height: 32px; }
+
+/* Drei Sicherheitslinks bleiben als Gruppe zusammen, statt sich ueber die
+   ganze Breite zu verteilen. */
+.cm-selftest-links {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+}

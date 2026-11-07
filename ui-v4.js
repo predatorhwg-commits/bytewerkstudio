@@ -23,6 +23,18 @@
   };
   const pageFile = () => (location.pathname.split('/').pop() || 'index.html');
 
+  /* Der Browser-Speicher ist manipulierbar. Nur eine Seite aus diesem
+     Verzeichnis und ein Bild aus media/ duerfen daraus ein Ziel werden —
+     sonst waere ein javascript:- oder fremder Link ein Sprungbrett. */
+  const localHref = (value) => {
+    const raw = String(value || '');
+    return /^[a-z0-9][a-z0-9._-]*\.html$/i.test(raw) ? raw : null;
+  };
+  const localImage = (value) => {
+    const raw = String(value || '');
+    return /^media\/[a-z0-9][a-z0-9._-]*$/i.test(raw) ? raw : null;
+  };
+
   /* ---------- Toast ---------- */
   let flashEl, flashTimer;
   function flash(message) {
@@ -512,7 +524,9 @@
     const recentRow = $('#recent-row');
     if (recentWrap && recentRow) {
       const renderRecent = () => {
-        const list = store.get('bw-recent-products', []).filter(p => p && p.url);
+        const list = store.get('bw-recent-products', [])
+          .filter(p => p && localHref(p.url) && p.title)
+          .map(p => ({ url: localHref(p.url), img: localImage(p.img), title: String(p.title).slice(0, 80), price: String(p.price || '').slice(0, 40) }));
         recentRow.innerHTML = '';
         if (!list.length) { recentWrap.hidden = true; return; }
         recentWrap.hidden = false;
