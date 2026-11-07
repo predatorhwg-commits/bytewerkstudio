@@ -154,6 +154,21 @@ Der größte Einzelposten ist three.js (`vendor/`, rund 700 KB) auf
 den Seiten mit 3D-Bühne. Er wird nur geladen, wenn eine Bühne in
 den Blick kommt; ohne WebGL bleibt die gezeichnete Ersatzbühne.
 
+### Mobil (390 × 844)
+
+Dieselbe Messung bei 390 px Breite. Wichtig, weil dort das
+Mobilmenü greift und die 3D-Bühnen kleiner ausfallen.
+
+| Messung | Ergebnis |
+|---|---|
+| Seiten | 34 |
+| Median übertragene Bytes | 1155 KB |
+| Größte Seite | 1597 KB |
+| Median LCP | 872 ms |
+| Schlechtester LCP | 1036 ms |
+| Seiten mit CLS über 0,1 | 0 |
+| Bilder ohne Maße | 0 |
+
 ## 8. 3D-Bühnen (three.js)
 
 Geprüft: **9 Seiten mit 3D-Szene**, gerendert: **9**.
@@ -210,5 +225,8 @@ python3 tools/qa_xss.py --base http://127.0.0.1:8809
 python3 tools/qa_keyboard.py --base http://127.0.0.1:8809
 python3 tools/qa_design.py --base http://127.0.0.1:8809
 python3 tools/qa_perf.py --base http://127.0.0.1:8809
+python3 tools/qa_perf.py --base http://127.0.0.1:8809 --width 390 --height 844 --label mobil
+python3 tools/qa_zoom.py --base http://127.0.0.1:8809
+python3 tools/qa_motion.py --base http://127.0.0.1:8809
 python3 tools/qa_report.py
 ```

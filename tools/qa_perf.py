@@ -57,12 +57,13 @@ METRICS = """() => {
 }"""
 
 
-def measure(pw, browser, name: str, base: str, depth: int = 0):
+def measure(pw, browser, name: str, base: str, depth: int = 0,
+            width: int = 1440, height: int = 900):
     """Eine Seite messen. Gibt (row, browser) zurück; browser kann neu sein."""
     ctx = None
     row = {"page": name}
     try:
-        ctx = browser.new_context(viewport={"width": 1440, "height": 900})
+        ctx = browser.new_context(viewport={"width": width, "height": height})
         page = ctx.new_page()
         sizes = {}
 
@@ -108,7 +109,7 @@ def measure(pw, browser, name: str, base: str, depth: int = 0):
             row["error"] = str(exc)[:160]
             return row, browser
         browser = pw.chromium.launch(args=ARGS)
-        row, browser = measure(pw, browser, name, base, depth + 1)
+        row, browser = measure(pw, browser, name, base, depth + 1, width, height)
         row["retried"] = True
     finally:
         if ctx:
@@ -124,6 +125,9 @@ def main() -> int:
     ap.add_argument("--base", default="http://127.0.0.1:8809")
     ap.add_argument("--out", default="docs/qa")
     ap.add_argument("--only", default="", help="Kommagetrennte Seitennamen")
+    ap.add_argument("--width", type=int, default=1440, help="Viewport-Breite")
+    ap.add_argument("--height", type=int, default=900, help="Viewport-Höhe")
+    ap.add_argument("--label", default="", help="Namenszusatz, z. B. mobil")
     args = ap.parse_args()
 
     from playwright.sync_api import sync_playwright
@@ -139,7 +143,10 @@ def main() -> int:
     with sync_playwright() as pw:
         browser = pw.chromium.launch(args=ARGS)
         for name in pages:
-            row, browser = measure(pw, browser, name, args.base)
+            row, browser = measure(pw, browser, name, args.base,
+                                   width=args.width, height=args.height)
+            if args.label:
+                row["label"] = args.label
             rows.append(row)
             print(f"{name}: {row.get('bytes', 0)//1024} KB, {row.get('requests', 0)} Requests, "
                   f"LCP {row.get('lcp', '–')} ms, CLS {row.get('cls', '–')}", flush=True)
@@ -149,7 +156,7 @@ def main() -> int:
             pass
 
     # Teil-Läufe dürfen die Sammeldatei nicht auf die paar Seiten kürzen.
-    target = outdir / "perf.json"
+    target = outdir / (f"perf-{args.label}.json" if args.label else "perf.json")
     if args.only and target.exists():
         try:
             old = json.loads(target.read_text(encoding="utf-8"))

@@ -44,6 +44,7 @@ def main() -> int:
     keyboard = load("keyboard.json")
     design = load("design.json")
     perf = load("perf.json")
+    perf_mobil = load("perf-mobil.json")
 
     s = static["summary"]
     seo_rows = seo.get("rows", [])
@@ -280,6 +281,23 @@ def main() -> int:
         body.append("den Seiten mit 3D-Bühne. Er wird nur geladen, wenn eine Bühne in")
         body.append("den Blick kommt; ohne WebGL bleibt die gezeichnete Ersatzbühne.")
         body.append("")
+        if perf_mobil:
+            m = perf_mobil.get("summary", {})
+            body.append("### Mobil (390 × 844)")
+            body.append("")
+            body.append("Dieselbe Messung bei 390 px Breite. Wichtig, weil dort das")
+            body.append("Mobilmenü greift und die 3D-Bühnen kleiner ausfallen.")
+            body.append("")
+            body.append(md_table([
+                ["Seiten", m.get("pages", 0)],
+                ["Median übertragene Bytes", f"{m.get('median_bytes', 0) // 1024} KB"],
+                ["Größte Seite", f"{m.get('max_bytes', 0) // 1024} KB"],
+                ["Median LCP", f"{m.get('median_lcp', 0)} ms"],
+                ["Schlechtester LCP", f"{m.get('worst_lcp', 0)} ms"],
+                ["Seiten mit CLS über 0,1", m.get("pages_cls_over_01", 0)],
+                ["Bilder ohne Maße", m.get("images_without_dims", 0)],
+            ], ["Messung", "Ergebnis"]))
+            body.append("")
     else:
         body.append("Noch keine Messung: `docs/qa/perf.json` fehlt.")
         body.append("")
@@ -351,6 +369,9 @@ def main() -> int:
     body.append("python3 tools/qa_keyboard.py --base http://127.0.0.1:8809")
     body.append("python3 tools/qa_design.py --base http://127.0.0.1:8809")
     body.append("python3 tools/qa_perf.py --base http://127.0.0.1:8809")
+    body.append("python3 tools/qa_perf.py --base http://127.0.0.1:8809 --width 390 --height 844 --label mobil")
+    body.append("python3 tools/qa_zoom.py --base http://127.0.0.1:8809")
+    body.append("python3 tools/qa_motion.py --base http://127.0.0.1:8809")
     body.append("python3 tools/qa_report.py")
     body.append("```")
     body.append("")
