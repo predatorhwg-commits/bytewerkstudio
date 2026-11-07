@@ -26,4 +26,30 @@
   } catch (err) {
     /* Speicher gesperrt: Deutsch bleibt die Vorgabe. */
   }
+
+  /* ------------------------------------------------------------
+     Clickjacking-Schutz
+     ------------------------------------------------------------
+     GitHub Pages liefert keine Antwort-Header. `frame-ancestors`
+     ist in einer <meta>-CSP wirkungslos, X-Frame-Options lässt
+     sich dort gar nicht setzen. Ohne aktive Prüfung könnte eine
+     fremde Seite diese Seite unsichtbar einbetten und Klicks
+     abgreifen (Konto, Login, Formulare).
+
+     Zwei Schritte: aus einem fremden Rahmen ausbrechen; gelingt
+     das nicht (anderer Origin, Zugriff gesperrt), den Inhalt
+     ausblenden statt ihn als Klickfläche anzubieten.
+
+     Steht im <head> vor dem ersten Paint, damit nichts aufblitzt.
+     ------------------------------------------------------------ */
+  if (window.self !== window.top) {
+    var framed = true;
+    try {
+      if (window.top.location.href) window.top.location = window.self.location.href;
+      framed = false;
+    } catch (err) {
+      framed = true;
+    }
+    if (framed) document.documentElement.style.display = 'none';
+  }
 })();
