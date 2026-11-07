@@ -24,7 +24,7 @@ Kampagnenplanung, sondern die technische Grundlage dafür.
 - Strukturierte Daten: `ProfessionalService` auf der Startseite,
   `SoftwareApplication` + `Offer` auf Produktseiten, `OfferCatalog` für das
   Abo, `BreadcrumbList` wo es Sinn ergibt.
-- `sitemap.xml` führt 29 URLs mit `lastmod`; `robots.txt` erlaubt alles und
+- `sitemap.xml` führt 30 URLs mit `lastmod`; `robots.txt` erlaubt alles und
   verweist auf die Sitemap.
 - Konto-, Login- und Reset-Seiten sind `noindex` und stehen nicht in der Sitemap.
 - Sprache: Eine URL, zwei Sprachen (DE/EN) über `data-en` und `bw-lang`.
