@@ -1,0 +1,4302 @@
+{
+  "summary": {
+    "runs": 136,
+    "fatal": 0,
+    "overflow": 0,
+    "console_error_runs": 0,
+    "lang_switch_failures": 0,
+    "mobile_menu_failures": 0,
+    "css_missing": 0,
+    "background_transparent": 0,
+    "font_warnings": 2,
+    "font_unusable": 0,
+    "webgl_runs": 76,
+    "canvas_runs": 136
+  },
+  "rows": [
+    {
+      "page": "404.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "82px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": null,
+      "utilApplied": null,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 512,
+          "h": 502,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "agb.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "68px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "display u-fs-clamp-38px-5vw-68px_mt-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "arbeiten.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "78px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "sec-pad u-pt-0",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 1440,
+          "h": 520,
+          "ctx": true
+        },
+        {
+          "w": 476,
+          "h": 381,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "burgenwerk.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "54px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 601,
+          "h": 375,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "bytewerk-pdf-text-pro.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "54px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 601,
+          "h": 375,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "checkout.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "74px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "display u-fs-clamp-38px-5_8vw-74px_mt-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "datenschutz.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "68px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "display u-fs-clamp-38px-5vw-68px_mt-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "entwickler.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "74px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": null,
+      "utilApplied": null,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 1440,
+          "h": 774,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "forum.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "62px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": null,
+      "utilApplied": null,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 500,
+          "h": 424,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "impressum.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "68px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "display u-fs-clamp-38px-5vw-68px_mt-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "index.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [
+        "DIV.marquee-track",
+        "SPAN.",
+        "SPAN.",
+        "SPAN.",
+        "SPAN.",
+        "SPAN."
+      ],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "108px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "u-c-faint",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 300,
+          "h": 150,
+          "ctx": true
+        },
+        {
+          "w": 300,
+          "h": 150,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "keyforge-vault.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "54px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "kontakt.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "74px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "brf-hint u-margin-2px-0-12px-26px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 487,
+          "h": 592,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "konto.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "40px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "u-c-muted_fst-normal",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 1,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "lernreich-pro.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "54px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 601,
+          "h": 375,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "login.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "40px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "u-c-muted_fst-normal",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "lumaweek-planner.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "54px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 601,
+          "h": 375,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "marke.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "74px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "mk-lead u-fs-15px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 1112,
+          "h": 522,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "mastil.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "54px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "musterbuch.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [
+        "DIV.mb-hero-wash"
+      ],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "76px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "mb-sheet u---i-3_--c-f1ebdc_--e-ded5c1",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 500,
+          "h": 538,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "neon-dominion.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "54px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "passwort-vergessen.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "40px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "auth-legal u-mt-20px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "probierstand.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "68px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "pb-label u-margin-0",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 552,
+          "h": 425,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "produkt.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "54px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "pruefungs-countdown.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "54px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "register.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "40px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "auth-legal u-mt-20px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "shop.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "78px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "sec-pad u-pt-clamp-48px-7vw-80px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 1440,
+          "h": 587,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "showroom.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "96px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "eyebrow u-c-accent-300_pos-relative",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 734,
+          "h": 510,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "sicherheit.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "76.3167px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": null,
+      "utilApplied": null,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 508,
+          "h": 523,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "softwareentwicklung-ludwigshafen.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "78px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "hero-cta reveal u-mt-28px in",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "studio.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "104px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "eyebrow u-c-accent-300_pos-relative",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 513,
+          "h": 440,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "updatepilot.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "54px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 601,
+          "h": 375,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "vergleich.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "78px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "sec-pad u-bg-paper-2_bbt-1px-solid-line",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "zeichenwerk.html",
+      "width": "desktop",
+      "engine": "firefox",
+      "scrollW": 1440,
+      "clientW": 1440,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "78px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "eyebrow reveal u-mt-22px in",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 696,
+          "h": 348,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "404.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "46.8px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": null,
+      "utilApplied": null,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 348,
+          "h": 386,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "agb.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "38px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "display u-fs-clamp-38px-5vw-68px_mt-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "arbeiten.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "40px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "sec-pad u-pt-0",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 390,
+          "h": 455,
+          "ctx": true
+        },
+        {
+          "w": 348,
+          "h": 261,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "burgenwerk.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "34px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 348,
+          "h": 278,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "bytewerk-pdf-text-pro.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "34px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 348,
+          "h": 278,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "checkout.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "38px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "display u-fs-clamp-38px-5_8vw-74px_mt-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "datenschutz.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "38px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "display u-fs-clamp-38px-5vw-68px_mt-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "entwickler.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [
+        "CODE."
+      ],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "38px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": null,
+      "utilApplied": null,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 390,
+          "h": 899,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "forum.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [
+        "BUTTON.fm-cat",
+        "SPAN.fm-cat-left",
+        "SPAN.fm-cat-name",
+        "SPAN.fm-cat-n",
+        "BUTTON.fm-cat",
+        "SPAN.fm-cat-left"
+      ],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "31px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": null,
+      "utilApplied": null,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 348,
+          "h": 217,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "impressum.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "38px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "display u-fs-clamp-38px-5vw-68px_mt-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "index.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [
+        "DIV.marquee-track",
+        "SPAN.",
+        "SPAN.",
+        "SPAN.",
+        "SPAN.",
+        "SPAN."
+      ],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "50px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "u-c-faint",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 300,
+          "h": 150,
+          "ctx": true
+        },
+        {
+          "w": 300,
+          "h": 150,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "keyforge-vault.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "34px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "kontakt.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "37.4333px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "brf-hint u-margin-2px-0-12px-26px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 348,
+          "h": 234,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "konto.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "29px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "u-c-muted_fst-normal",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 1,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "lernreich-pro.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "34px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 348,
+          "h": 278,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "login.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "29px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "u-c-muted_fst-normal",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "lumaweek-planner.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "34px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 348,
+          "h": 278,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "marke.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "38px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "mk-lead u-fs-15px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 350,
+          "h": 439,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "mastil.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "34px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "musterbuch.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [
+        "DIV.mb-hero-wash",
+        "CODE."
+      ],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "42.9px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "mb-sheet u---i-3_--c-f1ebdc_--e-ded5c1",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 348,
+          "h": 318,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "neon-dominion.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "34px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "passwort-vergessen.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "29px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "auth-legal u-mt-20px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "probierstand.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "39px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "pb-label u-margin-0",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 348,
+          "h": 331,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "produkt.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "34px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "pruefungs-countdown.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "34px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "register.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "29px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "auth-legal u-mt-20px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "shop.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "40px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "sec-pad u-pt-clamp-48px-7vw-80px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 390,
+          "h": 442,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "showroom.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "48px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "eyebrow u-c-accent-300_pos-relative",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 350,
+          "h": 263,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "sicherheit.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "42.1167px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": null,
+      "utilApplied": null,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 300,
+          "h": 150,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "softwareentwicklung-ludwigshafen.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "40px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "hero-cta reveal u-mt-28px in",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "studio.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "52.65px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "eyebrow u-c-accent-300_pos-relative",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 350,
+          "h": 310,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "updatepilot.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "34px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 348,
+          "h": 278,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "vergleich.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "40px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "sec-pad u-bg-paper-2_bbt-1px-solid-line",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "zeichenwerk.html",
+      "width": "mobil",
+      "engine": "firefox",
+      "scrollW": 390,
+      "clientW": 390,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "40px",
+      "h1Family": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "eyebrow reveal u-mt-22px in",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 348,
+          "h": 258,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "404.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "82px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": null,
+      "utilApplied": null,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 512,
+          "h": 502,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "agb.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "68px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "display u-fs-clamp-38px-5vw-68px_mt-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "arbeiten.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "78px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "sec-pad u-pt-0",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 1430,
+          "h": 520,
+          "ctx": true
+        },
+        {
+          "w": 476,
+          "h": 381,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "burgenwerk.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "54px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 601,
+          "h": 375,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "bytewerk-pdf-text-pro.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "54px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 601,
+          "h": 375,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "checkout.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "74px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "display u-fs-clamp-38px-5_8vw-74px_mt-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "datenschutz.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "68px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "display u-fs-clamp-38px-5vw-68px_mt-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "entwickler.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "74px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": null,
+      "utilApplied": null,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 1430,
+          "h": 774,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "forum.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "62px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": null,
+      "utilApplied": null,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 500,
+          "h": 424,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "impressum.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "68px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "display u-fs-clamp-38px-5vw-68px_mt-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "index.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [
+        "DIV.marquee-track",
+        "SPAN.",
+        "SPAN.",
+        "SPAN.",
+        "SPAN.",
+        "SPAN."
+      ],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "108px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "u-c-faint",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 300,
+          "h": 150,
+          "ctx": true
+        },
+        {
+          "w": 300,
+          "h": 150,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "keyforge-vault.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "54px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "kontakt.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "74px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "brf-hint u-margin-2px-0-12px-26px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 487,
+          "h": 592,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "konto.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "40px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "u-c-muted_fst-normal",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "lernreich-pro.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "54px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 601,
+          "h": 375,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "login.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "40px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "u-c-muted_fst-normal",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "lumaweek-planner.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "54px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 601,
+          "h": 375,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "marke.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "74px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "mk-lead u-fs-15px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 1112,
+          "h": 522,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "mastil.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "54px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "musterbuch.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [
+        "DIV.mb-hero-wash"
+      ],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "76px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "mb-sheet u---i-3_--c-f1ebdc_--e-ded5c1",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 500,
+          "h": 538,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "neon-dominion.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "54px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "passwort-vergessen.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "40px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "auth-legal u-mt-20px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "probierstand.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "68px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "pb-label u-margin-0",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 552,
+          "h": 425,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "produkt.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "54px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "pruefungs-countdown.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "54px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "register.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "40px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "auth-legal u-mt-20px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "shop.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "78px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "sec-pad u-pt-clamp-48px-7vw-80px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 1430,
+          "h": 587,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "showroom.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "96px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "eyebrow u-c-accent-300_pos-relative",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 734,
+          "h": 510,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "sicherheit.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "76.32px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": null,
+      "utilApplied": null,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 508,
+          "h": 523,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "softwareentwicklung-ludwigshafen.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "78px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "hero-cta reveal u-mt-28px in",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "studio.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "104px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "eyebrow u-c-accent-300_pos-relative",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 513,
+          "h": 440,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "updatepilot.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "54px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 601,
+          "h": 375,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "vergleich.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "78px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "sec-pad u-bg-paper-2_bbt-1px-solid-line",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "zeichenwerk.html",
+      "width": "desktop",
+      "engine": "webkit",
+      "scrollW": 1430,
+      "clientW": 1430,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "78px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "eyebrow reveal u-mt-22px in",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 1440,
+          "h": 900,
+          "ctx": false
+        },
+        {
+          "w": 696,
+          "h": 348,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": true,
+      "mobile_menu": null
+    },
+    {
+      "page": "404.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "46.800003px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": null,
+      "utilApplied": null,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 338,
+          "h": 386,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "agb.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "38px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "display u-fs-clamp-38px-5vw-68px_mt-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "arbeiten.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "40px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "sec-pad u-pt-0",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 380,
+          "h": 455,
+          "ctx": true
+        },
+        {
+          "w": 338,
+          "h": 254,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "burgenwerk.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "34px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 338,
+          "h": 270,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "bytewerk-pdf-text-pro.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "34px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 338,
+          "h": 270,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "checkout.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "38px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "display u-fs-clamp-38px-5_8vw-74px_mt-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "datenschutz.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "38px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "display u-fs-clamp-38px-5vw-68px_mt-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "entwickler.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [
+        "CODE."
+      ],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "38px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": null,
+      "utilApplied": null,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 380,
+          "h": 899,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "forum.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [
+        "BUTTON.fm-cat",
+        "SPAN.fm-cat-left",
+        "SPAN.fm-cat-name",
+        "SPAN.fm-cat-n",
+        "BUTTON.fm-cat",
+        "SPAN.fm-cat-left"
+      ],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "31px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": null,
+      "utilApplied": null,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 338,
+          "h": 211,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "impressum.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "38px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "display u-fs-clamp-38px-5vw-68px_mt-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "index.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [
+        "DIV.marquee-track",
+        "SPAN.",
+        "SPAN.",
+        "SPAN.",
+        "SPAN.",
+        "SPAN."
+      ],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "50px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "u-c-faint",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 300,
+          "h": 150,
+          "ctx": true
+        },
+        {
+          "w": 300,
+          "h": 150,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "keyforge-vault.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "34px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "kontakt.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "37.440002px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "brf-hint u-margin-2px-0-12px-26px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 338,
+          "h": 234,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "konto.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "29px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "u-c-muted_fst-normal",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "lernreich-pro.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "34px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 338,
+          "h": 270,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "login.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "29px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "u-c-muted_fst-normal",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "lumaweek-planner.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "34px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 338,
+          "h": 270,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "marke.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "38px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "mk-lead u-fs-15px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 340,
+          "h": 439,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "mastil.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "34px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "musterbuch.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [
+        "DIV.mb-hero-wash",
+        "CODE."
+      ],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "42.900002px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "mb-sheet u---i-3_--c-f1ebdc_--e-ded5c1",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 338,
+          "h": 318,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "neon-dominion.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "34px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "passwort-vergessen.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "29px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "auth-legal u-mt-20px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "probierstand.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "39px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "pb-label u-margin-0",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 338,
+          "h": 322,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "produkt.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "34px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "pruefungs-countdown.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "34px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "register.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "29px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "auth-legal u-mt-20px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "shop.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "40px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "sec-pad u-pt-clamp-48px-7vw-80px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 380,
+          "h": 442,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "showroom.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "48px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "eyebrow u-c-accent-300_pos-relative",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 340,
+          "h": 255,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "sicherheit.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "42.120003px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": null,
+      "utilApplied": null,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 300,
+          "h": 150,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "softwareentwicklung-ludwigshafen.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "40px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "hero-cta reveal u-mt-28px in",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "studio.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "52.650002px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "eyebrow u-c-accent-300_pos-relative",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 340,
+          "h": 310,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "updatepilot.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "34px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "crumb u-mb-18px",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 338,
+          "h": 270,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "vergleich.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "40px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "sec-pad u-bg-paper-2_bbt-1px-solid-line",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    },
+    {
+      "page": "zeichenwerk.html",
+      "width": "mobil",
+      "engine": "webkit",
+      "scrollW": 380,
+      "clientW": 380,
+      "overflowNodes": [],
+      "lang": "de",
+      "bodyBg": "rgb(250, 249, 245)",
+      "h1Size": "40px",
+      "h1Family": "Newsreader, Georgia, \"Times New Roman\", serif",
+      "inlineRules": 72,
+      "utilClass": "eyebrow reveal u-mt-22px in",
+      "utilApplied": true,
+      "canvases": [
+        {
+          "w": 390,
+          "h": 844,
+          "ctx": false
+        },
+        {
+          "w": 338,
+          "h": 258,
+          "ctx": true
+        }
+      ],
+      "fonts": "loaded",
+      "fontUsable": true,
+      "errors": [],
+      "font_warnings": 0,
+      "lang_switch": null,
+      "mobile_menu": true
+    }
+  ]
+}

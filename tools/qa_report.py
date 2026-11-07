@@ -49,6 +49,7 @@ def main() -> int:
     i18n = load("i18n.json")
     pixdiff = load("pixdiff.json")
     abo = load("abo.json")
+    cross = load("crossbrowser.json")
 
     s = static["summary"]
     seo_rows = seo.get("rows", [])
@@ -143,6 +144,42 @@ def main() -> int:
         body.append("")
         body.append("Breiten: Desktop 1440 × 900, Tablet 768 × 1024, Mobil 390 × 844.")
         body.append("")
+        if cross:
+            c = cross.get("summary", {})
+            body.append("### Firefox und WebKit")
+            body.append("")
+            body.append("Chromium allein sagt nichts über Safari und Firefox. Derselbe")
+            body.append("Durchgang läuft deshalb in beiden Engines: Konsolenfehler,")
+            body.append("Überlauf, Sprachwechsel, Mobilmenü, ob `styles-inline.css`")
+            body.append("geladen ist, ob `oklch()`-Farben aufgelöst werden und ob eine")
+            body.append("Bühne zeichnet. WebKit setzt `upgrade-insecure-requests` aus")
+            body.append("der CSP auch auf localhost um; der Lauf geht deshalb über einen")
+            body.append("lokalen TLS-Server (`tools/qa_tls_server.py`) mit")
+            body.append("selbstsigniertem Zertifikat — dieselben Dateien, dieselbe")
+            body.append("Policy, kein Sonderweg für den Test.")
+            body.append("")
+            cross_pages = len({r.get("page") for r in cross.get("rows", [])})
+            seiten = "Seite" if cross_pages == 1 else "Seiten"
+            body.append(md_table([
+                [f"Läufe ({cross_pages} {seiten} × 2 Breiten × 2 Engines)", c.get("runs", 0)],
+                ["Abbrüche", c.get("fatal", 0)],
+                ["Überlauf", c.get("overflow", 0)],
+                ["Konsolenfehler", c.get("console_error_runs", 0)],
+                ["Sprachwechsel fehlgeschlagen", c.get("lang_switch_failures", 0)],
+                ["Mobilmenü fehlgeschlagen", c.get("mobile_menu_failures", 0)],
+                ["Stildatei fehlt", c.get("css_missing", 0)],
+                ["Hintergrund farblos", c.get("background_transparent", 0)],
+                ["Läufe mit Canvas", c.get("canvas_runs", 0)],
+                ["Läufe mit WebGL", c.get("webgl_runs", 0)],
+            ], ["Messung", "Ergebnis"]))
+            body.append("")
+            if c.get("font_warnings"):
+                body.append(f"{c['font_warnings']} Läufe melden einen abgebrochenen")
+                body.append("Schrift-Download (Firefox, `jbmono-latin.woff2`), obwohl die")
+                body.append("Schrift danach benutzt wird. Solche Meldungen werden getrennt")
+                body.append("gezählt; als Fehler gilt nur eine nicht nutzbare Schrift")
+                body.append(f"(hier: {c.get('font_unusable', 0)}).")
+                body.append("")
         if forum:
             f = forum.get("summary", {})
             body.append("### Forenfunktion")
@@ -430,10 +467,13 @@ def main() -> int:
 
     body.append("## 10. Was hier nicht geprüft wird")
     body.append("")
-    body.append("- **Echte Geräte.** Die Messung läuft in Chromium; Safari und Firefox")
-    body.append("  werden nicht automatisch geprüft.")
-    body.append("- **Barrierefreiheit nach WCAG.** Kontrast und Fokus sind von Hand")
-    body.append("  geprüft, es gibt aber keinen automatisierten Axe-Lauf.")
+    body.append("- **Echte Geräte.** Die Messung läuft in Chromium, Firefox und")
+    body.append("  WebKit (Safari-Kern) auf einem Rechner — nicht auf physischen")
+    body.append("  Telefonen. Touch-Gesten, die Adressleiste von iOS und echte")
+    body.append("  Mobilfunknetze bleiben außen vor.")
+    body.append("- **Barrierefreiheit nach WCAG.** Kontrast und Fokus werden")
+    body.append("  automatisch geprüft; ein echter Screenreader-Lauf (NVDA, VoiceOver)")
+    body.append("  steht noch aus.")
     body.append("- **Netzwerk unter Last.** GitHub Pages liefert statisch; Latenz und")
     body.append("  Caching-Verhalten der Domain sind nicht Teil dieses Berichts.")
     body.append("- **Formularversand.** `mailto:` öffnet ein Mailprogramm; der Versand")
@@ -459,6 +499,9 @@ def main() -> int:
     body.append("python3 tools/qa_motion.py --base http://127.0.0.1:8809")
     body.append("python3 tools/qa_forum.py --base http://127.0.0.1:8809")
     body.append("python3 tools/qa_abo.py --base http://127.0.0.1:8809")
+    body.append("# Firefox und WebKit brauchen TLS (upgrade-insecure-requests):")
+    body.append("python3 tools/qa_tls_server.py --port 8443 --dir . &")
+    body.append("python3 tools/qa_crossbrowser.py --base https://127.0.0.1:8443")
     body.append("python3 tools/csp_styles.py --check")
     body.append("python3 tools/qa_pixdiff.py --base http://127.0.0.1:8809 --compare /tmp/vorher")
     body.append("python3 tools/qa_report.py")

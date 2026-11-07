@@ -61,3 +61,34 @@ jobs:
         run: python3 tools/qa_forum.py --base http://127.0.0.1:8809
       - name: Entwickler-Abo bis ins Formular
         run: python3 tools/qa_abo.py --base http://127.0.0.1:8809
+
+  # Firefox und WebKit in einem eigenen Job: der Lauf dauert länger und
+  # soll die schnellen Prüfungen nicht aufhalten. WebKit setzt
+  # upgrade-insecure-requests aus der CSP auch auf localhost um, deshalb
+  # läuft dieser Job über einen lokalen TLS-Server.
+  crossbrowser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Playwright installieren
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install playwright
+          python3 -m playwright install --with-deps firefox webkit
+      - name: Selbstsigniertes Zertifikat
+        run: |
+          openssl req -x509 -newkey rsa:2048 -nodes \
+            -keyout /tmp/bw-key.pem -out /tmp/bw-cert.pem -days 2 \
+            -subj "/CN=localhost" \
+            -addext "subjectAltName=DNS:localhost,IP:127.0.0.1"
+      - name: HTTPS-Server starten
+        run: |
+          nohup python3 tools/qa_tls_server.py --port 8443 --dir . \
+            > /tmp/tls.log 2>&1 &
+          sleep 2
+          curl -sk -o /dev/null -w "%{http_code}\n" https://127.0.0.1:8443/index.html
+      - name: Firefox und WebKit
+        run: python3 tools/qa_crossbrowser.py --base https://127.0.0.1:8443

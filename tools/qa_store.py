@@ -31,18 +31,20 @@ def load_rows(path: Path) -> list[dict]:
     return rows if isinstance(rows, list) else []
 
 
-def merge_rows(path: Path, fresh: list[dict], key: str = "page") -> list[dict]:
-    """Neue Zeilen über die alten legen, je Seite eine Zeile."""
-    merged: dict[str, dict] = {}
-    for row in load_rows(path):
-        name = row.get(key)
-        if name:
-            merged[str(name)] = row
-    for row in fresh:
-        name = row.get(key)
-        if name:
-            merged[str(name)] = row
-    return [merged[name] for name in sorted(merged)]
+def merge_rows(path: Path, fresh: list[dict], key="page") -> list[dict]:
+    """Neue Zeilen über die alten legen, je Schlüssel eine Zeile.
+
+    key darf ein Tupel von Feldnamen sein — ein Browserlauf hat je Seite
+    vier Zeilen (Firefox/WebKit × Desktop/Mobil), die sich nur in
+    engine und width unterscheiden.
+    """
+    fields = (key,) if isinstance(key, str) else tuple(key)
+    merged: dict[tuple, dict] = {}
+    for row in load_rows(path) + fresh:
+        ident = tuple(str(row.get(f, "")) for f in fields)
+        if all(ident):
+            merged[ident] = row
+    return [merged[ident] for ident in sorted(merged)]
 
 
 def write_report(path: Path, summary: dict, rows: list[dict]) -> None:

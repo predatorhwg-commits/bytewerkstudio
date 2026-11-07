@@ -50,6 +50,37 @@ Sprachwechsel DE→EN→DE und – unter 820 px – das Mobilmenü.
 
 Breiten: Desktop 1440 × 900, Tablet 768 × 1024, Mobil 390 × 844.
 
+### Firefox und WebKit
+
+Chromium allein sagt nichts über Safari und Firefox. Derselbe
+Durchgang läuft deshalb in beiden Engines: Konsolenfehler,
+Überlauf, Sprachwechsel, Mobilmenü, ob `styles-inline.css`
+geladen ist, ob `oklch()`-Farben aufgelöst werden und ob eine
+Bühne zeichnet. WebKit setzt `upgrade-insecure-requests` aus
+der CSP auch auf localhost um; der Lauf geht deshalb über einen
+lokalen TLS-Server (`tools/qa_tls_server.py`) mit
+selbstsigniertem Zertifikat — dieselben Dateien, dieselbe
+Policy, kein Sonderweg für den Test.
+
+| Messung | Ergebnis |
+|---|---|
+| Läufe (34 Seiten × 2 Breiten × 2 Engines) | 136 |
+| Abbrüche | 0 |
+| Überlauf | 0 |
+| Konsolenfehler | 0 |
+| Sprachwechsel fehlgeschlagen | 0 |
+| Mobilmenü fehlgeschlagen | 0 |
+| Stildatei fehlt | 0 |
+| Hintergrund farblos | 0 |
+| Läufe mit Canvas | 136 |
+| Läufe mit WebGL | 76 |
+
+2 Läufe melden einen abgebrochenen
+Schrift-Download (Firefox, `jbmono-latin.woff2`), obwohl die
+Schrift danach benutzt wird. Solche Meldungen werden getrennt
+gezählt; als Fehler gilt nur eine nicht nutzbare Schrift
+(hier: 0).
+
 ### Forenfunktion
 
 `tools/qa_forum.py` bedient das Forum statt es nur zu laden:
@@ -273,10 +304,13 @@ Bühnen im Bild sind).
 
 ## 10. Was hier nicht geprüft wird
 
-- **Echte Geräte.** Die Messung läuft in Chromium; Safari und Firefox
-  werden nicht automatisch geprüft.
-- **Barrierefreiheit nach WCAG.** Kontrast und Fokus sind von Hand
-  geprüft, es gibt aber keinen automatisierten Axe-Lauf.
+- **Echte Geräte.** Die Messung läuft in Chromium, Firefox und
+  WebKit (Safari-Kern) auf einem Rechner — nicht auf physischen
+  Telefonen. Touch-Gesten, die Adressleiste von iOS und echte
+  Mobilfunknetze bleiben außen vor.
+- **Barrierefreiheit nach WCAG.** Kontrast und Fokus werden
+  automatisch geprüft; ein echter Screenreader-Lauf (NVDA, VoiceOver)
+  steht noch aus.
 - **Netzwerk unter Last.** GitHub Pages liefert statisch; Latenz und
   Caching-Verhalten der Domain sind nicht Teil dieses Berichts.
 - **Formularversand.** `mailto:` öffnet ein Mailprogramm; der Versand
@@ -301,6 +335,9 @@ python3 tools/qa_zoom.py --base http://127.0.0.1:8809
 python3 tools/qa_motion.py --base http://127.0.0.1:8809
 python3 tools/qa_forum.py --base http://127.0.0.1:8809
 python3 tools/qa_abo.py --base http://127.0.0.1:8809
+# Firefox und WebKit brauchen TLS (upgrade-insecure-requests):
+python3 tools/qa_tls_server.py --port 8443 --dir . &
+python3 tools/qa_crossbrowser.py --base https://127.0.0.1:8443
 python3 tools/csp_styles.py --check
 python3 tools/qa_pixdiff.py --base http://127.0.0.1:8809 --compare /tmp/vorher
 python3 tools/qa_report.py
