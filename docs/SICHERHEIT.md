@@ -146,6 +146,13 @@ die Prüfungen werden rot, nach dem Rückbau wieder grün. Zusätzlich wurden al
 Zusätzlich auf allen Seiten: `referrer` = `strict-origin-when-cross-origin`,
 `noindex` auf Konto-, Login- und Checkout-Seiten.
 
+**Ein Befehl für alle Nachweise.** `node tools/release-check.mjs <url>` ruft
+alle Prüfungen in fester Reihenfolge auf und gibt eine Tabelle aus; `--fast`
+lässt die Browserprüfungen weg (für den Zwischenstand). Vor jedem Push ist das
+der eine Lauf, der zählt — nicht die einzelne Prüfung, die man gerade im Kopf
+hat. Der Gegenprobe-Fall der Angriffsprobe ist über
+`tools/csp-attack.mjs --page=<seite>` wiederholbar.
+
 **Was eine Meta-CSP nicht kann.** `frame-ancestors` und `report-uri` werden im
 `<meta>`-Tag ignoriert — sie wirken nur als HTTP-Header. Wer die Seite hinter
 einem eigenen Server ausliefert, sollte dort zusätzlich setzen:

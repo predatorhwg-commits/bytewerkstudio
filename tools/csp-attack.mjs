@@ -6,9 +6,11 @@
 // das wird hier gemessen: jede Technik bekommt eine eigene Sonde, die bei
 // Erfolg `window.__pwned` setzt bzw. eine Markierung im DOM hinterlaesst.
 //
-//   node tools/csp-attack.mjs http://127.0.0.1:9500 [--all]
+//   node tools/csp-attack.mjs http://127.0.0.1:9500 [--all] [--page=datei.html]
 //
-// Ohne --all werden fuenf repraesentative Seiten geprueft.
+// Ohne --all werden fuenf repraesentative Seiten geprueft. --page engt auf
+// eine einzelne Seite ein — damit laesst sich die Gegenprobe gegen eine
+// Seite ohne CSP wiederholen (erwartet: alle Angriffe kommen durch).
 import { spawn } from 'node:child_process';
 import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -17,12 +19,28 @@ import { fileURLToPath } from 'node:url';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const base = (process.argv[2] || 'http://127.0.0.1:9500').replace(/\/$/, '');
 const all = process.argv.includes('--all');
+const single = (process.argv.find((a) => a.startsWith('--page=')) || '').slice('--page='.length);
 
 const sample = ['index.html', 'community.html', 'shop.html', 'login.html', 'forum.html'];
-const pages = all
-  ? readFileSync(join(root, 'tools', 'a11y-pages.txt'), 'utf8')
-    .split('\n').map((l) => l.trim()).filter((l) => l && !l.startsWith('#'))
-  : sample;
+
+/* Seiten mit <meta http-equiv="refresh"> springen sofort weiter
+   (abo.html → entwickler.html#abo). Sie zu prüfen hiesse, die Zielseite
+   zu prüfen und das Ergebnis der Weiterleitung zuzuschreiben. */
+function isRedirect(file) {
+  try {
+    return /<meta[^>]+http-equiv=["']refresh["']/i.test(readFileSync(join(root, file), 'utf8'));
+  } catch { return false; }
+}
+
+const pages = (single
+  ? [single]
+  : all
+    ? readFileSync(join(root, 'tools', 'a11y-pages.txt'), 'utf8')
+      .split('\n').map((l) => l.trim()).filter((l) => l && !l.startsWith('#'))
+    : sample).filter((p) => {
+  if (isRedirect(p)) { console.log(`Weiterleitung uebersprungen: ${p}`); return false; }
+  return true;
+});
 
 const CHROME = process.env.BW_CHROME
   || (existsSync(process.env.HOME + '/.local/bw-audit/run/bw-browser')

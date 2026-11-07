@@ -371,6 +371,73 @@ Renderer) sind damit unkritisch.
 `docs/SICHERHEIT.md` steht jetzt der genaue Satz für den Fall, dass die Seite
 hinter einem eigenen Server läuft; auf GitHub Pages gibt es diese Header nicht.
 
+## Stand 07.11.2026, 16:00 — ein Befehl, alle Prüfungen
+
+**`tools/release-check.mjs` bündelt neun Prüfungen.** Acht Werkzeuge mit je
+eigenen Argumenten sind im Alltag fehleranfällig — eines vergisst man, eines
+ruft man im falschen Modus auf. Jetzt:
+
+```
+node tools/release-check.mjs http://127.0.0.1:9500   # alles, mit Browser
+node tools/release-check.mjs http://127.0.0.1:9500 --fast   # ohne Browser
+```
+
+Momentan **9 von 9 grün**:
+
+| Prüfung | Ergebnis |
+|---|---|
+| CSP-Hashes aktuell | 36 Seiten, 0 abweichend |
+| Seitenprüfung (`verify-site`) | 0 Befunde |
+| Social-Vorschau | 0 Probleme |
+| Syntax aller Skripte | 13 Prüfungen grün |
+| Sicherheit + Links (`security-gate --live`) | 13 Prüfungen, 1355 Ziele, 0 Probleme |
+| Barrierefreiheit (`a11y-audit`) | 33 bewertet, 2 Weiterleitungen, 0 Befunde |
+| Funktionstest (`smoke-test`) | 26/26 |
+| Angriffsprobe (`csp-attack --all`) | 34 × 7, alle blockiert |
+| Seiten-Sweep | 34 Seiten × 4 Breiten, Überlauf 0 |
+
+**Der Sweep log über 1050 px Überlauf — auf einer Seite, die keinen hat.**
+`shop.html@390` meldete `overflow: 1050`, also exakt 1440 − 390. Fünf
+Nachmessungen mit `cdp2.mjs` ergaben `scrollWidth = 390` bei `clientWidth = 390`.
+Ursache: `Emulation.setDeviceMetricsOverride` wirkt nicht sofort; wurde direkt
+danach navigiert, layoutete das neue Dokument noch mit der alten
+Fensterbreite. Der Sweep setzt die Breite jetzt und **wartet, bis
+`window.innerWidth` wirklich stimmt**; zusätzlich prüft er am Messpunkt
+`document.documentElement.clientWidth === w` und misst neu, statt einen
+unbrauchbaren Wert zu melden. Derselbe Fehler hätte jede Breitenmessung
+verfälschen können — er fiel nur auf, weil 1050 so glatt die Differenz war.
+
+**Zwei Fehler im Freigabe-Skript selbst.** In JavaScript ist `[]` wahr:
+`data.filter(p => p.errors)` zählte alle 35 Seiten als fehlerhaft, obwohl
+keine Fehler hatte. Und der Sweep schreibt `noAlt` (Zahl), das Skript las
+`noalt` (fehlend). Beides korrigiert — der Freigabe-Lauf meldet jetzt
+Kennzahlen, die man glauben kann.
+
+**Zwei Seiten zeigen auf eine andere statt auf sich selbst.** `abo.html`
+springt per `<meta http-equiv="refresh">` auf `entwickler.html#abo`,
+`konto.html` ohne Anmeldung auf `login.html`. Beide zu prüfen hieße, die
+Zielseite zu prüfen und das Ergebnis der Weiterleitung zuzuschreiben. Die
+Werkzeuge erkennen das jetzt und weisen es getrennt aus:
+*„Weiterleitung: abo.html → entwickler.html#abo (nicht bewertet)"*. Nicht
+stillschweigend übersprungen — benannt, aber nicht als Fehler gezählt.
+
+Der erste Anlauf davor war sporadisch rot: das Werkzeug las den Pfad einmal,
+und je nachdem, ob die Umleitung schon durch war, kam „nicht messbar" oder ein
+Ergebnis. Jetzt wird `location.pathname` gelesen, **bis er zweimal gleich
+lautet** — erst dann beginnt die Messung. Zwei Läufe hintereinander: 33/35
+bewertet, 2 Weiterleitungen, 0 Befunde.
+
+**Der Sweep gehört jetzt zum Projekt.** Er lag unter `~/tools/` — auf einem
+anderen Rechner wäre der Freigabe-Lauf damit unvollständig gewesen, ohne dass
+es jemand gemerkt hätte. Jetzt `tools/sweep-release.mjs`, aufgerufen von
+`tools/release-check.mjs`. Fehlt er, ist das ein Fehlschlag, kein
+stillschweigendes Überspringen.
+
+**Gegenprobe als fester Schalter.** `tools/csp-attack.mjs --page=…` prüft eine
+einzelne Seite. Damit lässt sich die Kontrollseite ohne CSP jederzeit
+wiederholen (erwartet: 7 von 7 kommen durch), statt dafür ein Wegwerf-Skript
+zu kopieren.
+
 ### Datei-Hinweis
 
 `ui-v4.js` gehört laut `AGENTS.md` zu einer anderen Linie. Die Änderung ist ein

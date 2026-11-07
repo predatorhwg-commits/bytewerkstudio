@@ -90,24 +90,63 @@ async function ready() {
 }
 
 const findings = [];
+const redirects = [];
 let checked = 0;
 
+/* Seiten, die per <meta http-equiv="refresh"> sofort weiterspringen
+   (abo.html → entwickler.html#abo). Sie zu messen hiesse, die Zielseite
+   zu messen und das Ergebnis der Weiterleitung zuzuschreiben. */
+function redirectTarget(file) {
+  try {
+    const html = readFileSync(join(root, file), 'utf8');
+    const m = html.match(/<meta[^>]+http-equiv=["']refresh["'][^>]*content=["'][^"']*url=([^"';]+)/i);
+    return m ? m[1].trim() : '';
+  } catch { return ''; }
+}
+
 for (const page of pages) {
+  const declared = redirectTarget(page);
+  if (declared) { redirects.push([page, declared, 'Weiterleitung']); continue; }
   let data = null;
-  for (let attempt = 1; attempt <= 2 && !data; attempt++) {
+  let landed = '';
+  // Drei Versuche: Seiten wie konto.html leiten ohne Anmeldung weiter
+  // (nach login.html). Beim Dokumentwechsel wird der Ausfuehrungskontext
+  // zerstoert — die erste Messung kommt dann leer zurueck.
+  for (let attempt = 1; attempt <= 3 && !data; attempt++) {
     try {
       await send('Page.navigate', { url: `${base}/${page}` });
       await ready();
-      await sleep(700);
+      // Der Pfad muss zweimal gleich lauten: konto.html springt ohne
+      // Anmeldung nach login.html, und mitten im Dokumentwechsel kommt
+      // keine Messung zustande. Ohne dieses Warten haengt das Ergebnis
+      // davon ab, wer schneller ist — genau das war sporadisch rot.
+      let vorher = '';
+      for (let i = 0; i < 16; i++) {
+        const r = await send('Runtime.evaluate', {
+          expression: 'location.pathname', returnByValue: true,
+        });
+        landed = r.result?.value || '';
+        if (landed && landed === vorher) break;
+        vorher = landed;
+        await sleep(250);
+      }
+      // Umgeleitet: die Seite ist absichtlich gesperrt (Anmeldung noetig).
+      // Gemessen wird dann nicht diese Seite, sondern ihr Ziel — das waere
+      // ein falsches Zeugnis. Also getrennt ausweisen und ueberspringen.
+      if (landed && !landed.endsWith('/' + page)) break;
       const res = await send('Runtime.evaluate', {
         expression: probe, awaitPromise: true, returnByValue: true,
       });
       if (res.result?.value) data = JSON.parse(res.result.value);
-    } catch { await sleep(300); }
+    } catch { await sleep(400); }
   }
 
   if (!data) {
-    findings.push([page, 'nicht messbar', '']);
+    if (landed && !landed.endsWith('/' + page)) {
+      redirects.push([page, landed]);
+      continue;
+    }
+    findings.push([page, 'nicht messbar', landed]);
     continue;
   }
   checked++;
@@ -119,6 +158,9 @@ for (const page of pages) {
 }
 
 console.log(`\nGeprueft: ${checked}/${pages.length} Seiten`);
+for (const [page, target] of redirects) {
+  console.log(`Weiterleitung: ${page} → ${target} (nicht bewertet, zeigt auf eine andere Seite)`);
+}
 if (!findings.length) {
   console.log('Befunde: 0');
 } else {
