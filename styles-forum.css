@@ -1699,3 +1699,10 @@
   .fm-edit-hint { display: none; }
   .fm-edit-bar .btn { flex: 1; justify-content: center; }
 }
+
+/* ---------- Themenansicht: eine H1, kein doppelter Hero ----------
+   Im Thread ist der Thementitel die Überschrift der Seite. Der
+   Hero mit seiner eigenen H1 tritt deshalb zurück; die Suche und
+   der Weg zurück stehen direkt über dem Thema. */
+body.fm-is-thread .fm-hero { display: none; }
+body.fm-is-thread .fm-board { padding-top: clamp(28px, 5vw, 56px); }
