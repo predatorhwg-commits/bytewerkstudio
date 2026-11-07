@@ -2,14 +2,15 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://*.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests">
+<script src="boot.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow">
 <title>Passwort zurücksetzen — Bytewerk Studio</title>
 <link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles-fonts.css">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="styles-v3.css">
 <link rel="stylesheet" href="styles-auth.css">
@@ -34,7 +35,7 @@
         <span id="reset-alert-text"></span>
       </div>
 
-      <form class="auth-form" id="reset-form" novalidate>
+      <form class="auth-form" id="reset-form" novalidate method="post">
         <div class="auth-field" id="f-email">
           <label for="email" data-en="Email">E-Mail</label>
           <div class="input-wrap">
@@ -92,40 +93,6 @@
 <script src="ui-v5.js"></script>
 <script src="background.js"></script>
   <script src="scene3d.js"></script>
-<script>
-(function () {
-  'use strict';
-  const form = document.getElementById('reset-form');
-  const alertBox = document.getElementById('reset-alert');
-  const alertText = document.getElementById('reset-alert-text');
-  const field = document.getElementById('f-email');
-  const input = document.getElementById('email');
-
-  if (BWAuth.backend === 'local') document.getElementById('local-note').hidden = false;
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    alertBox.className = 'auth-alert';
-    if (!BWAuth.validateEmail(input.value)) {
-      field.classList.add('invalid');
-      return;
-    }
-    field.classList.remove('invalid');
-    try {
-      const result = await BWAuth.requestReset(input.value);
-      alertText.textContent = result.local
-        ? 'Vorschau-Modus: Es wurde keine E-Mail versendet. Dein Konto bleibt in diesem Browser gespeichert. Melde dich mit deinem Passwort an oder kontaktiere den Support.'
-        : 'Wenn ein Konto mit dieser Adresse existiert, ist der Reset-Link unterwegs. Prüfe auch den Spam-Ordner.';
-      alertBox.className = 'auth-alert show ok';
-      form.querySelector('button[type="submit"]').disabled = true;
-    } catch (err) {
-      alertText.textContent = err.message || 'Anfrage fehlgeschlagen.';
-      alertBox.className = 'auth-alert show error';
-    }
-  });
-
-  input.addEventListener('input', () => field.classList.remove('invalid'));
-})();
-</script>
+<script src="page-js/passwort-vergessen-1.js"></script>
 </body>
 </html>

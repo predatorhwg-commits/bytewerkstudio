@@ -2,10 +2,10 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://*.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests">
+<script src="boot.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Kontakt — Bytewerk Studio</title>
 <meta name="description" content="Projektanfrage an Bytewerk Studio senden: Software, Web, Apps, digitale Produkte und IT-Dienstleistungen.">
@@ -18,8 +18,7 @@
 <meta property="og:site_name" content="Bytewerk Studio">
 <meta property="og:locale" content="de_DE">
 <link rel="icon" href="logo.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles-fonts.css">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="styles-v3.css">
 <link rel="stylesheet" href="styles-auth.css">
@@ -55,7 +54,7 @@
   </aside>
 
   <section class="form-card reveal" data-d="1">
-    <form class="form" id="contact-form" novalidate>
+    <form class="form" id="contact-form" novalidate method="post">
       <div class="form-success" id="form-success" role="status" aria-live="polite">
         <div class="check"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></div>
         <h3 data-en="Ready to send">Bereit zum Senden</h3>
@@ -118,39 +117,6 @@
 <script src="ui-v5.js"></script>
 <script src="background.js"></script>
   <script src="scene3d.js"></script>
-<script>
-(function () {
-  const form = document.getElementById('contact-form');
-  if (!form) return;
-  const success = document.getElementById('form-success');
-  const fields = [...form.querySelectorAll('[required]')];
-
-  function mark(field) {
-    const wrap = field.closest('.field');
-    const invalid = !field.checkValidity() || !String(field.value || '').trim();
-    if (wrap) wrap.classList.toggle('invalid', invalid);
-    return !invalid;
-  }
-
-  fields.forEach(field => field.addEventListener('input', () => mark(field)));
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const ok = fields.map(mark).every(Boolean);
-    if (!ok) return;
-    const data = new FormData(form);
-    const body = [
-      'Name: ' + data.get('name'),
-      'E-Mail: ' + data.get('email'),
-      'Projektart: ' + data.get('type'),
-      'Budget: ' + data.get('budget'),
-      '',
-      String(data.get('message') || '')
-    ].join('\n');
-    form.classList.add('sent');
-    if (success) success.classList.add('show');
-    window.location.href = 'mailto:Haqmalh@icloud.com?subject=' + encodeURIComponent('Projektanfrage an Bytewerk Studio') + '&body=' + encodeURIComponent(body);
-  });
-})();
-</script>
+<script src="page-js/kontakt-1.js"></script>
 </body>
 </html>

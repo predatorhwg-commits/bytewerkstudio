@@ -1,0 +1,14 @@
+{
+  "name": "Bytewerk Studio",
+  "short_name": "Bytewerk",
+  "description": "Software, Websites und Apps aus Ludwigshafen am Rhein.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#faf9f5",
+  "theme_color": "#faf9f5",
+  "lang": "de",
+  "icons": [
+    { "src": "logo.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "media/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

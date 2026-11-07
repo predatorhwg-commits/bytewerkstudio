@@ -2,10 +2,10 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://*.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests">
+<script src="boot.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Neon Dominion - Neon-Tech Tower-Conquest · Bytewerk Studio</title>
 <meta name="description" content="Neon Dominion ist ein Premium-Neon-Tech Tower-Conquest-Strategiespiel von Bytewerk Studio fuer Windows 10/11 mit 30 Offline-Missionen, lokalen Saves, Achievements, Upgrade Lab und Offline-Installer.">
@@ -19,8 +19,7 @@
 <meta property="og:image" content="https://bytewerkstudio.com/media/neon-dominion-gameplay.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="logo.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles-fonts.css">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="styles-v3.css">
 <link rel="stylesheet" href="styles-auth.css">
@@ -183,19 +182,6 @@
 <script src="ui-v5.js"></script>
 <script src="background.js"></script>
   <script src="scene3d.js"></script>
-<script>
-(function () {
-  const links = document.querySelectorAll('a[href^="mailto:"]');
-  const toast = document.getElementById('toast');
-  let timer;
-  if (links.length && toast) {
-    links.forEach(link => link.addEventListener('click', () => {
-      toast.classList.add('show');
-      clearTimeout(timer);
-      timer = setTimeout(() => toast.classList.remove('show'), 2600);
-    }));
-  }
-})();
-</script>
+<script src="page-js/neon-dominion-1.js"></script>
 </body>
 </html>

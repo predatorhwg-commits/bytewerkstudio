@@ -2,10 +2,10 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://*.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests">
+<script src="boot.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Pruefungs-Countdown — Windows-App · Bytewerk Studio</title>
 <meta name="description" content="Pruefungs-Countdown ist eine kostenlose Windows-App von Bytewerk Studio fuer Pruefungsplanung, Lernziele, Countdown, Fokus-Timer, XP, Streaks und lokale Exporte.">
@@ -19,8 +19,7 @@
 <meta property="og:image" content="https://bytewerkstudio.com/media/pruefungs-countdown-logo.png">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="logo.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles-fonts.css">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="styles-v3.css">
 <link rel="stylesheet" href="styles-auth.css">
@@ -202,19 +201,6 @@
 <script src="ui-v5.js"></script>
 <script src="background.js"></script>
   <script src="scene3d.js"></script>
-<script>
-(function () {
-  const btn = document.getElementById('download-btn');
-  const toast = document.getElementById('toast');
-  let timer;
-  if (btn && toast) {
-    btn.addEventListener('click', () => {
-      toast.classList.add('show');
-      clearTimeout(timer);
-      timer = setTimeout(() => toast.classList.remove('show'), 2600);
-    });
-  }
-})();
-</script>
+<script src="page-js/pruefungs-countdown-1.js"></script>
 </body>
 </html>

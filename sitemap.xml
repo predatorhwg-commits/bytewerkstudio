@@ -133,6 +133,12 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://bytewerkstudio.com/sicherheit.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://bytewerkstudio.com/datenschutz.html</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>yearly</changefreq>

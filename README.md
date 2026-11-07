@@ -39,6 +39,7 @@ Produktseiten und der App-Finder auf [vergleich.html](vergleich.html).
 - `studio.html`: Studio-Profil
 - `kontakt.html`: Kontaktformular mit Mail-Weiterleitung
 - `impressum.html`, `datenschutz.html`, `agb.html`: Rechtliche Seiten
+- `sicherheit.html`: Sicherheitsseite mit Meldeweg für Schwachstellen (Ziel von `.well-known/security.txt`)
 - `probierstand.html`: vier Produkt-Werkzeuge live im Browser (Passwort, Countdown, Text, Woche)
 - `404.html`: Fehlerseite fuer GitHub Pages
 - `404.html`: Fehlerseite fuer GitHub Pages mit Karteikasten (`scene-notfound.js`,
@@ -94,3 +95,39 @@ python -m http.server 8765
 
 Dann `http://127.0.0.1:8765/` oeffnen. Konten funktionieren auch auf `localhost`,
 weil Web Crypto dort als sicherer Kontext gilt.
+
+## Sicherheit
+
+Die Seite ist statisch, es gibt kein Backend und keine Datenbank. Gehärtet ist trotzdem:
+
+- **Content Security Policy** auf jeder Seite, direkt nach `<meta charset>`:
+  `script-src 'self'`, `font-src 'self'`, `object-src 'none'`, `base-uri 'self'`.
+  Keine Inline-Skripte, keine Inline-Handler (`onclick` und Co.), keine Fremd-CDN.
+- **Schriften lokal** in `fonts/` (Inter, Newsreader, JetBrains Mono als Variable Fonts,
+  latin und latin-ext). Keine Verbindung zu Google Fonts, kein `preconnect` dorthin.
+- **Alle Skripte extern** in `page-js/` und `boot.js`. `boot.js` setzt `js`-Klasse und
+  Sprache, bevor gerendert wird.
+- **Formulare** nutzen `method="post"` und senden nichts an Dritte; das Kontaktformular
+  öffnet das lokale Mailprogramm.
+- **Konten** lokal mit PBKDF2-SHA256 (310.000 Iterationen, Salt); `register.html`
+  rendert Nutzereingaben über DOM-APIs statt `innerHTML`.
+- **`.well-known/security.txt`** mit Meldeweg, Frist und Sprache; die verlinkte
+  Erklärseite ist `sicherheit.html`.
+
+## Qualitätssicherung
+
+Drei Skripte prüfen die Seite vor jedem Push (Python 3 + Playwright):
+
+```
+python3 tools/qa-site.py  http://127.0.0.1:8907   # 64 Seiten × 2 Viewports
+python3 tools/qa-flow.py  http://127.0.0.1:8907   # 21 Interaktionstests
+python3 tools/qa-links.py                          # 911 interne Links und Anker
+```
+
+`qa-site.py` prüft Status, Konsolenfehler, fehlgeschlagene Requests, fremde Hosts,
+horizontalen Überlauf, genau eine H1, Alt-Texte, doppelte IDs, Inline-Skripte und die
+CSP. `qa-flow.py` prüft Suche (Strg+K), FAQ-Akkordeon, DE/EN, mobiles Menü, Skip-Link,
+Formular-Methoden und den Shop-Filter. `qa-links.py` läuft ohne Server über das
+Dateisystem und prüft auch Anker.
+
+Ergebnis des letzten Laufs: 0 Probleme, 0 Konsolenfehler, 0 Überlauf bei 1440 und 390 px.

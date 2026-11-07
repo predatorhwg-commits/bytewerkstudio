@@ -2,35 +2,37 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://*.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests">
+<script src="boot.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>Bytewerk Studio — Software, Web & Apps aus Ludwigshafen</title>
+<title>Bytewerk Studio — Software, Web &amp; Apps aus Ludwigshafen</title>
 <meta name="description" content="Bytewerk Studio entwickelt Software, Websites, Apps und digitale Produkte in Ludwigshafen am Rhein. Klarer Ablauf, ehrliche Festpreise, Code, der dir gehört.">
 <link rel="canonical" href="https://bytewerkstudio.com/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Bytewerk Studio — Software, Web & Apps aus Ludwigshafen">
-<meta property="og:description" content="Bytewerk Studio entwickelt Software, Websites, Apps und digitale Produkte in Ludwigshafen am Rhein.">
+<meta property="og:title" content="Bytewerk Studio — Software, Web &amp; Apps aus Ludwigshafen">
+<meta property="og:description" content="Software, Websites und Apps für Unternehmen, Gründer und eigene Produkte — vom ersten Entwurf bis zum Launch.">
 <meta property="og:url" content="https://bytewerkstudio.com/">
 <meta property="og:site_name" content="Bytewerk Studio">
 <meta property="og:locale" content="de_DE">
-<meta property="og:image" content="https://bytewerkstudio.com/logo.svg">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://bytewerkstudio.com/media/og-start.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Bytewerk Studio — Software, Web, Apps">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bytewerkstudio.com/media/og-start.png">
 <link rel="icon" href="logo.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="apple-touch-icon" href="media/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles-fonts.css">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="styles-v3.css">
 <link rel="stylesheet" href="styles-auth.css">
 <link rel="stylesheet" href="styles-claude.css">
-<link rel="stylesheet" href="styles-studio3d.css">
-<link rel="stylesheet" href="styles-workstoff.css">
-<link rel="stylesheet" href="styles-v5.css">
-  <link rel="stylesheet" href="styles-3d.css">
-<link rel="stylesheet" href="styles-work.css">
-<link rel="stylesheet" href="styles-showroom.css">
+<link rel="stylesheet" href="styles-start.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -41,13 +43,10 @@
       "name": "Bytewerk Studio",
       "url": "https://bytewerkstudio.com/",
       "logo": "https://bytewerkstudio.com/logo.svg",
-      "image": "https://bytewerkstudio.com/logo.svg",
+      "image": "https://bytewerkstudio.com/media/og-start.png",
       "description": "Bytewerk Studio entwickelt Software, Websites, Apps, IT-Dienstleistungen und digitale Produkte in Ludwigshafen am Rhein.",
       "email": "mailto:Haqmalh@icloud.com",
-      "founder": {
-        "@type": "Person",
-        "name": "Hijratullah Haqmal"
-      },
+      "founder": { "@type": "Person", "name": "Hijratullah Haqmal" },
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Heinigstraße 13",
@@ -55,30 +54,40 @@
         "addressLocality": "Ludwigshafen am Rhein",
         "addressCountry": "DE"
       },
-      "areaServed": [
-        "Ludwigshafen am Rhein",
-        "Mannheim",
-        "Rhein-Neckar",
-        "Deutschland"
-      ],
-      "sameAs": [
-        "https://github.com/bytewerkstudio"
-      ]
+      "areaServed": ["Ludwigshafen am Rhein", "Mannheim", "Rhein-Neckar", "Deutschland"],
+      "sameAs": ["https://github.com/bytewerkstudio"]
     },
     {
       "@type": "WebSite",
       "@id": "https://bytewerkstudio.com/#website",
       "url": "https://bytewerkstudio.com/",
       "name": "Bytewerk Studio",
-      "publisher": {
-        "@id": "https://bytewerkstudio.com/#business"
-      },
+      "publisher": { "@id": "https://bytewerkstudio.com/#business" },
       "inLanguage": "de-DE"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Wie lange dauert ein Projekt?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Eine Landingpage dauert meist 2–4 Wochen. Eine Web-App mit Konten und Daten 6–12 Wochen. Zum Angebot gibt es einen Meilensteinplan." }
+        },
+        {
+          "@type": "Question",
+          "name": "Was kostet ein Projekt?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nach einem kurzen Gespräch bekommst du einen Festpreis nach Umfang, keine Stundenschätzung. Keine versteckten Kosten." }
+        },
+        {
+          "@type": "Question",
+          "name": "Wem gehört der Code?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Du bekommst bei der Übergabe das Repository, die Build-Anleitung und alle Zugangsdaten. Kein Lock-in." }
+        }
+      ]
     }
   ]
 }
 </script>
-<link rel="stylesheet" href="styles-entscheidung.css">
 </head>
 <body>
 
@@ -87,474 +96,301 @@
 
 <main id="main">
 
-<!-- ============ HERO ============ -->
-<section class="hero-v3" data-screen-label="Hero">
-  <!-- Three.js-Skulptur: Zeichentisch-Modell in der Claude-Palette.
-       Ohne WebGL bleibt der CSS-Wash stehen. -->
-  <div class="hero-scene" data-scene3d="stratum" aria-hidden="true"></div>
-  <div class="wrap hero-v3-grid">
-    <div class="hero-v3-copy">
-      <span class="hero-badge reveal">
-        <span class="pulse" aria-hidden="true"></span>
+<!-- ============================================================ HERO -->
+<section class="st-hero" aria-labelledby="st-hero-title">
+  <div class="st-wrap st-hero-grid">
+    <div class="st-hero-copy">
+      <p class="st-kicker reveal">
+        <span class="st-pulse" aria-hidden="true"></span>
         <span data-en="Studio for software, web &amp; apps">Studio für Software, Web &amp; Apps</span>
-        <span style="color:var(--faint)" aria-hidden="true">·</span>
-        <span style="color:var(--muted)" data-en="Ludwigshafen">Ludwigshafen</span>
-      </span>
+        <span class="st-sep" aria-hidden="true">/</span>
+        <span data-en="Ludwigshafen">Ludwigshafen</span>
+      </p>
 
-      <h1 class="hero-v3-title reveal" data-d="1" data-en="<span class=&quot;line&quot;>Software<span class=&quot;line-dot&quot;>.</span></span><span class=&quot;line&quot;>Web<span class=&quot;line-dot&quot;>.</span></span><span class=&quot;line accent-line&quot;>Apps<span class=&quot;line-dot&quot;>.</span></span>">
-        <span class="line">Software<span class="line-dot">.</span></span>
-        <span class="line">Web<span class="line-dot">.</span></span>
-        <span class="line accent-line">Apps<span class="line-dot">.</span></span>
+      <h1 class="st-title reveal" data-d="1" id="st-hero-title">
+        <span>Software<span class="st-dot">.</span></span>
+        <span class="st-title-soft">Web<span class="st-dot">.</span></span>
+        <span class="st-title-accent">Apps<span class="st-dot">.</span></span>
       </h1>
 
-      <p class="lead reveal" data-d="2" data-en="We build software, websites and apps for companies, founders and our own products — from the first sketch to launch. Direct communication, clean code, no agency detours.">
+      <p class="st-lead reveal" data-d="2" data-en="We build software, websites and apps for companies, founders and our own products — from the first sketch to launch. Direct communication, clean code, no agency detours.">
         Wir entwickeln Software, Websites und Apps für Unternehmen, Gründer und eigene Produkte —
         vom ersten Entwurf bis zum Launch. Direkte Abstimmung, sauberer Code, keine Agentur-Umwege.
       </p>
 
-      <div class="hero-v3-cta reveal" data-d="3">
-        <a class="btn btn-primary btn-lg" href="kontakt.html"><span data-en="Start a project">Projekt starten</span> <span class="arr">→</span></a>
+      <div class="st-actions reveal" data-d="3">
+        <a class="btn btn-primary btn-lg" href="kontakt.html"><span data-en="Start a project">Projekt starten</span> <span class="arr" aria-hidden="true">→</span></a>
         <a class="btn btn-ghost btn-lg" href="#arbeiten" data-en="See our work">Arbeiten ansehen</a>
       </div>
 
-      <div class="hero-v3-note reveal" data-d="4">
-        <b data-en="Now available:">Jetzt verfügbar:</b>
-        <a href="neon-horde/" style="color:var(--accent-300)" data-en="NEON HORDE browser shooter">NEON HORDE Browserspiel</a>
-        <span aria-hidden="true">·</span>
-        <span data-en="11 own products">11 eigene Produkte</span>
-      </div>
+      <ul class="st-hero-facts reveal" data-d="4">
+        <li><b>11</b> <span data-en="own products">eigene Produkte</span></li>
+        <li><b>48 h</b> <span data-en="reply time">Antwortzeit</span></li>
+        <li><b>100 %</b> <span data-en="code handover">Code-Übergabe</span></li>
+      </ul>
     </div>
 
-    <div class="hero-v3-visual reveal" data-d="2">
-      <div class="bs-stage" id="studio-stage">
-        <svg class="bs-fallback" viewBox="-2.95 -3.33 5.90 5.19" role="img" aria-label="Explosionszeichnung des Studio-Modells: Sockel, Software-Turm, Web-Fläche, App-Gehäuse und Produktblöcke" data-en-aria="Isometric drawing of the studio model: plinth, software tower, web deck, app shell and product blocks" xmlns="http://www.w3.org/2000/svg">
-                  <ellipse class="bs-fallback-shadow" cx="-0.30" cy="1.55" rx="3.1" ry="1.05" fill="rgba(31,30,29,.10)"/>
-
-            <polygon points="-2.60,-0.20 0.35,1.50 0.35,1.24 -2.60,-0.46" fill="#ded4c0"/>
-            <polygon points="2.60,0.20 0.35,1.50 0.35,1.24 2.60,-0.06" fill="#d3c8b2"/>
-            <polygon points="-0.35,-1.76 2.60,-0.06 0.35,1.24 -2.60,-0.46" fill="#f1ece0" stroke="rgba(31,30,29,.18)" stroke-width="0.035"/>
-            <polygon points="-2.31,-0.44 0.34,1.09 0.34,1.04 -2.31,-0.49" fill="#e7ddc9"/>
-            <polygon points="2.31,-0.05 0.34,1.09 0.34,1.04 2.31,-0.10" fill="#dfd4be"/>
-            <polygon points="-0.34,-1.63 2.31,-0.10 0.34,1.04 -2.31,-0.49" fill="#f8f3e8" stroke="rgba(31,30,29,.18)" stroke-width="0.035"/>
-            <polygon points="-1.20,-1.09 -0.38,-0.63 -0.38,-2.04 -1.20,-2.51" fill="#9a4327"/>
-            <polygon points="0.43,-1.09 -0.38,-0.63 -0.38,-2.04 0.43,-2.51" fill="#8c3a20"/>
-            <polygon points="-0.38,-2.98 0.43,-2.51 -0.38,-2.04 -1.20,-2.51" fill="#c25f3e" stroke="rgba(31,30,29,.18)" stroke-width="0.035"/>
-            <polygon points="-0.98,-2.54 -0.56,-2.30 -0.56,-2.50 -0.98,-2.74" fill="#e7ddc9"/>
-            <polygon points="-0.20,-2.51 -0.56,-2.30 -0.56,-2.50 -0.20,-2.71" fill="#ddd2ba"/>
-            <polygon points="-0.61,-2.95 -0.20,-2.71 -0.56,-2.50 -0.98,-2.74" fill="#fdfaf2" stroke="rgba(31,30,29,.18)" stroke-width="0.035"/>
-            <polygon points="-1.23,0.05 0.12,0.83 0.12,0.43 -1.23,-0.35" fill="#e4d9c2"/>
-            <polygon points="1.06,0.29 0.12,0.83 0.12,0.43 1.06,-0.11" fill="#d8ccb2"/>
-            <polygon points="-0.29,-0.89 1.06,-0.11 0.12,0.43 -1.23,-0.35" fill="#f6efdd" stroke="rgba(31,30,29,.18)" stroke-width="0.035"/>
-          <g stroke="rgba(31,30,29,.28)" stroke-width="0.022" fill="none">
-            <polygon points="-0.17,-0.30 0.73,0.22 -0.02,0.65 -0.92,0.13"/>
-            <line x1="0.17" y1="-0.10" x2="-0.57" y2="0.33"/>
-          </g>
-            <polygon points="0.93,-0.21 1.65,0.21 1.65,-0.93 0.93,-1.35" fill="#26231e"/>
-            <polygon points="2.02,0.00 1.65,0.21 1.65,-0.93 2.02,-1.14" fill="#1f1c18"/>
-            <polygon points="1.29,-1.56 2.02,-1.14 1.65,-0.93 0.93,-1.35" fill="#3a352e" stroke="rgba(31,30,29,.18)" stroke-width="0.05"/>
-          <polygon points="1.00,-0.32 1.58,0.02 1.58,-0.85 1.00,-1.19" fill="#f7f1e4"/>
-          <polygon points="1.02,-0.95 1.39,-0.74 1.39,-0.78 1.02,-0.99" fill="#b04f31"/>
-          <polygon points="1.02,-0.65 1.46,-0.40 1.46,-0.62 1.02,-0.87" fill="rgba(79,122,99,.45)"/>
-            <polygon points="0.42,0.60 0.78,0.81 0.78,0.42 0.42,0.21" fill="#96794c"/>
-            <polygon points="1.14,0.59 0.78,0.81 0.78,0.42 1.14,0.21" fill="#876c42"/>
-            <polygon points="0.78,-0.00 1.14,0.21 0.78,0.42 0.42,0.21" fill="#c2a271" stroke="rgba(31,30,29,.18)" stroke-width="0.035"/>
-            <polygon points="1.07,0.41 1.35,0.56 1.35,0.27 1.07,0.11" fill="#436a55"/>
-            <polygon points="1.63,0.40 1.35,0.56 1.35,0.27 1.63,0.11" fill="#3a5c49"/>
-            <polygon points="1.35,-0.05 1.63,0.11 1.35,0.27 1.07,0.11" fill="#5d886f" stroke="rgba(31,30,29,.18)" stroke-width="0.035"/>
-            <polygon points="-0.77,-0.54 -0.53,-0.40 -0.53,-0.66 -0.77,-0.80" fill="#83381f"/>
-            <polygon points="-0.29,-0.54 -0.53,-0.40 -0.53,-0.66 -0.29,-0.80" fill="#75301a"/>
-            <polygon points="-0.53,-0.94 -0.29,-0.80 -0.53,-0.66 -0.77,-0.80" fill="#a44a2f" stroke="rgba(31,30,29,.18)" stroke-width="0.035"/>
-                </svg>
-        <div class="bs-hud" aria-hidden="true"><b>00</b><span data-en="Studio model">Studio-Modell</span><i data-en="· 6 parts">· 6 Teile</i></div>
-        <button class="bs-toggle" type="button" data-bs-toggle aria-pressed="false">
-          <span class="bs-l" data-state="0" data-en="Exploded view">Einzelteile</span>
-          <span class="bs-l" data-state="1" data-en="Assemble">Zusammenbauen</span>
-        </button>
+    <div class="st-hero-visual reveal" data-d="2" aria-hidden="true">
+      <div class="st-stack">
+        <div class="st-sheet st-sheet-1">
+          <span class="st-sheet-n">01</span>
+          <span class="st-sheet-t">Oberfläche</span>
+          <span class="st-sheet-m">Design · UI · A11y</span>
+        </div>
+        <div class="st-sheet st-sheet-2">
+          <span class="st-sheet-n">02</span>
+          <span class="st-sheet-t">Logik</span>
+          <span class="st-sheet-m">Types · Tests · APIs</span>
+        </div>
+        <div class="st-sheet st-sheet-3">
+          <span class="st-sheet-n">03</span>
+          <span class="st-sheet-t">Daten</span>
+          <span class="st-sheet-m">Schema · Backup</span>
+        </div>
+        <div class="st-sheet st-sheet-4">
+          <span class="st-sheet-n">04</span>
+          <span class="st-sheet-t">Betrieb</span>
+          <span class="st-sheet-m">Deploy · Monitoring</span>
+        </div>
       </div>
-    <aside class="hero-v3-panel" aria-label="Leistungen">
-      <div class="ed-idx-head" data-en="// Four disciplines">// Vier Disziplinen</div>
-      <a class="ed-idx" href="#leistungen"><span class="n">01</span><span class="t"><span data-en="Software development">Softwareentwicklung</span><small data-en="Backends · APIs · Automation">Backends · APIs · Automatisierung</small></span><span class="ar">→</span></a>
-      <a class="ed-idx" href="#leistungen"><span class="n">02</span><span class="t"><span data-en="Web development">Web-Entwicklung</span><small data-en="Sites · Web apps · Commerce">Websites · Web-Apps · Commerce</small></span><span class="ar">→</span></a>
-      <a class="ed-idx" href="#leistungen"><span class="n">03</span><span class="t"><span data-en="App development">App-Entwicklung</span><small data-en="Windows · iOS · Android">Windows · iOS · Android</small></span><span class="ar">→</span></a>
-      <a class="ed-idx" href="#leistungen"><span class="n">04</span><span class="t"><span data-en="Digital products &amp; IT">Digitale Produkte &amp; IT</span><small data-en="Shop · Hosting · Operations">Shop · Hosting · Betrieb</small></span><span class="ar">→</span></a>
-    </aside>
-    </div>
-  </div>
-
-  <a class="hero-chip" href="neon-horde/">
-    <img src="media/neon-horde-icon.svg" alt="">
-    <span><b>NEON HORDE</b> · <span data-en="Browser shooter">Browser-Shooter</span></span>
-    <span class="tag-live" data-en="Play">Spielen</span>
-  </a>
-</section>
-
-<!-- ============ METRICS ============ -->
-<section class="metric-strip" data-screen-label="Kennzahlen">
-  <div class="wrap">
-    <div class="metric-row">
-      <div class="metric">
-        <div class="n"><span data-count="11">11</span><em>+</em></div>
-        <div class="k" data-en="Own products">Eigene Produkte</div>
-      </div>
-      <div class="metric">
-        <div class="n"><span data-count="4">4</span></div>
-        <div class="k" data-en="Disciplines">Leistungsbereiche</div>
-      </div>
-      <div class="metric">
-        <div class="n"><span data-count="100">100</span><em>%</em></div>
-        <div class="k" data-en="Code handover">Code-Übergabe</div>
-      </div>
-      <div class="metric">
-        <div class="n"><span data-count="1">1</span></div>
-        <div class="k" data-en="Direct contact">Fester Ansprechpartner</div>
-      </div>
+      <p class="st-stack-cap"><span data-en="One product.">Ein Produkt.</span> <span data-en="Four layers.">Vier Schichten.</span> <em data-en="Built to stay.">Gebaut zum Bleiben.</em></p>
     </div>
   </div>
 </section>
 
-<!-- ============ WERKSTOFF ============ -->
-<section class="sec-pad ws-sec" id="werkstoff" data-screen-label="Werkstoff" aria-labelledby="ws-title">
-  <div class="wrap ws-grid">
-    <div class="ws-copy reveal">
-      <span class="eyebrow" data-en="Material study">Werkstoff</span>
-      <h2 class="h2" id="ws-title" data-en="One material. Four states.">Ein Werkstoff. Vier Zustände.</h2>
-      <p class="lead" data-en="Before the first line of code we settle form and behaviour. The same 72 sheets become a grid, layers, a body and a field — scroll through the model and watch the idea take shape. Drag it to turn it.">
-        Bevor eine Zeile Code entsteht, klären wir Form und Verhalten. Dieselben 72 Blätter werden zum Raster,
-        zu Lagen, zu einem Körper und zu einem Feld. Scroll am Modell vorbei und sieh zu, wie aus einer Idee
-        ein Produkt wird — oder zieh es, um es zu drehen.
-      </p>
-      <div class="ws-meta" aria-hidden="true">
-        <span>three.js</span>
-        <span data-en="72 sheets">72 Blätter</span>
-        <span data-en="4 states">4 Zustände</span>
-      </div>
-      <div class="ws-rail" aria-hidden="true">
-        <span class="ws-step is-on"><i>01</i><b data-en="Grid">Raster</b></span>
-        <span class="ws-step"><i>02</i><b data-en="Layers">Lagen</b></span>
-        <span class="ws-step"><i>03</i><b data-en="Body">Körper</b></span>
-        <span class="ws-step"><i>04</i><b data-en="Field">Feld</b></span>
-      </div>
-      <div class="ws-foot">
-        <p class="ws-cap" data-ws-caption>Raster — Ordnung, bevor gebaut wird.</p>
-        <a class="ws-more" href="#prozess"><span data-en="How we work">So arbeiten wir</span> <span class="arr" aria-hidden="true">→</span></a>
-      </div>
-    </div>
-
-    <div class="ws-stage" data-workstoff data-screen-label="Werkstoff-Modell" aria-hidden="true">
-      <div class="ws-glow" aria-hidden="true"></div>
-      <canvas aria-hidden="true"></canvas>
-      <div class="ws-poster" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-      <div class="ws-hair top" aria-hidden="true"></div>
-      <div class="ws-hair bottom" aria-hidden="true"></div>
-      <span class="ws-cue" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M4 12h16"/><path d="m8 8-4 4 4 4"/><path d="m16 8 4 4-4 4"/></svg>
-        <span data-en="Drag to rotate">Ziehen zum Drehen</span>
-      </span>
-      <span class="ws-fig" aria-hidden="true">Abb. 01 — Werkstoff</span>
-    </div>
+<!-- ============================================================ METRICS -->
+<section class="st-metrics" aria-label="Kennzahlen" data-en-aria="Key figures">
+  <div class="st-wrap">
+    <dl class="st-metric-row">
+      <div><dt data-en="Own products">Eigene Produkte</dt><dd>11<span>+</span></dd></div>
+      <div><dt data-en="Disciplines">Leistungsbereiche</dt><dd>4</dd></div>
+      <div><dt data-en="Code handover">Code-Übergabe</dt><dd>100<span>%</span></dd></div>
+      <div><dt data-en="Direct contact">Fester Ansprechpartner</dt><dd>1</dd></div>
+    </dl>
   </div>
 </section>
 
+<!-- ============================================================ SERVICES -->
+<section class="st-section" id="leistungen" aria-labelledby="st-services-title">
+  <div class="st-wrap">
+    <header class="st-head">
+      <div>
+        <p class="eyebrow" data-en="What we build">Was wir bauen</p>
+        <h2 class="st-h2" id="st-services-title" data-en="Software, websites, apps and IT.">Software, Websites, Apps und IT.</h2>
+      </div>
+      <p class="st-head-note" data-en="We plan, build and support digital solutions from the first draft to launch.">Wir planen, entwickeln und betreuen digitale Lösungen vom ersten Entwurf bis zur Veröffentlichung.</p>
+    </header>
 
-<!-- ============ MARQUEE ============ -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <span>TypeScript</span><span>React</span><span>Node.js</span><span>Next.js</span><span>Swift</span>
-    <span>Kotlin</span><span>Python</span><span>Rust</span><span>Unity</span><span>Godot</span>
-    <span>PostgreSQL</span><span>Docker</span><span>AWS</span><span>Tailwind</span>
-    <span>TypeScript</span><span>React</span><span>Node.js</span><span>Next.js</span><span>Swift</span>
-    <span>Kotlin</span><span>Python</span><span>Rust</span><span>Unity</span><span>Godot</span>
-    <span>PostgreSQL</span><span>Docker</span><span>AWS</span><span>Tailwind</span>
-  </div>
-</div>
-
-<!-- ============ LEISTUNGEN ============ -->
-<section class="sec-pad" id="leistungen" data-screen-label="Leistungen">
-  <div class="wrap">
-    <div class="sec-head reveal" style="margin-bottom:48px">
-      <span class="eyebrow" data-en="What we build">Was wir bauen</span>
-      <h2 class="h2" data-en="Software, websites, apps and IT.">Software, Websites, Apps und IT.</h2>
-      <p class="lead" data-en="We plan, build and support digital solutions from the first draft to launch.">Wir planen, entwickeln und betreuen digitale Lösungen vom ersten Entwurf bis zur Veröffentlichung.</p>
-    </div>
-    <div class="svc-grid reveal" data-d="1">
-      <article class="svc">
-        <span class="num">01 / Software</span>
-        <svg class="icon" viewBox="0 0 24 24"><path d="M8 6 3 12l5 6"/><path d="m16 6 5 6-5 6"/><path d="m13 4-2 16"/></svg>
+    <div class="st-services">
+      <a class="st-service reveal" href="softwareentwicklung-ludwigshafen.html">
+        <span class="st-service-n">01 / Software</span>
         <h3 data-en="Software development">Softwareentwicklung</h3>
         <p data-en="Custom software for internal workflows, automation, interfaces and digital products.">Individuelle Software für interne Abläufe, Automatisierungen, Schnittstellen und digitale Produkte.</p>
-        <div class="tags"><span class="tag">Backends</span><span class="tag">APIs</span><span class="tag" data-en="Automation">Automatisierung</span></div>
-      </article>
-      <article class="svc">
-        <span class="num">02 / Web</span>
-        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><circle cx="6.5" cy="6.5" r="0.6" fill="currentColor" stroke="none"/></svg>
+        <span class="st-tags"><span>Backends</span><span>APIs</span><span data-en="Automation">Automatisierung</span></span>
+        <span class="st-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="st-service reveal" data-d="1" href="softwareentwicklung-ludwigshafen.html#webentwicklung">
+        <span class="st-service-n">02 / Web</span>
         <h3 data-en="Web development">Web-Entwicklung</h3>
         <p data-en="Websites, landing pages and web apps for companies, products and projects.">Websites, Landingpages und Web-Apps für Unternehmen, Produkte und Projekte.</p>
-        <div class="tags"><span class="tag">Web-Apps</span><span class="tag">Landingpages</span><span class="tag">E-Commerce</span></div>
-      </article>
-      <article class="svc">
-        <span class="num">03 / Apps</span>
-        <svg class="icon" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
+        <span class="st-tags"><span>Web-Apps</span><span>Landingpages</span><span>E-Commerce</span></span>
+        <span class="st-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="st-service reveal" href="softwareentwicklung-ludwigshafen.html#app-entwicklung">
+        <span class="st-service-n">03 / Apps</span>
         <h3 data-en="App development">App-Entwicklung</h3>
         <p data-en="Windows, web and mobile apps for learning, productivity, internal processes and digital products.">Windows-, Web- und Mobile-Apps für Lernen, Produktivität, interne Prozesse und digitale Produkte.</p>
-        <div class="tags"><span class="tag">iOS</span><span class="tag">Android</span><span class="tag">Cross-Platform</span></div>
-      </article>
-      <article class="svc">
-        <span class="num">04 / Produkte</span>
-        <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="4"/><path d="M7 10v4M5 12h4"/><circle cx="16" cy="11" r="1" fill="currentColor" stroke="none"/><circle cx="18.5" cy="13.5" r="1" fill="currentColor" stroke="none"/></svg>
+        <span class="st-tags"><span>iOS</span><span>Android</span><span>Cross-Platform</span></span>
+        <span class="st-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="st-service reveal" data-d="1" href="shop.html">
+        <span class="st-service-n">04 / Produkte</span>
         <h3 data-en="Digital products &amp; IT">Digitale Produkte &amp; IT</h3>
         <p data-en="Own apps and digital products plus IT services for hosting, domains, operations and support.">Eigene Apps und digitale Produkte sowie IT-Dienstleistungen für Hosting, Domains, Betrieb und Support.</p>
-        <div class="tags"><span class="tag">Apps</span><span class="tag">Learning Tools</span><span class="tag">DevOps</span></div>
-      </article>
-    </div>
-    <div class="reveal" data-d="2" style="margin-top:34px">
-      <a class="btn btn-ghost" href="softwareentwicklung-ludwigshafen.html">
-        <span data-en="Explore software development in Ludwigshafen">Softwareentwicklung in Ludwigshafen ansehen</span> <span class="arr">→</span>
+        <span class="st-tags"><span>Apps</span><span>Learning Tools</span><span>DevOps</span></span>
+        <span class="st-arrow" aria-hidden="true">→</span>
       </a>
     </div>
   </div>
 </section>
 
-<!-- ============ ARBEITEN ============ -->
-<section class="sec-pad" id="arbeiten" style="padding-top:0" data-screen-label="Arbeiten">
-  <div class="wrap">
-    <div class="shop-head reveal" style="margin-bottom:44px">
-      <div class="sec-head">
-        <span class="eyebrow" data-en="Selected work">Ausgewählte Arbeiten</span>
-        <h2 class="h2" data-en="Products people actually use.">Produkte, die wirklich benutzt werden.</h2>
-        <p class="lead" data-en="Own software and client projects: security tools, strategy games, learning apps and web platforms. Built, shipped and maintained.">Eigene Software und Kundenprojekte: Sicherheits-Tools, Strategiespiele, Lern-Apps und Web-Plattformen. Gebaut, veröffentlicht und betreut.</p>
+<!-- ============================================================ WORK -->
+<section class="st-section st-section-work" id="arbeiten" aria-labelledby="st-work-title">
+  <div class="st-wrap">
+    <header class="st-head">
+      <div>
+        <p class="eyebrow" data-en="Selected work">Ausgewählte Arbeiten</p>
+        <h2 class="st-h2" id="st-work-title" data-en="Products people actually use.">Produkte, die wirklich benutzt werden.</h2>
       </div>
-      <a class="btn btn-ghost" href="shop.html"><span data-en="All products">Alle Produkte</span> <span class="arr">→</span></a>
+      <p class="st-head-note" data-en="Own software and client projects: security tools, strategy games, learning apps and web platforms. Built, shipped and maintained.">Eigene Software und Kundenprojekte: Sicherheits-Tools, Strategiespiele, Lern-Apps und Web-Plattformen. Gebaut, veröffentlicht und betreut.</p>
+    </header>
+
+    <div class="st-work">
+      <a class="st-case st-case-lg reveal" href="keyforge-vault.html">
+        <span class="st-case-media">
+          <img src="media/keyforge-vault-dashboard-900.webp" srcset="media/keyforge-vault-dashboard-900.webp 900w, media/keyforge-vault-dashboard-1400.webp 1400w" sizes="(max-width: 900px) 100vw, 580px" width="900" height="557" loading="lazy" decoding="async" alt="KeyForge Vault: Übersicht mit Passwörtern, Audit-Log und Auto-Lock">
+        </span>
+        <span class="st-case-body">
+          <span class="st-case-cat">Security · Windows · 2026</span>
+          <span class="st-case-title">KeyForge Vault <span class="st-arrow" aria-hidden="true">→</span></span>
+          <span class="st-case-desc" data-en="Encrypted password vault and generator with AES-256-GCM, audit log and auto-lock. Fully offline.">Verschlüsselter Passwort-Vault und Generator mit AES-256-GCM, Audit-Log und Auto-Lock. Vollständig offline.</span>
+        </span>
+      </a>
+
+      <a class="st-case st-case-lg reveal" data-d="1" href="neon-dominion.html">
+        <span class="st-case-media">
+          <img src="media/neon-dominion-gameplay-900.webp" srcset="media/neon-dominion-gameplay-900.webp 900w, media/neon-dominion-gameplay-1400.webp 1400w" sizes="(max-width: 900px) 100vw, 580px" width="900" height="563" loading="lazy" decoding="async" alt="Neon Dominion: Spielszene mit leuchtenden Türmen und Einheiten">
+        </span>
+        <span class="st-case-body">
+          <span class="st-case-cat">Game · Windows · 2026</span>
+          <span class="st-case-title">Neon Dominion <span class="st-arrow" aria-hidden="true">→</span></span>
+          <span class="st-case-desc" data-en="Neon-tech tower-conquest strategy with 30 offline missions, local saves, achievements and an upgrade lab.">Neon-Tech-Tower-Conquest-Strategie mit 30 Offline-Missionen, lokalen Saves, Achievements und Upgrade-Labor.</span>
+        </span>
+      </a>
+
+      <a class="st-case reveal" href="mastil.html">
+        <span class="st-case-cat">Game · Web &amp; Windows</span>
+        <span class="st-case-title">MASTIL <span class="st-arrow" aria-hidden="true">→</span></span>
+        <span class="st-case-desc" data-en="Medieval strategy and tower defence with offline AI, wave progress and a free demo.">Mittelalter-Strategie und Tower-Defense mit Offline-KI, Wellenfortschritt und kostenloser Demo.</span>
+      </a>
+
+      <a class="st-case reveal" data-d="1" href="softwareentwicklung-ludwigshafen.html">
+        <span class="st-case-cat">Web · Commerce · SEO</span>
+        <span class="st-case-title"><span data-en="Web platforms">Web-Plattformen</span> <span class="st-arrow" aria-hidden="true">→</span></span>
+        <span class="st-case-desc" data-en="Fast, accessible sites with clean structure — built for search and conversion.">Schnelle, barrierefreie Websites mit klarer Struktur — gebaut für Suche und Conversion.</span>
+      </a>
+
+      <a class="st-case reveal" data-d="2" href="burgenwerk.html">
+        <span class="st-case-cat">Browser · Strategy · Free</span>
+        <span class="st-case-title"><span data-en="Browser games">Browserspiele</span> <span class="st-arrow" aria-hidden="true">→</span></span>
+        <span class="st-case-desc" data-en="BURGENWERK and NEON HORDE: full games running directly in the browser, no install.">BURGENWERK und NEON HORDE: vollwertige Spiele direkt im Browser, ohne Installation.</span>
+      </a>
     </div>
 
-    <div class="work-bento reveal" data-d="1">
-      <a class="work-card big" href="keyforge-vault.html">
-        <img src="media/keyforge-vault-dashboard.png" alt="KeyForge Vault Dashboard">
-        <span class="wc-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
-        <div class="wc-body">
-          <span class="wc-cat">Security · Windows · 2026</span>
-          <h3>KeyForge Vault</h3>
-          <p data-en="Encrypted password vault and generator with AES-256-GCM, audit log and auto-lock. Fully offline.">Verschlüsselter Passwort-Vault und Generator mit AES-256-GCM, Audit-Log und Auto-Lock. Vollständig offline.</p>
-        </div>
-      </a>
-      <a class="work-card" href="neon-dominion.html">
-        <img src="media/neon-dominion-gameplay.jpg" alt="Neon Dominion Gameplay">
-        <span class="wc-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
-        <div class="wc-body">
-          <span class="wc-cat">Game · Windows · 2026</span>
-          <h3>Neon Dominion</h3>
-        </div>
-      </a>
-      <a class="work-card" href="mastil.html">
-        <img src="media/mastil-start-bg.jpg" alt="MASTIL Startbildschirm">
-        <span class="wc-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
-        <div class="wc-body">
-          <span class="wc-cat">Game · Web &amp; Windows</span>
-          <h3>MASTIL</h3>
-        </div>
-      </a>
-      <a class="work-card text-only" href="softwareentwicklung-ludwigshafen.html">
-        <span class="wc-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
-        <div class="wc-body">
-          <span class="wc-cat">Web · Commerce · SEO</span>
-          <h3 data-en="Web platforms">Web-Plattformen</h3>
-          <p data-en="Fast, accessible sites with clean structure — built for search and conversion.">Schnelle, barrierefreie Websites mit klarer Struktur — gebaut für Suche und Conversion.</p>
-        </div>
-      </a>
-      <a class="work-card text-only" href="burgenwerk.html">
-        <span class="wc-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
-        <div class="wc-body">
-          <span class="wc-cat">Browser · Strategy · Free</span>
-          <h3 data-en="Browser games">Browserspiele</h3>
-          <p data-en="BURGENWERK and NEON HORDE: full games running directly in the browser, no install.">BURGENWERK und NEON HORDE: vollwertige Spiele direkt im Browser, ohne Installation.</p>
-        </div>
-      </a>
+    <div class="st-work-foot reveal">
+      <a class="st-link" href="arbeiten.html"><span data-en="All 11 products">Alle 11 Arbeiten</span> <span aria-hidden="true">→</span></a>
+      <a class="st-link st-link-quiet" href="showroom.html"><span data-en="Open 3D showroom">3D-Showroom öffnen</span> <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
 
-<!-- ============ SHOP ============ -->
-<section class="sec-pad" id="shop" style="background:var(--paper-2);border-block:1px solid var(--line)" data-screen-label="Shop">
-  <div class="wrap">
-    <div class="shop-head reveal">
-      <div class="sec-head">
-        <span class="eyebrow" data-en="Apps, games and tools">Apps, Spiele und Tools</span>
-        <h2 class="h2" data-en="Software and games from Bytewerk Studio.">Software und Spiele von Bytewerk Studio.</h2>
-        <p class="lead" data-en="Premium Windows apps, free learning tools and games like MASTIL and Neon Dominion.">Premium-Windows-Apps, kostenlose Lern-Tools und Spiele wie MASTIL und Neon Dominion.</p>
+<!-- ============================================================ SHOP BAND -->
+<section class="st-band" aria-labelledby="st-band-title">
+  <div class="st-wrap st-band-inner">
+    <div>
+      <p class="eyebrow" data-en="Apps, games and tools">Apps, Spiele und Werkzeuge</p>
+      <h2 class="st-band-title" id="st-band-title" data-en="Eleven products. One shop.">Elf Produkte. Ein Shop.</h2>
+    </div>
+    <p class="st-band-text" data-en="Premium Windows apps, free learning tools and browser games — direct from the studio, without a marketplace in between.">Premium-Windows-Apps, kostenlose Lern-Tools und Browserspiele — direkt aus dem Studio, ohne Marktplatz dazwischen.</p>
+    <div class="st-band-actions">
+      <a class="btn btn-primary" href="shop.html"><span data-en="Browse shop">Shop ansehen</span> <span class="arr" aria-hidden="true">→</span></a>
+      <a class="st-link st-link-quiet" href="vergleich.html" data-en="Compare products">Produkte vergleichen</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ PROCESS -->
+<section class="st-section" id="prozess" aria-labelledby="st-process-title">
+  <div class="st-wrap">
+    <header class="st-head">
+      <div>
+        <p class="eyebrow" data-en="How we work">Wie wir arbeiten</p>
+        <h2 class="st-h2" id="st-process-title" data-en="Clear process, clear results.">Klarer Ablauf, klare Ergebnisse.</h2>
       </div>
-      <a class="btn btn-ghost" href="shop.html"><span data-en="Browse all">Zum ganzen Shop</span> <span class="arr">→</span></a>
-    </div>
+      <p class="st-head-note" data-en="No black box. Every step has a result you can look at, test and approve.">Keine Blackbox. Jeder Schritt hat ein Ergebnis, das du ansehen, testen und freigeben kannst.</p>
+    </header>
 
-    <div class="shop-grid reveal" data-d="1" style="margin-top:46px">
-      <a class="prod" href="lernreich-pro.html">
-        <div class="ph app-mark-panel"><span class="badge">Pro</span><img class="app-logo-mark" src="media/lernreich-pro-icon.svg" alt="Lernreich Pro Logo"></div>
-        <div class="body">
-          <span class="cat">Windows · Pro · PayPal</span>
-          <h3>Lernreich Pro</h3>
-          <p data-en="Premium offline focus software with XP, streaks, learning city, journal, SQLite storage and local exports.">Premium-Offline-Fokussoftware mit XP, Streaks, Lernstadt, Journal, SQLite-Speicher und lokalen Exporten.</p>
-          <div class="foot"><span class="price">9,99 €</span><span class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></div>
-        </div>
-      </a>
-      <a class="prod" href="keyforge-vault.html">
-        <div class="ph app-mark-panel"><img class="app-logo-mark" src="media/keyforge-vault-icon.svg" alt="KeyForge Vault Logo"></div>
-        <div class="body">
-          <span class="cat">Windows · Security · PayPal</span>
-          <h3>KeyForge Vault</h3>
-          <p data-en="Offline password generator and encrypted vault with AES-256-GCM, portable vault files and auto-lock.">Offline-Passwortgenerator und verschlüsselter Vault mit AES-256-GCM, portablen Vault-Dateien und Auto-Lock.</p>
-          <div class="foot"><span class="price">12,99 €</span><span class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></div>
-        </div>
-      </a>
-      <a class="prod" href="updatepilot.html">
-        <div class="ph app-mark-panel"><img class="app-logo-mark" src="media/updatepilot-icon.svg" alt="UpdatePilot Logo"></div>
-        <div class="body">
-          <span class="cat">Windows · Updates · Lifetime</span>
-          <h3>UpdatePilot</h3>
-          <p data-en="Windows update manager with winget scanning, approved updates, blocklists and PDF/CSV reports.">Windows-Update-Manager mit winget-Scan, freigegebenen Updates, Blocklisten und PDF/CSV-Reports.</p>
-          <div class="foot"><span class="price">12,99 €</span><span class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></div>
-        </div>
-      </a>
-      <a class="prod" href="bytewerk-pdf-text-pro.html">
-        <div class="ph app-mark-panel"><img class="app-logo-mark" src="media/bytewerk-pdf-text-pro-icon.svg" alt="Bytewerk PDF Text Pro Logo"></div>
-        <div class="body">
-          <span class="cat">Windows · PDF/OCR · Lifetime</span>
-          <h3>Bytewerk PDF Text Pro</h3>
-          <p data-en="PDF to clean text with OCR for scans — five free PDFs per day and offline lifetime licenses.">PDF zu sauberem Text mit OCR für Scans — fünf Gratis-PDFs pro Tag und Offline-Lifetime-Lizenzen.</p>
-          <div class="foot"><span class="price">59,00 €</span><span class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></div>
-        </div>
-      </a>
-      <a class="prod" href="neon-dominion.html">
-        <div class="ph app-mark-panel"><img class="app-logo-mark" src="media/neon-dominion-icon.svg" alt="Neon Dominion Logo"></div>
-        <div class="body">
-          <span class="cat">Windows · Premium · Strategy</span>
-          <h3>Neon Dominion</h3>
-          <p data-en="Premium neon-tech tower-conquest strategy game with 30 offline missions, achievements and Upgrade Lab.">Premium-Neon-Tech-Tower-Conquest-Spiel mit 30 Offline-Missionen, Achievements und Upgrade Lab.</p>
-          <div class="foot"><span class="price">20,00 €</span><span class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></div>
-        </div>
-      </a>
-      <a class="prod" href="neon-horde/">
-        <div class="ph app-mark-panel"><span class="badge">Neu</span><img class="app-logo-mark" src="media/neon-horde-icon.svg" alt="NEON HORDE Logo"></div>
-        <div class="body">
-          <span class="cat">Web · Browser · Free</span>
-          <h3>NEON HORDE</h3>
-          <p data-en="Auto-aim wave shooter in the browser: 10 weapons, endless hordes, bosses, daily rewards and prestige.">Auto-Aim-Wave-Shooter im Browser: 10 Waffen, endlose Horden, Bosse, tägliche Belohnungen und Prestige.</p>
-          <div class="foot"><span class="price" data-en="Free">Kostenlos</span><span class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SHOWROOM ============ -->
-<section class="sec-pad sr-teaser" aria-labelledby="sr-teaser-title" data-screen-label="Showroom">
-  <div class="wrap sr-teaser-grid">
-    <div class="reveal">
-      <span class="eyebrow" data-en="Showroom · 3D">Showroom · 3D</span>
-      <h2 class="h2" id="sr-teaser-title" style="margin-top:18px" data-en="Eleven products, one shelf.">Elf Produkte, ein Regal.</h2>
-      <p class="lead" style="margin-top:20px" data-en="Every app and game as a printed plate: drag, browse, open. Rendered with three.js directly in the browser — no external scripts, no tracking, no network calls at runtime.">
-        Jede App und jedes Spiel als gedruckte Tafel: ziehen, blättern, öffnen. Gerendert mit three.js direkt im Browser — ohne fremde Skripte, ohne Tracking, ohne Netzwerkaufrufe zur Laufzeit.
-      </p>
-      <div class="sr-teaser-meta"><i aria-hidden="true"></i> three.js · 11 <span data-en="plates">Tafeln</span> · 0 <span data-en="external scripts">fremde Skripte</span></div>
-      <a class="btn btn-primary" style="margin-top:26px" href="showroom.html"><span data-en="Open showroom">Showroom öffnen</span> <span class="arr">→</span></a>
-    </div>
-    <a class="sr-teaser-stage reveal" data-d="1" href="showroom.html" aria-hidden="true" tabindex="-1">
-      <span class="sr-plate is-back"><img src="media/lernreich-logo.png" alt="" loading="lazy" width="120" height="120"><span>Lernreich</span></span>
-      <span class="sr-plate is-mid"><img src="media/lernreich-pro-icon.svg" alt="" loading="lazy" width="120" height="120"><span>Lernreich Pro</span></span>
-      <span class="sr-plate is-front"><img src="media/keyforge-vault-icon.svg" alt="" loading="lazy" width="120" height="120"><span>KeyForge Vault</span></span>
-      <span class="sr-plate is-side"><img src="media/neon-dominion-icon.svg" alt="" loading="lazy" width="120" height="120"><span>Neon Dominion</span></span>
-      <span class="sr-plate is-far"><img src="media/burgenwerk-logo.png" alt="" loading="lazy" width="120" height="120"><span>BURGENWERK</span></span>
-    </a>
-  </div>
-</section>
-
-<!-- ============ PROZESS ============ -->
-<section class="sec-pad" id="prozess" data-screen-label="Prozess">
-  <div class="wrap">
-    <div class="sec-head reveal" style="margin-bottom:44px">
-      <span class="eyebrow" data-en="How we work">Wie wir arbeiten</span>
-      <h2 class="h2" data-en="Clear process, clear results.">Klarer Ablauf, klare Ergebnisse.</h2>
-    </div>
-    <div class="principles reveal" data-d="1">
-      <div class="principle">
-        <span class="k">// 01</span>
+    <ol class="st-process">
+      <li class="reveal">
+        <span class="st-process-n">01</span>
         <h3 data-en="Understand before building">Verstehen vor Bauen</h3>
-        <p data-en="We clarify goal, users, scope and the next steps before implementation begins.">Wir klären Ziel, Nutzer, Umfang und nächste Schritte, bevor die Umsetzung beginnt.</p>
-      </div>
-      <div class="principle">
-        <span class="k">// 02</span>
+        <p data-en="We clarify goal, users, scope and the next steps before implementation begins.">Wir klären Ziel, Nutzer, Umfang und die nächsten Schritte, bevor die Umsetzung beginnt.</p>
+      </li>
+      <li class="reveal" data-d="1">
+        <span class="st-process-n">02</span>
         <h3 data-en="In small steps">In kleinen Schritten</h3>
         <p data-en="You get visible intermediate results and can give feedback early.">Du bekommst sichtbare Zwischenergebnisse und kannst früh Feedback geben.</p>
-      </div>
-      <div class="principle">
-        <span class="k">// 03</span>
+      </li>
+      <li class="reveal" data-d="2">
+        <span class="st-process-n">03</span>
         <h3 data-en="Built to last">Gebaut zum Bleiben</h3>
         <p data-en="We hand over project files, access details and a short overview for future updates.">Wir übergeben Projektdateien, Zugangsdaten und eine kurze Übersicht für spätere Änderungen.</p>
-      </div>
-    </div>
+      </li>
+    </ol>
   </div>
 </section>
 
-<!-- ============ STUDIO / WHY ============ -->
-<section class="sec-pad" id="studio-teaser" style="padding-top:0" data-screen-label="Studio">
-  <div class="wrap studio-split">
-    <div class="reveal">
-      <span class="eyebrow" data-en="The studio">Das Studio</span>
-      <h2 class="h2" style="margin-top:18px" data-en="A small studio for software, web and apps.">Ein kleines Studio für Software, Web und Apps.</h2>
-      <p class="lead" style="margin-top:22px" data-en="Bytewerk Studio develops software, websites and apps for client projects and its own products. Communication is direct from the first conversation to launch.">
-        Bytewerk Studio entwickelt Software, Websites und Apps für Kundenprojekte und eigene Produkte.
-        Die Abstimmung bleibt direkt, vom ersten Gespräch bis zur Veröffentlichung.
-      </p>
-      <div class="studio-points">
-        <div class="pt"><span class="dot"></span> <span data-en="Direct line — no agency ping-pong">Direkter Draht — kein Agentur-Pingpong</span></div>
-        <div class="pt"><span class="dot"></span> <span data-en="Code that's yours — full transparency">Code, der dir gehört — volle Transparenz</span></div>
-        <div class="pt"><span class="dot"></span> <span data-en="Open-source friendly, published on GitHub">Open-Source-freundlich, veröffentlicht auf GitHub</span></div>
-      </div>
-      <a class="btn btn-primary" style="margin-top:30px" href="studio.html"><span data-en="Get to know us">Lern uns kennen</span> <span class="arr">→</span></a>
+<!-- ============================================================ STUDIO -->
+<section class="st-section st-section-studio" id="studio" aria-labelledby="st-studio-title">
+  <div class="st-wrap st-studio">
+    <div class="st-studio-copy">
+      <p class="eyebrow" data-en="The studio">Das Studio</p>
+      <h2 class="st-h2" id="st-studio-title" data-en="A small studio for software, web and apps.">Ein kleines Studio für Software, Web und Apps.</h2>
+      <p class="st-lead-sm" data-en="Bytewerk Studio develops software, websites and apps for client projects and its own products. Communication is direct from the first conversation to launch.">Bytewerk Studio entwickelt Software, Websites und Apps für Kundenprojekte und eigene Produkte. Die Abstimmung bleibt direkt, vom ersten Gespräch bis zur Veröffentlichung.</p>
+      <ul class="st-checks">
+        <li data-en="Direct line — no agency ping-pong">Direkter Draht — kein Agentur-Pingpong</li>
+        <li data-en="Code that's yours — full transparency">Code, der dir gehört — volle Transparenz</li>
+        <li data-en="Open-source friendly, published on GitHub">Open-Source-freundlich, veröffentlicht auf GitHub</li>
+      </ul>
+      <a class="st-link" href="studio.html"><span data-en="Get to know us">Lern uns kennen</span> <span aria-hidden="true">→</span></a>
     </div>
-    <div class="studio-visual reveal" data-d="1" aria-hidden="true">
-      <div class="code-card">
-        <div class="code-bar"><span></span><span></span><span></span><em>bytewerk.ts</em></div>
-        <pre><code><span class="c-key">const</span> <span class="c-var">studio</span> = {
-  name: <span class="c-str">'Bytewerk Studio'</span>,
-  services: [<span class="c-str">'software'</span>, <span class="c-str">'web'</span>, <span class="c-str">'apps'</span>, <span class="c-str">'it'</span>],
-  contact: <span class="c-str">'Haqmalh@icloud.com'</span>,
-  launch(project): <span class="c-key">Product</span> {
-    <span class="c-key">return</span> publish(project)
-  }
-}</code></pre>
+
+    <aside class="st-facts reveal" aria-label="Studio auf einen Blick" data-en-aria="Studio at a glance">
+      <div class="st-facts-head">
+        <span class="st-facts-mark" aria-hidden="true">BW</span>
+        <span class="st-facts-loc">Ludwigshafen am Rhein<br><span class="st-mono">49.4777° N · 8.4452° E</span></span>
       </div>
-    </div>
+      <dl>
+        <div><dt data-en="Focus">Schwerpunkt</dt><dd data-en="Software · Web · Apps">Software · Web · Apps</dd></div>
+        <div><dt data-en="Contact">Kontakt</dt><dd><a href="mailto:Haqmalh@icloud.com">Haqmalh@icloud.com</a></dd></div>
+        <div><dt data-en="Availability">Verfügbarkeit</dt><dd data-en="New projects from Q4 2026">Neue Projekte ab Q4 2026</dd></div>
+        <div><dt data-en="Own products">Eigene Produkte</dt><dd>11</dd></div>
+      </dl>
+    </aside>
   </div>
 </section>
 
-<!-- ============ PREISE ============ -->
-<section class="sec-pad" id="preise" style="background:var(--paper-2);border-block:1px solid var(--line)" data-screen-label="Preise">
-  <div class="wrap">
-    <div class="sec-head reveal" style="margin-bottom:44px">
-      <span class="eyebrow" data-en="Packages">Pakete</span>
-      <h2 class="h2" data-en="A clear frame for your project.">Ein klarer Rahmen für dein Projekt.</h2>
-      <p class="lead" data-en="Every project is quoted individually after a short call. These packages show the scope and the typical timeline.">Jedes Projekt wird nach einem kurzen Gespräch individuell kalkuliert. Die Pakete zeigen Umfang und typischen Zeitrahmen.</p>
-    </div>
+<!-- ============================================================ PRICING -->
+<section class="st-section st-section-pricing" id="preise" aria-labelledby="st-pricing-title">
+  <div class="st-wrap">
+    <header class="st-head">
+      <div>
+        <p class="eyebrow" data-en="Packages">Pakete</p>
+        <h2 class="st-h2" id="st-pricing-title" data-en="A clear frame for your project.">Ein klarer Rahmen für dein Projekt.</h2>
+      </div>
+      <p class="st-head-note" data-en="Every project is quoted individually after a short call. These packages show the scope and the typical timeline.">Jedes Projekt wird nach einem kurzen Gespräch individuell kalkuliert. Die Pakete zeigen Umfang und typischen Zeitrahmen.</p>
+    </header>
 
-    <div class="packages reveal" data-d="1">
-      <article class="package">
-        <span class="pk-name">01 / Starter</span>
-        <h3 data-en="Website &amp; presence">Website &amp; Auftritt</h3>
-        <p class="pk-desc" data-en="For a clean, fast presence that explains what you do and brings inquiries.">Für einen klaren, schnellen Auftritt, der erklärt, was du machst, und Anfragen bringt.</p>
-        <div class="pk-price" data-en="On request<small>Quote after a first call</small>">Auf Anfrage<small>Angebot nach Erstgespräch</small></div>
+    <div class="st-plans">
+      <article class="st-plan reveal">
+        <div class="st-plan-top">
+          <span class="st-plan-n">01 / Starter</span>
+          <h3 data-en="Website &amp; presence">Website &amp; Auftritt</h3>
+          <p data-en="For a clean, fast presence that explains what you do and brings inquiries.">Für einen klaren, schnellen Auftritt, der erklärt, was du machst, und Anfragen bringt.</p>
+        </div>
+        <p class="st-price" data-en="On request">Auf Anfrage</p>
+        <p class="st-price-note" data-en="Quote after a first call">Angebot nach Erstgespräch</p>
         <ul>
           <li data-en="1–5 pages, responsive layout">1–5 Seiten, responsives Layout</li>
           <li data-en="SEO basics and metadata">SEO-Grundlagen und Metadaten</li>
           <li data-en="Contact form and legal pages">Kontaktformular und Rechtstexte</li>
           <li data-en="Typical timeline: 2–4 weeks">Typischer Zeitrahmen: 2–4 Wochen</li>
         </ul>
-        <a class="btn btn-ghost" href="kontakt.html" data-en="Request a quote">Angebot anfragen</a>
+        <a class="btn btn-ghost" href="kontakt.html"><span data-en="Request a quote">Angebot anfragen</span> <span class="arr" aria-hidden="true">→</span></a>
       </article>
 
-      <article class="package featured">
-        <span class="pk-tag" data-en="Most chosen">Am häufigsten</span>
-        <span class="pk-name">02 / Studio</span>
-        <h3 data-en="Web app &amp; software">Web-App &amp; Software</h3>
-        <p class="pk-desc" data-en="For real products with accounts, data and business logic.">Für echte Produkte mit Konten, Daten und Geschäftslogik.</p>
-        <div class="pk-price" data-en="On request<small>Fixed price, clear milestones</small>">Auf Anfrage<small>Festpreis, klare Meilensteine</small></div>
+      <article class="st-plan st-plan-featured reveal" data-d="1">
+        <span class="st-plan-chip" data-en="Most chosen">Am häufigsten</span>
+        <div class="st-plan-top">
+          <span class="st-plan-n">02 / Studio</span>
+          <h3 data-en="Web app &amp; software">Web-App &amp; Software</h3>
+          <p data-en="For real products with accounts, data and business logic.">Für echte Produkte mit Konten, Daten und Geschäftslogik.</p>
+        </div>
+        <p class="st-price" data-en="On request">Auf Anfrage</p>
+        <p class="st-price-note" data-en="Fixed price, clear milestones">Festpreis, klare Meilensteine</p>
         <ul>
           <li data-en="Custom frontend and backend">Individuelles Frontend und Backend</li>
           <li data-en="Database, APIs and integrations">Datenbank, APIs und Integrationen</li>
@@ -562,211 +398,79 @@
           <li data-en="Deployment and handover">Deployment und Übergabe</li>
           <li data-en="Typical timeline: 6–12 weeks">Typischer Zeitrahmen: 6–12 Wochen</li>
         </ul>
-        <a class="btn btn-primary" href="kontakt.html" data-en="Start a project">Projekt starten <span class="arr">→</span></a>
+        <a class="btn btn-primary" href="kontakt.html"><span data-en="Start a project">Projekt starten</span> <span class="arr" aria-hidden="true">→</span></a>
       </article>
 
-      <article class="package">
-        <span class="pk-name">03 / Individuell</span>
-        <h3 data-en="Care &amp; growth">Betreuung &amp; Ausbau</h3>
-        <p class="pk-desc" data-en="For existing software that needs maintenance, features or a technical clean-up.">Für bestehende Software, die Wartung, Features oder einen technischen Frühjahrsputz braucht.</p>
-        <div class="pk-price" data-en="Monthly, on request<small>Scope agreed per month</small>">Monatlich, auf Anfrage<small>Umfang pro Monat vereinbart</small></div>
+      <article class="st-plan reveal" data-d="2">
+        <div class="st-plan-top">
+          <span class="st-plan-n">03 / Individuell</span>
+          <h3 data-en="Care &amp; growth">Betreuung &amp; Ausbau</h3>
+          <p data-en="For existing software that needs maintenance, features or a technical clean-up.">Für bestehende Software, die Wartung, Features oder einen technischen Frühjahrsputz braucht.</p>
+        </div>
+        <p class="st-price" data-en="Monthly, on request">Monatlich, auf Anfrage</p>
+        <p class="st-price-note" data-en="Scope agreed per month">Umfang pro Monat vereinbart</p>
         <ul>
           <li data-en="Updates, backups and monitoring">Updates, Backups und Monitoring</li>
           <li data-en="Feature sprints with clear goals">Feature-Sprints mit klaren Zielen</li>
           <li data-en="Performance and security checks">Performance- und Sicherheitschecks</li>
           <li data-en="Direct support channel">Direkter Support-Kanal</li>
         </ul>
-        <a class="btn btn-ghost" href="kontakt.html" data-en="Ask about care">Betreuung anfragen</a>
+        <a class="btn btn-ghost" href="kontakt.html"><span data-en="Ask about care">Betreuung anfragen</span> <span class="arr" aria-hidden="true">→</span></a>
       </article>
     </div>
-    <p class="reveal" style="margin-top:22px;font-size:12.5px;color:var(--faint);max-width:70ch" data-en="All prices are non-binding orientation. A final fixed price follows after the scope is defined. No hidden costs.">Alle Preise sind unverbindliche Orientierung. Ein endgültiger Festpreis folgt nach Definition des Umfangs. Keine versteckten Kosten.</p>
+
+    <p class="st-footnote" data-en="All prices are non-binding orientation. A final fixed price follows after the scope is defined. No hidden costs.">Alle Preise sind unverbindliche Orientierung. Ein endgültiger Festpreis folgt nach Definition des Umfangs. Keine versteckten Kosten.</p>
   </div>
 </section>
 
-<!-- ============ KONFIGURATOR ============ -->
-<section class="sec-pad" id="konfigurator" style="background:var(--paper-2);border-block:1px solid var(--line)" data-screen-label="Konfigurator">
-  <div class="wrap">
-    <div class="sec-head reveal" style="margin-bottom:38px">
-      <span class="eyebrow" data-en="Project configurator">Projekt-Konfigurator</span>
-      <h2 class="h2" data-en="Three steps to a clear brief.">In drei Schritten zum klaren Briefing.</h2>
-      <p class="lead" data-en="Choose what you need and get a realistic package recommendation plus a ready-to-send request. No account, no obligation.">Wähle, was du brauchst, und erhalte eine realistische Paket-Empfehlung plus eine fertige Anfrage. Ohne Konto, unverbindlich.</p>
-    </div>
+<!-- ============================================================ FAQ -->
+<section class="st-section" id="faq" aria-labelledby="st-faq-title">
+  <div class="st-wrap st-faq">
+    <header class="st-faq-head">
+      <p class="eyebrow" data-en="Questions">Fragen</p>
+      <h2 class="st-h2" id="st-faq-title" data-en="Good to know.">Gut zu wissen.</h2>
+      <p class="st-lead-sm" data-en="Short answers to the things people ask before starting. Something missing? Just send a message.">Kurze Antworten auf das, was vor einem Start gefragt wird. Etwas offen? Schreib einfach.</p>
+      <a class="st-link" href="kontakt.html"><span data-en="Ask a question">Frage stellen</span> <span aria-hidden="true">→</span></a>
+    </header>
 
-    <div class="cfg reveal" data-d="1" id="configurator">
-      <div class="cfg-main">
-        <div class="cfg-progress" aria-hidden="true"><span class="done"></span><span></span><span></span></div>
-
-        <div class="cfg-step active" data-step="1">
-          <span class="cfg-kicker">01 / 03</span>
-          <h3 data-en="What do you want to build?">Was willst du bauen?</h3>
-          <p class="cfg-sub" data-en="Pick one. You can change it at any time.">Wähle eines. Du kannst es jederzeit ändern.</p>
-          <div class="cfg-opts">
-            <button class="cfg-opt" type="button" data-key="type" data-val="website" aria-pressed="true">
-              <span data-en="Website &amp; presence">Website &amp; Auftritt</span>
-              <small data-en="Presence, landing page, portfolio">Präsenz, Landingpage, Portfolio</small>
-            </button>
-            <button class="cfg-opt" type="button" data-key="type" data-val="webapp" aria-pressed="false">
-              <span data-en="Web app">Web-App</span>
-              <small data-en="Accounts, data, business logic">Konten, Daten, Geschäftslogik</small>
-            </button>
-            <button class="cfg-opt" type="button" data-key="type" data-val="app" aria-pressed="false">
-              <span data-en="App for Windows or mobile">App für Windows oder Mobile</span>
-              <small data-en="Desktop, iOS, Android">Desktop, iOS, Android</small>
-            </button>
-            <button class="cfg-opt" type="button" data-key="type" data-val="software" aria-pressed="false">
-              <span data-en="Software &amp; automation">Software &amp; Automatisierung</span>
-              <small data-en="Tools, interfaces, workflows">Tools, Schnittstellen, Abläufe</small>
-            </button>
-            <button class="cfg-opt" type="button" data-key="type" data-val="game" aria-pressed="false">
-              <span data-en="Game or digital product">Spiel oder digitales Produkt</span>
-              <small data-en="Browser, Windows, store release">Browser, Windows, Store-Release</small>
-            </button>
-            <button class="cfg-opt" type="button" data-key="type" data-val="it" aria-pressed="false">
-              <span data-en="IT &amp; operations">IT &amp; Betrieb</span>
-              <small data-en="Hosting, domains, maintenance">Hosting, Domains, Wartung</small>
-            </button>
-          </div>
-        </div>
-
-        <div class="cfg-step" data-step="2">
-          <span class="cfg-kicker">02 / 03</span>
-          <h3 data-en="How big is the scope?">Wie groß ist der Umfang?</h3>
-          <p class="cfg-sub" data-en="A rough size is enough. Details follow in the call.">Eine grobe Größe reicht. Details klären wir im Gespräch.</p>
-          <div class="cfg-opts">
-            <button class="cfg-opt" type="button" data-key="scope" data-val="small" aria-pressed="true">
-              <span data-en="Small">Klein</span>
-              <small data-en="1–5 pages or one clear feature">1–5 Seiten oder ein klares Feature</small>
-            </button>
-            <button class="cfg-opt" type="button" data-key="scope" data-val="medium" aria-pressed="false">
-              <span data-en="Medium">Mittel</span>
-              <small data-en="Several views and logic">Mehrere Ansichten und Logik</small>
-            </button>
-            <button class="cfg-opt" type="button" data-key="scope" data-val="large" aria-pressed="false">
-              <span data-en="Large">Groß</span>
-              <small data-en="Full product with several areas">Volles Produkt mit mehreren Bereichen</small>
-            </button>
-          </div>
-          <div class="cfg-kicker" style="margin-top:22px" data-en="Extras (optional)">Extras (optional)</div>
-          <div class="cfg-opts" style="margin-top:10px">
-            <button class="cfg-opt" type="button" data-key="extras" data-val="login" data-multi aria-pressed="false">
-              <span data-en="Login &amp; accounts">Login &amp; Konten</span>
-            </button>
-            <button class="cfg-opt" type="button" data-key="extras" data-val="payments" data-multi aria-pressed="false">
-              <span data-en="Payments">Zahlungen</span>
-            </button>
-            <button class="cfg-opt" type="button" data-key="extras" data-val="design" data-multi aria-pressed="false">
-              <span data-en="Design &amp; branding">Design &amp; Branding</span>
-            </button>
-            <button class="cfg-opt" type="button" data-key="extras" data-val="care" data-multi aria-pressed="false">
-              <span data-en="Care after launch">Betreuung nach Launch</span>
-            </button>
-          </div>
-        </div>
-
-        <div class="cfg-step" data-step="3">
-          <span class="cfg-kicker">03 / 03</span>
-          <h3 data-en="When should it start?">Wann soll es losgehen?</h3>
-          <p class="cfg-sub" data-en="This only affects scheduling, not the price.">Das beeinflusst nur die Planung, nicht den Preis.</p>
-          <div class="cfg-opts one">
-            <button class="cfg-opt" type="button" data-key="timing" data-val="flexible" aria-pressed="false">
-              <span data-en="Flexible">Flexibel</span>
-              <small data-en="No fixed date yet">Noch kein festes Datum</small>
-            </button>
-            <button class="cfg-opt" type="button" data-key="timing" data-val="normal" aria-pressed="true">
-              <span data-en="Within 2–3 months">In 2–3 Monaten</span>
-              <small data-en="Normal planning">Normale Planung</small>
-            </button>
-            <button class="cfg-opt" type="button" data-key="timing" data-val="soon" aria-pressed="false">
-              <span data-en="As soon as possible">So bald wie möglich</span>
-              <small data-en="Kick-off in the next weeks">Start in den nächsten Wochen</small>
-            </button>
-          </div>
-        </div>
-
-        <div class="cfg-done" id="cfg-result" hidden>
-          <div class="cd-ic"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></div>
-          <h3 data-en="Your brief is ready.">Dein Briefing ist fertig.</h3>
-          <p data-en="Send it by email or open the contact form with everything filled in.">Schicke es per E-Mail oder öffne das Kontaktformular mit allen Angaben.</p>
-          <div class="cd-actions">
-            <a class="btn btn-primary btn-lg" data-cfg-mail href="mailto:Haqmalh@icloud.com"><span data-en="Send by email">Per E-Mail senden</span> <span class="arr">&rarr;</span></a>
-            <a class="btn btn-ghost btn-lg" data-cfg-contact href="kontakt.html" data-en="Open contact form">Im Kontaktformular öffnen</a>
-            <button class="btn btn-ghost btn-lg" type="button" data-cfg-edit data-en="Change answers">Auswahl ändern</button>
-          </div>
-        </div>
-
-        <div class="cfg-nav">
-          <button class="cfg-back" type="button" data-cfg-back hidden>&larr; <span data-en="Back">Zurück</span></button>
-          <button class="btn btn-primary" type="button" data-cfg-next><span data-en="Continue">Weiter</span></button>
-        </div>
-      </div>
-
-      <aside class="cfg-summary" aria-label="Zusammenfassung">
-        <h4 data-en="Your selection">Deine Auswahl</h4>
-        <div class="cfg-sum"></div>
-        <div class="cfg-result-box">
-          <div class="cr-k" id="cfg-rec-k">Paket 02</div>
-          <div class="cr-t" id="cfg-rec-name">Web-App &amp; Software</div>
-          <div class="cr-s" id="cfg-rec-sub">Typisch 6–12 Wochen</div>
-        </div>
-        <a class="btn btn-primary" data-cfg-mail href="mailto:Haqmalh@icloud.com"><span data-en="Send brief by email">Briefing per E-Mail</span> <span class="arr">&rarr;</span></a>
-        <a class="btn btn-ghost" data-cfg-contact href="kontakt.html" style="margin-top:8px" data-en="Open contact form">Im Kontaktformular öffnen</a>
-        <p class="cfg-note" data-en="No obligation. The fixed price follows after a short call.">Unverbindlich. Der Festpreis folgt nach einem kurzen Gespräch.</p>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FAQ ============ -->
-<section class="sec-pad" id="faq" data-screen-label="FAQ">
-  <div class="wrap faq">
-    <div class="sec-head reveal">
-      <span class="eyebrow" data-en="Questions">Fragen</span>
-      <h2 class="h2" data-en="Good to know.">Gut zu wissen.</h2>
-      <p class="lead" data-en="Short answers to the things people ask before starting. Something missing? Just send a message.">Kurze Antworten auf das, was vor einem Start gefragt wird. Etwas offen? Schreib einfach.</p>
-      <a class="btn btn-ghost" href="kontakt.html" style="margin-top:8px"><span data-en="Ask a question">Frage stellen</span> <span class="arr">→</span></a>
-    </div>
-
-    <div class="faq-list reveal" data-d="1">
-      <details class="faq-item">
-        <summary><span data-en="How long does a project take?">Wie lange dauert ein Projekt?</span><span class="fi" aria-hidden="true"></span></summary>
-        <div class="faq-a" data-en="A landing page usually takes 2–4 weeks. A web app with accounts and data takes 6–12 weeks. You get a milestone plan with the quote, so you always know what is next.">Eine Landingpage dauert meist 2–4 Wochen. Eine Web-App mit Konten und Daten 6–12 Wochen. Zum Angebot gibt es einen Meilensteinplan, damit du immer weißt, was als Nächstes kommt.</div>
+    <div class="st-faq-list">
+      <details>
+        <summary><span data-en="How long does a project take?">Wie lange dauert ein Projekt?</span><i aria-hidden="true"></i></summary>
+        <p data-en="A landing page usually takes 2–4 weeks. A web app with accounts and data takes 6–12 weeks. You get a milestone plan with the quote, so you always know what is next.">Eine Landingpage dauert meist 2–4 Wochen. Eine Web-App mit Konten und Daten 6–12 Wochen. Zum Angebot gibt es einen Meilensteinplan, damit du immer weißt, was als Nächstes kommt.</p>
       </details>
-      <details class="faq-item">
-        <summary><span data-en="What does a project cost?">Was kostet ein Projekt?</span><span class="fi" aria-hidden="true"></span></summary>
-        <div class="faq-a" data-en="After a short call you receive a fixed price based on scope, not an hourly estimate. The packages on this page show what is included. No hidden costs, no surprise invoices.">Nach einem kurzen Gespräch bekommst du einen Festpreis nach Umfang, keine Stundenschätzung. Die Pakete auf dieser Seite zeigen, was enthalten ist. Keine versteckten Kosten, keine Überraschungsrechnungen.</div>
+      <details>
+        <summary><span data-en="What does a project cost?">Was kostet ein Projekt?</span><i aria-hidden="true"></i></summary>
+        <p data-en="After a short call you receive a fixed price based on scope, not an hourly estimate. The packages on this page show what is included. No hidden costs, no surprise invoices.">Nach einem kurzen Gespräch bekommst du einen Festpreis nach Umfang, keine Stundenschätzung. Die Pakete auf dieser Seite zeigen, was enthalten ist. Keine versteckten Kosten, keine Überraschungsrechnungen.</p>
       </details>
-      <details class="faq-item">
-        <summary><span data-en="Who owns the code?">Wem gehört der Code?</span><span class="fi" aria-hidden="true"></span></summary>
-        <div class="faq-a" data-en="You do. At handover you receive the repository, build instructions and all access details. No lock-in, no dependency on a proprietary platform.">Du. Bei der Übergabe bekommst du das Repository, Build-Anleitung und alle Zugangsdaten. Kein Lock-in, keine Abhängigkeit von einer proprietären Plattform.</div>
+      <details>
+        <summary><span data-en="Who owns the code?">Wem gehört der Code?</span><i aria-hidden="true"></i></summary>
+        <p data-en="You do. At handover you receive the repository, build instructions and all access details. No lock-in, no dependency on a proprietary platform.">Du. Bei der Übergabe bekommst du das Repository, Build-Anleitung und alle Zugangsdaten. Kein Lock-in, keine Abhängigkeit von einer proprietären Plattform.</p>
       </details>
-      <details class="faq-item">
-        <summary><span data-en="Can you work on an existing project?">Kannst du an einem bestehenden Projekt arbeiten?</span><span class="fi" aria-hidden="true"></span></summary>
-        <div class="faq-a" data-en="Yes. The first step is a short technical review: what exists, what works, what blocks progress. Then you get a clear recommendation — improve or rebuild — with realistic effort.">Ja. Der erste Schritt ist ein kurzer technischer Check: Was existiert, was funktioniert, was blockiert. Danach bekommst du eine klare Empfehlung — verbessern oder neu bauen — mit realistisch eingeschätztem Aufwand.</div>
+      <details>
+        <summary><span data-en="Can you work on an existing project?">Kannst du an einem bestehenden Projekt arbeiten?</span><i aria-hidden="true"></i></summary>
+        <p data-en="Yes. The first step is a short technical review: what exists, what works, what blocks progress. Then you get a clear recommendation — improve or rebuild — with realistic effort.">Ja. Der erste Schritt ist ein kurzer technischer Check: Was existiert, was funktioniert, was blockiert. Danach bekommst du eine klare Empfehlung — verbessern oder neu bauen — mit realistisch eingeschätztem Aufwand.</p>
       </details>
-      <details class="faq-item">
-        <summary><span data-en="What happens after launch?">Was passiert nach dem Launch?</span><span class="fi" aria-hidden="true"></span></summary>
-        <div class="faq-a" data-en="Every project includes a support window. After that you can book ongoing care: updates, backups, monitoring and feature sprints, agreed per month.">Jedes Projekt enthält ein Support-Fenster. Danach kannst du laufende Betreuung buchen: Updates, Backups, Monitoring und Feature-Sprints, monatlich vereinbart.</div>
+      <details>
+        <summary><span data-en="What happens after launch?">Was passiert nach dem Launch?</span><i aria-hidden="true"></i></summary>
+        <p data-en="Every project includes a support window. After that you can book ongoing care: updates, backups, monitoring and feature sprints, agreed per month.">Jedes Projekt enthält ein Support-Fenster. Danach kannst du laufende Betreuung buchen: Updates, Backups, Monitoring und Feature-Sprints, monatlich vereinbart.</p>
       </details>
-      <details class="faq-item">
-        <summary><span data-en="What is the account for?">Wofür ist das Konto?</span><span class="fi" aria-hidden="true"></span></summary>
-        <div class="faq-a" data-en="Your account collects your library, licenses, orders and downloads in one place. Registration is free. In the current preview accounts are stored in this browser; cross-device sync follows with the account server.">Dein Konto bündelt Bibliothek, Lizenzen, Bestellungen und Downloads an einem Ort. Die Registrierung ist kostenlos. In der aktuellen Vorschau werden Konten in diesem Browser gespeichert; die Synchronisierung über Geräte folgt mit dem Konto-Server.</div>
+      <details>
+        <summary><span data-en="What is the account for?">Wofür ist das Konto?</span><i aria-hidden="true"></i></summary>
+        <p data-en="Your account collects your library, licenses, orders and downloads in one place. Registration is free. In the current preview accounts are stored in this browser; cross-device sync follows with the account server.">Dein Konto bündelt Bibliothek, Lizenzen, Bestellungen und Downloads an einem Ort. Die Registrierung ist kostenlos. In der aktuellen Vorschau werden Konten in diesem Browser gespeichert; die Synchronisierung über Geräte folgt mit dem Konto-Server.</p>
       </details>
     </div>
   </div>
 </section>
 
-<!-- ============ CTA ============ -->
-<section style="padding-bottom:clamp(72px,11vw,140px)" data-screen-label="CTA">
-  <div class="wrap">
-    <div class="cta-band reveal">
-      <canvas id="cta-canvas" class="cta-grid-bg" aria-hidden="true"></canvas>
-      <span class="eyebrow" style="color:var(--accent-300);position:relative" data-en="Ready?">Bereit?</span>
-      <h2 class="h2" style="position:relative" data-en="Let's start your next project.">Lass uns dein nächstes Projekt starten.</h2>
-      <p class="lead" style="max-width:48ch" data-en="Send a short message and we will reply with the next step.">Schick eine kurze Nachricht, wir melden uns mit dem nächsten Schritt.</p>
-      <div style="display:flex;gap:14px;flex-wrap:wrap;position:relative">
-        <a class="btn btn-primary btn-lg" href="kontakt.html"><span data-en="Start a project">Projekt starten</span> <span class="arr">→</span></a>
-        <a class="btn btn-ghost btn-lg" style="background:transparent;color:var(--accent-300);border-color:var(--line-2)" href="mailto:Haqmalh@icloud.com">Haqmalh@icloud.com</a>
-      </div>
+<!-- ============================================================ CTA -->
+<section class="st-cta" aria-labelledby="st-cta-title">
+  <div class="st-wrap st-cta-inner">
+    <p class="st-kicker st-kicker-light"><span class="st-pulse" aria-hidden="true"></span><span data-en="Ready when you are">Bereit, wenn du es bist</span></p>
+    <h2 class="st-cta-title" id="st-cta-title" data-en="Let's start your next project.">Lass uns dein nächstes Projekt starten.</h2>
+    <p class="st-cta-text" data-en="Send a short message and we will reply with the next step — usually within 48 hours.">Schick eine kurze Nachricht, wir melden uns mit dem nächsten Schritt — in der Regel innerhalb von 48 Stunden.</p>
+    <div class="st-actions">
+      <a class="st-btn-light" href="kontakt.html"><span data-en="Start a project">Projekt starten</span> <span aria-hidden="true">→</span></a>
+      <a class="st-btn-outline" href="mailto:Haqmalh@icloud.com">Haqmalh@icloud.com</a>
     </div>
   </div>
 </section>
@@ -778,46 +482,7 @@
 <script src="auth-config.js"></script>
 <script src="auth.js"></script>
 <script src="main.js"></script>
-<script src="ui-v3.js"></script>
 <script src="ui-v4.js"></script>
-<script src="ui-v5.js"></script>
-<script src="background.js"></script>
-  <script src="scene3d.js"></script>
-<script type="module" src="scene-studio.js"></script>
-<script type="module" src="scene-workstoff.js"></script>
-<script>
-/* CTA band subtle grid canvas */
-(function () {
-  const c = document.getElementById('cta-canvas');
-  if (!c) return;
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const ctx = c.getContext('2d');
-  let w, h, dpr, t = 0, raf;
-  function size() {
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const r = c.getBoundingClientRect(); w = r.width; h = r.height;
-    c.width = w * dpr; c.height = h * dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
-  }
-  function draw() {
-    ctx.clearRect(0,0,w,h);
-    t += reduce ? 0 : 0.01;
-    const gap = 30;
-    for (let x = 0; x < w + gap; x += gap) {
-      for (let y = 0; y < h + gap; y += gap) {
-        const wv = Math.sin(x*0.02 + t) + Math.cos(y*0.02 - t);
-        const a = 0.06 + ((wv+2)/4)*0.16;
-        ctx.beginPath(); ctx.arc(x, y, 1.1, 0, Math.PI*2);
-        ctx.fillStyle = `rgba(232,164,92,${a})`; ctx.fill();
-      }
-    }
-    if (!reduce) raf = requestAnimationFrame(draw);
-  }
-  function start(){ cancelAnimationFrame(raf); size(); draw(); }
-  window.addEventListener('resize', start);
-  requestAnimationFrame(start);
-})();
-</script>
-<script src="work-gallery.js"></script>
-<script src="ui-entscheidung.js"></script>
+<script src="home.js"></script>
 </body>
 </html>

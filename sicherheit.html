@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://*.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests">
+<script src="boot.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#faf9f5">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Sicherheit — Bytewerk Studio</title>
+<meta name="description" content="Wie Bytewerk Studio die Website absichert und wie du eine Sicherheitslücke meldest.">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="canonical" href="https://bytewerkstudio.com/sicherheit.html">
+<link rel="stylesheet" href="styles-fonts.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles-v3.css">
+<link rel="stylesheet" href="styles-auth.css">
+<link rel="stylesheet" href="styles-claude.css">
+<link rel="stylesheet" href="styles-v5.css">
+  <link rel="stylesheet" href="styles-3d.css">
+</head>
+<body>
+<div data-include="header"></div>
+<main class="wrap legal-wrap">
+  <div class="legal-grid">
+    <aside class="legal-toc reveal">
+      <a href="#meldeweg">Lücke melden</a>
+      <a href="#umfang">Was geprüft wird</a>
+      <a href="#massnahmen">Technische Maßnahmen</a>
+      <a href="#daten">Deine Daten</a>
+    </aside>
+    <section class="legal-copy reveal" data-d="1">
+      <div>
+        <span class="eyebrow">Security</span>
+        <h1 class="display" style="font-size:clamp(38px,5vw,68px);margin-top:18px">Sicherheit</h1>
+      </div>
+
+      <article id="meldeweg">
+        <h2>Eine Sicherheitslücke melden</h2>
+        <p>Wenn du eine Schwachstelle auf dieser Website findest, schreib bitte eine E-Mail an
+          <a href="mailto:Haqmalh@icloud.com?subject=Sicherheitshinweis%20bytewerkstudio.com">Haqmalh@icloud.com</a>
+          mit dem Betreff „Sicherheitshinweis“. Hilfreich sind die betroffene Adresse, eine kurze Beschreibung
+          und die Schritte, mit denen sich das Verhalten nachvollziehen lässt.</p>
+        <p>Bitte teste nur auf Seiten und Konten, die dir selbst gehören, verändere keine Daten und
+          veröffentliche Details erst, nachdem wir Gelegenheit zur Behebung hatten. Wir melden uns in der
+          Regel innerhalb von 72 Stunden zurück.</p>
+        <p>Die maschinenlesbare Fassung steht unter
+          <a href="/.well-known/security.txt">/.well-known/security.txt</a>.</p>
+      </article>
+
+      <article id="umfang">
+        <h2>Was geprüft wird</h2>
+        <ul>
+          <li>Diese Website und ihre Unterseiten unter bytewerkstudio.com</li>
+          <li>Die ausgelieferten Skripte, Stylesheets und Formulare</li>
+          <li>Die lokale Kontoverwaltung im Browser</li>
+        </ul>
+        <p>Nicht im Umfang: fremde Dienste, Social-Media-Profile und Angriffe auf die Infrastruktur des Hosters.</p>
+      </article>
+
+      <article id="massnahmen">
+        <h2>Technische Maßnahmen</h2>
+        <p>Die Seite wird statisch über GitHub Pages ausgeliefert. Es gibt kein eigenes Backend, keine
+          Datenbank und keine serverseitigen Sitzungen.</p>
+        <ul>
+          <li><strong>Content Security Policy:</strong> Skripte und Schriften dürfen ausschließlich von der
+            eigenen Domain geladen werden. Es gibt keine Inline-Skripte und keine Fremd-CDN-Verweise.</li>
+          <li><strong>Keine externen Fonts:</strong> Schriften liegen lokal im Projekt, es findet keine
+            Verbindung zu Google Fonts statt.</li>
+          <li><strong>Formulare:</strong> Alle Formulare nutzen <code>method="post"</code> und senden keine
+            Daten an Dritte. Das Kontaktformular öffnet das lokale Mailprogramm.</li>
+          <li><strong>Konten:</strong> Passwörter werden im Browser mit PBKDF2 abgeleitet und nur lokal
+            gespeichert, solange kein Konto-Server verbunden ist.</li>
+          <li><strong>Kein Tracking:</strong> Keine Analyse-, Werbe- oder Social-Media-Skripte.</li>
+        </ul>
+      </article>
+
+      <article id="daten">
+        <h2>Deine Daten</h2>
+        <p>Welche Daten beim Besuch anfallen und wie du deine Rechte wahrnimmst, steht in der
+          <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+      </article>
+    </section>
+  </div>
+</main>
+<div data-include="footer"></div>
+<script src="components.js"></script>
+<script src="auth-config.js"></script>
+<script src="auth.js"></script>
+<script src="main.js"></script>
+<script src="ui-v3.js"></script>
+<script src="ui-v4.js"></script>
+<script src="ui-v5.js"></script>
+<script src="background.js"></script>
+  <script src="scene3d.js"></script>
+</body>
+</html>
