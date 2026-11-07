@@ -205,6 +205,9 @@
 
   function renderMarkdown(source, mount) {
     const lines = String(source || '').replace(/\r\n?/g, '\n').split('\n');
+    // A code block that scrolls sideways is only reachable with a mouse.
+    // Collect them, then check after layout whether they actually overflow.
+    const pendingCode = [];
     let i = 0;
 
     while (i < lines.length) {
@@ -223,6 +226,7 @@
         if (langName) pre.dataset.lang = langName;
         pre.appendChild(el('code', { text: code.join('\n') }));
         mount.appendChild(pre);
+        pendingCode.push(pre);
         continue;
       }
 
@@ -271,6 +275,21 @@
         i++;
       }
       mount.appendChild(para);
+    }
+
+    // Only blocks that really scroll need to be focusable; a short block
+    // would otherwise add a pointless tab stop.
+    if (pendingCode.length) {
+      requestAnimationFrame(() => {
+        pendingCode.forEach(pre => {
+          if (!pre.isConnected) return;
+          if (pre.scrollWidth > pre.clientWidth + 1) {
+            pre.tabIndex = 0;
+            pre.setAttribute('role', 'region');
+            pre.setAttribute('aria-label', t('Codeblock, seitlich scrollbar', 'Code block, scrolls sideways'));
+          }
+        });
+      });
     }
     return mount;
   }
@@ -999,7 +1018,16 @@
       const more = el('button', { class: 'fm-more', id: 'fm-more', type: 'button' });
       more.appendChild(el('span', { text: t('Weitere Themen laden', 'Load more threads') }));
       more.appendChild(icon(ICONS.arrow, 'fm-more-icon'));
-      more.addEventListener('click', () => { state.limit += CFG.pageSize; renderList(); });
+      const oldCount = shown.length;
+      more.addEventListener('click', () => {
+        state.limit += CFG.pageSize;
+        renderList();
+        // Keep the reader in the list: without this, focus falls to <body>
+        // and the next Tab starts at the top of the page again.
+        const rows = document.querySelectorAll('#fm-list .fm-item-main');
+        const next = rows[oldCount];
+        if (next && typeof next.focus === 'function') next.focus();
+      });
       host.appendChild(more);
     }
 
