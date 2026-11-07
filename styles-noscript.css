@@ -4,3 +4,27 @@
    nicht in einem <style>-Block (CSP: style-src 'self'). */
 #schichtmodell .schm-panel[hidden] { display: block; }
 #schichtmodell .schm-detail { display: grid; gap: 14px; }
+
+/* Navigation ohne JavaScript. Header und Footer werden von components.js
+   eingesetzt; ohne Skript bleibt sonst nur der Inhalt ohne jeden Weg
+   zurueck. Die Leiste steht deshalb direkt im Markup, gut sichtbar und
+   ohne Abhaengigkeit von einer Klasse aus dem Skript-Design. */
+.ns-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--line, #d8d2c4);
+  font-family: var(--sans, system-ui, sans-serif);
+}
+.ns-nav a {
+  color: var(--ink, #1f1809);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 4px 0;
+}
+.ns-nav a:hover,
+.ns-nav a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }

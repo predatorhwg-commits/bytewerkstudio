@@ -5,7 +5,7 @@
 <script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CaeQ8Q3geGyk4C+zSbiPIgg9xb3aa/Jes1V9wggsHR4=' 'sha256-JHgwzThV2vVLgaozS6fBp5ZcLS3YzUHXAeCyvhIYVmw='; style-src 'self'; font-src 'self'; img-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CaeQ8Q3geGyk4C+zSbiPIgg9xb3aa/Jes1V9wggsHR4=' 'sha256-JHgwzThV2vVLgaozS6fBp5ZcLS3YzUHXAeCyvhIYVmw='; style-src 'self'; font-src 'self'; img-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Shop — Bytewerk Studio Apps</title>
 <meta name="description" content="Apps und Spiele von Bytewerk Studio: Lernreich, Prüfungs-Countdown, Lernreich Pro, KeyForge Vault, LumaWeek Planner, UpdatePilot, Bytewerk PDF Text Pro, MASTIL, Neon Dominion, BURGENWERK und NEON HORDE.">
@@ -116,6 +116,18 @@
 
 <div data-include="header"></div>
 
+<noscript>
+  <link rel="stylesheet" href="styles-noscript.css">
+  <nav class="ns-nav" aria-label="Hauptnavigation">
+    <a href="index.html">Start</a>
+    <a href="arbeiten.html">Arbeiten</a>
+    <a href="shop.html">Shop</a>
+    <a href="community.html">Community</a>
+    <a href="entwickler.html">Entwickler</a>
+    <a href="kontakt.html">Kontakt</a>
+  </nav>
+</noscript>
+
 <main id="main">
 
 <!-- PAGE HEAD -->
@@ -164,6 +176,7 @@
       <button class="chip" aria-pressed="false" data-filter="paypal" data-en="PayPal" data-es="PayPal">PayPal</button>
     </div>
 
+    <h2 class="sr-only" data-en="All products" data-es="Todos los productos">Alle Produkte</h2>
     <div class="shop-page-grid reveal" data-d="1">
       <a class="prod" data-cat="app free focus windows" href="produkt.html">
         <div class="ph app-mark-panel"><span class="badge">Aktuell</span><img class="app-logo-mark" src="media/lernreich-logo.png" alt="Lernreich Logo" width="256" height="256"></div>

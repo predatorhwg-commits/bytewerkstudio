@@ -399,7 +399,7 @@ body::after {
 .auth-mode-note svg { stroke: var(--accent-700); }
 .pw-meter .pw-label { color: var(--faint); }
 .danger-zone { background: #fcf0ed; border-color: #ecc9c0; }
-.danger-zone h4 { color: #9e3b2b; }
+.danger-zone h3, .danger-zone h4 { color: #9e3b2b; }
 .btn-danger { background: #b44a38; color: #fff; }
 
 .auth-aside {

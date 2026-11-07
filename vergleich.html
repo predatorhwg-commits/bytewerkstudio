@@ -5,7 +5,7 @@
 <script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CaeQ8Q3geGyk4C+zSbiPIgg9xb3aa/Jes1V9wggsHR4=' 'sha256-AFNhZNhZPWetKD+/hSGB8ylUUIaY1p+8Sac3s31uySI='; style-src 'self'; font-src 'self'; img-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CaeQ8Q3geGyk4C+zSbiPIgg9xb3aa/Jes1V9wggsHR4=' 'sha256-AFNhZNhZPWetKD+/hSGB8ylUUIaY1p+8Sac3s31uySI='; style-src 'self'; font-src 'self'; img-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Produktvergleich — welche Bytewerk-App passt? | Bytewerk Studio</title>
 <meta name="description" content="Alle Apps und Spiele von Bytewerk Studio im Vergleich: Lernreich, Prüfungs-Countdown, Lernreich Pro, LumaWeek, KeyForge Vault, UpdatePilot, PDF Text Pro, MASTIL, NEON HORDE, BURGENWERK und Neon Dominion.">
@@ -61,7 +61,19 @@
 
 <div data-include="header"></div>
 
-<main>
+<noscript>
+  <link rel="stylesheet" href="styles-noscript.css">
+  <nav class="ns-nav" aria-label="Hauptnavigation">
+    <a href="index.html">Start</a>
+    <a href="arbeiten.html">Arbeiten</a>
+    <a href="shop.html">Shop</a>
+    <a href="community.html">Community</a>
+    <a href="entwickler.html">Entwickler</a>
+    <a href="kontakt.html">Kontakt</a>
+  </nav>
+</noscript>
+
+<main id="main">
   <section class="page-head" data-screen-label="Vergleich Head">
     <div class="page-head-bg" data-scene3d="contour" aria-hidden="true"></div>
     <div class="wrap">

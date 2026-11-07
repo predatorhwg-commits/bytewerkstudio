@@ -443,7 +443,7 @@
           '<div class="v5-qv-price"></div>' +
           '<div class="v5-qv-actions">' +
             '<a class="btn btn-primary" data-v5-qv-buy href="#">' + esc(T('Details ansehen', 'View details')) + ' <span class="arr">&rarr;</span></a>' +
-            '<button class="btn btn-ghost v5-qv-cmp" type="button" aria-pressed="false"></button>' +
+            '<button class="btn btn-ghost v5-qv-cmp" type="button" aria-pressed="false" aria-label="' + esc(T('In den Vergleich', 'Add to compare')) + '"></button>' +
           '</div>' +
         '</div>' +
       '</div>';
