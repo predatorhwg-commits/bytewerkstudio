@@ -111,7 +111,7 @@ Erledigt und geprüft:
 - 35 Seiten bei 1440, 1280, 1024, 768 und 390 px: kein horizontaler Überlauf,
   keine doppelten IDs, kein Bild ohne `alt`, keine Konsolenfehler.
 - Community-Flüsse: 9 Themen, Thema öffnen, Antwort schreiben, Abo lokal
-  aktivieren, Selbsttest mit 8 Payloads (alle `BLOCKED`), XSS-Versuch im
+  aktivieren, Selbsttest mit 7 Payloads (alle `blocked`, Summe „7 of 7“), XSS-Versuch im
   Verfassen-Dialog bleibt Text.
 - Kontrast: Preisvergleich und Sprachumschalter nachgebessert
   (`styles-community.css`, Abschnitt 15).

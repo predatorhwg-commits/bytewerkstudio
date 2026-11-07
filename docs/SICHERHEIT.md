@@ -22,7 +22,7 @@ Was trotzdem existiert und abgesichert ist:
 | Externe Links | `javascript:` / `data:` | Schema-Allowlist, `rel="noopener noreferrer nofollow ugc"` |
 | Drittanbieter | Mitlesen, Tracking | keine fremden Skripte, keine CDN-Aufrufe, Fonts nur von Google Fonts |
 | Formulare | Spam, CSRF | statische Seite, `form-action 'self' mailto:` in der CSP |
-| Konto (Vorschau) | Klartext-Passwörter | PBKDF2-SHA-256, 210 000 Iterationen, Zufalls-Salt |
+| Konto (Vorschau) | Passwort-Diebstahl aus dem Speicher | PBKDF2-SHA-256, 310 000 Iterationen, Zufalls-Salt |
 | Supabase (optional) | Fremdzugriff | Row Level Security in `supabase/forum-schema.sql` |
 
 ## 2. Content Security Policy
@@ -31,7 +31,7 @@ Jede Seite liefert eine CSP im `<head>`. Muster:
 
 ```
 default-src 'self';
-script-src 'self' 'unsafe-inline';
+script-src 'self' 'sha256-…' 'sha256-…';
 style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
 font-src https://fonts.gstatic.com;
 img-src 'self' data:;
@@ -42,10 +42,30 @@ connect-src 'self' https://*.supabase.co;
 upgrade-insecure-requests
 ```
 
-`'unsafe-inline'` bleibt für Skripte nötig, weil Sprache und Zustand vor dem
-ersten Paint gesetzt werden. Ein späterer Schritt wäre eine Nonce über einen
-Build-Schritt; ohne Build bleibt es beim jetzigen Stand. `object-src 'none'`
-verhindert Flash/PDF-Einbettung, `base-uri 'self'` verhindert Base-Tag-Hijacking.
+**Skripte laufen über Hashes, nicht über `'unsafe-inline'`.** Jede Seite nennt
+die SHA-256-Hashes ihrer eigenen Inline-Skripte (Sprachstart im `<head>` und,
+wo vorhanden, ein Seiten-Skript). Ein injiziertes `<script>` hat keinen dieser
+Hashes und wird vom Browser blockiert — auch dann, wenn es fertig in den
+HTML-Baum gelangt. `'unsafe-inline'` steht in `script-src` auf **keiner** der
+35 Seiten.
+
+Nachweis, A/B im Browser: eine Seite mit falschem Hash meldet
+`Executing inline script violates … The action has been blocked`, `window.__xss`
+bleibt `undefined`; dieselbe Seite mit richtigem Hash führt aus (`title` wird
+`PWNED`). Der Testaufbau wurde danach gelöscht.
+
+Hashes veralten, sobald ein Inline-Skript geändert wird. Deshalb liegt der
+Erzeuger im Baum:
+
+```
+node tools/csp-hash.mjs .          # schreibt die Hashes neu
+node tools/csp-hash.mjs . --check  # Exit 1, wenn eine Seite abweicht
+```
+
+`--check` gehört vor jeden Push. `style-src` behält `'unsafe-inline'`, weil
+`style="…"`-Attribute im Markup stehen; über CSS lässt sich kein Skript
+ausführen. `object-src 'none'` verhindert Flash/PDF-Einbettung, `base-uri 'self'`
+verhindert Base-Tag-Hijacking.
 
 Zusätzlich auf allen Seiten: `referrer` = `strict-origin-when-cross-origin`,
 `X-Content-Type-Options` soweit der Hoster es setzt, `noindex` auf Konto-,
@@ -80,16 +100,17 @@ es gibt keinen Server, der etwas annehmen könnte.
 
 ## 5. Selbsttest auf der Seite
 
-`community.html#sicherheit` enthält einen Selbsttest mit acht echten
-XSS-Payloads (`<script>`, `onerror=`, `javascript:`-Link, `svg/onload`,
-`iframe`, `data:`-URI, `expression()`, `onmouseover=`). Er zeigt pro Zeile
-`BLOCKED` oder `PASSED`. Der Test läuft vollständig lokal und verändert keine
+`community.html#sicherheit` enthält einen Selbsttest mit sieben echten
+XSS-Payloads: `img/onerror`, `<script>`, `javascript:`-Link, `<iframe>`,
+`data:`-Link, `svg/onload` und `<style>`-Injection. Jede Zeile zeigt das
+Ergebnis der echten Render-Funktion (`blocked`), am Ende steht die Summe
+(„7 of 7 attacks blocked"). Der Test läuft vollständig lokal und verändert keine
 Daten.
 
 ## 6. Konto und Passwörter (Vorschau-Modus)
 
 `auth.js` speichert im lokalen Modus nur einen PBKDF2-Hash mit zufälligem Salt
-und 210 000 Iterationen, nie das Passwort. Der Modus ist als Vorschau markiert
+und 310 000 Iterationen, nie das Passwort. Der Modus ist als Vorschau markiert
 und für den Produktivbetrieb nicht gedacht. Für echte Konten: Supabase mit
 `auth-config.js`, E-Mail-Bestätigung und RLS auf allen Tabellen.
 
