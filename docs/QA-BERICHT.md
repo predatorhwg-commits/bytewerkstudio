@@ -33,19 +33,19 @@ Social-Tags; Konto-Seiten sind `noindex`.
 
 ## 3. Browserprüfung
 
-Gemessen: **18 Seitenaufrufe** über 3 Breiten (desktop: 6, tablet: 6, mobile: 6).
+Gemessen: **102 Seitenaufrufe** über 3 Breiten (desktop: 34, tablet: 34, mobile: 34).
 Jeder Aufruf prüft Konsolenfehler, horizontales Überlaufen,
 Sprachwechsel DE→EN→DE und – unter 820 px – das Mobilmenü.
 
 | Messung | Ergebnis |
 |---|---|
-| Seitenaufrufe | 18 |
+| Seitenaufrufe | 102 |
 | Seiten mit Konsolenfehler | 0 |
 | Seiten mit Überlauf | 0 |
 | Sprachwechsel fehlgeschlagen | 0 |
 | Mobilmenü fehlgeschlagen | 0 |
 | Abgebrochene Aufrufe | 0 |
-| Seiten mit Canvas | 6 |
+| Seiten mit Canvas | 34 |
 
 
 Breiten: Desktop 1440 × 900, Tablet 768 × 1024, Mobil 390 × 844.
