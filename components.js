@@ -14,16 +14,17 @@
     </svg>`;
 
   const NAV_LINKS = [
-    { href: 'index.html#leistungen', de: 'Leistungen', en: 'Services', match: null },
+    { href: 'index.html#leistungen', de: 'Leistungen', en: 'Services', match: null, anchor: '#leistungen' },
     { href: 'arbeiten.html',           de: 'Arbeiten',   en: 'Work',     match: 'arbeiten' },
     { href: 'bauplan.html',            de: 'Bauplan',    en: 'Blueprint', match: 'bauplan' },
     { href: 'showroom.html',           de: 'Showroom',   en: 'Showroom', match: 'showroom' },
-    { href: 'index.html#preise',     de: 'Preise',     en: 'Pricing',  match: null },
+    { href: 'index.html#preise',     de: 'Preise',     en: 'Pricing',  match: null, anchor: '#preise' },
     { href: 'shop.html',             de: 'Shop',       en: 'Shop',     match: 'shop' },
     { href: 'studio.html',           de: 'Studio',     en: 'Studio',   match: 'studio' },
     { href: 'kontakt.html',          de: 'Kontakt',    en: 'Contact',  match: 'kontakt' },
   ];
 
+  const IS_HOME = /(^|\/)(index\.html)?$/.test(location.pathname);
   const page = (location.pathname.split('/').pop() || 'index.html').replace('.html', '');
 
   const langToggle = `
@@ -35,7 +36,9 @@
 
   const linksHTML = (mobile) => NAV_LINKS.map(l => {
     const active = l.match && page === l.match ? ' class="active"' : '';
-    return `<a href="${l.href}"${active} data-en="${l.en}">${l.de}</a>`;
+    // Auf der Startseite bleiben Anker auf der Seite — sonst laedt jeder Klick die Seite neu.
+    const href = IS_HOME && l.anchor ? l.anchor : l.href;
+    return `<a href="${href}"${active} data-en="${l.en}">${l.de}</a>`;
   }).join('');
 
   const HEADER = `

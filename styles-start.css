@@ -655,6 +655,12 @@ body.bw-cmd-open { overflow: hidden; }
 @media (max-width: 720px) {
   .nav-right .lang-toggle, .nav-right .acct-slot { display: none; }
   .nav .btn { display: none; }
+  /* Touch: Kopfzeile und Textlinks bekommen mindestens 44 px Trefferfläche. */
+  .nav-search, .nav-toggle { width: 44px; height: 44px; padding-inline: 0; justify-content: center; }
+  .nav-search kbd { display: none; }
+  .wk-nav-btn { width: 44px; height: 44px; }
+  .brand { min-height: 44px; }
+  .st-link { min-height: 44px; }
   .st-work { grid-template-columns: 1fr; }
   .st-case-lg { grid-column: auto; }
   .st-sheet { grid-template-columns: 36px 1fr; padding: 16px; }
