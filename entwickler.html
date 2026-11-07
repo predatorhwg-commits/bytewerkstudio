@@ -5,7 +5,7 @@
 <script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CaeQ8Q3geGyk4C+zSbiPIgg9xb3aa/Jes1V9wggsHR4='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CaeQ8Q3geGyk4C+zSbiPIgg9xb3aa/Jes1V9wggsHR4='; style-src 'self'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Werkstatt — Entwicklerbereich, Werkstatt-Forum und Abo — Bytewerk Studio</title>
 <meta name="description" content="Die Bytewerk Werkstatt: Forum für Entwickler, Code-Bausteine aus dem eigenen Stack, Abo für Studio und Team, Sicherheit zum Nachlesen. Deutsch, Englisch und Spanisch, ohne fremde Skripte.">
@@ -87,6 +87,7 @@
 }
 </script>
 <link rel="stylesheet" href="styles-hardening.css">
+<link rel="stylesheet" href="styles-inline.css">
 </head>
 <body>
 
@@ -256,7 +257,7 @@
               </select>
             </div>
           </div>
-          <div class="wk-field" style="margin-top:12px">
+          <div class="wk-field si-margin-top-12px">
             <label for="wk-body" data-en="Message" data-es="Publicación">Beitrag</label>
             <textarea id="wk-body" name="body" maxlength="2000" required data-en-ph="What did you try, what did you expect, what happened?" placeholder="Was hast du versucht, was hast du erwartet, was ist passiert?"></textarea>
           </div>

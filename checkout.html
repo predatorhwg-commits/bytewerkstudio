@@ -5,7 +5,7 @@
 <script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CaeQ8Q3geGyk4C+zSbiPIgg9xb3aa/Jes1V9wggsHR4=' 'sha256-NZ1qVH+K9r7sRhWArvafaMLngWQTPBM0Rs/z2Tc/isA='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CaeQ8Q3geGyk4C+zSbiPIgg9xb3aa/Jes1V9wggsHR4=' 'sha256-NZ1qVH+K9r7sRhWArvafaMLngWQTPBM0Rs/z2Tc/isA='; style-src 'self'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Download vorbereiten — Lernreich · Bytewerk Studio</title>
 <meta name="description" content="Download- und Kontaktseite fuer Lernreich von Bytewerk Studio.">
@@ -31,6 +31,7 @@
 <link rel="stylesheet" href="styles-v5.css">
   <link rel="stylesheet" href="styles-3d.css">
 <link rel="stylesheet" href="styles-hardening.css">
+<link rel="stylesheet" href="styles-inline.css">
 </head>
 <body>
 
@@ -40,15 +41,15 @@
   <aside class="contact-info reveal">
     <div>
       <span class="eyebrow">Lernreich</span>
-      <h1 class="display" style="font-size:clamp(38px,5.8vw,74px);margin-top:18px" data-en="Download or ask a question.">Download oder Rueckfrage.</h1>
-      <p class="lead" style="margin-top:22px" data-en="Lernreich is available through the official app page. This page can also prepare an email if you have a question before downloading.">
+      <h1 class="display si-font-size-clamp-38px-5-8vw-74px-margin-top-18px" data-en="Download or ask a question.">Download oder Rueckfrage.</h1>
+      <p class="lead si-margin-top-22px" data-en="Lernreich is available through the official app page. This page can also prepare an email if you have a question before downloading.">
         Lernreich ist ueber die offizielle App-Seite verfuegbar. Diese Seite kann zusaetzlich eine E-Mail vorbereiten, falls du vor dem Download eine Frage hast.
       </p>
     </div>
-    <div class="form-card" style="padding:24px">
-      <h2 class="h3" style="margin-bottom:18px" data-en="App">App</h2>
+    <div class="form-card si-padding-24px">
+      <h2 class="h3 si-margin-bottom-18px" data-en="App">App</h2>
       <div class="pd-list" id="cart-list"></div>
-      <a class="btn btn-ghost" style="margin-top:22px" href="shop.html" data-en="Back to shop">Zurueck zum Shop</a>
+      <a class="btn btn-ghost si-margin-top-22px" href="shop.html" data-en="Back to shop">Zurueck zum Shop</a>
     </div>
   </aside>
 

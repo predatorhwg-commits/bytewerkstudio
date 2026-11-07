@@ -5,7 +5,7 @@
 <script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CaeQ8Q3geGyk4C+zSbiPIgg9xb3aa/Jes1V9wggsHR4=' 'sha256-FaYyWXjb9PlXH58oBfgMf2VEl60V76yv7NQFcu0qoY0='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CaeQ8Q3geGyk4C+zSbiPIgg9xb3aa/Jes1V9wggsHR4=' 'sha256-FaYyWXjb9PlXH58oBfgMf2VEl60V76yv7NQFcu0qoY0='; style-src 'self'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Lernreich — Lern-App · Bytewerk Studio</title>
 <meta name="description" content="Lernreich ist die aktuelle App von Bytewerk Studio: fokussiertes Lernen mit Fokus-Sanduhr, XP, Streaks, Heatmap, Journal und Wiederholungen.">
@@ -57,6 +57,7 @@
 }
 </script>
 <link rel="stylesheet" href="styles-hardening.css">
+<link rel="stylesheet" href="styles-inline.css">
 </head>
 <body>
 
@@ -76,7 +77,7 @@
 
   <!-- INFO -->
   <div class="pd-info reveal" data-d="1">
-    <div class="crumb" style="margin-bottom:18px"><a href="shop.html" data-en="Shop" data-es="Tienda">Shop</a> <span>/</span> <span data-en="App" data-es="App">App</span> <span>/</span> Lernreich</div>
+    <div class="crumb si-margin-bottom-18px"><a href="shop.html" data-en="Shop" data-es="Tienda">Shop</a> <span>/</span> <span data-en="App" data-es="App">App</span> <span>/</span> Lernreich</div>
     <span class="cat">Windows · Lernen · Produktivitaet</span>
     <h1>Lernreich</h1>
     <div class="pd-price">
@@ -99,7 +100,7 @@
       <div class="f"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg><span>Offline nutzbar, werbefrei und ruhig gestaltet</span></div>
     </div>
 
-    <div class="pd-list" style="margin-top:30px">
+    <div class="pd-list si-margin-top-30px">
       <div class="row"><span class="key" data-en="Platform" data-es="Plataforma">Plattform</span><span class="val">Windows</span></div>
       <div class="row"><span class="key">Kategorie</span><span class="val">Lernen · Fokus · Produktivitaet</span></div>
       <div class="row"><span class="key" data-en="Price" data-es="Precio">Preis</span><span class="val">Kostenlos</span></div>
@@ -110,12 +111,12 @@
 </section>
 
 <!-- DOWNLOAD -->
-<section class="sec-pad" id="download" style="padding-top:0" data-screen-label="Download">
+<section class="sec-pad si-padding-top-0" id="download" data-screen-label="Download">
   <div class="wrap">
     <div class="cta-band reveal">
-      <span class="eyebrow" style="color:var(--accent-300);position:relative" data-en="Download" data-es="Descarga">Download</span>
-      <h2 class="h2" style="position:relative" data-en="Open the official Lernreich download." data-es="Abrir la descarga oficial de Lernreich.">Offiziellen Lernreich-Download oeffnen.</h2>
-      <p class="lead" style="max-width:52ch" data-en="The download is provided through the official Lernreich website." data-es="La descarga se ofrece a través del sitio oficial de Lernreich.">
+      <span class="eyebrow si-color-var-accent-300-position-relative" data-en="Download" data-es="Descarga">Download</span>
+      <h2 class="h2 si-position-relative" data-en="Open the official Lernreich download." data-es="Abrir la descarga oficial de Lernreich.">Offiziellen Lernreich-Download oeffnen.</h2>
+      <p class="lead si-max-width-52ch" data-en="The download is provided through the official Lernreich website." data-es="La descarga se ofrece a través del sitio oficial de Lernreich.">
         Der Download wird ueber die offizielle Lernreich-Website bereitgestellt.
       </p>
       <a class="btn btn-primary btn-lg" href="https://lernreich.pro/#download" target="_blank" rel="noopener"><span data-en="Go to download" data-es="Ir a la descarga">Zum Download</span> <span class="arr">→</span></a>
@@ -124,9 +125,9 @@
 </section>
 
 <!-- RELATED -->
-<section class="sec-pad" style="padding-top:0" data-screen-label="Mehr">
+<section class="sec-pad si-padding-top-0" data-screen-label="Mehr">
   <div class="wrap">
-    <div class="sec-head reveal" style="margin-bottom:34px">
+    <div class="sec-head reveal si-margin-bottom-34px">
       <span class="eyebrow" data-en="Bytewerk Studio" data-es="Bytewerk Studio">Bytewerk Studio</span>
       <h2 class="h2" data-en="Software, web and app development behind Lernreich." data-es="Desarrollo de software, web y apps detrás de Lernreich.">Software, Web- und App-Entwicklung hinter Lernreich.</h2>
     </div>

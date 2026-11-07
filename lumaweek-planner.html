@@ -5,7 +5,7 @@
 <script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CaeQ8Q3geGyk4C+zSbiPIgg9xb3aa/Jes1V9wggsHR4=' 'sha256-GxdOSaV+nepQhOpZ3Es4P23iUZjdwhGhkVqCG72opkg='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CaeQ8Q3geGyk4C+zSbiPIgg9xb3aa/Jes1V9wggsHR4=' 'sha256-GxdOSaV+nepQhOpZ3Es4P23iUZjdwhGhkVqCG72opkg='; style-src 'self'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>LumaWeek Planner - Wochen- und Jahresplaner · Bytewerk Studio</title>
 <meta name="description" content="LumaWeek Planner ist ein hochwertiger Wochen- und Jahresplaner fuer Schule, Uni und Arbeit. Aufgaben, Notizen, Design Studio, PDF-Export, Drucken und lokale Backups. Preis: 5,99 €.">
@@ -58,6 +58,7 @@
 }
 </script>
 <link rel="stylesheet" href="styles-hardening.css">
+<link rel="stylesheet" href="styles-inline.css">
 </head>
 <body>
 
@@ -75,7 +76,7 @@
   </div>
 
   <div class="pd-info reveal" data-d="1">
-    <div class="crumb" style="margin-bottom:18px"><a href="shop.html" data-en="Shop">Shop</a> <span>/</span> <span data-en="App">App</span> <span>/</span> LumaWeek Planner</div>
+    <div class="crumb si-margin-bottom-18px"><a href="shop.html" data-en="Shop">Shop</a> <span>/</span> <span data-en="App">App</span> <span>/</span> LumaWeek Planner</div>
     <span class="cat">Windows · Planung · Schule · Uni · PayPal</span>
     <h1>LumaWeek Planner</h1>
     <div class="pd-price">
@@ -100,7 +101,7 @@
       <div class="f"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg><span>PDF-Export, Drucken, A4-Layouts und lokale JSON-Backups</span></div>
     </div>
 
-    <div class="pd-list" style="margin-top:30px">
+    <div class="pd-list si-margin-top-30px">
       <div class="row"><span class="key" data-en="Platform">Plattform</span><span class="val">Windows</span></div>
       <div class="row"><span class="key">Kategorie</span><span class="val">Premium · Wochenplan · Jahresplan · Produktivitaet</span></div>
       <div class="row"><span class="key" data-en="Price">Preis</span><span class="val">5,99 €</span></div>
@@ -114,12 +115,12 @@
   </div>
 </section>
 
-<section class="sec-pad" id="kaufen" style="padding-top:0" data-screen-label="LumaWeek kaufen">
+<section class="sec-pad si-padding-top-0" id="kaufen" data-screen-label="LumaWeek kaufen">
   <div class="wrap">
     <div class="cta-band reveal">
-      <span class="eyebrow" style="color:var(--accent-300);position:relative" data-en="PayPal accepted">PayPal akzeptiert</span>
-      <h2 class="h2" style="position:relative" data-en="Buy LumaWeek Planner for 5.99 €.">LumaWeek Planner fuer 5,99 € kaufen.</h2>
-      <p class="lead" style="max-width:54ch" data-en="Send a purchase request. Bytewerk Studio will reply with PayPal payment details and the download after purchase.">
+      <span class="eyebrow si-color-var-accent-300-position-relative" data-en="PayPal accepted">PayPal akzeptiert</span>
+      <h2 class="h2 si-position-relative" data-en="Buy LumaWeek Planner for 5.99 €.">LumaWeek Planner fuer 5,99 € kaufen.</h2>
+      <p class="lead si-max-width-54ch" data-en="Send a purchase request. Bytewerk Studio will reply with PayPal payment details and the download after purchase.">
         Sende eine Kaufanfrage. Bytewerk Studio antwortet mit den PayPal-Zahlungsdaten und stellt nach dem Kauf den Download bereit.
       </p>
       <a class="btn btn-primary btn-lg" href="mailto:Haqmalh@icloud.com?subject=LumaWeek%20Planner%20kaufen&body=Hallo%20Bytewerk%20Studio%2C%0A%0Aich%20moechte%20LumaWeek%20Planner%20fuer%205%2C99%20%E2%82%AC%20kaufen%20und%20per%20PayPal%20bezahlen.%0A%0ABitte%20sendet%20mir%20die%20PayPal-Zahlungsdaten%20und%20den%20Download.%0A%0AViele%20Gruesse"><span data-en="Send purchase request">Kaufanfrage senden</span> <span class="arr">→</span></a>
@@ -127,9 +128,9 @@
   </div>
 </section>
 
-<section class="sec-pad" style="padding-top:0" data-screen-label="Mehr">
+<section class="sec-pad si-padding-top-0" data-screen-label="Mehr">
   <div class="wrap">
-    <div class="sec-head reveal" style="margin-bottom:34px">
+    <div class="sec-head reveal si-margin-bottom-34px">
       <span class="eyebrow" data-en="More apps">Weitere Apps</span>
       <h2 class="h2" data-en="More Windows software from Bytewerk Studio.">Weitere Windows-Software von Bytewerk Studio.</h2>
     </div>

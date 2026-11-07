@@ -5,7 +5,7 @@
 <script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CaeQ8Q3geGyk4C+zSbiPIgg9xb3aa/Jes1V9wggsHR4='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CaeQ8Q3geGyk4C+zSbiPIgg9xb3aa/Jes1V9wggsHR4='; style-src 'self'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Arbeiten — elf eigene Produkte | Bytewerk Studio</title>
 <meta name="description" content="Elf eigene Produkte von Bytewerk Studio: Lernsoftware, Security-Tools, PDF-Werkzeuge, Strategiespiele und Browser-Games. Als interaktives Regal aus Papier, gerendert mit three.js.">
@@ -57,6 +57,7 @@
 }
 </script>
 <link rel="stylesheet" href="styles-hardening.css">
+<link rel="stylesheet" href="styles-inline.css">
 </head>
 <body>
 
@@ -299,17 +300,17 @@
 </section>
 
 <!-- ============ CTA ============ -->
-<section class="sec-pad" style="padding-top:0" data-screen-label="Arbeiten CTA">
+<section class="sec-pad si-padding-top-0" data-screen-label="Arbeiten CTA">
   <div class="wrap">
     <div class="cta-band reveal">
-      <span class="eyebrow" style="color:var(--accent-300);position:relative" data-en="Your project">Dein Projekt</span>
-      <h2 class="h2" style="position:relative" data-en="The twelfth product could be yours.">Das zwölfte Produkt könnte deins sein.</h2>
-      <p class="lead" style="max-width:46ch;position:relative" data-en="Short message, realistic assessment, clear next step.">
+      <span class="eyebrow si-color-var-accent-300-position-relative" data-en="Your project">Dein Projekt</span>
+      <h2 class="h2 si-position-relative" data-en="The twelfth product could be yours.">Das zwölfte Produkt könnte deins sein.</h2>
+      <p class="lead si-max-width-46ch-position-relative" data-en="Short message, realistic assessment, clear next step.">
         Kurze Nachricht, realistische Einschätzung, klarer nächster Schritt.
       </p>
-      <div style="display:flex;gap:14px;flex-wrap:wrap;position:relative">
+      <div class="si-display-flex-gap-14px-flex-wrap-wrap-position-relative">
         <a class="btn btn-primary btn-lg" href="kontakt.html"><span data-en="Start a project">Projekt starten</span> <span class="arr">→</span></a>
-        <a class="btn btn-ghost btn-lg" style="background:transparent;color:var(--accent-300);border-color:var(--line-2)" href="shop.html" data-en="Browse the shop">Zum Shop</a>
+        <a class="btn btn-ghost btn-lg si-background-transparent-color-var-accent-300-border-color-var-line-2" href="shop.html" data-en="Browse the shop">Zum Shop</a>
       </div>
     </div>
   </div>

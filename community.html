@@ -5,7 +5,7 @@
 <script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CaeQ8Q3geGyk4C+zSbiPIgg9xb3aa/Jes1V9wggsHR4='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CaeQ8Q3geGyk4C+zSbiPIgg9xb3aa/Jes1V9wggsHR4='; style-src 'self'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Community &amp; Forum — Bytewerk Studio</title>
 <meta name="description" content="Das Bytewerk Forum: Fragen zu Code, Produkten und Werkzeugen, Antworten aus dem Studio und eine Werkstatt für Entwickler mit Abo. Offen, ruhig, ohne Tracking.">
@@ -81,6 +81,7 @@
 }
 </script>
 <link rel="stylesheet" href="styles-hardening.css">
+<link rel="stylesheet" href="styles-inline.css">
 </head>
 <body class="cm-page">
 
@@ -136,21 +137,21 @@
           </div>
 
           <div class="cm-stage-fallback" aria-hidden="true">
-            <div class="cm-fcard" style="--c:#b04f31"><b>01</b><span data-en="Questions">Fragen</span></div>
-            <div class="cm-fcard" style="--c:#4f7a63"><b>02</b><span data-en="Code">Code</span></div>
-            <div class="cm-fcard" style="--c:#8a6a3f"><b>03</b><span data-en="Products">Produkte</span></div>
-            <div class="cm-fcard" style="--c:#5b6b8a"><b>04</b><span data-en="Workshop">Werkstatt</span></div>
-            <div class="cm-fcard" style="--c:#7a5c6a"><b>05</b><span data-en="Studio">Studio</span></div>
+            <div class="cm-fcard si-c-b04f31"><b>01</b><span data-en="Questions">Fragen</span></div>
+            <div class="cm-fcard si-c-4f7a63"><b>02</b><span data-en="Code">Code</span></div>
+            <div class="cm-fcard si-c-8a6a3f"><b>03</b><span data-en="Products">Produkte</span></div>
+            <div class="cm-fcard si-c-5b6b8a"><b>04</b><span data-en="Workshop">Werkstatt</span></div>
+            <div class="cm-fcard si-c-7a5c6a"><b>05</b><span data-en="Studio">Studio</span></div>
           </div>
 
         </div>
 
         <div class="cm-stage-chips" role="group" aria-label="Forum-Kategorie im Regal wählen" data-en-aria="Choose a forum category on the shelf">
-          <button type="button" class="cm-stage-chip is-active" data-cm-cat="fragen" aria-pressed="true"><i style="--c:#b04f31"></i><span data-en="Questions">Fragen</span></button>
-          <button type="button" class="cm-stage-chip" data-cm-cat="code" aria-pressed="false"><i style="--c:#4f7a63"></i><span>Code</span></button>
-          <button type="button" class="cm-stage-chip" data-cm-cat="produkte" aria-pressed="false"><i style="--c:#8a6a3f"></i><span data-en="Products">Produkte</span></button>
-          <button type="button" class="cm-stage-chip" data-cm-cat="werkstatt" aria-pressed="false"><i style="--c:#5b6b8a"></i><span data-en="Workshop">Werkstatt</span></button>
-          <button type="button" class="cm-stage-chip" data-cm-cat="meta" aria-pressed="false"><i style="--c:#7a5c6a"></i><span>Studio</span></button>
+          <button type="button" class="cm-stage-chip is-active" data-cm-cat="fragen" aria-pressed="true"><i class="si-c-b04f31"></i><span data-en="Questions">Fragen</span></button>
+          <button type="button" class="cm-stage-chip" data-cm-cat="code" aria-pressed="false"><i class="si-c-4f7a63"></i><span>Code</span></button>
+          <button type="button" class="cm-stage-chip" data-cm-cat="produkte" aria-pressed="false"><i class="si-c-8a6a3f"></i><span data-en="Products">Produkte</span></button>
+          <button type="button" class="cm-stage-chip" data-cm-cat="werkstatt" aria-pressed="false"><i class="si-c-5b6b8a"></i><span data-en="Workshop">Werkstatt</span></button>
+          <button type="button" class="cm-stage-chip" data-cm-cat="meta" aria-pressed="false"><i class="si-c-7a5c6a"></i><span>Studio</span></button>
         </div>
 
         <p class="cm-stage-note" data-en="Built with three.js on a local build — no CDN, no tracking.">Gebaut mit three.js aus dem lokalen Build — kein CDN, kein Tracking.</p>

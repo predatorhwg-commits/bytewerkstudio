@@ -5,7 +5,7 @@
 <script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CaeQ8Q3geGyk4C+zSbiPIgg9xb3aa/Jes1V9wggsHR4='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CaeQ8Q3geGyk4C+zSbiPIgg9xb3aa/Jes1V9wggsHR4='; style-src 'self'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Die Marke — Bytewerk Studio</title>
 <meta name="description" content="Das Bytewerk-Zeichen als greifbares 3D-Objekt: drei Papierkacheln, ein Terrakotta-Punkt, ein Faden. Aufbau, Regeln und Dateien der Marke.">
@@ -54,6 +54,7 @@
 }
 </script>
 <link rel="stylesheet" href="styles-hardening.css">
+<link rel="stylesheet" href="styles-inline.css">
 </head>
 <body class="mk-page">
 
@@ -211,7 +212,7 @@
     <div>
       <span class="mk-eyebrow" data-en="Four rules">Vier Regeln</span>
       <h2 class="mk-h2" data-en="How the mark stays itself.">Wie das Zeichen es selbst bleibt.</h2>
-      <p class="mk-lead" style="font-size:15px" data-en="Short enough to remember, strict enough to keep eleven products looking like one studio.">
+      <p class="mk-lead si-font-size-15px" data-en="Short enough to remember, strict enough to keep eleven products looking like one studio.">
         Kurz genug, um sie zu behalten, streng genug, damit elf Produkte wie ein Studio aussehen.
       </p>
     </div>
@@ -263,7 +264,7 @@
     <div>
       <span class="mk-eyebrow" data-en="Files">Dateien</span>
       <h2 class="mk-h2" data-en="Use it, don't redraw it.">Benutzen, nicht nachzeichnen.</h2>
-      <p class="mk-lead" style="font-size:15px" data-en="The mark is one SVG file with no external references. Every size, every colour variant comes from it, so nothing drifts apart over time.">
+      <p class="mk-lead si-font-size-15px" data-en="The mark is one SVG file with no external references. Every size, every colour variant comes from it, so nothing drifts apart over time.">
         Das Zeichen ist eine SVG-Datei ohne externe Verweise. Jede Größe und jede Farbvariante kommt daraus,
         damit nichts über die Zeit auseinanderläuft.
       </p>

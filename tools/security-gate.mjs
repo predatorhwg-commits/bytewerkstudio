@@ -153,7 +153,38 @@ function walk(dir, out = []) {
     : pass('Referrer-Policy', htmlFiles.length + ' Seiten');
 }
 
-/* 10. Links und Anker (nur mit --live) */
+/* 10. Keine Inline-Stile — sonst waere 'unsafe-inline' in style-src noetig. */
+{
+  const offenders = [];
+  let attrs = 0;
+  for (const file of htmlFiles) {
+    if (file.startsWith('google')) continue;
+    const html = readFileSync(join(siteDir, file), 'utf8');
+    const inlineAttrs = (html.match(/\sstyle\s*=\s*"/g) || []).length;
+    const styleBlocks = (html.match(/<style[\s>]/gi) || []).length;
+    if (inlineAttrs) { attrs += inlineAttrs; offenders.push(`${file}: ${inlineAttrs} style-Attribut(e)`); }
+    if (styleBlocks) offenders.push(`${file}: ${styleBlocks} <style>-Block/oeffnender Tag`);
+  }
+  offenders.length
+    ? fail('keine Inline-Stile', offenders.slice(0, 4).join(', '))
+    : pass('keine Inline-Stile', attrs === 0 ? '0 style-Attribute, 0 <style>-Bloecke' : '');
+}
+
+/* 11. style-src ohne 'unsafe-inline' */
+{
+  const bad = htmlFiles.filter((file) => {
+    if (file.startsWith('google')) return false;
+    const html = readFileSync(join(siteDir, file), 'utf8');
+    const m = html.match(/style-src\s+([^;"]*)/i);
+    if (!m) return true;
+    return m[1].includes("'unsafe-inline'");
+  });
+  bad.length
+    ? fail("style-src ohne 'unsafe-inline'", bad.slice(0, 4).join(', '))
+    : pass("style-src ohne 'unsafe-inline'", htmlFiles.filter((f) => !f.startsWith('google')).length + ' Seiten');
+}
+
+/* 12. Links und Anker (nur mit --live) */
 if (live) {
   try {
     const out = execFileSync(process.execPath, [join(siteDir, 'tools/check-links.mjs'), siteDir, base], { stdio: 'pipe' });

@@ -1,0 +1,6 @@
+/* Fallback ohne JavaScript: das Schichtmodell zeigt seine Panels
+   als gestapelte Liste statt als 3D-Buehne. Wird nur geladen, wenn
+   JavaScript aus ist — deshalb liegt sie in einer eigenen Datei und
+   nicht in einem <style>-Block (CSP: style-src 'self'). */
+#schichtmodell .schm-panel[hidden] { display: block; }
+#schichtmodell .schm-detail { display: grid; gap: 14px; }

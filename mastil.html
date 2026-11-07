@@ -5,7 +5,7 @@
 <script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CaeQ8Q3geGyk4C+zSbiPIgg9xb3aa/Jes1V9wggsHR4=' 'sha256-/If8mXv3r3P9+eEyCHpiw/qSJfP7bDB5/g2jVl9PGWc='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CaeQ8Q3geGyk4C+zSbiPIgg9xb3aa/Jes1V9wggsHR4=' 'sha256-/If8mXv3r3P9+eEyCHpiw/qSJfP7bDB5/g2jVl9PGWc='; style-src 'self'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>MASTIL - Mittelalter-Strategie & Tower Defense · Bytewerk Studio</title>
 <meta name="description" content="MASTIL ist ein Mittelalter-Strategie- und Tower-Defense-Spiel von Bytewerk Studio fuer Web und Windows. Offline-KI, Wellenfortschritt, Reichsauswahl, Demo bis Welle 5 und Lizenzmodell.">
@@ -61,6 +61,7 @@
 }
 </script>
 <link rel="stylesheet" href="styles-hardening.css">
+<link rel="stylesheet" href="styles-inline.css">
 </head>
 <body>
 
@@ -78,7 +79,7 @@
   </div>
 
   <div class="pd-info reveal" data-d="1">
-    <div class="crumb" style="margin-bottom:18px"><a href="shop.html" data-en="Shop">Shop</a> <span>/</span> <span data-en="Game">Spiel</span> <span>/</span> MASTIL</div>
+    <div class="crumb si-margin-bottom-18px"><a href="shop.html" data-en="Shop">Shop</a> <span>/</span> <span data-en="Game">Spiel</span> <span>/</span> MASTIL</div>
     <span class="cat">Web · Windows · Strategie · Tower Defense</span>
     <h1>MASTIL</h1>
     <div class="pd-price">
@@ -103,7 +104,7 @@
       <div class="f"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg><span>Windows-App mit Installer- und Lizenz-Support</span></div>
     </div>
 
-    <div class="pd-list" style="margin-top:30px">
+    <div class="pd-list si-margin-top-30px">
       <div class="row"><span class="key" data-en="Platform">Plattform</span><span class="val">Web-Browser und Windows</span></div>
       <div class="row"><span class="key">Kategorie</span><span class="val">Spiel · Strategie · Tower Defense · Mittelalter</span></div>
       <div class="row"><span class="key">Version</span><span class="val">3.0.0</span></div>
@@ -117,12 +118,12 @@
   </div>
 </section>
 
-<section class="sec-pad" id="spielen" style="padding-top:0" data-screen-label="MASTIL spielen">
+<section class="sec-pad si-padding-top-0" id="spielen" data-screen-label="MASTIL spielen">
   <div class="wrap">
     <div class="cta-band reveal">
-      <span class="eyebrow" style="color:var(--accent-300);position:relative" data-en="Now playable">Jetzt spielbar</span>
-      <h2 class="h2" style="position:relative" data-en="Play the MASTIL web demo.">MASTIL direkt im Browser spielen.</h2>
-      <p class="lead" style="max-width:58ch" data-en="The web version runs offline AI battles directly in the browser. Online 1v1, purchases and license activation are prepared for the public backend.">
+      <span class="eyebrow si-color-var-accent-300-position-relative" data-en="Now playable">Jetzt spielbar</span>
+      <h2 class="h2 si-position-relative" data-en="Play the MASTIL web demo.">MASTIL direkt im Browser spielen.</h2>
+      <p class="lead si-max-width-58ch" data-en="The web version runs offline AI battles directly in the browser. Online 1v1, purchases and license activation are prepared for the public backend.">
         Die Web-Version startet offline gegen KI direkt im Browser. Online-1v1, Kauf und Lizenzaktivierung sind fuer das oeffentliche Backend vorbereitet.
       </p>
       <a class="btn btn-primary btn-lg" href="https://mastil.online/" target="_blank" rel="noopener"><span data-en="Open mastil.online">mastil.online oeffnen</span> <span class="arr">→</span></a>
@@ -130,9 +131,9 @@
   </div>
 </section>
 
-<section class="sec-pad" style="padding-top:0" data-screen-label="Mehr">
+<section class="sec-pad si-padding-top-0" data-screen-label="Mehr">
   <div class="wrap">
-    <div class="sec-head reveal" style="margin-bottom:34px">
+    <div class="sec-head reveal si-margin-bottom-34px">
       <span class="eyebrow" data-en="More games and apps">Weitere Spiele und Apps</span>
       <h2 class="h2" data-en="More releases from Bytewerk Studio.">Weitere Releases von Bytewerk Studio.</h2>
     </div>
