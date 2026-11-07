@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Nachtstand — Bytewerk Studio</title>
+<style>
+  :root {
+    --paper: #faf9f5; --paper-2: #f4f1e8; --surface: #fff;
+    --ink: #1f1e1d; --muted: #6b665c; --faint: #918b7e;
+    --line: #e6e1d4; --line-2: #d8d2c1;
+    --accent: #b04f31; --accent-700: #96402a; --sage: #4f7a63;
+    --display: 'Newsreader', Georgia, serif;
+    --body: 'Inter', system-ui, -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+    --pad: clamp(20px, 5vw, 48px);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--body); font-size: 16px; line-height: 1.6;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding-inline: var(--pad); }
+  header {
+    padding-block: clamp(40px, 6vw, 76px); border-bottom: 1px solid var(--line);
+    background:
+      radial-gradient(90% 120% at 100% 0%, rgba(176,79,49,.06), transparent 55%),
+      radial-gradient(80% 100% at 0% 100%, rgba(79,122,99,.05), transparent 60%);
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px; margin-bottom: 16px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: .09em;
+    text-transform: uppercase; color: var(--accent-700);
+  }
+  .eyebrow::before {
+    content: ""; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent); box-shadow: 0 0 0 3px rgba(176,79,49,.12);
+  }
+  h1 {
+    font-family: var(--display); font-weight: 500; margin: 0 0 14px;
+    font-size: clamp(34px, 6vw, 60px); line-height: 1.04; letter-spacing: -.02em;
+  }
+  h1 em { font-style: italic; color: var(--accent-700); }
+  .lead { margin: 0; max-width: 64ch; color: var(--muted); font-size: clamp(15px, 1.8vw, 18px); }
+  main { padding-block: clamp(36px, 5vw, 64px); }
+  h2 {
+    font-family: var(--display); font-weight: 500; margin: 0 0 6px;
+    font-size: clamp(22px, 3vw, 30px); letter-spacing: -.01em;
+  }
+  .sub { margin: 0 0 22px; color: var(--muted); font-size: 14.5px; }
+  .sec + .sec { margin-top: clamp(36px, 5vw, 60px); }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
+  .card {
+    display: flex; flex-direction: column; gap: 6px;
+    padding: 18px 20px; border: 1px solid var(--line); border-radius: 14px;
+    background: var(--surface); color: inherit; text-decoration: none;
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  }
+  .card:hover {
+    transform: translateY(-2px); border-color: var(--line-2);
+    box-shadow: 0 22px 44px -34px rgba(31,30,29,.5);
+  }
+  .card b { font-size: 15.5px; font-weight: 600; }
+  .card span { font-size: 13px; color: var(--muted); line-height: 1.45; }
+  .card code {
+    font-family: var(--mono); font-size: 10.5px; color: var(--faint);
+    margin-top: 4px; overflow-wrap: anywhere;
+  }
+  .card.is-key { border-color: var(--accent); background: linear-gradient(180deg, rgba(176,79,49,.045), transparent 60%), var(--surface); }
+  .card.is-key b { color: var(--accent-700); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th {
+    font-family: var(--mono); font-size: 10px; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--faint); font-weight: 500;
+  }
+  td code { font-family: var(--mono); font-size: 11.5px; overflow-wrap: anywhere; }
+  .ok { color: var(--sage); font-weight: 600; }
+  .wait { color: var(--accent-700); font-weight: 600; }
+
+  .box {
+    margin-top: 20px; padding: 18px 20px; border: 1px solid var(--line-2);
+    border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0;
+    background: var(--surface); font-size: 14px; color: var(--muted);
+  }
+  .box b { color: var(--ink); }
+  .box code { font-family: var(--mono); font-size: 12px; background: var(--paper-2); padding: 1px 5px; border-radius: 4px; }
+
+  footer {
+    border-top: 1px solid var(--line); padding-block: 26px;
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: .04em;
+    text-transform: uppercase; color: var(--faint);
+  }
+  @media (max-width: 600px) {
+    table, thead, tbody, tr, th, td { display: block; }
+    thead { display: none; }
+    tr { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; margin-bottom: 8px; background: var(--surface); }
+    td { border: 0; padding: 3px 0; }
+    td:first-child { font-weight: 600; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+    .card:hover { transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="eyebrow">Bytewerk Studio · Nachtstand</span>
+    <h1>Was heute Nacht <em>entstanden ist.</em></h1>
+    <p class="lead">Eine Seite als Einstieg: jede gebaute Seite, der Stand der Zusammenführung
+      und die Stellen, an denen noch jemand entscheiden muss. Alles hier ist eine Vorschau —
+      die Hauptdomain bleibt unverändert, bis die Pull Requests gemerged sind.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="sec">
+    <h2>Zum Ansehen</h2>
+    <p class="sub">Die zwei wichtigsten Seiten zuerst. Beide sind für sich vollständig bedienbar.</p>
+    <div class="grid">
+      <a class="card is-key" href="community.html">
+        <b>Community &amp; Forum →</b>
+        <span>Neun Themen, Suche, Lesezeichen, Gelöst-Marken, drei Abo-Stufen für Entwickler,
+          Sicherheits-Selbsttest und das 3D-Ideenregal.</span>
+        <code>community.html</code>
+      </a>
+      <a class="card is-key" href="index.html#community">
+        <b>Startseite mit Teaser →</b>
+        <span>Der neue Community-Abschnitt zwischen Showroom und Prozess, DE/EN/ES,
+          mit drei Beispiel-Themen als Karten.</span>
+        <code>index.html#community</code>
+      </a>
+      <a class="card" href="docs/AGENTEN.html">
+        <b>Wer baut was →</b>
+        <span>Das Agentenbrett: 21 Zweige, 194 Commits, welche Datei wem gehört und wo
+          Konflikte entstehen.</span>
+        <code>docs/AGENTEN.html</code>
+      </a>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Alle gebauten Seiten</h2>
+    <p class="sub">Aus den Zweigen der anderen Agenten, in dieser Vorschau zusammengeführt.</p>
+    <div class="grid">
+      <a class="card" href="forum.html"><b>Forum</b><span>Eigenständiger Forum-Entwurf mit Threads und Antworten.</span><code>forum.html</code></a>
+      <a class="card" href="entwickler.html"><b>Entwickler &amp; API</b><span>Abo-Stufen, API-Referenz, Sandbox-Konsole.</span><code>entwickler.html</code></a>
+      <a class="card" href="sicherheit.html"><b>Sicherheit</b><span>Selbsttest und Papier-Schloss in 3D.</span><code>sicherheit.html</code></a>
+      <a class="card" href="abo.html"><b>Abo</b><span>Preisseite mit den drei Stufen.</span><code>abo.html</code></a>
+      <a class="card" href="arbeiten.html"><b>Arbeiten</b><span>Papierregal-Showroom mit three.js.</span><code>arbeiten.html</code></a>
+      <a class="card" href="showroom.html"><b>Showroom</b><span>Elf Produkte als 3D-Tafeln.</span><code>showroom.html</code></a>
+      <a class="card" href="zeichenwerk.html"><b>Zeichenwerk</b><span>3D-Letterpress aus Papierplatten.</span><code>zeichenwerk.html</code></a>
+      <a class="card" href="studio.html"><b>Studio</b><span>Werkbank mit vier Stationen.</span><code>studio.html</code></a>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Stand der Veröffentlichung</h2>
+    <p class="sub">Ehrlich, weil es den Unterschied macht: Vorschau ist nicht live.</p>
+    <table>
+      <thead>
+        <tr><th>Ort</th><th>Was dort steht</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>predatorhwg-commits.github.io/bytewerkstudio</code></td>
+          <td>Diese Vorschau: alle Zweige zusammengeführt, inklusive Community</td>
+          <td class="ok">erreichbar</td>
+        </tr>
+        <tr>
+          <td><code>bytewerkstudio.com</code></td>
+          <td>Der Stand von gestern Abend</td>
+          <td class="ok">unverändert</td>
+        </tr>
+        <tr>
+          <td><code>bytewerkstudio.com/community.html</code></td>
+          <td>Noch nicht veröffentlicht</td>
+          <td class="wait">404 bis zum Merge</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="box"><b>Warum nicht live?</b> Der vorhandene Zugang darf das Repository lesen,
+      aber nicht schreiben — ein Push nach <code>bytewerkstudio/bytewerkstudio</code> wird mit
+      <code>403</code> abgelehnt. Deshalb liegen die Änderungen als Pull Request bereit:
+      <b>#27</b> (Community) und <b>#29</b> (Gesamtintegration). Sobald einer davon gemerged ist,
+      veröffentlicht GitHub Pages automatisch.</p>
+  </section>
+
+  <section class="sec">
+    <h2>Was noch entschieden werden muss</h2>
+    <p class="sub">Drei Punkte, die keine Technik sind, sondern eine Entscheidung.</p>
+    <table>
+      <thead><tr><th>Punkt</th><th>Entscheidung</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Zwei Foren</td>
+          <td><code>community.html</code> und <code>forum.html</code> decken dieselbe Aufgabe ab.
+            Empfehlung: Community ins Menü, Forum als Seite behalten und per
+            <code>canonical</code> auf Community zeigen.</td>
+        </tr>
+        <tr>
+          <td>Reihenfolge</td>
+          <td>Erst einen Integrationszweig, dann Community darauf. Beide ändern
+            <code>components.js</code> — die Navigation ist die Engstelle.</td>
+        </tr>
+        <tr>
+          <td>Echtes Backend</td>
+          <td>Beiträge und Abo liegen lokal im Browser. Für geteilte Themen und echte Zahlungen
+            braucht es Supabase-Tabellen, RLS und Ratenlimits — beschrieben in
+            <code>docs/COMMUNITY.md</code>.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">Bytewerk Studio · Nachtstand vom 7. November · Vorschau, nicht indexiert</div>
+</footer>
+
+</body>
+</html>
