@@ -1,0 +1,391 @@
+{
+  "images": [
+    {
+      "file": "burgenwerk-logo.png",
+      "shown_max": 119,
+      "shown_at": "mastil.html",
+      "natural": 512,
+      "pages": [
+        "burgenwerk.html",
+        "mastil.html",
+        "neon-dominion.html",
+        "shop.html",
+        "showroom.html",
+        "softwareentwicklung-ludwigshafen.html"
+      ],
+      "needed_px": 238,
+      "oversize": 2.15
+    },
+    {
+      "file": "bytewerk-pdf-text-pro-icon.svg",
+      "shown_max": 119,
+      "shown_at": "keyforge-vault.html",
+      "natural": 150,
+      "pages": [
+        "bytewerk-pdf-text-pro.html",
+        "index.html",
+        "keyforge-vault.html",
+        "lernreich-pro.html",
+        "lumaweek-planner.html",
+        "mastil.html",
+        "produkt.html",
+        "pruefungs-countdown.html",
+        "shop.html",
+        "showroom.html",
+        "softwareentwicklung-ludwigshafen.html",
+        "updatepilot.html"
+      ],
+      "needed_px": 238,
+      "oversize": 0.63
+    },
+    {
+      "file": "bytewerk-pdf-text-pro-logo.png",
+      "shown_max": 73,
+      "shown_at": "bytewerk-pdf-text-pro.html",
+      "natural": 512,
+      "pages": [
+        "bytewerk-pdf-text-pro.html"
+      ],
+      "needed_px": 146,
+      "oversize": 3.51
+    },
+    {
+      "file": "keyforge-vault-dashboard.png",
+      "shown_max": 622,
+      "shown_at": "arbeiten.html",
+      "natural": 1349,
+      "pages": [
+        "arbeiten.html",
+        "index.html",
+        "keyforge-vault.html"
+      ],
+      "needed_px": 1244,
+      "oversize": 1.08
+    },
+    {
+      "file": "keyforge-vault-icon.svg",
+      "shown_max": 163,
+      "shown_at": "bytewerk-pdf-text-pro.html",
+      "natural": 256,
+      "pages": [
+        "bytewerk-pdf-text-pro.html",
+        "index.html",
+        "keyforge-vault.html",
+        "konto.html",
+        "lernreich-pro.html",
+        "login.html",
+        "lumaweek-planner.html",
+        "neon-dominion.html",
+        "produkt.html",
+        "pruefungs-countdown.html",
+        "shop.html",
+        "showroom.html",
+        "softwareentwicklung-ludwigshafen.html",
+        "updatepilot.html"
+      ],
+      "needed_px": 326,
+      "oversize": 0.79
+    },
+    {
+      "file": "lernreich-logo.png",
+      "shown_max": 220,
+      "shown_at": "produkt.html",
+      "natural": 256,
+      "pages": [
+        "keyforge-vault.html",
+        "lernreich-pro.html",
+        "lumaweek-planner.html",
+        "mastil.html",
+        "produkt.html",
+        "pruefungs-countdown.html",
+        "shop.html",
+        "showroom.html",
+        "softwareentwicklung-ludwigshafen.html"
+      ],
+      "needed_px": 440,
+      "oversize": 0.58
+    },
+    {
+      "file": "lernreich-pro-icon.svg",
+      "shown_max": 119,
+      "shown_at": "keyforge-vault.html",
+      "natural": 256,
+      "pages": [
+        "index.html",
+        "keyforge-vault.html",
+        "lernreich-pro.html",
+        "produkt.html",
+        "pruefungs-countdown.html",
+        "shop.html",
+        "showroom.html",
+        "softwareentwicklung-ludwigshafen.html",
+        "updatepilot.html"
+      ],
+      "needed_px": 238,
+      "oversize": 1.08
+    },
+    {
+      "file": "lumaweek-icon.svg",
+      "shown_max": 163,
+      "shown_at": "bytewerk-pdf-text-pro.html",
+      "natural": 1024,
+      "pages": [
+        "bytewerk-pdf-text-pro.html",
+        "keyforge-vault.html",
+        "lernreich-pro.html",
+        "lumaweek-planner.html",
+        "neon-dominion.html",
+        "produkt.html",
+        "pruefungs-countdown.html",
+        "shop.html",
+        "showroom.html",
+        "softwareentwicklung-ludwigshafen.html",
+        "updatepilot.html"
+      ],
+      "needed_px": 326,
+      "oversize": 3.14
+    },
+    {
+      "file": "lumaweek-logo.svg",
+      "shown_max": 54,
+      "shown_at": "lumaweek-planner.html",
+      "natural": 720,
+      "pages": [
+        "lumaweek-planner.html"
+      ],
+      "needed_px": 108,
+      "oversize": 6.67
+    },
+    {
+      "file": "mastil-logo.jpg",
+      "shown_max": 178,
+      "shown_at": "burgenwerk.html",
+      "natural": 620,
+      "pages": [
+        "burgenwerk.html",
+        "mastil.html",
+        "neon-dominion.html",
+        "shop.html",
+        "showroom.html",
+        "softwareentwicklung-ludwigshafen.html"
+      ],
+      "needed_px": 356,
+      "oversize": 1.74
+    },
+    {
+      "file": "mastil-start-bg.jpg",
+      "shown_max": 601,
+      "shown_at": "mastil.html",
+      "natural": 1672,
+      "pages": [
+        "arbeiten.html",
+        "index.html",
+        "mastil.html"
+      ],
+      "needed_px": 1202,
+      "oversize": 1.39
+    },
+    {
+      "file": "neon-dominion-gameplay.jpg",
+      "shown_max": 601,
+      "shown_at": "neon-dominion.html",
+      "natural": 1400,
+      "pages": [
+        "arbeiten.html",
+        "index.html",
+        "neon-dominion.html"
+      ],
+      "needed_px": 1202,
+      "oversize": 1.16
+    },
+    {
+      "file": "neon-dominion-icon.svg",
+      "shown_max": 178,
+      "shown_at": "burgenwerk.html",
+      "natural": 150,
+      "pages": [
+        "burgenwerk.html",
+        "index.html",
+        "mastil.html",
+        "neon-dominion.html",
+        "shop.html",
+        "showroom.html",
+        "softwareentwicklung-ludwigshafen.html"
+      ],
+      "needed_px": 356,
+      "oversize": 0.42
+    },
+    {
+      "file": "neon-horde-icon.svg",
+      "shown_max": 119,
+      "shown_at": "shop.html",
+      "natural": 150,
+      "pages": [
+        "index.html",
+        "shop.html",
+        "showroom.html"
+      ],
+      "needed_px": 238,
+      "oversize": 0.63
+    },
+    {
+      "file": "pruefungs-countdown-logo.png",
+      "shown_max": 220,
+      "shown_at": "pruefungs-countdown.html",
+      "natural": 1024,
+      "pages": [
+        "keyforge-vault.html",
+        "lernreich-pro.html",
+        "lumaweek-planner.html",
+        "produkt.html",
+        "pruefungs-countdown.html",
+        "shop.html",
+        "showroom.html",
+        "softwareentwicklung-ludwigshafen.html"
+      ],
+      "needed_px": 440,
+      "oversize": 2.33
+    },
+    {
+      "file": "updatepilot-icon.svg",
+      "shown_max": 163,
+      "shown_at": "bytewerk-pdf-text-pro.html",
+      "natural": 512,
+      "pages": [
+        "bytewerk-pdf-text-pro.html",
+        "index.html",
+        "keyforge-vault.html",
+        "lernreich-pro.html",
+        "lumaweek-planner.html",
+        "mastil.html",
+        "produkt.html",
+        "pruefungs-countdown.html",
+        "register.html",
+        "shop.html",
+        "showroom.html",
+        "softwareentwicklung-ludwigshafen.html",
+        "updatepilot.html"
+      ],
+      "needed_px": 326,
+      "oversize": 1.57
+    }
+  ],
+  "oversize": [
+    {
+      "file": "lumaweek-icon.svg",
+      "shown_max": 163,
+      "shown_at": "bytewerk-pdf-text-pro.html",
+      "natural": 1024,
+      "pages": [
+        "bytewerk-pdf-text-pro.html",
+        "keyforge-vault.html",
+        "lernreich-pro.html",
+        "lumaweek-planner.html",
+        "neon-dominion.html",
+        "produkt.html",
+        "pruefungs-countdown.html",
+        "shop.html",
+        "showroom.html",
+        "softwareentwicklung-ludwigshafen.html",
+        "updatepilot.html"
+      ],
+      "needed_px": 326,
+      "oversize": 3.14
+    },
+    {
+      "file": "pruefungs-countdown-logo.png",
+      "shown_max": 220,
+      "shown_at": "pruefungs-countdown.html",
+      "natural": 1024,
+      "pages": [
+        "keyforge-vault.html",
+        "lernreich-pro.html",
+        "lumaweek-planner.html",
+        "produkt.html",
+        "pruefungs-countdown.html",
+        "shop.html",
+        "showroom.html",
+        "softwareentwicklung-ludwigshafen.html"
+      ],
+      "needed_px": 440,
+      "oversize": 2.33
+    },
+    {
+      "file": "lumaweek-logo.svg",
+      "shown_max": 54,
+      "shown_at": "lumaweek-planner.html",
+      "natural": 720,
+      "pages": [
+        "lumaweek-planner.html"
+      ],
+      "needed_px": 108,
+      "oversize": 6.67
+    },
+    {
+      "file": "mastil-logo.jpg",
+      "shown_max": 178,
+      "shown_at": "burgenwerk.html",
+      "natural": 620,
+      "pages": [
+        "burgenwerk.html",
+        "mastil.html",
+        "neon-dominion.html",
+        "shop.html",
+        "showroom.html",
+        "softwareentwicklung-ludwigshafen.html"
+      ],
+      "needed_px": 356,
+      "oversize": 1.74
+    },
+    {
+      "file": "burgenwerk-logo.png",
+      "shown_max": 119,
+      "shown_at": "mastil.html",
+      "natural": 512,
+      "pages": [
+        "burgenwerk.html",
+        "mastil.html",
+        "neon-dominion.html",
+        "shop.html",
+        "showroom.html",
+        "softwareentwicklung-ludwigshafen.html"
+      ],
+      "needed_px": 238,
+      "oversize": 2.15
+    },
+    {
+      "file": "bytewerk-pdf-text-pro-logo.png",
+      "shown_max": 73,
+      "shown_at": "bytewerk-pdf-text-pro.html",
+      "natural": 512,
+      "pages": [
+        "bytewerk-pdf-text-pro.html"
+      ],
+      "needed_px": 146,
+      "oversize": 3.51
+    },
+    {
+      "file": "updatepilot-icon.svg",
+      "shown_max": 163,
+      "shown_at": "bytewerk-pdf-text-pro.html",
+      "natural": 512,
+      "pages": [
+        "bytewerk-pdf-text-pro.html",
+        "index.html",
+        "keyforge-vault.html",
+        "lernreich-pro.html",
+        "lumaweek-planner.html",
+        "mastil.html",
+        "produkt.html",
+        "pruefungs-countdown.html",
+        "register.html",
+        "shop.html",
+        "showroom.html",
+        "softwareentwicklung-ludwigshafen.html",
+        "updatepilot.html"
+      ],
+      "needed_px": 326,
+      "oversize": 1.57
+    }
+  ]
+}
