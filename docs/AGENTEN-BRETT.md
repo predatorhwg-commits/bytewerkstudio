@@ -102,7 +102,7 @@ Zweige die Navigation enger stellen.
 - [ ] E-Mail-Bestätigung vor dem ersten Beitrag
 - [ ] Moderation: Meldequeue statt lokalem Ausblenden
 - [x] Dritte Sprache: ES-Fallback auf EN in `community.js` (`bwLang()`), Oberfläche bleibt DE/EN
-- [ ] Startseiten-Teaser, der auf `community.html` verweist
+- [x] Startseiten-Teaser auf `community.html` (Abschnitt `#community`, additiv vor dem Prozess-Abschnitt)
 
 ## Stand 07.11.2026, 07:45
 
@@ -118,6 +118,10 @@ Erledigt und geprüft:
 - Sicherheitspaket: `.well-known/security.txt`, `docs/SICHERHEIT.md`,
   `supabase/forum-schema.sql` mit RLS auf allen fünf Tabellen.
 - Marketing: `docs/MARKETING.md` mit Positionierung, Kanälen und Texten.
+- Startseite: Community-Teaser aus `docs/teaser-community.html` additiv
+  eingefügt (`#community`), 1440/1024/768/390 px ohne Überlauf.
+- Sprachumschaltung: DE, EN und ES geprüft; ES nutzt den EN-Text als Fallback
+  (kein deutscher Rest in `community.html`).
 
 Offen bleibt nur der Push: `origin` ist für diesen Account lesend,
 `gh` ist nicht installiert, der SSH-Schlüssel ist nicht hinterlegt.
