@@ -43,6 +43,8 @@ Statische Website für bytewerkstudio.com. GitHub Pages veröffentlicht direkt a
 | `styles-3d.css` | Rahmen, Masken und Motion-Schalter der 3D-Szenen |
 | `scene3d.js` | Three.js-Szenen (`stratum`, `contour`), laedt `vendor/` on demand |
 | `scene-studio.js` | Hero-Buehne der Startseite (`#studio-stage`), Modul |
+| `scene-system.js` | Systemmodell auf `softwareentwicklung-ludwigshafen.html`, Modul |
+| `scene-system-lazy.js` | laedt `scene-system.js` erst, wenn der Abschnitt naht |
 | `styles-studio3d.css` | Styling der Hero-Buehne |
 | `vendor/three.module.min.js` + `vendor/three.core.min.js` | Three.js r180, lokal - die CSP erlaubt nur `'self'` |
 
@@ -56,6 +58,10 @@ Statische Website für bytewerkstudio.com. GitHub Pages veröffentlicht direkt a
 - Seiten mit eigenem Modul (`scene-studio.js`, `scene-aufbau.js`,
   `showroom-scene.js`, `marke-3d.js`) laden es als `<script type="module">`
   und importieren `vendor/three.module.min.js` - niemals eine eigene Kopie.
+- Ein statischer Modul-Import laedt three.js sofort beim Seitenaufbau. Liegt
+  die Buehne weit unten, haengt davor ein kleiner Wrapper ohne `type="module"`,
+  der das Modul per `import()` nachlaedt, sobald der Abschnitt naht
+  (Beispiel: `scene-system-lazy.js`). Dasselbe Muster gilt fuer neue Szenen.
 - Genau **ein** Three.js-Build im Repo: `vendor/three.module.min.js`
   (laedt `vendor/three.core.min.js` nach). Weitere Builds im Ordner sind
   Zwischenstaende und gehoeren nicht ins Repository.
