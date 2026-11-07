@@ -336,7 +336,10 @@
 .fm-cat-icon { color: var(--fm-quiet); }
 .fm-cat.is-on .fm-cat-icon { color: var(--accent); }
 
-.fm-cat-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* Ein Kategoriename darf umbrechen statt abgeschnitten zu werden: Bei
+   erhöhten Textabständen (WCAG 1.4.12) wäre "…" echter Textverlust.
+   Die Zeile wächst dann auf zwei Zeilen, der Zähler bleibt rechts. */
+.fm-cat-name { flex: 1; min-width: 0; overflow-wrap: anywhere; }
 
 .fm-cat-n {
   font-family: var(--mono);
@@ -1491,7 +1494,10 @@
   }
   .fm-cats::-webkit-scrollbar { display: none; }
   .fm-cat { flex: none; width: auto; max-width: none; border: 1px solid var(--line); background: var(--surface); }
-  .fm-cat-name { white-space: nowrap; }
+  /* Im Chip darf der Name nicht abgeschnitten werden: Er bestimmt die
+     Breite, die Leiste scrollt. Bei erhöhten Textabständen (WCAG 1.4.12)
+     wäre "…" sonst echter Textverlust. */
+  .fm-cat-name { flex: none; min-width: auto; overflow: visible; text-overflow: clip; white-space: nowrap; }
   .fm-tiers { grid-template-columns: 1fr; }
 }
 
