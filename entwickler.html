@@ -2,14 +2,18 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<script src="bootstrap.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Werkstatt — Entwicklerbereich, Werkstatt-Forum und Abo — Bytewerk Studio</title>
 <meta name="description" content="Die Bytewerk Werkstatt: Forum für Entwickler, Code-Bausteine aus dem eigenen Stack, Abo für Studio und Team, Sicherheit zum Nachlesen. Deutsch, Englisch und Spanisch, ohne fremde Skripte.">
 <link rel="canonical" href="https://bytewerkstudio.com/entwickler.html">
+<link rel="alternate" hreflang="de" href="https://bytewerkstudio.com/entwickler.html">
+<link rel="alternate" hreflang="en" href="https://bytewerkstudio.com/entwickler.html?lang=en">
+<link rel="alternate" hreflang="es" href="https://bytewerkstudio.com/entwickler.html?lang=es">
+<link rel="alternate" hreflang="x-default" href="https://bytewerkstudio.com/entwickler.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Bytewerk Studio">
 <meta property="og:locale" content="de_DE">
@@ -18,11 +22,16 @@
 <meta property="og:title" content="Bytewerk Werkstatt — Werkstatt-Forum, Code-Bausteine und Abo für Entwickler">
 <meta property="og:description" content="Werkstatt-Forum, Code-Bausteine, Sicherheit und ein Abo für Studio und Team. Gebaut mit three.js und der Claude-Palette.">
 <meta property="og:url" content="https://bytewerkstudio.com/entwickler.html">
-<meta property="og:image" content="https://bytewerkstudio.com/logo.svg">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://bytewerkstudio.com/media/og-bytewerk.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Bytewerk Studio — Software, Web und Apps aus Ludwigshafen">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bytewerkstudio.com/media/og-bytewerk.png">
 <link rel="icon" href="logo.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="styles-v3.css">
 <link rel="stylesheet" href="styles-auth.css">
@@ -130,7 +139,7 @@
 
     <div class="wk-plans">
       <article class="wk-plan reveal">
-        <span class="wk-plan-name">Solo</span>
+        <span class="wk-plan-name">Community</span>
         <h3 class="wk-plan-title" data-en="Read along" data-es="Leer con nosotros">Mitlesen</h3>
         <div class="wk-plan-price">
           <span class="n" data-price="0">0 €</span>
@@ -145,9 +154,9 @@
         <a class="btn btn-ghost" href="#forum" data-en="Open the workshop forum" data-es="Abrir el foro del taller">Zum Werkstatt-Forum</a>
       </article>
 
-      <article class="wk-plan is-featured reveal" data-d="1" data-plan="studio">
+      <article class="wk-plan is-featured reveal" data-d="1" data-plan="developer">
         <span class="wk-plan-flag" data-en="Most chosen" data-es="La más elegida">Am häufigsten</span>
-        <span class="wk-plan-name">Studio</span>
+        <span class="wk-plan-name">Developer</span>
         <h3 class="wk-plan-title" data-en="Build with us" data-es="Construir con nosotros">Mitbauen</h3>
         <div class="wk-plan-price">
           <span class="n" data-price="19">19 €</span>
@@ -161,11 +170,11 @@
           <li data-en="Monthly architecture session" data-es="Sesión mensual de arquitectura">Monatliche Architektur-Sprechstunde</li>
           <li data-en="One project in the review" data-es="Un proyecto en la revisión">Ein Projekt im Review</li>
         </ul>
-        <a class="btn btn-primary" href="kontakt.html?plan=studio" data-plan-cta="studio" data-en="Request access" data-es="Solicitar acceso">Zugang anfragen</a>
+        <a class="btn btn-primary" href="kontakt.html?plan=developer" data-plan-cta="developer" data-en="Request access" data-es="Solicitar acceso">Zugang anfragen</a>
       </article>
 
-      <article class="wk-plan reveal" data-d="2" data-plan="team">
-        <span class="wk-plan-name">Team</span>
+      <article class="wk-plan reveal" data-d="2" data-plan="studio">
+        <span class="wk-plan-name">Studio</span>
         <h3 class="wk-plan-title" data-en="Ship together" data-es="Entregar juntos">Gemeinsam liefern</h3>
         <div class="wk-plan-price">
           <span class="n" data-price="49">49 €</span>
@@ -175,12 +184,12 @@
         <p class="wk-plan-note" data-note-year hidden>Jährlich: 490 € statt 588 €.</p>
         <ul>
           <li data-en="Five seats" data-es="Cinco plazas">Fünf Plätze</li>
-          <li data-en="Everything in Studio" data-es="Todo lo de Studio">Alles aus Studio</li>
+          <li data-en="Everything in Developer" data-es="Todo lo de Developer">Alles aus Studio</li>
           <li data-en="Code review on one repository" data-es="Revisión de código de un repositorio">Code-Review für ein Repository</li>
           <li data-en="Priority in the forum" data-es="Prioridad en el foro">Vorrang im Forum</li>
           <li data-en="Invoice with VAT" data-es="Factura con IVA">Rechnung mit MwSt.</li>
         </ul>
-        <a class="btn btn-ghost" href="kontakt.html?plan=team" data-plan-cta="team" data-en="Request access" data-es="Solicitar acceso">Zugang anfragen</a>
+        <a class="btn btn-ghost" href="kontakt.html?plan=studio" data-plan-cta="studio" data-en="Request access" data-es="Solicitar acceso">Zugang anfragen</a>
       </article>
     </div>
     <p class="wk-plan-fine reveal" data-en="All prices include 19 % VAT. Subscriptions are billed through the contact form; there is no automatic charge and no payment data on this page." data-es="Todos los precios incluyen el 19 % de IVA. Las suscripciones se facturan por el formulario de contacto; no hay cobro automático ni datos de pago en esta página.">

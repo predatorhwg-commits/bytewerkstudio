@@ -18,7 +18,7 @@
     { href: 'arbeiten.html',           de: 'Arbeiten',   en: 'Work',     es: 'Proyectos', match: 'arbeiten' },
     { href: 'bauplan.html',            de: 'Bauplan',    en: 'Blueprint', es: 'Plano', match: 'bauplan' },
     { href: 'showroom.html',           de: 'Showroom',   en: 'Showroom', es: 'Showroom', match: 'showroom' },
-    { href: 'community.html',          de: 'Community',  en: 'Community', es: 'Comunidad', match: 'community' },
+    { href: 'forum.html',              de: 'Forum',      en: 'Forum',     es: 'Foro', match: 'forum' },
     { href: 'index.html#preise',     de: 'Preise',     en: 'Pricing',  es: 'Precios', match: null },
     { href: 'shop.html',             de: 'Shop',       en: 'Shop',     es: 'Tienda', match: 'shop' },
     { href: 'studio.html',           de: 'Studio',     en: 'Studio',   es: 'Estudio', match: 'studio' },
@@ -109,7 +109,8 @@
             <a href="shop.html" data-en="Shop" data-es="Tienda">Shop</a>
             <a href="vergleich.html" data-en="Product comparison" data-es="Comparativa">Produktvergleich</a>
             <a href="entwickler.html" data-en="Developers" data-es="Desarrolladores">Entwickler</a>
-            <a href="community.html#forum" data-en="Community forum" data-es="Foro de la comunidad">Community-Forum</a>
+            <a href="forum.html" data-en="Forum" data-es="Foro">Forum</a>
+            <a href="community.html" data-en="Community &amp; workshop" data-es="Comunidad y taller">Community &amp; Werkstatt</a>
             <a href="community.html#abo" data-en="Developer subscription" data-es="Suscripción dev">Entwickler-Abo</a>
             <a href="marke.html" data-en="The mark" data-es="La marca">Die Marke</a>
             <a href="konto.html" data-en="My account" data-es="Mi cuenta">Mein Konto</a>
@@ -151,12 +152,37 @@
     return LANGS.indexOf(v) === -1 ? null : v;
   }
 
+  /* ?lang=de|en|es ist die teilbare Fassung: sie schlägt die gespeicherte
+     Wahl, diese schlägt die Browsersprache. */
+  function urlLang() {
+    try {
+      return normalizeLang(new URLSearchParams(location.search).get('lang'));
+    } catch (_) {
+      return null;
+    }
+  }
+
   function currentLang() {
+    const fromUrl = urlLang();
+    if (fromUrl) return fromUrl;
     try {
       return normalizeLang(localStorage.getItem(LANG_KEY)) || normalizeLang(navigator.language) || 'de';
     } catch (_) {
       return normalizeLang(navigator.language) || 'de';
     }
+  }
+
+  /* Sprache in die Adresse schreiben, damit ein kopierter Link die
+     Fassung mitbringt. Andere Parameter und der Anker bleiben. */
+  function syncUrl(lang) {
+    if (!history.replaceState) return;
+    try {
+      const url = new URL(location.href);
+      if (lang === 'de') url.searchParams.delete('lang');
+      else url.searchParams.set('lang', lang);
+      const next = url.pathname + (url.searchParams.toString() ? '?' + url.searchParams.toString() : '') + url.hash;
+      history.replaceState(null, '', next);
+    } catch (_) { /* file:// oder gesperrte History */ }
   }
 
   /* Fallback chain ES -> EN -> DE. Everything is snapshotted once, so
@@ -165,6 +191,7 @@
     lang = normalizeLang(lang) || 'de';
     document.documentElement.lang = lang;
     try { localStorage.setItem(LANG_KEY, lang); } catch (_) {}
+    syncUrl(lang);
 
     document.querySelectorAll('[data-en], [data-es]').forEach(el => {
       if (el.dataset.i18nDe === undefined) {

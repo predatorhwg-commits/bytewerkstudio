@@ -49,12 +49,12 @@
      1. Abo
      ------------------------------------------------------------ */
   var PLANS = {
-    studio: { month: 19, year: 190 },
-    team: { month: 49, year: 490 }
+    developer: { month: 19, year: 190 },
+    studio: { month: 49, year: 490 }
   };
   var billing = 'month';
   var MAIL = 'Haqmalh@icloud.com';
-  var PLAN_LABEL = { studio: 'Studio', team: 'Team' };
+  var PLAN_LABEL = { developer: 'Developer', studio: 'Studio' };
 
   /* Die Abo-Knoepfe oeffnen eine vorbereitete Mail: Tarif, Zeitraum und
      Preis stehen schon drin. kontakt.html kennt den ?plan=-Parameter
@@ -95,7 +95,8 @@
     document.querySelectorAll('[data-price]').forEach(function (el) {
       var base = Number(el.getAttribute('data-price'));
       if (!base) { el.textContent = euro(0); return; }
-      var plan = base === 19 ? PLANS.studio : PLANS.team;
+      var card = el.closest('.wk-plan');
+      var plan = PLANS[card && card.getAttribute('data-plan')] || PLANS.developer;
       /* yearly shows the invoice total, not a rounded monthly rate */
       el.textContent = euro(billing === 'month' ? plan.month : plan.year);
     });
@@ -120,7 +121,7 @@
         yearly.hidden = true;
         return;
       }
-      var plan = base === 19 ? PLANS.studio : PLANS.team;
+      var plan = PLANS[card.getAttribute('data-plan')] || PLANS.developer;
       var full = plan.month * 12;
       if (billing === 'month') {
         monthly.hidden = false;

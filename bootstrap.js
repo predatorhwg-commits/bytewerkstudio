@@ -1,18 +1,17 @@
 /* ============================================================
-   BYTEWERK STUDIO — SPRACHSTART (07.11.2026)
+   BYTEWERK STUDIO — SPRACHSTART
    ------------------------------------------------------------
-   Drei Zeilen, die auf jeder Seite inline im <head> stehen:
-   js-Klasse setzen, gespeicherte Sprache anwenden. Inline heißt
-   aber, dass die CSP `script-src 'unsafe-inline'` braucht — die
-   größte Schwäche der Policy.
+   Läuft synchron und vor dem ersten Paint direkt nach <meta charset>.
+   Setzt die js-Klasse und die Startsprache, damit die Seite ohne
+   Flackern in der richtigen Sprache beginnt.
 
-   Diese Datei macht daraus eine externe Datei. Damit kommt
-   sicherheit.html mit `script-src 'self'` aus, ohne Ausnahme.
-   Muster zum Nachziehen für andere Seiten: bootstrap.js einbinden,
-   Inline-Block löschen, CSP straffen.
+   Reihenfolge: ?lang= in der Adresse schlägt die gespeicherte Wahl,
+   diese schlägt die Browsersprache. So ist jede Sprachfassung
+   verlinkbar und teilbar (DE/EN/ES).
 
-   Muss synchron und vor dem ersten Paint laufen, deshalb ohne
-   defer/async direkt nach <meta charset>.
+   Warum als eigene Datei: die CSP erlaubt nur `script-src 'self'`.
+   Ein Inline-Block im <head> würde `'unsafe-inline'` erzwingen und
+   damit die wichtigste Schutzschicht der Seite aushebeln.
    ============================================================ */
 
 (function () {
@@ -20,10 +19,27 @@
 
   document.documentElement.classList.add('js');
 
+  var lang = null;
+
   try {
-    var lang = localStorage.getItem('bw-lang');
-    if (lang === 'en' || lang === 'de') document.documentElement.lang = lang;
-  } catch (err) {
-    /* Speicher gesperrt: Deutsch bleibt die Vorgabe. */
+    var fromUrl = /[?&]lang=(de|en|es)(?:&|#|$)/.exec(location.search);
+    if (fromUrl) lang = fromUrl[1];
+  } catch (err) { /* keine Adressdaten: weiter unten */ }
+
+  if (!lang) {
+    try {
+      var stored = localStorage.getItem('bw-lang');
+      if (stored === 'de' || stored === 'en' || stored === 'es') lang = stored;
+    } catch (err) { /* Speicher gesperrt */ }
   }
+
+  if (!lang) {
+    var nav = (navigator.language || 'de').toLowerCase().slice(0, 2);
+    lang = (nav === 'en' || nav === 'es') ? nav : 'de';
+  }
+
+  document.documentElement.lang = lang;
+
+  /* Das Forum und andere Module lesen die Sprache beim Start. */
+  try { window.bwBootLang = lang; } catch (err) { /* egal */ }
 })();

@@ -2,14 +2,17 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<script src="bootstrap.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Neon Dominion - Neon-Tech Tower-Conquest · Bytewerk Studio</title>
 <meta name="description" content="Neon Dominion ist ein Premium-Neon-Tech Tower-Conquest-Strategiespiel von Bytewerk Studio fuer Windows 10/11 mit 30 Offline-Missionen, lokalen Saves, Achievements, Upgrade Lab und Offline-Installer.">
 <link rel="canonical" href="https://bytewerkstudio.com/neon-dominion.html">
+<link rel="alternate" hreflang="de" href="https://bytewerkstudio.com/neon-dominion.html">
+<link rel="alternate" hreflang="en" href="https://bytewerkstudio.com/neon-dominion.html?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://bytewerkstudio.com/neon-dominion.html">
 <meta property="og:type" content="product">
 <meta property="og:site_name" content="Bytewerk Studio">
 <meta property="og:locale" content="de_DE">
@@ -70,10 +73,10 @@
 
 <section class="wrap pd" data-screen-label="Neon Dominion">
   <div class="pd-media reveal">
-    <div class="pd-hero pd-screenshot"><img class="pd-screenshot-img" src="media/neon-dominion-gameplay.jpg" alt="Neon Dominion Gameplay mit Neon-Tech-Karte, Energie-Towern und Missions-HUD"></div>
+    <div class="pd-hero pd-screenshot"><img class="pd-screenshot-img" src="media/neon-dominion-gameplay.jpg" alt="Neon Dominion Gameplay mit Neon-Tech-Karte, Energie-Towern und Missions-HUD" width="1400" height="875" decoding="async"></div>
     <div class="pd-thumbs">
-      <div class="pd-thumb app-mark-panel"><img src="media/neon-dominion-icon.svg" alt="Neon Dominion Logo"></div>
-      <div class="pd-thumb pd-screenshot"><img class="pd-screenshot-img" src="media/neon-dominion-gameplay.jpg" alt="Neon Dominion Gameplay"></div>
+      <div class="pd-thumb app-mark-panel"><img src="media/neon-dominion-icon.svg" alt="Neon Dominion Logo" width="1024" height="1024" loading="lazy" decoding="async"></div>
+      <div class="pd-thumb pd-screenshot"><img class="pd-screenshot-img" src="media/neon-dominion-gameplay.jpg" alt="Neon Dominion Gameplay" width="1400" height="875" loading="lazy" decoding="async"></div>
       <div class="pd-thumb"></div>
       <div class="pd-thumb"></div>
     </div>
@@ -140,7 +143,7 @@
     </div>
     <div class="shop-page-grid reveal" data-d="1">
       <a class="prod" href="burgenwerk.html">
-        <div class="ph app-mark-panel"><span class="badge">Neu</span><img class="app-logo-mark" src="media/burgenwerk-logo.png" alt="BURGENWERK Logo"></div>
+        <div class="ph app-mark-panel"><span class="badge">Neu</span><img class="app-logo-mark" src="media/burgenwerk-logo.png" alt="BURGENWERK Logo" width="512" height="512" loading="lazy" decoding="async"></div>
         <div class="body">
           <span class="cat">Web · Browser · Strategie</span>
           <h3>BURGENWERK</h3>
@@ -149,7 +152,7 @@
         </div>
       </a>
       <a class="prod" href="mastil.html">
-        <div class="ph app-mark-panel"><img class="app-logo-mark" src="media/mastil-logo.jpg" alt="MASTIL Logo"></div>
+        <div class="ph app-mark-panel"><img class="app-logo-mark" src="media/mastil-logo.jpg" alt="MASTIL Logo" width="620" height="620" loading="lazy" decoding="async"></div>
         <div class="body">
           <span class="cat">Web · Windows · Strategie</span>
           <h3>MASTIL</h3>
@@ -158,7 +161,7 @@
         </div>
       </a>
       <a class="prod" href="keyforge-vault.html">
-        <div class="ph app-mark-panel"><img class="app-logo-mark" src="media/keyforge-vault-icon.svg" alt="KeyForge Vault Logo"></div>
+        <div class="ph app-mark-panel"><img class="app-logo-mark" src="media/keyforge-vault-icon.svg" alt="KeyForge Vault Logo" width="256" height="256" loading="lazy" decoding="async"></div>
         <div class="body">
           <span class="cat">Windows · Security · PayPal</span>
           <h3>KeyForge Vault</h3>
@@ -167,7 +170,7 @@
         </div>
       </a>
       <a class="prod" href="lumaweek-planner.html">
-        <div class="ph app-mark-panel"><img class="app-logo-mark" src="media/lumaweek-icon.svg" alt="LumaWeek Planner Logo"></div>
+        <div class="ph app-mark-panel"><img class="app-logo-mark" src="media/lumaweek-icon.svg" alt="LumaWeek Planner Logo" width="1024" height="1024" loading="lazy" decoding="async"></div>
         <div class="body">
           <span class="cat">Windows · Planung · PayPal</span>
           <h3>LumaWeek Planner</h3>
@@ -192,19 +195,6 @@
 <script src="ui-v5.js"></script>
 <script src="background.js"></script>
   <script src="scene3d.js"></script>
-<script>
-(function () {
-  const links = document.querySelectorAll('a[href^="mailto:"]');
-  const toast = document.getElementById('toast');
-  let timer;
-  if (links.length && toast) {
-    links.forEach(link => link.addEventListener('click', () => {
-      toast.classList.add('show');
-      clearTimeout(timer);
-      timer = setTimeout(() => toast.classList.remove('show'), 2600);
-    }));
-  }
-})();
-</script>
+<script src="js/inline/neon-dominion-1.js"></script>
 </body>
 </html>

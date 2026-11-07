@@ -2,14 +2,17 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<script src="bootstrap.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>BURGENWERK - Burg bauen, verteidigen, erobern · Bytewerk Studio</title>
 <meta name="description" content="BURGENWERK ist das HTML-Strategiespiel von Bytewerk Studio: Baue eine Burg, verteidige sie gegen feindliche Wellen und erobere fremde Festungen - direkt im Browser, kostenlos und ohne Download.">
 <link rel="canonical" href="https://bytewerkstudio.com/burgenwerk.html">
+<link rel="alternate" hreflang="de" href="https://bytewerkstudio.com/burgenwerk.html">
+<link rel="alternate" hreflang="en" href="https://bytewerkstudio.com/burgenwerk.html?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://bytewerkstudio.com/burgenwerk.html">
 <meta property="og:type" content="product">
 <meta property="og:title" content="BURGENWERK - kostenlos im Browser spielen">
 <meta property="og:description" content="Vollwertiges HTML-Strategiespiel: Burg bauen, verteidigen und erobern. Läuft direkt im Browser, ohne Download und ohne Account.">
@@ -69,9 +72,9 @@
 
 <section class="wrap pd" data-screen-label="BURGENWERK">
   <div class="pd-media reveal">
-    <div class="pd-hero app-mark-panel"><img class="app-logo-mark hero-logo-mark" src="media/burgenwerk-logo.png" alt="BURGENWERK Logo"></div>
+    <div class="pd-hero app-mark-panel"><img class="app-logo-mark hero-logo-mark" src="media/burgenwerk-logo.png" alt="BURGENWERK Logo" width="512" height="512" decoding="async"></div>
     <div class="pd-thumbs">
-      <div class="pd-thumb app-mark-panel"><img src="media/burgenwerk-logo.png" alt="BURGENWERK Logo"></div>
+      <div class="pd-thumb app-mark-panel"><img src="media/burgenwerk-logo.png" alt="BURGENWERK Logo" width="512" height="512" loading="lazy" decoding="async"></div>
       <div class="pd-thumb"></div>
       <div class="pd-thumb"></div>
       <div class="pd-thumb"></div>
@@ -139,7 +142,7 @@
     </div>
     <div class="shop-page-grid reveal" data-d="1">
       <a class="prod" href="mastil.html">
-        <div class="ph app-mark-panel"><img class="app-logo-mark" src="media/mastil-logo.jpg" alt="MASTIL Logo"></div>
+        <div class="ph app-mark-panel"><img class="app-logo-mark" src="media/mastil-logo.jpg" alt="MASTIL Logo" width="620" height="620" loading="lazy" decoding="async"></div>
         <div class="body">
           <span class="cat">Web · Windows · Strategie</span>
           <h3>MASTIL</h3>
@@ -148,7 +151,7 @@
         </div>
       </a>
       <a class="prod" href="neon-dominion.html">
-        <div class="ph app-mark-panel"><img class="app-logo-mark" src="media/neon-dominion-icon.svg" alt="Neon Dominion Logo"></div>
+        <div class="ph app-mark-panel"><img class="app-logo-mark" src="media/neon-dominion-icon.svg" alt="Neon Dominion Logo" width="1024" height="1024" loading="lazy" decoding="async"></div>
         <div class="body">
           <span class="cat">Windows · Premium · Tower Conquest</span>
           <h3>Neon Dominion</h3>
@@ -173,19 +176,6 @@
 <script src="ui-v5.js"></script>
 <script src="background.js"></script>
   <script src="scene3d.js"></script>
-<script>
-(function () {
-  const btn = document.getElementById('play-btn');
-  const toast = document.getElementById('toast');
-  let timer;
-  if (btn && toast) {
-    btn.addEventListener('click', () => {
-      toast.classList.add('show');
-      clearTimeout(timer);
-      timer = setTimeout(() => toast.classList.remove('show'), 2600);
-    });
-  }
-})();
-</script>
+<script src="js/inline/burgenwerk-1.js"></script>
 </body>
 </html>

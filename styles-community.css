@@ -396,6 +396,9 @@
 .cm-sec-head > div { min-width: 0; }
 .cm-sec-head .h2 { margin: 12px 0 0; }
 .cm-sec-head .lead { max-width: 52ch; margin: 0; font-size: 16px; }
+.cm-sec-head > div .lead { margin: 14px 0 0; }
+.cm-sec-head > .lead a { color: var(--accent, #b04f31); text-decoration: none; border-bottom: 1px solid currentColor; }
+.cm-sec-head > .lead a:hover { opacity: 0.75; }
 
 .cm-forum-grid {
   display: grid;

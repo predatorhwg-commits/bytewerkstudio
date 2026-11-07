@@ -515,7 +515,7 @@
 
   function planLabel() {
     if (!user()) return t('Gast', 'Guest');
-    if (proPreview() && (!user() || user().plan !== 'pro')) return t('Pro (Vorschau)', 'Pro (preview)');
+    if (proPreview() && (!user() || user().plan !== 'pro')) return t('Developer (Vorschau)', 'Developer (preview)');
     return isPro() ? 'Pro' : 'Community';
   }
 
@@ -819,7 +819,7 @@
     catChip.appendChild(el('span', { text: txt(cat) }));
     top.appendChild(catChip);
     top.appendChild(el('span', { class: 'fm-chip fm-type', text: typeLabel(th.type) }));
-    if (cat.pro) top.appendChild(el('span', { class: 'fm-chip fm-chip-pro', text: 'Pro' }));
+    if (cat.pro) top.appendChild(el('span', { class: 'fm-chip fm-chip-pro', text: 'Developer' }));
     if (th.solved) {
       const solved = el('span', { class: 'fm-chip fm-chip-solved' });
       solved.appendChild(icon(ICONS.check));
@@ -913,7 +913,7 @@
       left.appendChild(icon(CAT_ICONS[cat.id] || CAT_ICONS.frontend, 'fm-cat-icon'));
       left.appendChild(el('span', { class: 'fm-cat-name', text: txt(cat) }));
       btn.appendChild(left);
-      if (cat.pro) btn.appendChild(el('span', { class: 'fm-cat-pro', text: 'Pro' }));
+      if (cat.pro) btn.appendChild(el('span', { class: 'fm-cat-pro', text: 'Developer' }));
       btn.appendChild(el('span', { class: 'fm-cat-n', text: String(count) }));
       btn.addEventListener('click', () => {
         state.limit = CFG.pageSize;
@@ -972,7 +972,7 @@
       s.appendChild(el('span', { text: t('Gelöst', 'Solved') }));
       chips.appendChild(s);
     }
-    if (cat.pro) chips.appendChild(el('span', { class: 'fm-chip fm-chip-pro', text: 'Pro' }));
+    if (cat.pro) chips.appendChild(el('span', { class: 'fm-chip fm-chip-pro', text: 'Developer' }));
     head.appendChild(chips);
 
     head.appendChild(el('h1', { class: 'fm-th-title', text: txt(th.title) }));
@@ -1132,7 +1132,7 @@
     const name = el('span', { class: 'fm-post-name', text: post.author.name });
     head.appendChild(name);
     if (post.author.role === 'team') head.appendChild(el('span', { class: 'fm-role fm-role-team', text: 'Team' }));
-    else if (post.author.role === 'pro' || post.author.plan === 'pro') head.appendChild(el('span', { class: 'fm-role fm-role-pro', text: 'Pro' }));
+    else if (post.author.role === 'pro' || post.author.plan === 'pro') head.appendChild(el('span', { class: 'fm-role fm-role-pro', text: 'Developer' }));
     head.appendChild(el('span', { class: 'fm-dot', text: '·' }));
     head.appendChild(el('span', { class: 'fm-post-time', title: fullDate(post.createdAt), text: fmtTime(post.createdAt) }));
     if (post.editedAt) head.appendChild(el('span', { class: 'fm-post-edited', text: t('bearbeitet', 'edited') }));
@@ -1224,8 +1224,8 @@
     box.appendChild(mark);
     box.appendChild(el('h2', { text: t('Dieses Thema liegt im Studio-Bereich', 'This thread sits in the studio area') }));
     box.appendChild(el('p', {
-      text: t('Studio- und Feedback-Themen sind Teil von Studio Pro. Lesen kostet nichts — zum Mitlesen brauchst du den Pro-Zugang.',
-              'Studio and feedback threads are part of Studio Pro. Reading is free — you need Pro access to read along.')
+      text: t('Studio- und Feedback-Themen sind Teil des Developer-Abos. Lesen kostet nichts — zum Mitlesen brauchst du den Developer-Zugang.',
+              'Studio and feedback threads are part of the Developer plan. Reading is free — you need Developer access to read along.')
     }));
     const actions = el('div', { class: 'fm-wall-actions' });
     const ask = el('button', { type: 'button', class: 'btn btn-primary' });
@@ -1443,7 +1443,7 @@
     if (hp && hp.value) return fail(t('Der Beitrag konnte nicht geprüft werden.', 'The post could not be verified.'));
 
     const cat = catOf(composer.cat.value);
-    if (cat.pro && !isPro()) return fail(t('Diese Kategorie gehört zu Studio Pro.', 'This category is part of Studio Pro.'));
+    if (cat.pro && !isPro()) return fail(t('Diese Kategorie gehört zum Developer-Abo.', 'This category is part of the Developer plan.'));
 
     const rate = rateCheck();
     if (!rate.ok) return fail(rate.message);
@@ -1511,7 +1511,7 @@
   function requirePro() {
     if (!user()) return requireAccount();
     if (isPro()) return true;
-    toast(t('Dieser Bereich gehört zu Studio Pro.', 'This area is part of Studio Pro.'), 'err');
+    toast(t('Dieser Bereich gehört zum Developer-Abo.', 'This area is part of the Developer plan.'), 'err');
     requestPro();
     return false;
   }
@@ -1519,7 +1519,7 @@
   function requestPro() {
     if (!user()) { requireAccount(); return; }
     try { localStorage.setItem(CFG.proPreviewKey, '1'); } catch (e) {}
-    toast(t('Pro-Zugang für dieses Gerät freigeschaltet (Vorschau).', 'Pro access unlocked on this device (preview).'));
+    toast(t('Developer-Zugang für dieses Gerät freigeschaltet (Vorschau).', 'Developer access unlocked on this device (preview).'));
     renderAccess();
     if (route.view === 'thread') renderThread();
     else renderList();

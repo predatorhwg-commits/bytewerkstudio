@@ -2,25 +2,33 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<script src="bootstrap.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Community &amp; Forum — Bytewerk Studio</title>
 <meta name="description" content="Das Bytewerk Forum: Fragen zu Code, Produkten und Werkzeugen, Antworten aus dem Studio und eine Werkstatt für Entwickler mit Abo. Offen, ruhig, ohne Tracking.">
 <link rel="canonical" href="https://bytewerkstudio.com/community.html">
+<link rel="alternate" hreflang="de" href="https://bytewerkstudio.com/community.html">
+<link rel="alternate" hreflang="en" href="https://bytewerkstudio.com/community.html?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://bytewerkstudio.com/community.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Bytewerk Studio">
 <meta property="og:locale" content="de_DE">
 <meta property="og:title" content="Community &amp; Forum — Bytewerk Studio">
 <meta property="og:description" content="Code teilen, Ideen prüfen, Antworten finden: das Forum von Bytewerk Studio, mit Werkstatt-Abo für Entwickler.">
 <meta property="og:url" content="https://bytewerkstudio.com/community.html">
-<meta property="og:image" content="https://bytewerkstudio.com/logo.svg">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://bytewerkstudio.com/media/og-bytewerk.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Bytewerk Studio — Software, Web und Apps aus Ludwigshafen">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bytewerkstudio.com/media/og-bytewerk.png">
 <link rel="icon" href="logo.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="styles-v3.css">
 <link rel="stylesheet" href="styles-auth.css">
@@ -158,11 +166,14 @@
   <div class="wrap">
     <div class="cm-sec-head reveal">
       <div>
-        <span class="eyebrow" data-en="Forum">Forum</span>
+        <span class="eyebrow" data-en="Workshop board">Werkstatt-Brett</span>
         <h2 class="h2" id="cm-forum-title" data-en="The workshop floor.">Die Werkbank.</h2>
+        <p class="lead" data-en="Nine example threads show how the board works: filters, search, replies, solved marks, bookmarks — everything stays in this browser.">
+          Neun Beispiel-Themen zeigen, wie das Brett funktioniert: Filter, Suche, Antworten, Gelöst-Marken, Lesezeichen — alles bleibt in diesem Browser.
+        </p>
       </div>
-      <p class="lead" data-en="Nine example threads show how the board works: filters, search, replies, solved marks, bookmarks. Write your own — everything stays in this browser.">
-        Neun Beispiel-Themen zeigen, wie das Brett funktioniert: Filter, Suche, Antworten, Gelöst-Marken, Lesezeichen. Schreib selbst mit — alles bleibt in diesem Browser.
+      <p class="lead">
+        <a href="forum.html" data-en="Open the open forum →">Zum offenen Forum <span aria-hidden="true">→</span></a>
       </p>
     </div>
 

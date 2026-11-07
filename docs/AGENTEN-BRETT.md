@@ -21,6 +21,29 @@ im Terminal). Format wie im Issue: `Agent | Aufgabe | Dateien | Status | Commit`
 | — | Startseite, Hero, Showroom, Zeichenwerk | siehe `AGENTS.md` | von anderen Agenten belegt | — |
 | — | `styles-v5.css`, `ui-v5.js` | — | von anderen Agenten belegt, nicht angefasst | — |
 
+
+## Abschluss-Lauf 07.11.2026 — Fable (Release/QA)
+
+| Agent | Aufgabe | Dateien | Status | Commit |
+|---|---|---|---|---|
+| Fable (Release/QA) | Release-Zweig zusammengeführt (Werkstatt, Forum/Community, Sicherheit, Schriften, Zeichenwerk, Schichtmodell, Papierregal) | Integrationsbranch `final/noon`, Arbeitsbranch `fable/qa-release` | fertig | s. `git log fable/qa-release` |
+| Fable (Release/QA) | Abo-Stufen vereinheitlicht: Community 0 €, Developer 19 €/190 €, Studio 49 €/490 € — auf `forum.html`, `community.html`, `entwickler.html` | `forum.html`, `forum.js`, `entwickler.html`, `entwickler.js`, `brief.js`, `components.js` | fertig, geprüft | — |
+| Fable (Release/QA) | CSP ohne `'unsafe-inline'` für Skripte: Sprachstart → `bootstrap.js`, 19 Seiten-Skripte → `js/inline/*.js`, CSP an erster Stelle im `<head>` | `bootstrap.js`, `js/inline/*` (19), `tools/csp-extract.py`, alle `*.html` | fertig | — |
+| Fable (Release/QA) | Schriften lokal auf allen Seiten (`fonts/fonts.css`), keine Google-Fonts-Requests mehr | `fonts/*`, `community.html`, `forum.html`, `entwickler.html`, `zeichenwerk.html`, `abo.html`, `sicherheit.html` | fertig | — |
+| Fable (Release/QA) | Bilder: `width`/`height` (105), `loading="lazy"` (86), `decoding="async"`; Layoutsprung und Nachladen außerhalb des Viewports | alle Seiten mit `<img>` | fertig | — |
+| Fable (Release/QA) | Marketing/SEO: `hreflang` DE/EN/ES + `x-default` auf 25 Seiten, OG-Bild 1200×630 überall, fehlende Beschreibungen ergänzt | `*.html`, `media/og-*.png` | fertig | — |
+| Fable (Release/QA) | Sicherheit: `_headers` (HSTS, frame-ancestors, Permissions-Policy, COOP/CORP), `security.txt`, SECURITY.md, Sicherheitsseite im Footer | `_headers`, `.well-known/security.txt`, `SECURITY.md`, `sicherheit.html` | fertig | — |
+| Fable (Release/QA) | Sprachwahl teilbar: `?lang=de|en|es`, Start aus Adresse → Speicher → Browsersprache, URL wird beim Umschalten nachgeführt | `bootstrap.js`, `components.js` | fertig, geprüft | — |
+| Fable (Release/QA) | Prüfwerkzeuge: `docs/qa-scan.mjs` (Links, Anker, IDs, CSP, Alt), `tools/img-attrs.py`, `tools/csp-extract.py` | `docs/`, `tools/` | fertig | — |
+
+### Abgrenzung (keine Doppelarbeit)
+
+- **`community.html` = Werkstatt** (Forum-Vorschau, Abo-Stufen, Sicherheits-Selbsttest). **`forum.html` = offenes Forum** (Threads, Wissensarchiv). Beide bleiben, sind aber jetzt im Header und Footer klar getrennt: `Forum` → `forum.html`, `Community & Werkstatt` → `community.html`. Kein zweiter Navigationspunkt „Community-Forum“ mehr.
+- **Keine 3D-Szene neu gebaut und keine fremde Szene geändert.** Vorhandene Module (`scene-studio.js`, `scene-workstoff.js`, `schichtmodell.js`, `zeichenwerk.js`, `community-scene.js`, `forum-scene.js`, `scene-sicherheit.js`) bleiben inhaltlich unangetastet; nur die CSP- und Schrift-Einbindung wurde umgestellt.
+- **Kein Backend erfunden.** Forum und Community bleiben im lokalen Vorschau-Modus. `supabase/forum-schema.sql` und `docs/FORUM.md` beschreiben den Weg, sind aber nicht aktiv.
+- **Fremde Arbeitsverzeichnisse nicht angefasst.** Gearbeitet wurde ausschließlich in `bytewerkstudio-qa` (Branch `fable/qa-release`); alle anderen Worktrees blieben unverändert.
+- **Keine gestalterische Neuerfindung.** Der Claude-Look (Papier, Terrakotta, Salbei, Newsreader/Inter/JetBrains Mono lokal) bleibt; ergänzt wurden nur Abstände, Fokus- und Zustandsregeln.
+
 ## Übergabe an andere Agenten
 
 - **Header:** `components.js` hat jetzt neun Navigationspunkte. Zwischen 1101 und

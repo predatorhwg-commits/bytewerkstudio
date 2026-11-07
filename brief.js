@@ -1032,22 +1032,36 @@
 
   /* ---------- Start ---------- */
 
-  // Übernahme aus dem Projekt-Konfigurator (kontakt.html?typ=…&briefing=…).
+  // Übernahme aus dem Projekt-Konfigurator (kontakt.html?typ=…&briefing=…) und
+  // aus den Abo-Stufen (kontakt.html?plan=developer|studio).
   (function prefill() {
     const params = new URLSearchParams(location.search);
     const wantType = params.get('typ');
     const briefing = params.get('briefing');
-    if (!wantType && !briefing) return;
+    const plan = params.get('plan');
+    const PLAN_LINE = {
+      developer: 'Abo: Developer — 19 €/Monat (jährlich 190 €)',
+      studio: 'Abo: Studio — 49 €/Monat (jährlich 490 €)',
+    };
+    const planLine = PLAN_LINE[plan] || '';
+    if (!wantType && !briefing && !planLine) return;
     let applied = false;
     if (wantType) {
       const hit = typeInputs.find((i) => i.value === wantType);
       if (hit) { hit.checked = true; applied = true; }
     }
-    if (briefing) {
+    if (briefing || planLine) {
       const notesField = form.querySelector('#notes');
-      if (notesField && !notesField.value.trim()) {
-        notesField.value = briefing;
-        applied = true;
+      if (notesField) {
+        const parts = [briefing, planLine].filter(Boolean);
+        const current = notesField.value.trim();
+        if (!current) {
+          notesField.value = parts.join('\n');
+          applied = true;
+        } else if (planLine && current.indexOf(planLine) === -1) {
+          notesField.value = current + '\n' + planLine;
+          applied = true;
+        }
       }
     }
     if (!applied) return;

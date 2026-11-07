@@ -2,14 +2,18 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<script src="bootstrap.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf9f5">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Showroom — elf Produkte in 3D — Bytewerk Studio</title>
 <meta name="description" content="Der Bytewerk Showroom: alle elf Produkte als drehbare 3D-Tafel — Lernreich, KeyForge Vault, UpdatePilot, MASTIL, Neon Dominion, BURGENWERK, NEON HORDE und mehr.">
 <link rel="canonical" href="https://bytewerkstudio.com/showroom.html">
+<link rel="alternate" hreflang="de" href="https://bytewerkstudio.com/showroom.html">
+<link rel="alternate" hreflang="en" href="https://bytewerkstudio.com/showroom.html?lang=en">
+<link rel="alternate" hreflang="es" href="https://bytewerkstudio.com/showroom.html?lang=es">
+<link rel="alternate" hreflang="x-default" href="https://bytewerkstudio.com/showroom.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Bytewerk Studio">
 <meta property="og:image" content="https://bytewerkstudio.com/media/og-bytewerk.png">
@@ -113,7 +117,7 @@
 
           <div class="sr-flat" aria-hidden="true">
             <div class="sr-flat-plate">
-              <img alt="" data-sr-flat-icon src="media/lernreich-logo.png">
+              <img alt="" data-sr-flat-icon src="media/lernreich-logo.png" width="256" height="256" decoding="async">
               <span class="sr-flat-name" data-sr-flat-name>Lernreich</span>
               <span class="sr-flat-meta" data-sr-flat-meta>Windows · Lernen</span>
             </div>
@@ -153,7 +157,7 @@
             <span class="sr-detail-kind" data-sr-kind>Windows</span>
           </div>
           <div class="sr-detail-head">
-            <span class="sr-detail-icon"><img alt="" data-sr-icon src="media/lernreich-logo.png"></span>
+            <span class="sr-detail-icon"><img alt="" data-sr-icon src="media/lernreich-logo.png" width="256" height="256" loading="lazy" decoding="async"></span>
             <div>
               <h2 class="sr-detail-name" data-sr-name>Lernreich</h2>
               <p class="sr-detail-cat" data-sr-cat>Windows · Lernen</p>
@@ -199,7 +203,7 @@
              data-license="Kostenlos" data-license-en="Free"
              data-icon="media/lernreich-logo.png" data-kind="App">
             <span class="sr-row-num">01</span>
-            <span class="sr-row-icon"><img src="media/lernreich-logo.png" alt="" loading="lazy" width="40" height="40"></span>
+            <span class="sr-row-icon"><img src="media/lernreich-logo.png" alt="" loading="lazy" width="40" height="40" decoding="async"></span>
             <span class="sr-row-main"><b>Lernreich</b><small data-en="Windows · Learning" data-es="Windows · Aprendizaje">Windows · Lernen</small></span>
             <span class="sr-row-price" data-en="Free" data-es="Gratis">Kostenlos</span>
             <span class="sr-row-go" aria-hidden="true">→</span>
@@ -215,7 +219,7 @@
              data-license="Kostenlos" data-license-en="Free"
              data-icon="media/pruefungs-countdown-logo.png" data-kind="App">
             <span class="sr-row-num">02</span>
-            <span class="sr-row-icon"><img src="media/pruefungs-countdown-logo.png" alt="" loading="lazy" width="40" height="40"></span>
+            <span class="sr-row-icon"><img src="media/pruefungs-countdown-logo.png" alt="" loading="lazy" width="40" height="40" decoding="async"></span>
             <span class="sr-row-main"><b>Prüfungs-Countdown</b><small data-en="Windows · Exam" data-es="Windows · Examen">Windows · Prüfung</small></span>
             <span class="sr-row-price" data-en="Free" data-es="Gratis">Kostenlos</span>
             <span class="sr-row-go" aria-hidden="true">→</span>
@@ -231,7 +235,7 @@
              data-license="Einmalig" data-license-en="One-time"
              data-icon="media/lernreich-pro-icon.svg" data-kind="App">
             <span class="sr-row-num">03</span>
-            <span class="sr-row-icon"><img src="media/lernreich-pro-icon.svg" alt="" loading="lazy" width="40" height="40"></span>
+            <span class="sr-row-icon"><img src="media/lernreich-pro-icon.svg" alt="" loading="lazy" width="40" height="40" decoding="async"></span>
             <span class="sr-row-main"><b>Lernreich Pro</b><small data-en="Windows · Focus" data-es="Windows · Concentración">Windows · Fokus</small></span>
             <span class="sr-row-price">9,99 €</span>
             <span class="sr-row-go" aria-hidden="true">→</span>
@@ -247,7 +251,7 @@
              data-license="Einmalig" data-license-en="One-time"
              data-icon="media/keyforge-vault-icon.svg" data-kind="App">
             <span class="sr-row-num">04</span>
-            <span class="sr-row-icon"><img src="media/keyforge-vault-icon.svg" alt="" loading="lazy" width="40" height="40"></span>
+            <span class="sr-row-icon"><img src="media/keyforge-vault-icon.svg" alt="" loading="lazy" width="40" height="40" decoding="async"></span>
             <span class="sr-row-main"><b>KeyForge Vault</b><small data-en="Windows · Security" data-es="Windows · Seguridad">Windows · Sicherheit</small></span>
             <span class="sr-row-price">12,99 €</span>
             <span class="sr-row-go" aria-hidden="true">→</span>
@@ -263,7 +267,7 @@
              data-license="Einmalig" data-license-en="One-time"
              data-icon="media/lumaweek-icon.svg" data-kind="App">
             <span class="sr-row-num">05</span>
-            <span class="sr-row-icon"><img src="media/lumaweek-icon.svg" alt="" loading="lazy" width="40" height="40"></span>
+            <span class="sr-row-icon"><img src="media/lumaweek-icon.svg" alt="" loading="lazy" width="40" height="40" decoding="async"></span>
             <span class="sr-row-main"><b>LumaWeek Planner</b><small data-en="Windows · Planning" data-es="Windows · Planificación">Windows · Planung</small></span>
             <span class="sr-row-price">5,99 €</span>
             <span class="sr-row-go" aria-hidden="true">→</span>
@@ -279,7 +283,7 @@
              data-license="Lebenslang" data-license-en="Lifetime"
              data-icon="media/updatepilot-icon.svg" data-kind="App">
             <span class="sr-row-num">06</span>
-            <span class="sr-row-icon"><img src="media/updatepilot-icon.svg" alt="" loading="lazy" width="40" height="40"></span>
+            <span class="sr-row-icon"><img src="media/updatepilot-icon.svg" alt="" loading="lazy" width="40" height="40" decoding="async"></span>
             <span class="sr-row-main"><b>UpdatePilot</b><small data-en="Windows · Updates" data-es="Windows · Actualizaciones">Windows · Updates</small></span>
             <span class="sr-row-price">12,99 €</span>
             <span class="sr-row-go" aria-hidden="true">→</span>
@@ -295,7 +299,7 @@
              data-license="Lifetime" data-license-en="Lifetime"
              data-icon="media/bytewerk-pdf-text-pro-icon.svg" data-kind="App">
             <span class="sr-row-num">07</span>
-            <span class="sr-row-icon"><img src="media/bytewerk-pdf-text-pro-icon.svg" alt="" loading="lazy" width="40" height="40"></span>
+            <span class="sr-row-icon"><img src="media/bytewerk-pdf-text-pro-icon.svg" alt="" loading="lazy" width="40" height="40" decoding="async"></span>
             <span class="sr-row-main"><b>Bytewerk PDF Text Pro</b><small>Windows · PDF/OCR</small></span>
             <span class="sr-row-price">59,00 €</span>
             <span class="sr-row-go" aria-hidden="true">→</span>
@@ -311,7 +315,7 @@
              data-license="Kostenlos" data-license-en="Free"
              data-icon="media/burgenwerk-logo.png" data-kind="Spiel">
             <span class="sr-row-num">08</span>
-            <span class="sr-row-icon"><img src="media/burgenwerk-logo.png" alt="" loading="lazy" width="40" height="40"></span>
+            <span class="sr-row-icon"><img src="media/burgenwerk-logo.png" alt="" loading="lazy" width="40" height="40" decoding="async"></span>
             <span class="sr-row-main"><b>BURGENWERK</b><small data-en="Web · Strategy" data-es="Web · Estrategia">Web · Strategie</small></span>
             <span class="sr-row-price" data-en="Free" data-es="Gratis">Kostenlos</span>
             <span class="sr-row-go" aria-hidden="true">→</span>
@@ -327,7 +331,7 @@
              data-license="Kostenlos" data-license-en="Free"
              data-icon="media/neon-horde-icon.svg" data-kind="Spiel">
             <span class="sr-row-num">09</span>
-            <span class="sr-row-icon"><img src="media/neon-horde-icon.svg" alt="" loading="lazy" width="40" height="40"></span>
+            <span class="sr-row-icon"><img src="media/neon-horde-icon.svg" alt="" loading="lazy" width="40" height="40" decoding="async"></span>
             <span class="sr-row-main"><b>NEON HORDE</b><small data-en="Web · Shooter" data-es="Web · Shooter">Web · Shooter</small></span>
             <span class="sr-row-price" data-en="Free" data-es="Gratis">Kostenlos</span>
             <span class="sr-row-go" aria-hidden="true">→</span>
@@ -343,7 +347,7 @@
              data-license="Demo frei" data-license-en="Free demo"
              data-icon="media/mastil-logo.jpg" data-kind="Spiel">
             <span class="sr-row-num">10</span>
-            <span class="sr-row-icon"><img src="media/mastil-logo.jpg" alt="" loading="lazy" width="40" height="40"></span>
+            <span class="sr-row-icon"><img src="media/mastil-logo.jpg" alt="" loading="lazy" width="40" height="40" decoding="async"></span>
             <span class="sr-row-main"><b>MASTIL</b><small data-en="Web &amp; Windows · Strategy" data-es="Web y Windows · Estrategia">Web &amp; Windows · Strategie</small></span>
             <span class="sr-row-price">Demo frei</span>
             <span class="sr-row-go" aria-hidden="true">→</span>
@@ -359,7 +363,7 @@
              data-license="Einmalig" data-license-en="One-time"
              data-icon="media/neon-dominion-icon.svg" data-kind="Spiel">
             <span class="sr-row-num">11</span>
-            <span class="sr-row-icon"><img src="media/neon-dominion-icon.svg" alt="" loading="lazy" width="40" height="40"></span>
+            <span class="sr-row-icon"><img src="media/neon-dominion-icon.svg" alt="" loading="lazy" width="40" height="40" decoding="async"></span>
             <span class="sr-row-main"><b>Neon Dominion</b><small data-en="Windows · Premium" data-es="Windows · Prémium">Windows · Premium</small></span>
             <span class="sr-row-price">20,00 €</span>
             <span class="sr-row-go" aria-hidden="true">→</span>
