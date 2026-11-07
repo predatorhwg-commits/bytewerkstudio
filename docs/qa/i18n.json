@@ -1,15 +1,194 @@
 {
   "summary": {
-    "pages": 11,
+    "pages": 34,
     "errors": 0,
-    "texts_without_en": 111,
-    "dynamic_without_en": 91,
-    "user_content": 0,
-    "pages_with_missing": 11,
+    "texts_without_en": 356,
+    "dynamic_without_en": 307,
+    "user_content": 108,
+    "pages_with_missing": 32,
     "switch_failures": 0,
     "pages_with_switch_failure": 0
   },
   "rows": [
+    {
+      "page": "404.html",
+      "missing": [
+        {
+          "text": "<div class=\"nf-noscript\"> <b>Direkt weiter</b> <a href=\"/ind",
+          "tag": "NOSCRIPT",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Fehler 404",
+          "tag": "SPAN",
+          "cls": "nf-eyebrow",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Lernreich",
+          "tag": "A",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Prüfungs-Countdown",
+          "tag": "A",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Lernreich Pro",
+          "tag": "A",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "KeyForge Vault",
+          "tag": "A",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "LumaWeek Planner",
+          "tag": "A",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "UpdatePilot",
+          "tag": "A",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Bytewerk PDF Text Pro",
+          "tag": "A",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "MASTIL",
+          "tag": "A",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Demo",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Neon Dominion",
+          "tag": "A",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "BURGENWERK",
+          "tag": "A",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "NEON HORDE",
+          "tag": "A",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Bytewerk",
+          "tag": "SPAN",
+          "cls": "brand-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio",
+          "tag": "I",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Bytewerk Studio · bytewerkstudio.com",
+          "tag": "SPAN",
+          "cls": "small",
+          "user": false,
+          "kind": "dynamisch"
+        }
+      ],
+      "missing_count": 18,
+      "switch": {
+        "wrong": [],
+        "lang": "en",
+        "html_lang": "en"
+      },
+      "switch_wrong": 0,
+      "lang_after": "en",
+      "missing_static": 2,
+      "missing_dynamic": 16,
+      "missing_user": 0
+    },
+    {
+      "page": "agb.html",
+      "missing": [
+        {
+          "text": "Bytewerk",
+          "tag": "SPAN",
+          "cls": "brand-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio",
+          "tag": "I",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Bytewerk Studio · bytewerkstudio.com",
+          "tag": "SPAN",
+          "cls": "small",
+          "user": false,
+          "kind": "dynamisch"
+        }
+      ],
+      "missing_count": 3,
+      "switch": {
+        "wrong": [],
+        "lang": "en",
+        "html_lang": "en"
+      },
+      "switch_wrong": 0,
+      "lang_after": "en",
+      "missing_static": 0,
+      "missing_dynamic": 3,
+      "missing_user": 0
+    },
     {
       "page": "arbeiten.html",
       "missing": [
@@ -162,7 +341,342 @@
       },
       "switch_wrong": 0,
       "lang_after": "en",
-      "missing_static": 16
+      "missing_static": 16,
+      "missing_dynamic": 4,
+      "missing_user": 0
+    },
+    {
+      "page": "burgenwerk.html",
+      "missing": [
+        {
+          "text": "BURGENWERK",
+          "tag": "DIV",
+          "cls": "crumb",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "BURGENWERK",
+          "tag": "H1",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Link kopieren",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Spiel · Strategie · Aufbau · Tower Defense",
+          "tag": "SPAN",
+          "cls": "val",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Automatisch im Browser (Autosave)",
+          "tag": "SPAN",
+          "cls": "val",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "WebAudio, abschaltbar mit Taste M",
+          "tag": "SPAN",
+          "cls": "val",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "HTML5 Canvas, JavaScript, WebAudio",
+          "tag": "SPAN",
+          "cls": "val",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "BURGENWERK im Browser starten",
+          "tag": "A",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "GitHub Repository",
+          "tag": "A",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Web · Windows · Strategie",
+          "tag": "SPAN",
+          "cls": "cat",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "MASTIL",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Demo frei",
+          "tag": "SPAN",
+          "cls": "price",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Neon Dominion",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Keine Treffer",
+          "tag": "B",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Andere Suche oder Filter zurücksetzen.",
+          "tag": "P",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Filter zurücksetzen",
+          "tag": "BUTTON",
+          "cls": "btn btn-ghost btn-sm",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Bytewerk",
+          "tag": "SPAN",
+          "cls": "brand-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio",
+          "tag": "I",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Bytewerk Studio · bytewerkstudio.com",
+          "tag": "SPAN",
+          "cls": "small",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "BURGENWERK",
+          "tag": "SPAN",
+          "cls": "pds-t",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Kostenlos",
+          "tag": "SPAN",
+          "cls": "pds-p",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Kaufen",
+          "tag": "A",
+          "cls": "btn btn-primary",
+          "user": false,
+          "kind": "dynamisch"
+        }
+      ],
+      "missing_count": 22,
+      "switch": {
+        "wrong": [],
+        "lang": "en",
+        "html_lang": "en"
+      },
+      "switch_wrong": 0,
+      "lang_after": "en",
+      "missing_static": 12,
+      "missing_dynamic": 10,
+      "missing_user": 0
+    },
+    {
+      "page": "bytewerk-pdf-text-pro.html",
+      "missing": [
+        {
+          "text": "Bytewerk PDF Text Pro",
+          "tag": "DIV",
+          "cls": "crumb",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Bytewerk PDF Text Pro",
+          "tag": "H1",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "5 Gratis-PDFs pro Tag",
+          "tag": "SPAN",
+          "cls": "note",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Link kopieren",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Windows",
+          "tag": "SPAN",
+          "cls": "val",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "PDF · OCR · Text-Export · Produktivitaet",
+          "tag": "SPAN",
+          "cls": "val",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "5 PDF-Konvertierungen pro lokalem Kalendertag",
+          "tag": "SPAN",
+          "cls": "val",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Offline-Lifetime-Lizenz fuer unbegrenzte Konvertierungen",
+          "tag": "SPAN",
+          "cls": "val",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Windows Desktop, .NET, OCR, Inno Setup",
+          "tag": "SPAN",
+          "cls": "val",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "GitHub Repository",
+          "tag": "A",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "UpdatePilot",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "KeyForge Vault",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "LumaWeek Planner",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Keine Treffer",
+          "tag": "B",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Andere Suche oder Filter zurücksetzen.",
+          "tag": "P",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Filter zurücksetzen",
+          "tag": "BUTTON",
+          "cls": "btn btn-ghost btn-sm",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Bytewerk",
+          "tag": "SPAN",
+          "cls": "brand-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio",
+          "tag": "I",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Bytewerk Studio · bytewerkstudio.com",
+          "tag": "SPAN",
+          "cls": "small",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Bytewerk PDF Text Pro",
+          "tag": "SPAN",
+          "cls": "pds-t",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Kaufen",
+          "tag": "A",
+          "cls": "btn btn-primary",
+          "user": false,
+          "kind": "dynamisch"
+        }
+      ],
+      "missing_count": 21,
+      "switch": {
+        "wrong": [],
+        "lang": "en",
+        "html_lang": "en"
+      },
+      "switch_wrong": 0,
+      "lang_after": "en",
+      "missing_static": 11,
+      "missing_dynamic": 10,
+      "missing_user": 0
     },
     {
       "page": "checkout.html",
@@ -218,7 +732,2261 @@
       },
       "switch_wrong": 0,
       "lang_after": "en",
-      "missing_static": 1
+      "missing_static": 1,
+      "missing_dynamic": 5,
+      "missing_user": 0
+    },
+    {
+      "page": "datenschutz.html",
+      "missing": [
+        {
+          "text": "Haqmalh@icloud.com",
+          "tag": "A",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Haqmalh@icloud.com",
+          "tag": "A",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Bytewerk",
+          "tag": "SPAN",
+          "cls": "brand-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio",
+          "tag": "I",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Bytewerk Studio · bytewerkstudio.com",
+          "tag": "SPAN",
+          "cls": "small",
+          "user": false,
+          "kind": "dynamisch"
+        }
+      ],
+      "missing_count": 5,
+      "switch": {
+        "wrong": [],
+        "lang": "en",
+        "html_lang": "en"
+      },
+      "switch_wrong": 0,
+      "lang_after": "en",
+      "missing_static": 2,
+      "missing_dynamic": 3,
+      "missing_user": 0
+    },
+    {
+      "page": "entwickler.html",
+      "missing": [
+        {
+          "text": "JSON · UTF-8 ·",
+          "tag": "DD",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Sandbox",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "cURL",
+          "tag": "BUTTON",
+          "cls": "is-active",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "JavaScript",
+          "tag": "BUTTON",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Python",
+          "tag": "BUTTON",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "POST",
+          "tag": "OPTION",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "DELETE",
+          "tag": "OPTION",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "/v1/products",
+          "tag": "OPTION",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "/v1/licenses",
+          "tag": "OPTION",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "/v1/licenses · POST",
+          "tag": "OPTION",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "/v1/licenses/{id}/revoke",
+          "tag": "OPTION",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "/v1/downloads/{product}",
+          "tag": "OPTION",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "/v1/usage",
+          "tag": "OPTION",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "/v1/webhooks",
+          "tag": "OPTION",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "{ \"product\": \"keyforge-vault\", \"email\": \"dev@example.com\", \"",
+          "tag": "TEXTAREA",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "POST",
+          "tag": "BUTTON",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "DELETE",
+          "tag": "BUTTON",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Parameter",
+          "tag": "CAPTION",
+          "cls": "dev-visually-hidden",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "query",
+          "tag": "TD",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "query",
+          "tag": "TD",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Parameter",
+          "tag": "CAPTION",
+          "cls": "dev-visually-hidden",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "query",
+          "tag": "TD",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "query",
+          "tag": "TD",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "query",
+          "tag": "TD",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "POST",
+          "tag": "SPAN",
+          "cls": "dev-method is-post",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Parameter",
+          "tag": "CAPTION",
+          "cls": "dev-visually-hidden",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "string",
+          "tag": "TD",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "string",
+          "tag": "TD",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "integer",
+          "tag": "TD",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "ISO 8601",
+          "tag": "TD",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "POST",
+          "tag": "SPAN",
+          "cls": "dev-method is-post",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "POST",
+          "tag": "SPAN",
+          "cls": "dev-method is-post",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Rate-Limits je Stufe",
+          "tag": "CAPTION",
+          "cls": "dev-visually-hidden",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Sandbox",
+          "tag": "TD",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Antwort-Header",
+          "tag": "CAPTION",
+          "cls": "dev-visually-hidden",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Header",
+          "tag": "TH",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Bytewerk",
+          "tag": "SPAN",
+          "cls": "brand-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio",
+          "tag": "I",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Bytewerk Studio · bytewerkstudio.com",
+          "tag": "SPAN",
+          "cls": "small",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Tastatur ?",
+          "tag": "BUTTON",
+          "cls": "v5-keys-open",
+          "user": false,
+          "kind": "dynamisch"
+        }
+      ],
+      "missing_count": 40,
+      "switch": {
+        "wrong": [],
+        "lang": "en",
+        "html_lang": "en"
+      },
+      "switch_wrong": 0,
+      "lang_after": "en",
+      "missing_static": 34,
+      "missing_dynamic": 6,
+      "missing_user": 0
+    },
+    {
+      "page": "forum.html",
+      "missing": [
+        {
+          "text": "three.js",
+          "tag": "B",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Security",
+          "tag": "B",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Backend",
+          "tag": "B",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Tooling",
+          "tag": "B",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Alle Themen",
+          "tag": "SPAN",
+          "cls": "fm-cat-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Frontend & UI",
+          "tag": "SPAN",
+          "cls": "fm-cat-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "three.js & 3D",
+          "tag": "SPAN",
+          "cls": "fm-cat-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Backend & APIs",
+          "tag": "SPAN",
+          "cls": "fm-cat-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Werkzeuge & Ablauf",
+          "tag": "SPAN",
+          "cls": "fm-cat-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio & Aufträge",
+          "tag": "SPAN",
+          "cls": "fm-cat-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Produkt-Feedback",
+          "tag": "SPAN",
+          "cls": "fm-cat-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Nicht angemeldet",
+          "tag": "P",
+          "cls": "fm-access-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Lesen ist frei. Zum Schreiben brauchst du ein Konto.",
+          "tag": "P",
+          "cls": "fm-access-sub",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Anmelden",
+          "tag": "A",
+          "cls": "btn btn-primary fm-access-btn",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Konto erstellen",
+          "tag": "A",
+          "cls": "fm-access-link",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "9 Themen",
+          "tag": "SPAN",
+          "cls": "fm-result",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Angepinnt",
+          "tag": "SPAN",
+          "cls": "fm-chip fm-chip-pin",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "three.js & 3D",
+          "tag": "SPAN",
+          "cls": "",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Frage",
+          "tag": "SPAN",
+          "cls": "fm-chip fm-type",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Gelöst",
+          "tag": "SPAN",
+          "cls": "",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Wie haltet ihr three.js-Szenen unter 60 kB?",
+          "tag": "H3",
+          "cls": "fm-item-title",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Wir liefern eine statische Seite aus, die CSP erlaubt nur sc",
+          "tag": "P",
+          "cls": "fm-item-excerpt",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "#three.js",
+          "tag": "SPAN",
+          "cls": "fm-tag",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "#performance",
+          "tag": "SPAN",
+          "cls": "fm-tag",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "#bundle",
+          "tag": "SPAN",
+          "cls": "fm-tag",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Bytewerk Studio",
+          "tag": "SPAN",
+          "cls": "fm-item-author",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Team",
+          "tag": "SPAN",
+          "cls": "fm-role fm-role-team",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "vor 6 Tagen",
+          "tag": "SPAN",
+          "cls": "fm-time",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Antwort",
+          "tag": "SPAN",
+          "cls": "",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "vor 5 Tagen",
+          "tag": "SPAN",
+          "cls": "fm-last",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Produkt-Feedback",
+          "tag": "SPAN",
+          "cls": "",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Diskussion",
+          "tag": "SPAN",
+          "cls": "fm-chip fm-type",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Werkkorb: Was fehlt euch beim Bündeln?",
+          "tag": "H3",
+          "cls": "fm-item-title",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Der Werkkorb bündelt mehrere Apps in eine Kaufanfrage. Was f",
+          "tag": "P",
+          "cls": "fm-item-excerpt",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "#werkkorb",
+          "tag": "SPAN",
+          "cls": "fm-tag",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "#feedback",
+          "tag": "SPAN",
+          "cls": "fm-tag",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Bytewerk Studio",
+          "tag": "SPAN",
+          "cls": "fm-item-author",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Team",
+          "tag": "SPAN",
+          "cls": "fm-role fm-role-team",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "vor 1 Tag",
+          "tag": "SPAN",
+          "cls": "fm-time",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Antworten",
+          "tag": "SPAN",
+          "cls": "",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "vor 1 Tag",
+          "tag": "SPAN",
+          "cls": "fm-last",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Studio & Aufträge",
+          "tag": "SPAN",
+          "cls": "",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Diskussion",
+          "tag": "SPAN",
+          "cls": "fm-chip fm-type",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Festpreis: Wie kalkuliert ihr Nachträge?",
+          "tag": "H3",
+          "cls": "fm-item-title",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Ein Projekt mit 24 Personentagen, Festpreis, drei Feedbacksc",
+          "tag": "P",
+          "cls": "fm-item-excerpt",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "#studio",
+          "tag": "SPAN",
+          "cls": "fm-tag",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "#kalkulation",
+          "tag": "SPAN",
+          "cls": "fm-tag",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Bytewerk Studio",
+          "tag": "SPAN",
+          "cls": "fm-item-author",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Team",
+          "tag": "SPAN",
+          "cls": "fm-role fm-role-team",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "vor 2 Tagen",
+          "tag": "SPAN",
+          "cls": "fm-time",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Antwort",
+          "tag": "SPAN",
+          "cls": "",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "vor 1 Tag",
+          "tag": "SPAN",
+          "cls": "fm-last",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Backend & APIs",
+          "tag": "SPAN",
+          "cls": "",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Frage",
+          "tag": "SPAN",
+          "cls": "fm-chip fm-type",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Gelöst",
+          "tag": "SPAN",
+          "cls": "",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Supabase RLS: Muster für mehrstufige Rollen",
+          "tag": "H3",
+          "cls": "fm-item-title",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Ich habe drei Rollen — member, pro, moderator — und möchte, ",
+          "tag": "P",
+          "cls": "fm-item-excerpt",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "#supabase",
+          "tag": "SPAN",
+          "cls": "fm-tag",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "#postgres",
+          "tag": "SPAN",
+          "cls": "fm-tag",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "#rls",
+          "tag": "SPAN",
+          "cls": "fm-tag",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Bytewerk Studio",
+          "tag": "SPAN",
+          "cls": "fm-item-author",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Team",
+          "tag": "SPAN",
+          "cls": "fm-role fm-role-team",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "vor 3 Tagen",
+          "tag": "SPAN",
+          "cls": "fm-time",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Antwort",
+          "tag": "SPAN",
+          "cls": "",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "vor 3 Tagen",
+          "tag": "SPAN",
+          "cls": "fm-last",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Backend & APIs",
+          "tag": "SPAN",
+          "cls": "",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Diskussion",
+          "tag": "SPAN",
+          "cls": "fm-chip fm-type",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Lizenzschlüssel ohne Login prüfen — geht das sicher?",
+          "tag": "H3",
+          "cls": "fm-item-title",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Unsere Windows-Apps sind offline. Ein Schlüssel wird beim St",
+          "tag": "P",
+          "cls": "fm-item-excerpt",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "#lizenz",
+          "tag": "SPAN",
+          "cls": "fm-tag",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "#security",
+          "tag": "SPAN",
+          "cls": "fm-tag",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Bytewerk Studio",
+          "tag": "SPAN",
+          "cls": "fm-item-author",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Team",
+          "tag": "SPAN",
+          "cls": "fm-role fm-role-team",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "vor 5 Tagen",
+          "tag": "SPAN",
+          "cls": "fm-time",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Antworten",
+          "tag": "SPAN",
+          "cls": "",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "vor 5 Tagen",
+          "tag": "SPAN",
+          "cls": "fm-last",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Werkzeuge & Ablauf",
+          "tag": "SPAN",
+          "cls": "",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Diskussion",
+          "tag": "SPAN",
+          "cls": "fm-chip fm-type",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Statische Seite, kein Build: Was ist euer Werkzeugkasten?",
+          "tag": "H3",
+          "cls": "fm-item-title",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "GitHub Pages, direkt aus main, kein Bundler. Ich möchte trot",
+          "tag": "P",
+          "cls": "fm-item-excerpt",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "#tooling",
+          "tag": "SPAN",
+          "cls": "fm-tag",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "#github-pages",
+          "tag": "SPAN",
+          "cls": "fm-tag",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Bytewerk Studio",
+          "tag": "SPAN",
+          "cls": "fm-item-author",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Team",
+          "tag": "SPAN",
+          "cls": "fm-role fm-role-team",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "30. Okt. 2026",
+          "tag": "SPAN",
+          "cls": "fm-time",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Antworten",
+          "tag": "SPAN",
+          "cls": "",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "30. Okt. 2026",
+          "tag": "SPAN",
+          "cls": "fm-last",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Frontend & UI",
+          "tag": "SPAN",
+          "cls": "",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Frage",
+          "tag": "SPAN",
+          "cls": "fm-chip fm-type",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Gelöst",
+          "tag": "SPAN",
+          "cls": "",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Canvas flackert beim Resize auf dem Tablet",
+          "tag": "H3",
+          "cls": "fm-item-title",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Beim Drehen des iPads springt die Zeichnung für einen Frame ",
+          "tag": "P",
+          "cls": "fm-item-excerpt",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "#canvas",
+          "tag": "SPAN",
+          "cls": "fm-tag",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "#resize",
+          "tag": "SPAN",
+          "cls": "fm-tag",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "#mobile",
+          "tag": "SPAN",
+          "cls": "fm-tag",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Bytewerk Studio",
+          "tag": "SPAN",
+          "cls": "fm-item-author",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Team",
+          "tag": "SPAN",
+          "cls": "fm-role fm-role-team",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "29. Okt. 2026",
+          "tag": "SPAN",
+          "cls": "fm-time",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Antwort",
+          "tag": "SPAN",
+          "cls": "",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "30. Okt. 2026",
+          "tag": "SPAN",
+          "cls": "fm-last",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Backend & APIs",
+          "tag": "SPAN",
+          "cls": "",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Diskussion",
+          "tag": "SPAN",
+          "cls": "fm-chip fm-type",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "CSP ohne unsafe-inline: Wie macht ihr Styles?",
+          "tag": "H3",
+          "cls": "fm-item-title",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Wir wollen style-src von 'unsafe-inline' befreien. Im Moment",
+          "tag": "P",
+          "cls": "fm-item-excerpt",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "#security",
+          "tag": "SPAN",
+          "cls": "fm-tag",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "#csp",
+          "tag": "SPAN",
+          "cls": "fm-tag",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Bytewerk Studio",
+          "tag": "SPAN",
+          "cls": "fm-item-author",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Team",
+          "tag": "SPAN",
+          "cls": "fm-role fm-role-team",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "27. Okt. 2026",
+          "tag": "SPAN",
+          "cls": "fm-time",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Antwort",
+          "tag": "SPAN",
+          "cls": "",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "29. Okt. 2026",
+          "tag": "SPAN",
+          "cls": "fm-last",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Werkzeuge & Ablauf",
+          "tag": "SPAN",
+          "cls": "",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Frage",
+          "tag": "SPAN",
+          "cls": "fm-chip fm-type",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Gelöst",
+          "tag": "SPAN",
+          "cls": "",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Webfonts selbst hosten: welche Dateien reichen wirklich?",
+          "tag": "H3",
+          "cls": "fm-item-title",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Wir laden Newsreader und Inter über Google Fonts. Datenschut",
+          "tag": "P",
+          "cls": "fm-item-excerpt",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "#fonts",
+          "tag": "SPAN",
+          "cls": "fm-tag",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "#performance",
+          "tag": "SPAN",
+          "cls": "fm-tag",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "#dsgvo",
+          "tag": "SPAN",
+          "cls": "fm-tag",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Bytewerk Studio",
+          "tag": "SPAN",
+          "cls": "fm-item-author",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Team",
+          "tag": "SPAN",
+          "cls": "fm-role fm-role-team",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "24. Okt. 2026",
+          "tag": "SPAN",
+          "cls": "fm-time",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Antwort",
+          "tag": "SPAN",
+          "cls": "",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "25. Okt. 2026",
+          "tag": "SPAN",
+          "cls": "fm-last",
+          "user": true,
+          "kind": "inhalt"
+        },
+        {
+          "text": "Backend & APIs",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Gelöst",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Supabase RLS: Muster für mehrstufige Rollen",
+          "tag": "A",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Die Policy reicht für die Zeile, aber sie prüft nicht, welch",
+          "tag": "P",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Antwort des Studios",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "1 Antwort",
+          "tag": "SPAN",
+          "cls": "fm-know-count",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "three.js & 3D",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Gelöst",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Wie haltet ihr three.js-Szenen unter 60 kB?",
+          "tag": "A",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Drei Hebel, in dieser Reihenfolge: 1. Instancing statt 40 Me",
+          "tag": "P",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Antwort des Studios",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "1 Antwort",
+          "tag": "SPAN",
+          "cls": "fm-know-count",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Frontend & UI",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Gelöst",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Canvas flackert beim Resize auf dem Tablet",
+          "tag": "A",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Der eine Frame kommt von der Reihenfolge: resize feuert vor ",
+          "tag": "P",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Antwort des Studios",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "1 Antwort",
+          "tag": "SPAN",
+          "cls": "fm-know-count",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Werkzeuge & Ablauf",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Gelöst",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Webfonts selbst hosten: welche Dateien reichen wirklich?",
+          "tag": "A",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "woff2 allein reicht. Alle Browser, die deine three.js-Seite ",
+          "tag": "P",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Antwort des Studios",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "1 Antwort",
+          "tag": "SPAN",
+          "cls": "fm-know-count",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio Pro",
+          "tag": "P",
+          "cls": "fm-tier-name",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Bytewerk",
+          "tag": "SPAN",
+          "cls": "brand-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio",
+          "tag": "I",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Bytewerk Studio · bytewerkstudio.com",
+          "tag": "SPAN",
+          "cls": "small",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Tastatur ?",
+          "tag": "BUTTON",
+          "cls": "v5-keys-open",
+          "user": false,
+          "kind": "dynamisch"
+        }
+      ],
+      "missing_count": 153,
+      "switch": {
+        "wrong": [],
+        "lang": "en",
+        "html_lang": "en"
+      },
+      "switch_wrong": 0,
+      "lang_after": "en",
+      "missing_static": 5,
+      "missing_dynamic": 40,
+      "missing_user": 108
+    },
+    {
+      "page": "impressum.html",
+      "missing": [
+        {
+          "text": "Haqmalh@icloud.com",
+          "tag": "A",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Bytewerk",
+          "tag": "SPAN",
+          "cls": "brand-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio",
+          "tag": "I",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Bytewerk Studio · bytewerkstudio.com",
+          "tag": "SPAN",
+          "cls": "small",
+          "user": false,
+          "kind": "dynamisch"
+        }
+      ],
+      "missing_count": 4,
+      "switch": {
+        "wrong": [],
+        "lang": "en",
+        "html_lang": "en"
+      },
+      "switch_wrong": 0,
+      "lang_after": "en",
+      "missing_static": 1,
+      "missing_dynamic": 3,
+      "missing_user": 0
+    },
+    {
+      "page": "index.html",
+      "missing": [
+        {
+          "text": "NEON HORDE",
+          "tag": "B",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "01 / Software",
+          "tag": "SPAN",
+          "cls": "num",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Backends",
+          "tag": "SPAN",
+          "cls": "tag",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "APIs",
+          "tag": "SPAN",
+          "cls": "tag",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "02 / Web",
+          "tag": "SPAN",
+          "cls": "num",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Web-Apps",
+          "tag": "SPAN",
+          "cls": "tag",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Landingpages",
+          "tag": "SPAN",
+          "cls": "tag",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "E-Commerce",
+          "tag": "SPAN",
+          "cls": "tag",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "03 / Apps",
+          "tag": "SPAN",
+          "cls": "num",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Android",
+          "tag": "SPAN",
+          "cls": "tag",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Cross-Platform",
+          "tag": "SPAN",
+          "cls": "tag",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "04 / Produkte",
+          "tag": "SPAN",
+          "cls": "num",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Apps",
+          "tag": "SPAN",
+          "cls": "tag",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Learning Tools",
+          "tag": "SPAN",
+          "cls": "tag",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "DevOps",
+          "tag": "SPAN",
+          "cls": "tag",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Accessibility",
+          "tag": "LI",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Responsive",
+          "tag": "LI",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "TypeScript",
+          "tag": "LI",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "APIs",
+          "tag": "LI",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "PostgreSQL",
+          "tag": "LI",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Monitoring",
+          "tag": "LI",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "<style>#schichtmodell .schm-panel[hidden]{display:block}#sch",
+          "tag": "NOSCRIPT",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Security · Windows · 2026",
+          "tag": "SPAN",
+          "cls": "wc-cat",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "KeyForge Vault",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Game · Windows · 2026",
+          "tag": "SPAN",
+          "cls": "wc-cat",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Neon Dominion",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Game · Web & Windows",
+          "tag": "SPAN",
+          "cls": "wc-cat",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "MASTIL",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Web · Commerce · SEO",
+          "tag": "SPAN",
+          "cls": "wc-cat",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Browser · Strategy · Free",
+          "tag": "SPAN",
+          "cls": "wc-cat",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Security · Windows · 2026",
+          "tag": "SPAN",
+          "cls": "wg-cat",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "KeyForge Vault",
+          "tag": "SPAN",
+          "cls": "wg-title",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Game · Windows · 2026",
+          "tag": "SPAN",
+          "cls": "wg-cat",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Neon Dominion",
+          "tag": "SPAN",
+          "cls": "wg-title",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Game · Web & Windows",
+          "tag": "SPAN",
+          "cls": "wg-cat",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "MASTIL",
+          "tag": "SPAN",
+          "cls": "wg-title",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Web · Commerce · SEO",
+          "tag": "SPAN",
+          "cls": "wg-cat",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Web-Plattformen",
+          "tag": "SPAN",
+          "cls": "wg-title",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Browser · Strategy · Free",
+          "tag": "SPAN",
+          "cls": "wg-cat",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Browserspiele",
+          "tag": "SPAN",
+          "cls": "wg-title",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Lernreich Pro",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "KeyForge Vault",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Windows · Updates · Lifetime",
+          "tag": "SPAN",
+          "cls": "cat",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "UpdatePilot",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Windows · PDF/OCR · Lifetime",
+          "tag": "SPAN",
+          "cls": "cat",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Bytewerk PDF Text Pro",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Windows · Premium · Strategy",
+          "tag": "SPAN",
+          "cls": "cat",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Neon Dominion",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Web · Browser · Free",
+          "tag": "SPAN",
+          "cls": "cat",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "NEON HORDE",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "// 01 / Forum",
+          "tag": "SPAN",
+          "cls": "k",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "// 02 / API",
+          "tag": "SPAN",
+          "cls": "k",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "// 03 / Security",
+          "tag": "SPAN",
+          "cls": "k",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "01 / Starter",
+          "tag": "SPAN",
+          "cls": "pk-name",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "02 / Studio",
+          "tag": "SPAN",
+          "cls": "pk-name",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "03 / Individuell",
+          "tag": "SPAN",
+          "cls": "pk-name",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Weiter",
+          "tag": "BUTTON",
+          "cls": "btn btn-primary",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Projektart",
+          "tag": "SPAN",
+          "cls": "cs-k",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Website & Auftritt",
+          "tag": "SPAN",
+          "cls": "cs-v",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Umfang",
+          "tag": "SPAN",
+          "cls": "cs-k",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Klein",
+          "tag": "SPAN",
+          "cls": "cs-v",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Extras",
+          "tag": "SPAN",
+          "cls": "cs-k",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Keine",
+          "tag": "SPAN",
+          "cls": "cs-v",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Zeitrahmen",
+          "tag": "SPAN",
+          "cls": "cs-k",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "In 2–3 Monaten",
+          "tag": "SPAN",
+          "cls": "cs-v",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Paket 01",
+          "tag": "DIV",
+          "cls": "cr-k",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Website & Auftritt",
+          "tag": "DIV",
+          "cls": "cr-t",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Typisch 2–4 Wochen",
+          "tag": "DIV",
+          "cls": "cr-s",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Haqmalh@icloud.com",
+          "tag": "A",
+          "cls": "btn btn-ghost btn-lg",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Bytewerk",
+          "tag": "SPAN",
+          "cls": "brand-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio",
+          "tag": "I",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Bytewerk Studio · bytewerkstudio.com",
+          "tag": "SPAN",
+          "cls": "small",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Tastatur ?",
+          "tag": "BUTTON",
+          "cls": "v5-keys-open",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Vergleich",
+          "tag": "DIV",
+          "cls": "v5-tray-label",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Vergleichen",
+          "tag": "A",
+          "cls": "btn btn-primary btn-sm",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Leeren",
+          "tag": "BUTTON",
+          "cls": "v5-tray-clear btn btn-ghost btn-sm",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Leistungen",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Arbeiten",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Shop",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Prozess",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Preise",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Briefing",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        }
+      ],
+      "missing_count": 83,
+      "switch": {
+        "wrong": [],
+        "lang": "en",
+        "html_lang": "en"
+      },
+      "switch_wrong": 0,
+      "lang_after": "en",
+      "missing_static": 52,
+      "missing_dynamic": 31,
+      "missing_user": 0
+    },
+    {
+      "page": "keyforge-vault.html",
+      "missing": [
+        {
+          "text": "KeyForge Vault",
+          "tag": "DIV",
+          "cls": "crumb",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Windows · Security · Premium · PayPal",
+          "tag": "SPAN",
+          "cls": "cat",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "KeyForge Vault",
+          "tag": "H1",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Link kopieren",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Windows",
+          "tag": "SPAN",
+          "cls": "val",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Premium · Security · Passwortmanager · Produktivitaet",
+          "tag": "SPAN",
+          "cls": "val",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "AES-256-GCM, PBKDF2-HMAC-SHA256, 600.000 Iterationen",
+          "tag": "SPAN",
+          "cls": "val",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Kommerzielle Software, eine Nutzung pro gekaufter Lizenz",
+          "tag": "SPAN",
+          "cls": "val",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "GitHub Repository",
+          "tag": "A",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Lernreich",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Pruefungs-Countdown",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Lernreich Pro",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "LumaWeek Planner",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "UpdatePilot",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Bytewerk PDF Text Pro",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Keine Treffer",
+          "tag": "B",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Andere Suche oder Filter zurücksetzen.",
+          "tag": "P",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Filter zurücksetzen",
+          "tag": "BUTTON",
+          "cls": "btn btn-ghost btn-sm",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Bytewerk",
+          "tag": "SPAN",
+          "cls": "brand-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio",
+          "tag": "I",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Bytewerk Studio · bytewerkstudio.com",
+          "tag": "SPAN",
+          "cls": "small",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "KeyForge Vault",
+          "tag": "SPAN",
+          "cls": "pds-t",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Kaufen",
+          "tag": "A",
+          "cls": "btn btn-primary",
+          "user": false,
+          "kind": "dynamisch"
+        }
+      ],
+      "missing_count": 23,
+      "switch": {
+        "wrong": [],
+        "lang": "en",
+        "html_lang": "en"
+      },
+      "switch_wrong": 0,
+      "lang_after": "en",
+      "missing_static": 13,
+      "missing_dynamic": 10,
+      "missing_user": 0
     },
     {
       "page": "kontakt.html",
@@ -288,7 +3056,67 @@
       },
       "switch_wrong": 0,
       "lang_after": "en",
-      "missing_static": 4
+      "missing_static": 4,
+      "missing_dynamic": 4,
+      "missing_user": 0
+    },
+    {
+      "page": "konto.html",
+      "missing": [
+        {
+          "text": "Bytewerk",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio",
+          "tag": "I",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "KeyForge Vault",
+          "tag": "DIV",
+          "cls": "t",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Bytewerk",
+          "tag": "SPAN",
+          "cls": "brand-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio",
+          "tag": "I",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Bytewerk Studio · bytewerkstudio.com",
+          "tag": "SPAN",
+          "cls": "small",
+          "user": false,
+          "kind": "dynamisch"
+        }
+      ],
+      "missing_count": 6,
+      "switch": {
+        "wrong": [],
+        "lang": "en",
+        "html_lang": "en"
+      },
+      "switch_wrong": 0,
+      "lang_after": "en",
+      "missing_static": 0,
+      "missing_dynamic": 6,
+      "missing_user": 0
     },
     {
       "page": "lernreich-pro.html",
@@ -449,7 +3277,67 @@
       },
       "switch_wrong": 0,
       "lang_after": "en",
-      "missing_static": 11
+      "missing_static": 11,
+      "missing_dynamic": 10,
+      "missing_user": 0
+    },
+    {
+      "page": "login.html",
+      "missing": [
+        {
+          "text": "Bytewerk",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio",
+          "tag": "I",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "KeyForge Vault",
+          "tag": "DIV",
+          "cls": "t",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Bytewerk",
+          "tag": "SPAN",
+          "cls": "brand-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio",
+          "tag": "I",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Bytewerk Studio · bytewerkstudio.com",
+          "tag": "SPAN",
+          "cls": "small",
+          "user": false,
+          "kind": "dynamisch"
+        }
+      ],
+      "missing_count": 6,
+      "switch": {
+        "wrong": [],
+        "lang": "en",
+        "html_lang": "en"
+      },
+      "switch_wrong": 0,
+      "lang_after": "en",
+      "missing_static": 3,
+      "missing_dynamic": 3,
+      "missing_user": 0
     },
     {
       "page": "lumaweek-planner.html",
@@ -603,7 +3491,74 @@
       },
       "switch_wrong": 0,
       "lang_after": "en",
-      "missing_static": 10
+      "missing_static": 10,
+      "missing_dynamic": 10,
+      "missing_user": 0
+    },
+    {
+      "page": "marke.html",
+      "missing": [
+        {
+          "text": "· SVG",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "¼ Kachelbreite",
+          "tag": "DD",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "logo.svg",
+          "tag": "B",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Bytewerk",
+          "tag": "SPAN",
+          "cls": "brand-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio",
+          "tag": "I",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Bytewerk Studio · bytewerkstudio.com",
+          "tag": "SPAN",
+          "cls": "small",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Tastatur ?",
+          "tag": "BUTTON",
+          "cls": "v5-keys-open",
+          "user": false,
+          "kind": "dynamisch"
+        }
+      ],
+      "missing_count": 7,
+      "switch": {
+        "wrong": [],
+        "lang": "en",
+        "html_lang": "en"
+      },
+      "switch_wrong": 0,
+      "lang_after": "en",
+      "missing_static": 2,
+      "missing_dynamic": 5,
+      "missing_user": 0
     },
     {
       "page": "mastil.html",
@@ -778,7 +3733,9 @@
       },
       "switch_wrong": 0,
       "lang_after": "en",
-      "missing_static": 12
+      "missing_static": 12,
+      "missing_dynamic": 11,
+      "missing_user": 0
     },
     {
       "page": "musterbuch.html",
@@ -883,7 +3840,9 @@
       },
       "switch_wrong": 0,
       "lang_after": "en",
-      "missing_static": 6
+      "missing_static": 6,
+      "missing_dynamic": 7,
+      "missing_user": 0
     },
     {
       "page": "neon-dominion.html",
@@ -1058,7 +4017,209 @@
       },
       "switch_wrong": 0,
       "lang_after": "en",
-      "missing_static": 13
+      "missing_static": 13,
+      "missing_dynamic": 10,
+      "missing_user": 0
+    },
+    {
+      "page": "passwort-vergessen.html",
+      "missing": [
+        {
+          "text": "Haqmalh@icloud.com",
+          "tag": "A",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Bytewerk",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio",
+          "tag": "I",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Bytewerk",
+          "tag": "SPAN",
+          "cls": "brand-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio",
+          "tag": "I",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Bytewerk Studio · bytewerkstudio.com",
+          "tag": "SPAN",
+          "cls": "small",
+          "user": false,
+          "kind": "dynamisch"
+        }
+      ],
+      "missing_count": 6,
+      "switch": {
+        "wrong": [],
+        "lang": "en",
+        "html_lang": "en"
+      },
+      "switch_wrong": 0,
+      "lang_after": "en",
+      "missing_static": 3,
+      "missing_dynamic": 3,
+      "missing_user": 0
+    },
+    {
+      "page": "probierstand.html",
+      "missing": [
+        {
+          "text": "Fig. 02",
+          "tag": "B",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Passwort-Schmiede",
+          "tag": "SPAN",
+          "cls": "pb-bench-live",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "KeyForge Vault · 12,99 €",
+          "tag": "SPAN",
+          "cls": "p",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Bytewerk PDF Text Pro · 59 €",
+          "tag": "SPAN",
+          "cls": "p",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "LumaWeek Planner · 5,99 €",
+          "tag": "SPAN",
+          "cls": "p",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "KeyForge Vault",
+          "tag": "A",
+          "cls": "pb-product-tag",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "TeYhYoscl_g&weQcS*6Q",
+          "tag": "DIV",
+          "cls": "pb-pw-field",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "sehr stark",
+          "tag": "SPAN",
+          "cls": "v",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "länger als das Universum alt ist",
+          "tag": "B",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Start 07.11.2026",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "29 Tage verbleibend",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "PDF Text Pro",
+          "tag": "A",
+          "cls": "pb-product-tag",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "1 min",
+          "tag": "B",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "LumaWeek",
+          "tag": "A",
+          "cls": "pb-product-tag",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "0 Aufgaben",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Bytewerk",
+          "tag": "SPAN",
+          "cls": "brand-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio",
+          "tag": "I",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Bytewerk Studio · bytewerkstudio.com",
+          "tag": "SPAN",
+          "cls": "small",
+          "user": false,
+          "kind": "dynamisch"
+        }
+      ],
+      "missing_count": 18,
+      "switch": {
+        "wrong": [],
+        "lang": "en",
+        "html_lang": "en"
+      },
+      "switch_wrong": 0,
+      "lang_after": "en",
+      "missing_static": 6,
+      "missing_dynamic": 12,
+      "missing_user": 0
     },
     {
       "page": "produkt.html",
@@ -1226,7 +4387,9 @@
       },
       "switch_wrong": 0,
       "lang_after": "en",
-      "missing_static": 12
+      "missing_static": 12,
+      "missing_dynamic": 10,
+      "missing_user": 0
     },
     {
       "page": "pruefungs-countdown.html",
@@ -1422,7 +4585,896 @@
       },
       "switch_wrong": 0,
       "lang_after": "en",
-      "missing_static": 16
+      "missing_static": 16,
+      "missing_dynamic": 10,
+      "missing_user": 0
+    },
+    {
+      "page": "register.html",
+      "missing": [
+        {
+          "text": "Bytewerk",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio",
+          "tag": "I",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Ein Konto.",
+          "tag": "P",
+          "cls": "aa-quote",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Alles",
+          "tag": "EM",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "an einem Ort.",
+          "tag": "P",
+          "cls": "aa-quote",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "UpdatePilot",
+          "tag": "DIV",
+          "cls": "t",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Bytewerk",
+          "tag": "SPAN",
+          "cls": "brand-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio",
+          "tag": "I",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Bytewerk Studio · bytewerkstudio.com",
+          "tag": "SPAN",
+          "cls": "small",
+          "user": false,
+          "kind": "dynamisch"
+        }
+      ],
+      "missing_count": 9,
+      "switch": {
+        "wrong": [],
+        "lang": "en",
+        "html_lang": "en"
+      },
+      "switch_wrong": 0,
+      "lang_after": "en",
+      "missing_static": 4,
+      "missing_dynamic": 5,
+      "missing_user": 0
+    },
+    {
+      "page": "shop.html",
+      "missing": [
+        {
+          "text": "11 von 11 Produkten",
+          "tag": "SPAN",
+          "cls": "shop-count",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Aktuell",
+          "tag": "SPAN",
+          "cls": "badge",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Lernreich",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Prüfungs-Countdown",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Lernreich Pro",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "PayPal",
+          "tag": "SMALL",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "KeyForge Vault",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "PayPal",
+          "tag": "SMALL",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "LumaWeek Planner",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "PayPal",
+          "tag": "SMALL",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "UpdatePilot",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Lebenslang",
+          "tag": "SMALL",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Bytewerk PDF Text Pro",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Lifetime",
+          "tag": "SMALL",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "BURGENWERK",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Web · Browser · Free",
+          "tag": "SPAN",
+          "cls": "cat",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "NEON HORDE",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Spiel",
+          "tag": "SPAN",
+          "cls": "badge",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Web · Windows · Strategie",
+          "tag": "SPAN",
+          "cls": "cat",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "MASTIL",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Demo frei",
+          "tag": "SPAN",
+          "cls": "price",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Welle 1-5",
+          "tag": "SMALL",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Spiel",
+          "tag": "SPAN",
+          "cls": "badge",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Neon Dominion",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Windows",
+          "tag": "SMALL",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Keine Treffer",
+          "tag": "B",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Andere Suche oder Filter zurücksetzen.",
+          "tag": "P",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Filter zurücksetzen",
+          "tag": "BUTTON",
+          "cls": "btn btn-ghost btn-sm",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Bytewerk",
+          "tag": "SPAN",
+          "cls": "brand-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio",
+          "tag": "I",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Bytewerk Studio · bytewerkstudio.com",
+          "tag": "SPAN",
+          "cls": "small",
+          "user": false,
+          "kind": "dynamisch"
+        }
+      ],
+      "missing_count": 31,
+      "switch": {
+        "wrong": [],
+        "lang": "en",
+        "html_lang": "en"
+      },
+      "switch_wrong": 0,
+      "lang_after": "en",
+      "missing_static": 22,
+      "missing_dynamic": 9,
+      "missing_user": 0
+    },
+    {
+      "page": "showroom.html",
+      "missing": [
+        {
+          "text": "Showroom · 3D",
+          "tag": "SPAN",
+          "cls": "eyebrow reveal in",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Lernreich — Windows · Lernen, Kostenlos",
+          "tag": "P",
+          "cls": "sr-sr-only",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "<p class=\"sr-noscript\">Der 3D-Showroom braucht JavaScript. A",
+          "tag": "NOSCRIPT",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Lernreich",
+          "tag": "B",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Prüfungs-Countdown",
+          "tag": "B",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Lernreich Pro",
+          "tag": "B",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "KeyForge Vault",
+          "tag": "B",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "LumaWeek Planner",
+          "tag": "B",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "UpdatePilot",
+          "tag": "B",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Bytewerk PDF Text Pro",
+          "tag": "B",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Windows · PDF/OCR",
+          "tag": "SMALL",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "BURGENWERK",
+          "tag": "B",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "NEON HORDE",
+          "tag": "B",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "MASTIL",
+          "tag": "B",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Demo frei",
+          "tag": "SPAN",
+          "cls": "sr-row-price",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Neon Dominion",
+          "tag": "B",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Bytewerk",
+          "tag": "SPAN",
+          "cls": "brand-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio",
+          "tag": "I",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Bytewerk Studio · bytewerkstudio.com",
+          "tag": "SPAN",
+          "cls": "small",
+          "user": false,
+          "kind": "dynamisch"
+        }
+      ],
+      "missing_count": 19,
+      "switch": {
+        "wrong": [],
+        "lang": "en",
+        "html_lang": "en"
+      },
+      "switch_wrong": 0,
+      "lang_after": "en",
+      "missing_static": 14,
+      "missing_dynamic": 5,
+      "missing_user": 0
+    },
+    {
+      "page": "sicherheit.html",
+      "missing": [
+        {
+          "text": "Fig. 01",
+          "tag": "B",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Empfehlungen erscheinen hier, sobald du antwortest.",
+          "tag": "P",
+          "cls": "sich-advice-empty",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "sicherheit.html · <head>",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "auth.js · deriveBits",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "supabase/schema.sql · policies",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "_headers · Netlify / Cloudflare",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Bytewerk",
+          "tag": "SPAN",
+          "cls": "brand-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio",
+          "tag": "I",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Bytewerk Studio · bytewerkstudio.com",
+          "tag": "SPAN",
+          "cls": "small",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "<style> .sich-code-panel[hidden] { display: block !important",
+          "tag": "NOSCRIPT",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        }
+      ],
+      "missing_count": 10,
+      "switch": {
+        "wrong": [],
+        "lang": "en",
+        "html_lang": "en"
+      },
+      "switch_wrong": 0,
+      "lang_after": "en",
+      "missing_static": 5,
+      "missing_dynamic": 5,
+      "missing_user": 0
+    },
+    {
+      "page": "softwareentwicklung-ludwigshafen.html",
+      "missing": [
+        {
+          "text": "Softwareentwicklung",
+          "tag": "H1",
+          "cls": "display reveal in",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "in Ludwigshafen.",
+          "tag": "H1",
+          "cls": "display reveal in",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "01 / Software",
+          "tag": "SPAN",
+          "cls": "num",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Python",
+          "tag": "SPAN",
+          "cls": "tag",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "React",
+          "tag": "SPAN",
+          "cls": "tag",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "APIs",
+          "tag": "SPAN",
+          "cls": "tag",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "02 / Web",
+          "tag": "SPAN",
+          "cls": "num",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "SEO-Basis",
+          "tag": "SPAN",
+          "cls": "tag",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Landingpages",
+          "tag": "SPAN",
+          "cls": "tag",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Web-Apps",
+          "tag": "SPAN",
+          "cls": "tag",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "03 / Apps",
+          "tag": "SPAN",
+          "cls": "num",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Windows",
+          "tag": "SPAN",
+          "cls": "tag",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Electron",
+          "tag": "SPAN",
+          "cls": "tag",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "GitHub",
+          "tag": "SPAN",
+          "cls": "tag",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Hosting",
+          "tag": "SPAN",
+          "cls": "tag",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Support",
+          "tag": "SPAN",
+          "cls": "tag",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "// Ludwigshafen",
+          "tag": "SPAN",
+          "cls": "k",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "// Umsetzung",
+          "tag": "SPAN",
+          "cls": "k",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "// Betrieb",
+          "tag": "SPAN",
+          "cls": "k",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Lernreich",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Pruefungs-Countdown",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Lernreich Pro",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "KeyForge Vault",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "LumaWeek Planner",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "UpdatePilot",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Bytewerk PDF Text Pro",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "BURGENWERK",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Web · Windows · Strategie",
+          "tag": "SPAN",
+          "cls": "cat",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "MASTIL",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Demo frei",
+          "tag": "SPAN",
+          "cls": "price",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Neon Dominion",
+          "tag": "H3",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Keine Treffer",
+          "tag": "B",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Andere Suche oder Filter zurücksetzen.",
+          "tag": "P",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Filter zurücksetzen",
+          "tag": "BUTTON",
+          "cls": "btn btn-ghost btn-sm",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "// Frage 1",
+          "tag": "SPAN",
+          "cls": "k",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "// Frage 2",
+          "tag": "SPAN",
+          "cls": "k",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "// Frage 3",
+          "tag": "SPAN",
+          "cls": "k",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Bytewerk",
+          "tag": "SPAN",
+          "cls": "brand-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio",
+          "tag": "I",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Bytewerk Studio · bytewerkstudio.com",
+          "tag": "SPAN",
+          "cls": "small",
+          "user": false,
+          "kind": "dynamisch"
+        }
+      ],
+      "missing_count": 40,
+      "switch": {
+        "wrong": [],
+        "lang": "en",
+        "html_lang": "en"
+      },
+      "switch_wrong": 0,
+      "lang_after": "en",
+      "missing_static": 32,
+      "missing_dynamic": 8,
+      "missing_user": 0
+    },
+    {
+      "page": "studio.html",
+      "missing": [
+        {
+          "text": "Studio",
+          "tag": "SPAN",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Bytewerk",
+          "tag": "SPAN",
+          "cls": "brand-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio",
+          "tag": "I",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Bytewerk Studio · bytewerkstudio.com",
+          "tag": "SPAN",
+          "cls": "small",
+          "user": false,
+          "kind": "dynamisch"
+        }
+      ],
+      "missing_count": 4,
+      "switch": {
+        "wrong": [],
+        "lang": "en",
+        "html_lang": "en"
+      },
+      "switch_wrong": 0,
+      "lang_after": "en",
+      "missing_static": 1,
+      "missing_dynamic": 3,
+      "missing_user": 0
     },
     {
       "page": "updatepilot.html",
@@ -1576,7 +5628,328 @@
       },
       "switch_wrong": 0,
       "lang_after": "en",
-      "missing_static": 10
+      "missing_static": 10,
+      "missing_dynamic": 10,
+      "missing_user": 0
+    },
+    {
+      "page": "vergleich.html",
+      "missing": [
+        {
+          "text": "Lernreich",
+          "tag": "A",
+          "cls": "c-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Windows",
+          "tag": "SPAN",
+          "cls": "c-sub",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Windows",
+          "tag": "TD",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Prüfungs-Countdown",
+          "tag": "A",
+          "cls": "c-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Windows",
+          "tag": "SPAN",
+          "cls": "c-sub",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Windows",
+          "tag": "TD",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Lernreich Pro",
+          "tag": "A",
+          "cls": "c-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Windows",
+          "tag": "SPAN",
+          "cls": "c-sub",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Windows",
+          "tag": "TD",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "LumaWeek Planner",
+          "tag": "A",
+          "cls": "c-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Windows",
+          "tag": "SPAN",
+          "cls": "c-sub",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Windows",
+          "tag": "TD",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "KeyForge Vault",
+          "tag": "A",
+          "cls": "c-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Windows",
+          "tag": "SPAN",
+          "cls": "c-sub",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Windows",
+          "tag": "TD",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "UpdatePilot",
+          "tag": "A",
+          "cls": "c-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Windows",
+          "tag": "SPAN",
+          "cls": "c-sub",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Windows",
+          "tag": "TD",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Bytewerk PDF Text Pro",
+          "tag": "A",
+          "cls": "c-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Windows",
+          "tag": "SPAN",
+          "cls": "c-sub",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Windows",
+          "tag": "TD",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "MASTIL",
+          "tag": "A",
+          "cls": "c-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Web & Windows",
+          "tag": "SPAN",
+          "cls": "c-sub",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "NEON HORDE",
+          "tag": "A",
+          "cls": "c-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Browser",
+          "tag": "SPAN",
+          "cls": "c-sub",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "BURGENWERK",
+          "tag": "A",
+          "cls": "c-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Browser",
+          "tag": "SPAN",
+          "cls": "c-sub",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Neon Dominion",
+          "tag": "A",
+          "cls": "c-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Windows",
+          "tag": "SPAN",
+          "cls": "c-sub",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Windows",
+          "tag": "TD",
+          "cls": "",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Bytewerk",
+          "tag": "SPAN",
+          "cls": "brand-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio",
+          "tag": "I",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Bytewerk Studio · bytewerkstudio.com",
+          "tag": "SPAN",
+          "cls": "small",
+          "user": false,
+          "kind": "dynamisch"
+        }
+      ],
+      "missing_count": 33,
+      "switch": {
+        "wrong": [],
+        "lang": "en",
+        "html_lang": "en"
+      },
+      "switch_wrong": 0,
+      "lang_after": "en",
+      "missing_static": 18,
+      "missing_dynamic": 15,
+      "missing_user": 0
+    },
+    {
+      "page": "zeichenwerk.html",
+      "missing": [
+        {
+          "text": "Wortmarke „BYTEWERK“ in Terrakotta",
+          "tag": "P",
+          "cls": "zw-sr",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "// Raster",
+          "tag": "SPAN",
+          "cls": "k",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "// Licht",
+          "tag": "SPAN",
+          "cls": "k",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "// Ohne Netz",
+          "tag": "SPAN",
+          "cls": "k",
+          "user": false,
+          "kind": "statisch"
+        },
+        {
+          "text": "Bytewerk",
+          "tag": "SPAN",
+          "cls": "brand-name",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Studio",
+          "tag": "I",
+          "cls": "",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Bytewerk Studio · bytewerkstudio.com",
+          "tag": "SPAN",
+          "cls": "small",
+          "user": false,
+          "kind": "dynamisch"
+        },
+        {
+          "text": "Tastatur ?",
+          "tag": "BUTTON",
+          "cls": "v5-keys-open",
+          "user": false,
+          "kind": "dynamisch"
+        }
+      ],
+      "missing_count": 8,
+      "switch": {
+        "wrong": [],
+        "lang": "en",
+        "html_lang": "en"
+      },
+      "switch_wrong": 0,
+      "lang_after": "en",
+      "missing_static": 3,
+      "missing_dynamic": 5,
+      "missing_user": 0
     }
   ]
 }

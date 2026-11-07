@@ -22,6 +22,11 @@ import json
 import os
 from pathlib import Path
 
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from qa_store import merge_rows, write_report  # noqa: E402
+
 ROOT = Path(os.environ.get("BW_ROOT", Path(__file__).resolve().parents[1]))
 SKIP = {"google3491bb2e3bfcb9d2.html"}
 
@@ -139,18 +144,19 @@ def main() -> int:
         except Exception:
             pass
 
+    target = outdir / "motion.json"
+    rows = merge_rows(target, rows)
+
     ok = [r for r in rows if "error" not in r]
     summary = {
         "pages": len(rows),
         "errors": len(rows) - len(ok),
-        "running_animations": sum(len(r["running"]) for r in ok),
+        "running_animations": sum(len(r.get("running", [])) for r in ok),
         "pages_still_moving": sum(1 for r in ok if r.get("moves")),
     }
-    (outdir / "motion.json").write_text(
-        json.dumps({"summary": summary, "rows": rows}, indent=2, ensure_ascii=False),
-        encoding="utf-8")
+    write_report(target, summary, rows)
     for r in ok:
-        if r.get("moves") or r["running"]:
+        if r.get("moves") or r.get("running"):
             print(f"  BEFUND {r['page']}: {r['motion_px']} % Änderung, "
                   f"{len(r['running'])} Animationen")
     print("MOTION", json.dumps(summary, ensure_ascii=False))

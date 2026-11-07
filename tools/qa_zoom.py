@@ -27,6 +27,11 @@ import json
 import os
 from pathlib import Path
 
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from qa_store import merge_rows, write_report  # noqa: E402
+
 ROOT = Path(os.environ.get("BW_ROOT", Path(__file__).resolve().parents[1]))
 SKIP = {"google3491bb2e3bfcb9d2.html"}
 
@@ -179,6 +184,9 @@ def main() -> int:
                   f"abstand {row.get('spacing_problems', 'ERR')}, "
                   f"kontrast {row.get('contrast_problems', 'ERR')}", flush=True)
 
+    target = outdir / "zoom.json"
+    rows = merge_rows(target, rows)
+
     ok = [r for r in rows if not any(k.endswith("_error") for k in r)]
     summary = {
         "pages": len(rows),
@@ -189,9 +197,7 @@ def main() -> int:
         "spacing_overflow": sum(1 for r in ok if r.get("spacing", {}).get("overflow")),
         "contrast_hidden": sum(len(r.get("contrast", {}).get("hidden", [])) for r in ok),
     }
-    (outdir / "zoom.json").write_text(
-        json.dumps({"summary": summary, "rows": rows}, indent=2, ensure_ascii=False),
-        encoding="utf-8")
+    write_report(target, summary, rows)
     print("ZOOM", json.dumps(summary, ensure_ascii=False))
     return 0
 

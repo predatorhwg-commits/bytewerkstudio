@@ -27,6 +27,11 @@ import os
 import re
 from pathlib import Path
 
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from qa_store import merge_rows, write_report  # noqa: E402
+
 ROOT = Path(os.environ.get("BW_ROOT", Path(__file__).resolve().parents[1]))
 SKIP = {"google3491bb2e3bfcb9d2.html"}
 
@@ -190,25 +195,29 @@ def main() -> int:
             else:
                 m["kind"] = "dynamisch"
 
-    groups = {"statisch": 0, "dynamisch": 0, "inhalt": 0}
-    for r in ok:
-        for m in r.get("missing", []):
-            groups[m["kind"]] += 1
-        r["missing_static"] = sum(1 for m in r.get("missing", []) if m["kind"] == "statisch")
+    # Zusammenführen: ein Lauf mit --only darf die übrigen Seiten nicht
+    # aus der Sammeldatei löschen.
+    target = outdir / "i18n.json"
+    rows = merge_rows(target, rows)
 
+    # Zählwerte aus den Zeilen ableiten (nicht aus diesem Lauf), damit die
+    # Summe auch übernommene Seiten richtig abbildet.
+    ok = [r for r in rows if "error" not in r]
+    for r in ok:
+        r["missing_static"] = sum(1 for m in r.get("missing", []) if m.get("kind") == "statisch")
+        r["missing_dynamic"] = sum(1 for m in r.get("missing", []) if m.get("kind") == "dynamisch")
+        r["missing_user"] = sum(1 for m in r.get("missing", []) if m.get("kind") == "inhalt")
     summary = {
         "pages": len(rows),
         "errors": len(rows) - len(ok),
-        "texts_without_en": groups["statisch"],
-        "dynamic_without_en": groups["dynamisch"],
-        "user_content": groups["inhalt"],
+        "texts_without_en": sum(r.get("missing_static", 0) for r in ok),
+        "dynamic_without_en": sum(r.get("missing_dynamic", 0) for r in ok),
+        "user_content": sum(r.get("missing_user", 0) for r in ok),
         "pages_with_missing": sum(1 for r in ok if r.get("missing_static")),
         "switch_failures": sum(r.get("switch_wrong") or 0 for r in ok),
         "pages_with_switch_failure": sum(1 for r in ok if r.get("switch_wrong")),
     }
-    (outdir / "i18n.json").write_text(
-        json.dumps({"summary": summary, "rows": rows}, indent=2, ensure_ascii=False),
-        encoding="utf-8")
+    write_report(target, summary, rows)
 
     if summary["texts_without_en"]:
         print("\nFehlende statische Übersetzungen (häufigste Texte):")
