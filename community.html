@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#faf9f5">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Community &amp; Forum — Bytewerk Studio</title>
+<meta name="description" content="Das Bytewerk Forum: Fragen zu Code, Produkten und Werkzeugen, Antworten aus dem Studio und eine Werkstatt für Entwickler mit Abo. Offen, ruhig, ohne Tracking.">
+<link rel="canonical" href="https://bytewerkstudio.com/community.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bytewerk Studio">
+<meta property="og:locale" content="de_DE">
+<meta property="og:title" content="Community &amp; Forum — Bytewerk Studio">
+<meta property="og:description" content="Code teilen, Ideen prüfen, Antworten finden: das Forum von Bytewerk Studio, mit Werkstatt-Abo für Entwickler.">
+<meta property="og:url" content="https://bytewerkstudio.com/community.html">
+<meta property="og:image" content="https://bytewerkstudio.com/logo.svg">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles-v3.css">
+<link rel="stylesheet" href="styles-auth.css">
+<link rel="stylesheet" href="styles-claude.css">
+<link rel="stylesheet" href="styles-community.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://bytewerkstudio.com/community.html",
+      "url": "https://bytewerkstudio.com/community.html",
+      "name": "Community & Forum — Bytewerk Studio",
+      "description": "Forum für Entwickler:innen und Produktnutzer:innen von Bytewerk Studio, mit Werkstatt-Abo.",
+      "isPartOf": { "@id": "https://bytewerkstudio.com/#website" },
+      "publisher": { "@type": "Organization", "name": "Bytewerk Studio", "url": "https://bytewerkstudio.com/" },
+      "inLanguage": "de-DE",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Start", "item": "https://bytewerkstudio.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Community", "item": "https://bytewerkstudio.com/community.html" }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Kostet das Forum etwas?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nein. Lesen, suchen und schreiben im offenen Forum ist kostenlos. Nur die Werkstatt und die Code-Reviews gehören zum Developer-Abo." }
+        },
+        {
+          "@type": "Question",
+          "name": "Was bringt das Developer-Abo?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Zugang zur Werkstatt, ein Code-Review pro Monat, frühe Builds, ein Abzeichen im Forum und zehn Prozent auf alle Produkte im Shop." }
+        },
+        {
+          "@type": "Question",
+          "name": "Wo werden meine Beiträge gespeichert?",
+          "acceptedAnswer": { "@type": "Answer", "text": "In dieser statischen Vorschau ausschließlich lokal in deinem Browser. Es gibt keinen Server, kein Konto und keine Übertragung an Dritte." }
+        },
+        {
+          "@type": "Question",
+          "name": "Kann ich das Abo wieder kündigen?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Ja, jederzeit über Abo verwalten. In der Vorschau endet der Zugang sofort; im späteren Abrechnungssystem läuft er bis zum Ende der Periode." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body class="cm-page">
+
+<div data-include="header"></div>
+
+<main id="main">
+
+<!-- ================= HERO ================= -->
+<header class="cm-hero">
+  <div class="cm-hero-grid-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <nav class="crumb" aria-label="Brotkrumen" data-en-aria="Breadcrumb">
+      <a href="index.html" data-en="Home">Start</a><span aria-hidden="true">/</span><span>Community</span>
+    </nav>
+
+    <div class="cm-hero-grid">
+      <div class="cm-hero-copy">
+        <span class="eyebrow cm-eyebrow reveal" data-en="Community · Workshop">Community · Werkstatt</span>
+        <h1 class="display cm-title reveal" data-d="1" data-en="Questions that<br><em>keep building.</em>">
+          Fragen, die<br><em>weiterbauen.</em>
+        </h1>
+        <p class="lead cm-lead reveal" data-d="2" data-en="The Bytewerk forum: share code, test ideas, find answers that stay. Open to everyone — with a workshop for developers who want to go deeper.">
+          Das Forum von Bytewerk Studio: Code teilen, Ideen prüfen, Antworten finden, die bleiben. Offen für alle — mit einer Werkstatt für Entwickler, die tiefer gehen wollen.
+        </p>
+        <div class="cm-actions reveal" data-d="3">
+          <button class="btn btn-primary btn-lg" type="button" data-cm-new>
+            <span data-en="Ask a question">Frage stellen</span>
+            <span class="arr" aria-hidden="true">→</span>
+          </button>
+          <a class="btn btn-ghost btn-lg" href="#abo" data-en="Developer subscription">Abo für Entwickler</a>
+        </div>
+        <dl class="cm-hero-stats reveal" data-d="4">
+          <div><dt data-en="Topics">Themen</dt><dd data-cm-stat="topics">0</dd></div>
+          <div><dt data-en="Answers">Antworten</dt><dd data-cm-stat="replies">0</dd></div>
+          <div><dt data-en="Solved">Gelöst</dt><dd data-cm-stat="solved">0</dd></div>
+          <div><dt data-en="Members">Mitglieder</dt><dd data-cm-stat="members">0</dd></div>
+        </dl>
+        <p class="cm-fineprint reveal" data-d="5">
+          <span class="cm-live-dot" aria-hidden="true"></span>
+          <span data-en="Preview data, stored only in your browser. No tracking, no ads, no external scripts.">Vorschau-Daten, nur in deinem Browser gespeichert. Kein Tracking, keine Werbung, keine fremden Skripte.</span>
+        </p>
+      </div>
+
+      <div class="cm-stage-wrap reveal" data-d="2">
+        <div class="cm-stage is-loading" id="community-stage" tabindex="0" role="group"
+             aria-label="Ideenregal: mit den Pfeiltasten die Kategorie wechseln, mit Enter zur Liste"
+             data-en-aria="Idea shelf: use the arrow keys to change category, Enter jumps to the list">
+          <canvas class="cm-canvas" aria-hidden="true"></canvas>
+
+          <div class="cm-stage-bar">
+            <span class="cm-stage-label"><span class="cm-stage-mark" aria-hidden="true"></span><span data-en="Idea shelf">Ideenregal</span></span>
+            <span class="cm-stage-hint" data-en="Drag to turn · pick a card">Ziehen zum Drehen · Karte wählen</span>
+          </div>
+
+          <div class="cm-stage-fallback" aria-hidden="true">
+            <div class="cm-fcard" style="--c:#b04f31"><b>01</b><span data-en="Questions">Fragen</span></div>
+            <div class="cm-fcard" style="--c:#4f7a63"><b>02</b><span data-en="Code">Code</span></div>
+            <div class="cm-fcard" style="--c:#8a6a3f"><b>03</b><span data-en="Products">Produkte</span></div>
+            <div class="cm-fcard" style="--c:#5b6b8a"><b>04</b><span data-en="Workshop">Werkstatt</span></div>
+            <div class="cm-fcard" style="--c:#7a5c6a"><b>05</b><span data-en="Studio">Studio</span></div>
+          </div>
+
+        </div>
+
+        <div class="cm-stage-chips" role="group" aria-label="Forum-Kategorie im Regal wählen" data-en-aria="Choose a forum category on the shelf">
+          <button type="button" class="cm-stage-chip is-active" data-cm-cat="fragen" aria-pressed="true"><i style="--c:#b04f31"></i><span data-en="Questions">Fragen</span></button>
+          <button type="button" class="cm-stage-chip" data-cm-cat="code" aria-pressed="false"><i style="--c:#4f7a63"></i><span>Code</span></button>
+          <button type="button" class="cm-stage-chip" data-cm-cat="produkte" aria-pressed="false"><i style="--c:#8a6a3f"></i><span data-en="Products">Produkte</span></button>
+          <button type="button" class="cm-stage-chip" data-cm-cat="werkstatt" aria-pressed="false"><i style="--c:#5b6b8a"></i><span data-en="Workshop">Werkstatt</span></button>
+          <button type="button" class="cm-stage-chip" data-cm-cat="meta" aria-pressed="false"><i style="--c:#7a5c6a"></i><span>Studio</span></button>
+        </div>
+
+        <p class="cm-stage-note" data-en="Built with three.js on a local build — no CDN, no tracking.">Gebaut mit three.js aus dem lokalen Build — kein CDN, kein Tracking.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= FORUM ================= -->
+<section class="cm-forum sec-pad" id="forum" aria-labelledby="cm-forum-title">
+  <div class="wrap">
+    <div class="cm-sec-head reveal">
+      <div>
+        <span class="eyebrow" data-en="Forum">Forum</span>
+        <h2 class="h2" id="cm-forum-title" data-en="The workshop floor.">Die Werkbank.</h2>
+      </div>
+      <p class="lead" data-en="Nine example threads show how the board works: filters, search, replies, solved marks, bookmarks. Write your own — everything stays in this browser.">
+        Neun Beispiel-Themen zeigen, wie das Brett funktioniert: Filter, Suche, Antworten, Gelöst-Marken, Lesezeichen. Schreib selbst mit — alles bleibt in diesem Browser.
+      </p>
+    </div>
+
+    <div class="cm-forum-grid">
+      <div class="cm-forum-main">
+
+        <div class="cm-toolbar reveal">
+          <form class="cm-search" role="search" data-cm-search-form>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg>
+            <input id="cm-q" type="search" autocomplete="off" spellcheck="false"
+                   placeholder="Themen, Tags, Autoren durchsuchen"
+                   data-en-ph="Search topics, tags, authors"
+                   aria-label="Forum durchsuchen" data-en-aria="Search the forum">
+            <kbd aria-hidden="true">/</kbd>
+          </form>
+
+          <label class="cm-sort">
+            <span data-en="Sort">Sortieren</span>
+            <select id="cm-sort">
+              <option value="active" data-en="Recently active">Zuletzt aktiv</option>
+              <option value="new" data-en="Newest">Neu</option>
+              <option value="replies" data-en="Most answers">Meiste Antworten</option>
+              <option value="unsolved" data-en="Unanswered first">Ungelöst zuerst</option>
+            </select>
+          </label>
+
+          <button class="btn btn-primary cm-new-btn" type="button" data-cm-new>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            <span data-en="New topic">Neues Thema</span>
+          </button>
+        </div>
+
+        <div class="cm-filter-row reveal">
+          <div class="cm-chips" id="cm-cat-chips" role="group" aria-label="Nach Kategorie filtern" data-en-aria="Filter by category"></div>
+          <button class="cm-bookmark-filter" type="button" id="cm-saved-filter" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v16l-6-4-6 4z"/></svg>
+            <span data-en="Saved">Gemerkt</span>
+            <b data-cm-saved-count>0</b>
+          </button>
+        </div>
+
+        <div class="cm-list-head">
+          <p class="cm-count" aria-live="polite" id="cm-count">0 Themen</p>
+          <button class="cm-clear" type="button" id="cm-clear" hidden data-en="Clear filters">Filter löschen</button>
+        </div>
+
+        <div class="cm-list" id="cm-list" aria-live="polite"></div>
+        <noscript>
+          <p class="cm-noscript">Das Forum braucht JavaScript. Die Beiträge sind Beispieldaten und werden lokal gerendert.</p>
+        </noscript>
+
+        <div class="cm-thread" id="cm-thread" hidden></div>
+      </div>
+
+      <aside class="cm-side" aria-label="Forum-Übersicht" data-en-aria="Forum overview">
+        <div class="cm-widget cm-member-widget reveal" id="cm-member-widget">
+          <span class="cm-widget-kicker" data-en="Your status">Dein Stand</span>
+          <div id="cm-member-body"></div>
+        </div>
+
+        <div class="cm-widget reveal">
+          <div class="cm-widget-head">
+            <span class="cm-widget-kicker" data-en="Activity">Aktivität</span>
+            <span class="cm-widget-note" data-en="12 weeks">12 Wochen</span>
+          </div>
+          <div class="cm-heat" id="cm-heat" aria-hidden="true"></div>
+          <div class="cm-heat-legend">
+            <span data-en="quiet">ruhig</span>
+            <i></i><i></i><i></i><i></i>
+            <span data-en="busy">viel</span>
+          </div>
+          <p class="cm-widget-foot" id="cm-heat-note"></p>
+        </div>
+
+        <div class="cm-widget reveal">
+          <div class="cm-widget-head">
+            <span class="cm-widget-kicker" data-en="Who answers">Wer antwortet</span>
+          </div>
+          <ul class="cm-people" id="cm-people"></ul>
+        </div>
+
+        <div class="cm-widget cm-share-widget reveal">
+          <span class="cm-widget-kicker" data-en="Pass it on">Weitergeben</span>
+          <p class="cm-share-copy" data-en="Know someone who is stuck on a problem? Send them the board — no account needed to read.">
+            Kennst du jemanden, der gerade an einem Problem hängt? Schick das Brett weiter — Lesen braucht kein Konto.
+          </p>
+          <div class="cm-share-actions">
+            <button type="button" class="cm-share-btn" data-cm-share="copy">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M15 5H6a2 2 0 0 0-2 2v9"/></svg>
+              <span data-en="Copy link">Link kopieren</span>
+            </button>
+            <a class="cm-share-btn" data-cm-share="mail" href="mailto:?subject=Bytewerk%20Community&amp;body=Schau%20mal%3A%20https%3A%2F%2Fbytewerkstudio.com%2Fcommunity.html">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+              <span data-en="Invite by e-mail">Per E-Mail einladen</span>
+            </a>
+            <a class="cm-share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytewerkstudio.com%2Fcommunity.html" target="_blank" rel="noopener noreferrer nofollow">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v11M4 5v.5M10 20V9m0 4a4 4 0 0 1 8 0v7"/></svg>
+              <span>LinkedIn</span>
+            </a>
+          </div>
+          <p class="cm-share-note" data-cm-share-note data-en="Only the page link is shared. No tracking parameters.">Nur der Seitenlink wird geteilt. Keine Tracking-Parameter.</p>
+        </div>
+
+        <div class="cm-widget cm-rules-widget reveal">
+          <span class="cm-widget-kicker" data-en="House rules">Hausordnung</span>
+          <ul class="cm-rules-mini">
+            <li data-en="Critique the code, not the person.">Kritik am Code, nicht an der Person.</li>
+            <li data-en="Show what you tried, not only the error.">Zeig, was du versucht hast, nicht nur den Fehler.</li>
+            <li data-en="No spam, no scraped content, no secrets.">Kein Spam, keine kopierten Inhalte, keine Secrets.</li>
+          </ul>
+          <a class="cm-textlink" href="#regeln" data-en="Full rules &amp; FAQ →">Alle Regeln &amp; FAQ →</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABO ================= -->
+<section class="cm-abo sec-pad" id="abo" aria-labelledby="cm-abo-title">
+  <div class="wrap">
+    <div class="cm-abo-head reveal">
+      <div>
+        <span class="eyebrow" data-en="For developers">Für Entwickler</span>
+        <h2 class="h2" id="cm-abo-title" data-en="A workshop seat.">Ein Platz in der Werkstatt.</h2>
+        <p class="lead" data-en="The open forum stays free. The subscription is for people who want a second pair of eyes on their code, early builds and a quieter room.">
+          Das offene Forum bleibt kostenlos. Das Abo ist für alle, die ein zweites Paar Augen auf ihrem Code wollen, frühe Builds und einen ruhigeren Raum.
+        </p>
+      </div>
+      <div class="cm-cycle" role="group" aria-label="Abrechnungszeitraum" data-en-aria="Billing period">
+        <button type="button" data-cycle="month" aria-pressed="true" data-en="Monthly">Monatlich</button>
+        <button type="button" data-cycle="year" aria-pressed="false" data-en="Yearly">Jährlich <em data-en="2 months free">2 Monate frei</em></button>
+      </div>
+    </div>
+
+    <div class="cm-plans reveal">
+
+      <article class="cm-plan">
+        <header>
+          <span class="cm-plan-tag" data-en="Open">Offen</span>
+          <h3>Community</h3>
+          <p class="cm-plan-price"><span>0&nbsp;€</span><small data-en="forever">für immer</small></p>
+          <p class="cm-plan-desc" data-en="Read, search, ask, answer. The whole open board.">Lesen, suchen, fragen, antworten. Das ganze offene Brett.</p>
+        </header>
+        <ul class="cm-feat">
+          <li data-en="All five categories except the workshop">Alle fünf Kategorien außer der Werkstatt</li>
+          <li data-en="Search, tags, bookmarks, solved marks">Suche, Tags, Lesezeichen, Gelöst-Marken</li>
+          <li data-en="Markdown-lite with code blocks">Markdown-lite mit Code-Blöcken</li>
+        </ul>
+        <button class="btn btn-ghost cm-plan-btn" type="button" data-cm-join-free data-en="Join for free">Kostenlos mitmachen</button>
+      </article>
+
+      <article class="cm-plan cm-plan-featured">
+        <span class="cm-plan-flag" data-en="Recommended">Empfohlen</span>
+        <header>
+          <span class="cm-plan-tag" data-en="For developers">Für Entwickler</span>
+          <h3>Developer</h3>
+          <p class="cm-plan-price">
+            <span data-price-month="19" data-price-year="190">19&nbsp;€</span>
+            <small data-cycle-label data-en="per month">pro Monat</small>
+          </p>
+          <p class="cm-plan-desc" data-en="The workshop board, one code review a month, early builds, a badge.">Die Werkstatt, ein Code-Review im Monat, frühe Builds, ein Abzeichen.</p>
+        </header>
+        <ul class="cm-feat">
+          <li data-en="Everything from Community">Alles aus Community</li>
+          <li><b data-en="Workshop board">Werkstatt-Board</b> <span data-en="— members only">— nur für Mitglieder</span></li>
+          <li data-en="1 code review per month, written">1 Code-Review pro Monat, schriftlich</li>
+          <li data-en="Early builds and changelogs">Frühe Builds und Changelogs</li>
+          <li data-en="Developer badge in the forum">Developer-Abzeichen im Forum</li>
+          <li data-en="10% on every shop product">10 % auf alle Shop-Produkte</li>
+        </ul>
+        <button class="btn btn-primary cm-plan-btn" type="button" data-cm-buy="developer" data-en="Become a Developer">Developer werden</button>
+      </article>
+
+      <article class="cm-plan">
+        <header>
+          <span class="cm-plan-tag" data-en="For teams">Für Teams</span>
+          <h3>Studio</h3>
+          <p class="cm-plan-price">
+            <span data-price-month="49" data-price-year="490">49&nbsp;€</span>
+            <small data-cycle-label data-en="per month">pro Monat</small>
+          </p>
+          <p class="cm-plan-desc" data-en="More reviews, a private channel, a monthly architecture call.">Mehr Reviews, ein privater Kanal, eine Architektur-Sprechstunde im Monat.</p>
+        </header>
+        <ul class="cm-feat">
+          <li data-en="Everything from Developer">Alles aus Developer</li>
+          <li data-en="4 code reviews per month">4 Code-Reviews pro Monat</li>
+          <li data-en="Private channel with the studio">Privater Kanal mit dem Studio</li>
+          <li data-en="30 min architecture call monthly">30 Min. Architektur-Call monatlich</li>
+          <li data-en="Invoice with VAT ID">Rechnung mit USt.-ID</li>
+          <li data-en="Priority answers">Vorrang bei Antworten</li>
+        </ul>
+        <button class="btn btn-ghost cm-plan-btn" type="button" data-cm-buy="studio" data-en="Choose Studio">Studio wählen</button>
+      </article>
+    </div>
+
+    <p class="cm-abo-note reveal">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V6z"/><path d="m8.5 12 2.4 2.4 4.6-4.8"/></svg>
+      <span data-en="Preview: the subscription is activated locally, no payment is taken and no data leaves the browser. Live billing runs through the studio later.">
+        Vorschau: Das Abo wird lokal aktiviert, es wird nichts abgebucht und keine Daten verlassen den Browser. Die produktive Abrechnung läuft später über das Studio.
+      </span>
+    </p>
+
+    <div class="cm-compare reveal" role="region" aria-label="Leistungsvergleich" data-en-aria="Feature comparison" tabindex="0">
+      <table>
+        <caption class="cm-sr-only" data-en="Subscription features compared">Leistungen der Abos im Vergleich</caption>
+        <thead>
+          <tr>
+            <th scope="col" data-en="Feature">Leistung</th>
+            <th scope="col">Community</th>
+            <th scope="col">Developer</th>
+            <th scope="col">Studio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row" data-en="Open forum">Offenes Forum</th><td>✓</td><td>✓</td><td>✓</td></tr>
+          <tr><th scope="row" data-en="Search &amp; bookmarks">Suche &amp; Lesezeichen</th><td>✓</td><td>✓</td><td>✓</td></tr>
+          <tr><th scope="row" data-en="Workshop board">Werkstatt-Board</th><td>—</td><td>✓</td><td>✓</td></tr>
+          <tr><th scope="row" data-en="Code reviews / month">Code-Reviews / Monat</th><td>—</td><td>1</td><td>4</td></tr>
+          <tr><th scope="row" data-en="Early builds">Frühe Builds</th><td>—</td><td>✓</td><td>✓</td></tr>
+          <tr><th scope="row" data-en="Private channel">Privater Kanal</th><td>—</td><td>—</td><td>✓</td></tr>
+          <tr><th scope="row" data-en="Architecture call">Architektur-Call</th><td>—</td><td>—</td><td>30 min</td></tr>
+          <tr><th scope="row" data-en="Shop discount">Shop-Rabatt</th><td>—</td><td>10%</td><td>15%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SICHERHEIT ================= -->
+<section class="cm-security sec-pad" id="sicherheit" aria-labelledby="cm-sec-title">
+  <div class="wrap">
+    <div class="cm-sec-head reveal">
+      <div>
+        <span class="eyebrow" data-en="Security">Sicherheit</span>
+        <h2 class="h2" id="cm-sec-title" data-en="Quiet by design.">Ruhig gebaut. Sicher gedacht.</h2>
+      </div>
+      <p class="lead" data-en="A forum is a door. This one is built so that user text can never become code: no innerHTML, no eval, no foreign scripts — plus limits, allowlists and a self-test you can run right here.">
+        Ein Forum ist eine Tür. Diese ist so gebaut, dass Nutzertext nie Code werden kann: kein innerHTML, kein eval, keine fremden Skripte — dazu Limits, Allowlists und ein Selbsttest, den du hier starten kannst.
+      </p>
+    </div>
+
+    <div class="cm-sec-grid">
+      <article class="cm-sec-card reveal">
+        <span class="cm-sec-ico" aria-hidden="true">01</span>
+        <h3 data-en="Strict CSP">Strikte CSP</h3>
+        <p data-en="Only own scripts and styles. No CDN, no inline event handlers, no eval. Fonts are the single allowed external origin.">Nur eigene Skripte und Styles. Kein CDN, keine Inline-Handler, kein eval. Schriften sind die einzige erlaubte fremde Quelle.</p>
+      </article>
+      <article class="cm-sec-card reveal">
+        <span class="cm-sec-ico" aria-hidden="true">02</span>
+        <h3 data-en="Escaping, not blacklists">Escapen statt Blacklists</h3>
+        <p data-en="Every post is built from DOM nodes and textContent. Angle brackets are shown, never parsed.">Jeder Beitrag wird aus DOM-Knoten und textContent gebaut. Spitze Klammern werden gezeigt, nie geparst.</p>
+      </article>
+      <article class="cm-sec-card reveal">
+        <span class="cm-sec-ico" aria-hidden="true">03</span>
+        <h3 data-en="Link allowlist">Link-Allowlist</h3>
+        <p data-en="Only http, https and mailto. Every external link gets rel=&quot;noopener noreferrer nofollow ugc&quot;.">Nur http, https und mailto. Jeder externe Link bekommt rel=&quot;noopener noreferrer nofollow ugc&quot;.</p>
+      </article>
+      <article class="cm-sec-card reveal">
+        <span class="cm-sec-ico" aria-hidden="true">04</span>
+        <h3 data-en="Limits &amp; honeypot">Limits &amp; Honigfalle</h3>
+        <p data-en="30 seconds between posts, a daily cap, length limits and a hidden field that only bots fill in.">30 Sekunden zwischen Beiträgen, Tageslimit, Längenbegrenzung und ein unsichtbares Feld, das nur Bots ausfüllen.</p>
+      </article>
+      <article class="cm-sec-card reveal">
+        <span class="cm-sec-ico" aria-hidden="true">05</span>
+        <h3 data-en="Validated state">Geprüfter Zustand</h3>
+        <p data-en="Stored data is parsed defensively, clamped and rebuilt field by field on every load.">Gespeicherte Daten werden defensiv geparst, begrenzt und bei jedem Laden Feld für Feld neu aufgebaut.</p>
+      </article>
+      <article class="cm-sec-card reveal">
+        <span class="cm-sec-ico" aria-hidden="true">06</span>
+        <h3 data-en="Report &amp; hide">Melden &amp; ausblenden</h3>
+        <p data-en="One click hides a post locally and records the reason. Real moderation needs a server — this preview is honest about that.">Ein Klick blendet einen Beitrag lokal aus und notiert den Grund. Echte Moderation braucht einen Server — diese Vorschau sagt das offen.</p>
+      </article>
+    </div>
+
+    <div class="cm-selftest reveal" id="cm-selftest">
+      <div class="cm-selftest-head">
+        <div>
+          <span class="cm-widget-kicker" data-en="Live check">Live-Prüfung</span>
+          <h3 data-en="Try to break the renderer.">Versuch, den Renderer zu brechen.</h3>
+          <p data-en="Seven real attack payloads run through the same function that renders every post. Nothing is sent anywhere.">Sieben echte Angriffs-Payloads laufen durch dieselbe Funktion, die jeden Beitrag rendert. Nichts wird gesendet.</p>
+        </div>
+        <button class="btn btn-ghost" type="button" id="cm-selftest-btn">
+          <span data-en="Run self-test">Selbsttest starten</span>
+        </button>
+      </div>
+      <ul class="cm-selftest-list" id="cm-st-list" aria-live="polite">
+        <li class="cm-st-idle" data-en="Not run yet. The test takes a few milliseconds.">Noch nicht ausgeführt. Der Test dauert wenige Millisekunden.</li>
+      </ul>
+      <p class="cm-selftest-note">
+        <span data-en="Result is computed in your browser. Client-side checks protect the page — server-side rules are still required for real accounts.">Das Ergebnis entsteht in deinem Browser. Clientseitige Prüfungen schützen die Seite — für echte Konten braucht es weiterhin Serverregeln.</span>
+        <a href="docs/COMMUNITY.md" data-en="Read the security notes →">Sicherheitsnotizen lesen →</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REGELN / FAQ ================= -->
+<section class="cm-regeln sec-pad" id="regeln" aria-labelledby="cm-rules-title">
+  <div class="wrap cm-regeln-grid">
+    <div class="cm-rules-col reveal">
+      <span class="eyebrow" data-en="House rules">Hausordnung</span>
+      <h2 class="h2" id="cm-rules-title" data-en="Five rules, no fine print.">Fünf Regeln, kein Kleingedrucktes.</h2>
+      <ol class="cm-rule-list">
+        <li>
+          <b data-en="Be specific.">Sei konkret.</b>
+          <span data-en="Code, error message, what you expected. A good question is half an answer.">Code, Fehlermeldung, was du erwartet hast. Eine gute Frage ist die halbe Antwort.</span>
+        </li>
+        <li>
+          <b data-en="Critique the work.">Kritik am Werk.</b>
+          <span data-en="No personal attacks, no gatekeeping. Beginners are explicitly welcome.">Keine persönlichen Angriffe, kein Gatekeeping. Anfänger sind ausdrücklich willkommen.</span>
+        </li>
+        <li>
+          <b data-en="No secrets.">Keine Secrets.</b>
+          <span data-en="Never post keys, tokens or customer data. Redact before you paste.">Nie Keys, Tokens oder Kundendaten posten. Vor dem Einfügen schwärzen.</span>
+        </li>
+        <li>
+          <b data-en="No ads, no scraped text.">Keine Werbung, keine Kopien.</b>
+          <span data-en="Link to the source instead of copying it. No affiliate spam.">Verlinke die Quelle, statt sie zu kopieren. Kein Affiliate-Spam.</span>
+        </li>
+        <li>
+          <b data-en="One topic per thread.">Ein Thema pro Thread.</b>
+          <span data-en="Mark the answer that helped. That is how the next person finds it.">Markiere die Antwort, die geholfen hat. So findet sie die nächste Person.</span>
+        </li>
+      </ol>
+      <a class="cm-textlink" href="mailto:Haqmalh@icloud.com?subject=Community%20Moderation" data-en="Report something to the studio →">Etwas an das Studio melden →</a>
+    </div>
+
+    <div class="cm-faq-col reveal">
+      <span class="eyebrow" data-en="Questions">Fragen</span>
+      <h2 class="h2" data-en="Before you ask.">Bevor du fragst.</h2>
+      <div class="cm-faq">
+        <details open>
+          <summary data-en="Does the forum cost anything?">Kostet das Forum etwas?</summary>
+          <p data-en="No. Reading, searching and writing in the open board is free. Only the workshop and code reviews belong to the Developer subscription.">Nein. Lesen, Suchen und Schreiben im offenen Brett ist kostenlos. Nur die Werkstatt und die Code-Reviews gehören zum Developer-Abo.</p>
+        </details>
+        <details>
+          <summary data-en="What does the Developer subscription include?">Was bringt das Developer-Abo?</summary>
+          <p data-en="The workshop board, one written code review per month, early builds, a badge and ten percent off every product in the shop.">Die Werkstatt, ein schriftliches Code-Review pro Monat, frühe Builds, ein Abzeichen und zehn Prozent auf alle Produkte im Shop.</p>
+        </details>
+        <details>
+          <summary data-en="Where are my posts stored?">Wo werden meine Beiträge gespeichert?</summary>
+          <p data-en="In this static preview, only in your browser via localStorage. Nothing is uploaded. Clearing site data removes everything.">In dieser statischen Vorschau ausschließlich in deinem Browser über localStorage. Nichts wird hochgeladen. Website-Daten löschen entfernt alles.</p>
+        </details>
+        <details>
+          <summary data-en="Can I edit or delete a post?">Kann ich Beiträge bearbeiten oder löschen?</summary>
+          <p data-en="Your own posts can be removed from the thread view. Example content is read-only. There is no remote copy to delete.">Eigene Beiträge lassen sich in der Thread-Ansicht entfernen. Beispielinhalte sind schreibgeschützt. Es gibt keine entfernte Kopie.</p>
+        </details>
+        <details>
+          <summary data-en="How do I cancel?">Wie kündige ich?</summary>
+          <p data-en="Open the membership widget and choose Manage subscription, then cancel. In the preview access ends immediately.">Öffne das Mitglieder-Widget, wähle Abo verwalten und kündige. In der Vorschau endet der Zugang sofort.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cm-cta">
+  <div class="wrap cm-cta-inner reveal">
+    <div>
+      <span class="eyebrow" data-en="Next step">Nächster Schritt</span>
+      <h2 class="display cm-cta-title" data-en="Build with us.">Bau mit uns.</h2>
+      <p class="lead" data-en="A question, a project, a second opinion on your architecture — the studio answers personally.">
+        Eine Frage, ein Projekt, eine zweite Meinung zu deiner Architektur — das Studio antwortet persönlich.
+      </p>
+    </div>
+    <div class="cm-cta-actions">
+      <a class="btn btn-primary btn-lg" href="kontakt.html"><span data-en="Start a conversation">Ins Gespräch kommen</span> <span class="arr" aria-hidden="true">→</span></a>
+      <a class="btn btn-ghost btn-lg" href="shop.html" data-en="Browse the shop">Shop ansehen</a>
+      <a class="cm-cta-mail" href="mailto:Haqmalh@icloud.com">Haqmalh@icloud.com</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div data-include="footer"></div>
+
+<!-- ================= COMPOSER ================= -->
+<dialog class="cm-dialog" id="cm-composer" aria-labelledby="cm-composer-title">
+  <form method="dialog" class="cm-dialog-inner" id="cm-composer-form" novalidate>
+    <header class="cm-dialog-head">
+      <div>
+        <span class="cm-widget-kicker" data-en="New topic">Neues Thema</span>
+        <h2 id="cm-composer-title" data-en="What are you building?">Woran baust du?</h2>
+      </div>
+      <button class="cm-close" type="button" data-cm-close aria-label="Schließen" data-en-aria="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+      </button>
+    </header>
+
+    <div class="cm-form">
+      <div class="cm-form-row">
+        <label class="cm-field">
+          <span data-en="Your name">Dein Name</span>
+          <input id="cm-name" type="text" maxlength="60" autocomplete="nickname" required
+                 placeholder="Vor- und Nachname" data-en-ph="First and last name">
+        </label>
+        <label class="cm-field">
+          <span data-en="Category">Kategorie</span>
+          <select id="cm-cat" required></select>
+        </label>
+      </div>
+
+      <label class="cm-field">
+        <span data-en="Tags (max. 3)">Tags (max. 3)</span>
+        <input id="cm-tags" type="text" maxlength="80" autocomplete="off" placeholder="css, three.js, supabase">
+      </label>
+
+      <label class="cm-field">
+        <span data-en="Title">Titel</span>
+        <input id="cm-title" type="text" required minlength="8" maxlength="120" autocomplete="off"
+               placeholder="Kurze, konkrete Frage" data-en-ph="A short, specific question">
+        <small class="cm-counter" data-for="cm-title">0 / 120</small>
+      </label>
+
+      <div class="cm-field">
+        <span id="cm-body-label" data-en="Your question">Deine Frage</span>
+        <div class="cm-editor">
+          <div class="cm-editor-bar" role="toolbar" aria-label="Formatierung" data-en-aria="Formatting">
+            <button type="button" data-md="bold" title="Fett" aria-label="Fett"><b>B</b></button>
+            <button type="button" data-md="italic" title="Kursiv" aria-label="Kursiv"><i>I</i></button>
+            <button type="button" data-md="code" title="Code" aria-label="Code">&lt;/&gt;</button>
+            <button type="button" data-md="link" title="Link" aria-label="Link">↗</button>
+            <span class="cm-editor-sep" aria-hidden="true"></span>
+            <button type="button" class="cm-editor-preview" data-cm-preview-toggle aria-pressed="false" data-en="Preview">Vorschau</button>
+          </div>
+          <textarea id="cm-body" required minlength="20" maxlength="4000" rows="8"
+                    aria-labelledby="cm-body-label"
+                    placeholder="Was hast du versucht? Was passiert? Welche Versionen?" data-en-ph="What did you try? What happens? Which versions?"></textarea>
+          <div class="cm-preview" id="cm-preview" hidden></div>
+        </div>
+        <small class="cm-counter" data-for="cm-body">0 / 4000</small>
+      </div>
+
+      <input class="cm-hp" id="cm-hp" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <p class="cm-form-error" id="cm-err" role="alert"></p>
+
+      <footer class="cm-dialog-foot">
+        <span class="cm-draft" id="cm-draft" data-en="Draft saved locally">Entwurf lokal gespeichert</span>
+        <div class="cm-dialog-actions">
+          <button class="btn btn-ghost" type="button" data-cm-close data-en="Cancel">Abbrechen</button>
+          <button class="btn btn-primary" type="submit"><span data-en="Publish topic">Thema veröffentlichen</span></button>
+        </div>
+      </footer>
+    </div>
+  </form>
+</dialog>
+
+<!-- ================= CHECKOUT ================= -->
+<dialog class="cm-dialog cm-dialog-sm" id="cm-checkout" aria-labelledby="cm-checkout-title">
+  <form method="dialog" class="cm-dialog-inner" id="cm-checkout-form" novalidate>
+    <header class="cm-dialog-head">
+      <div>
+        <span class="cm-widget-kicker" data-en="Subscription">Abo</span>
+        <h2 id="cm-checkout-title" data-en="Activate in preview">In der Vorschau aktivieren</h2>
+      </div>
+      <button class="cm-close" type="button" data-cm-close aria-label="Schließen" data-en-aria="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+      </button>
+    </header>
+
+    <div class="cm-form">
+      <div class="cm-co-summary">
+        <div>
+          <b id="cm-co-plan">Developer</b>
+          <span id="cm-co-cycle" data-en="monthly, cancel anytime">monatlich, jederzeit kündbar</span>
+        </div>
+        <strong id="cm-co-price">19&nbsp;€</strong>
+      </div>
+
+      <label class="cm-field">
+        <span data-en="Name">Name</span>
+        <input id="cm-co-name" type="text" maxlength="60" autocomplete="name" required placeholder="Vor- und Nachname">
+      </label>
+      <label class="cm-field">
+        <span data-en="E-mail">E-Mail</span>
+        <input id="cm-co-mail" type="email" maxlength="120" autocomplete="email" required placeholder="du@example.com">
+      </label>
+      <label class="cm-check">
+        <input id="cm-co-terms" type="checkbox" required>
+        <span><span data-en="I accept the">Ich akzeptiere die</span> <a href="agb.html" target="_blank" rel="noopener" data-en="terms">AGB</a> <span data-en="and the">und die</span> <a href="datenschutz.html" target="_blank" rel="noopener" data-en="privacy policy">Datenschutzerklärung</a>.</span>
+      </label>
+
+      <p class="cm-form-error" id="cm-co-err" role="alert"></p>
+      <p class="cm-fineprint" data-en="No payment, no transfer. This activates the plan locally so you can test the workshop board.">
+        Keine Zahlung, keine Übertragung. Dies aktiviert den Plan lokal, damit du das Werkstatt-Board testen kannst.
+      </p>
+
+      <footer class="cm-dialog-foot">
+        <span class="cm-draft" data-en="Demo mode">Demo-Modus</span>
+        <div class="cm-dialog-actions">
+          <button class="btn btn-ghost" type="button" data-cm-close data-en="Cancel">Abbrechen</button>
+          <button class="btn btn-primary" type="submit"><span data-en="Activate plan">Plan aktivieren</span></button>
+        </div>
+      </footer>
+    </div>
+  </form>
+</dialog>
+
+<!-- ================= MANAGE ================= -->
+<dialog class="cm-dialog cm-dialog-sm" id="cm-manage" aria-labelledby="cm-manage-title">
+  <div class="cm-dialog-inner">
+    <header class="cm-dialog-head">
+      <div>
+        <span class="cm-widget-kicker" data-en="Membership">Mitgliedschaft</span>
+        <h2 id="cm-manage-title" data-en="Manage subscription">Abo verwalten</h2>
+      </div>
+      <button class="cm-close" type="button" data-cm-close aria-label="Schließen" data-en-aria="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+      </button>
+    </header>
+    <div id="cm-manage-body"></div>
+  </div>
+</dialog>
+
+<div class="cm-toast" id="cm-toast" role="status" aria-live="polite"></div>
+
+<script src="components.js"></script>
+<script src="auth-config.js"></script>
+<script src="auth.js"></script>
+<script src="main.js"></script>
+<script src="ui-v4.js"></script>
+<script src="background.js"></script>
+<script src="community.js"></script>
+<script type="module" src="community-scene.js"></script>
+</body>
+</html>

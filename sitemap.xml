@@ -55,6 +55,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://bytewerkstudio.com/community.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
     <loc>https://bytewerkstudio.com/vergleich.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>

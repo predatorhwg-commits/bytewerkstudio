@@ -18,7 +18,7 @@
     { href: 'arbeiten.html',           de: 'Arbeiten',   en: 'Work',     es: 'Proyectos', match: 'arbeiten' },
     { href: 'bauplan.html',            de: 'Bauplan',    en: 'Blueprint', es: 'Plano', match: 'bauplan' },
     { href: 'showroom.html',           de: 'Showroom',   en: 'Showroom', es: 'Showroom', match: 'showroom' },
-    { href: 'forum.html',              de: 'Forum',      en: 'Forum',    es: 'Foro', match: 'forum' },
+    { href: 'community.html',          de: 'Community',  en: 'Community', es: 'Comunidad', match: 'community' },
     { href: 'index.html#preise',     de: 'Preise',     en: 'Pricing',  es: 'Precios', match: null },
     { href: 'shop.html',             de: 'Shop',       en: 'Shop',     es: 'Tienda', match: 'shop' },
     { href: 'studio.html',           de: 'Studio',     en: 'Studio',   es: 'Estudio', match: 'studio' },
@@ -107,9 +107,9 @@
             <a href="zeichenwerk.html" data-en="Zeichenwerk" data-es="Zeichenwerk">Zeichenwerk</a>
             <a href="index.html#preise" data-en="Pricing" data-es="Precios">Preise</a>
             <a href="shop.html" data-en="Shop" data-es="Tienda">Shop</a>
+            <a href="community.html" data-en="Community &amp; forum" data-es="Comunidad y foro">Community &amp; Forum</a>
             <a href="vergleich.html" data-en="Product comparison" data-es="Comparativa">Produktvergleich</a>
             <a href="entwickler.html" data-en="Developers" data-es="Desarrolladores">Entwickler</a>
-            <a href="entwickler.html#forum" data-en="Workshop forum" data-es="Foro del taller">Werkstatt-Forum</a>
             <a href="entwickler.html#abo" data-en="Developer subscription" data-es="Suscripción dev">Entwickler-Abo</a>
             <a href="marke.html" data-en="The mark" data-es="La marca">Die Marke</a>
             <a href="konto.html" data-en="My account" data-es="Mi cuenta">Mein Konto</a>

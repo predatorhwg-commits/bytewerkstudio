@@ -22,6 +22,9 @@ Produktseiten und der App-Finder auf [vergleich.html](vergleich.html).
 - `vergleich.html`: App-Finder und Vergleichstabelle aller Produkte
 - `arbeiten.html`: Werkverzeichnis aller elf Produkte mit Filter, Tastaturbedienung und drei Fallstudien
 - `zeichenwerk.html`: 3D-Letterpress — Wortmarken aus Papierplatten, live gesetzt, drehbar, als PNG exportierbar
+- `community.html`: Forum mit neun Beispiel-Themen, Suche, Lesezeichen, Gelöst-Marken,
+  Entwickler-Abo (Community/Developer/Studio) und Sicherheits-Selbsttest; dazu das
+  3D-Ideenregal `#community-stage` (three.js, `community-scene.js`)
 - `produkt.html`: Produktdetailseite fuer Lernreich
 - `pruefungs-countdown.html`: Produktdetailseite fuer die kostenlose Windows-App Pruefungs-Countdown
 - `lernreich-pro.html`: Produktdetailseite fuer die kostenpflichtige Windows-App Lernreich Pro
@@ -61,6 +64,17 @@ Zwei Modi:
 Der Header zeigt automatisch "Anmelden" oder das Konto-Menue. `konto.html` ist auf
 `noindex` gesetzt und nicht in der Sitemap.
 
+## Community und Forum
+
+[community.html](community.html) ist ein Forum im Vorschau-Modus: Beitraege liegen in
+`localStorage`, es gibt keinen Server. Der Aufbau, die Grenzen und das Sicherheitsmodell
+stehen in [docs/COMMUNITY.md](docs/COMMUNITY.md). Kurzfassung: nutzererzeugter Text wird
+aus DOM-Knoten und `textContent` gebaut (kein `innerHTML`), Links laufen ueber eine
+Allowlist (http/https/mailto), gespeicherter Zustand wird bei jedem Laden defensiv
+geparst, und ein Selbsttest auf der Seite schickt sieben Angriffs-Payloads durch den
+Renderer. Das Developer-Abo schaltet das Werkstatt-Board lokal frei; die produktive
+Abrechnung und Moderation brauchen ein Backend (siehe Dokument).
+
 ## Skripte
 
 - `components.js`: Header, Footer, DE/EN-Umschaltung
@@ -78,6 +92,10 @@ Der Header zeigt automatisch "Anmelden" oder das Konto-Menue. `konto.html` ist a
   vier echte Werkzeuge (Passwort-Schmiede, Pruefungs-Countdown, Text-Werkstatt,
   Wochenbrett) und eine three.js-Werkbank mit vier Papierwerkzeugen. Alle Daten
   bleiben im Browser (localStorage), kein Backend, kein Upload.
+- `community.js` + `styles-community.css`: Forum, Abo, Sicherheits-Selbsttest und
+  Weitergeben-Karte auf `community.html`; `community-scene.js` baut das Ideenregal aus
+  fuenf Papierkarten (three.js r180 aus `vendor/`, Pause ausserhalb des Viewports,
+  Standbild bei `prefers-reduced-motion`)
 - `scene-workstoff.js` + `styles-workstoff.css`: Materialstudie auf der
   Startseite. 72 Papierkarten formen sich beim Scrollen vom Raster ueber Lagen
   und Koerper zum Feld; Ziehen dreht das Modell. Ohne JavaScript oder WebGL
