@@ -542,7 +542,12 @@
     plus: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>'
   };
 
-  const lang = () => (document.documentElement.lang === 'en' ? 'en' : 'de');
+  /* ES faellt auf EN zurueck: die Oberflaeche ist DE/EN, Spanisch zeigt
+     dieselben Texte wie Englisch statt deutscher Reste. */
+  const lang = () => {
+    const raw = window.bwLang ? window.bwLang() : document.documentElement.lang;
+    return raw === 'de' ? 'de' : 'en';
+  };
   const t = (de, en) => (lang() === 'en' ? en : de);
 
   function h(tag, attrs, ...children) {
@@ -1103,7 +1108,7 @@
   }
   function avatar(author, size) {
     return h('span', {
-      class: 'cm-ava' + (size ? ' is-' + size : '') + (author.role === 'studio' ? ' is-studio' : ''),
+      class: 'cm-ava' + (size ? ' ' + size : '') + (author.role === 'studio' ? ' is-studio' : ''),
       style: avatarStyle(author),
       'aria-hidden': 'true',
       text: initials(author)
