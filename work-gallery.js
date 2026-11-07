@@ -51,6 +51,11 @@
       href: href,
       img: img ? {
         src: img.getAttribute('src') || '',
+        // srcset/sizes mitnehmen: sonst laedt die Galerie die grosse
+        // Ausgangsdatei, obwohl das <img> im Raster eine kleinere Variante
+        // bekommt (der Browser waehlt die Groesse selbst).
+        srcset: img.getAttribute('srcset') || '',
+        sizes: img.getAttribute('sizes') || '',
         alt: img.getAttribute('alt') || ''
       } : null,
       catEl: card.querySelector('.wc-cat'),
@@ -107,6 +112,10 @@
     if (item.img && item.img.src) {
       var img = doc.createElement('img');
       img.src = item.img.src;
+      if (item.img.srcset) {
+        img.srcset = item.img.srcset;
+        if (item.img.sizes) img.sizes = item.img.sizes;
+      }
       img.alt = item.img.alt;
       img.decoding = 'async';
       img.loading = i === 0 ? 'eager' : 'lazy';
@@ -262,6 +271,10 @@
     cases.forEach(function (item) {
       if (item.img && item.img.src) {
         var probe = new Image();
+        if (item.img.srcset) {
+          probe.srcset = item.img.srcset;
+          if (item.img.sizes) probe.sizes = item.img.sizes;
+        }
         probe.src = item.img.src;
       }
     });
