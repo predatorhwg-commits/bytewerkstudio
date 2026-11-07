@@ -274,6 +274,11 @@ Webhook, der `profiles.plan` setzt — nicht einen Schalter im Browser.
   vor. 0 Konsolenfehler, 0 Überlauf.
 - Spanisch: `lang='es'` liefert englische Oberfläche und `en-GB`-Datum,
   nie deutsche Texte.
+- Zweiter Tab: Ein Thema, das in Tab B angelegt wird, erscheint in Tab A
+  ohne Reload (9 → 10 Zeilen, Titel da). Ein offener Entwurf in Tab A
+  überlebt (`dialog.open` true, Titel unverändert), während Tab B
+  schreibt. Nach Reload sind alle Themen und Antworten aus beiden Tabs da.
+  Live bestätigt (Build `ce401bf`), 0 CSP-Verstöße, 0 Konsolenfehler.
 - Supabase-Schema in einer echten PostgreSQL-Instanz (`pgserver`, nicht
   nur `pglast`): 6 Tabellen, 6 Kategorien, 13/13 Prüfungen grün. INSERT
   setzt Autor, Zeit und `views` und verwirft `pinned`/`solved`;

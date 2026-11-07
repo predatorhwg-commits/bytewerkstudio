@@ -11,7 +11,9 @@
    - Cards are data, not decoration: each one maps to a real thread
    ============================================================ */
 
-import * as THREE from './vendor/three.module.min.js';
+/* three.js is loaded on demand, not at parse time: the build is ~700 kB
+   and a device without WebGL would download it for nothing. */
+let THREE = null;
 
 const frame = document.getElementById('fm-stage-frame');
 const canvasHost = document.getElementById('fm-stage');
@@ -27,13 +29,14 @@ const CARDS = [
 
 if (frame && canvasHost) boot();
 
-function boot() {
+async function boot() {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   let renderer;
   try {
     const probe = document.createElement('canvas');
     if (!(probe.getContext('webgl2') || probe.getContext('webgl'))) throw new Error('no webgl');
+    THREE = await import('./vendor/three.module.min.js');
     renderer = new THREE.WebGLRenderer({
       canvas: canvasHost,
       antialias: true,
