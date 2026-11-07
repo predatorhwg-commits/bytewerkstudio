@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#faf9f5">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; connect-src 'self' https://*.supabase.co; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Sicherheit für Web & Software — Audit, Härtung, Notfall | Bytewerk Studio</title>
+<meta name="description" content="Sicherheits-Audit, Härtung und Begleitung für Web und Software aus Ludwigshafen: CSP, Rechte, Backups, Incident-Plan. Mit kostenlosem Sicherheits-Check in acht Fragen.">
+<link rel="canonical" href="https://bytewerkstudio.com/sicherheit.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sicherheit ist eine Schicht — Bytewerk Studio">
+<meta property="og:description" content="Audit, Härtung und Begleitung: CSP, Rechte, Backups und ein Plan für den Tag, an dem etwas schiefgeht. Plus Sicherheits-Check in acht Fragen.">
+<meta property="og:url" content="https://bytewerkstudio.com/sicherheit.html">
+<meta property="og:image" content="https://bytewerkstudio.com/logo.svg">
+<meta property="og:site_name" content="Bytewerk Studio">
+<meta property="og:locale" content="de_DE">
+<meta property="og:locale:alternate" content="en_GB">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sicherheit ist eine Schicht — Bytewerk Studio">
+<meta name="twitter:description" content="Audit, Härtung, Begleitung. Ein Papier-Schloss zum Drehen und ein Sicherheits-Check in acht Fragen.">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles-v3.css">
+<link rel="stylesheet" href="styles-auth.css">
+<link rel="stylesheet" href="styles-claude.css">
+<link rel="stylesheet" href="styles-v5.css">
+<link rel="stylesheet" href="styles-sicherheit.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://bytewerkstudio.com/sicherheit.html#page",
+      "url": "https://bytewerkstudio.com/sicherheit.html",
+      "name": "Sicherheit für Web & Software — Audit, Härtung, Notfall",
+      "description": "Sicherheits-Audit, Härtung und Begleitung für Web und Software: CSP, Rechte, Backups, Incident-Plan und ein Sicherheits-Check in acht Fragen.",
+      "inLanguage": "de-DE",
+      "isPartOf": { "@type": "WebSite", "name": "Bytewerk Studio", "url": "https://bytewerkstudio.com/" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Bytewerk Studio",
+        "url": "https://bytewerkstudio.com/",
+        "email": "Haqmalh@icloud.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Heinigstraße 13",
+          "postalCode": "67059",
+          "addressLocality": "Ludwigshafen am Rhein",
+          "addressCountry": "DE"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Start", "item": "https://bytewerkstudio.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Sicherheit", "item": "https://bytewerkstudio.com/sicherheit.html" }
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "Sicherheits-Audit und Härtung",
+      "serviceType": "IT-Sicherheit für Web und Software",
+      "provider": { "@id": "https://bytewerkstudio.com/#business" },
+      "areaServed": { "@type": "Country", "name": "Deutschland" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Sicherheitsleistungen",
+        "itemListElement": [
+          { "@type": "Offer", "name": "Audit", "price": "1900", "priceCurrency": "EUR" },
+          { "@type": "Offer", "name": "Härtung", "price": "3400", "priceCurrency": "EUR" },
+          { "@type": "Offer", "name": "Begleitung", "price": "690", "priceCurrency": "EUR" }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Ist eine kleine Website wirklich ein Ziel für Angriffe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Angriffe laufen automatisiert. Gesucht werden bekannte Lücken, offene Formulare und wiederverwendete Passwörter, nicht ein bestimmter Name. Kleine Seiten sind oft leichter erreichbar, weil niemand sie regelmäßig prüft."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie lange dauert ein Audit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Für eine Website oder eine kleine Anwendung sind es fünf Arbeitstage. Danach gibt es einen Bericht mit Prioritäten und ein Gespräch von sechzig Minuten. Die Härtung dauert je nach Umfang weitere fünf bis zehn Tage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Müssen wir dafür den Anbieter oder den Hoster wechseln?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In der Regel nicht. Wir arbeiten mit dem vorhandenen Stack. Nur wenn der Hoster keine Sicherheits-Header erlaubt oder Backups fehlen, sagen wir das offen und zeigen zwei konkrete Alternativen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was passiert bei einem akuten Vorfall?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Begleitungskunden erreichen uns innerhalb von 72 Stunden, bei einem aktiven Vorfall am selben Werktag. Erste Schritte sind immer dieselben: Zugänge sperren, Beweise sichern, Backups prüfen, dann erst wiederherstellen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Bleibt der Code danach unser Eigentum?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Wir committen in Ihr Repository, dokumentieren jede Änderung und übergeben Schlüssel, Konfiguration und einen Wiederherstellungsplan. Es gibt keine Abhängigkeit von unserer Infrastruktur."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div data-include="header"></div>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="sich-hero" id="sicherheit" data-screen-label="Sicherheit">
+  <div class="wrap sich-hero-grid">
+
+    <div class="sich-hero-copy">
+      <div class="sich-crumb reveal">
+        <a href="index.html" data-en="Home">Start</a>
+        <span aria-hidden="true">/</span>
+        <span data-en="Security">Sicherheit</span>
+      </div>
+
+      <span class="sich-kicker reveal" data-d="1">
+        <i aria-hidden="true"></i>
+        <span data-en="Audit · Hardening · Response">Audit · Härtung · Notfall</span>
+      </span>
+
+      <h1 class="sich-title reveal" data-d="1" data-en="Security is not a feature.<br>It is a <em>layer.</em>">
+        Sicherheit ist kein Feature.<br>
+        Sie ist eine <em>Schicht.</em>
+      </h1>
+
+      <p class="sich-lead reveal" data-d="2" data-en="We build software that may be attacked. Content security policy, permissions, backups and a plan for the day something goes wrong — checked, not claimed.">
+        Wir bauen Software, die man angreifen darf. Content-Security-Policy,
+        Rechte, Backups und ein Plan für den Tag, an dem etwas schiefgeht —
+        <strong>geprüft, nicht behauptet.</strong>
+      </p>
+
+      <div class="sich-badges reveal" data-d="2">
+        <span class="sich-badge"><b aria-hidden="true"></b><span data-en="0 third-party scripts">0 fremde Skripte</span></span>
+        <span class="sich-badge"><b aria-hidden="true"></b><span data-en="310,000 PBKDF2 rounds">310.000 PBKDF2-Runden</span></span>
+        <span class="sich-badge"><b aria-hidden="true"></b><span data-en="RLS on every table">RLS auf jeder Tabelle</span></span>
+        <span class="sich-badge"><b aria-hidden="true"></b><span data-en="72 h response">72 h Reaktion</span></span>
+      </div>
+
+      <div class="sich-actions reveal" data-d="3">
+        <a class="btn btn-primary btn-lg" href="#check"><span data-en="Run the security check">Sicherheits-Check starten</span> <span class="arr">→</span></a>
+        <a class="btn btn-ghost btn-lg" href="#leistungen" data-en="See services">Leistungen ansehen</a>
+      </div>
+
+      <p class="sich-hero-note reveal" data-d="3" data-en="Eight questions, two minutes, no account. The result stays in this browser.">
+        Acht Fragen, zwei Minuten, kein Konto. Das Ergebnis bleibt in diesem Browser.
+      </p>
+    </div>
+
+    <figure class="sich-stage-fig reveal" data-d="2">
+      <div class="sich-stage" data-sich-stage data-engine="pending">
+        <div class="sich-stage-top">
+          <span><i class="sich-dot" aria-hidden="true"></i><b>Fig. 01</b> — <span data-en="Paper lock">Papier-Schloss</span></span>
+          <span data-en="Three layers">Drei Ebenen</span>
+        </div>
+
+        <canvas id="sich-canvas" aria-hidden="true"></canvas>
+
+        <div class="sich-fallback" aria-hidden="true">
+          <svg viewBox="0 0 520 480" focusable="false">
+            <defs>
+              <radialGradient id="sich-cast" cx="50%" cy="50%" r="50%">
+                <stop offset="0" stop-color="#3a2a1c" stop-opacity="0.26"/>
+                <stop offset="1" stop-color="#3a2a1c" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+
+            <ellipse cx="272" cy="428" rx="158" ry="24" fill="url(#sich-cast)"/>
+
+            <!-- three policy sheets behind the lock -->
+            <g opacity="0.9">
+              <polygon points="118,286 190,248 400,248 328,286" fill="#eee5d2"/>
+              <polygon points="328,286 400,248 400,272 328,310" fill="#ded2b9"/>
+              <polygon points="118,286 190,248 190,272 118,310" fill="#e6dbc6"/>
+              <polygon points="134,306 206,268 416,268 344,306" fill="#f3ecdc"/>
+              <polygon points="344,306 416,268 416,292 344,330" fill="#e3d7c0"/>
+              <polygon points="150,326 222,288 432,288 360,326" fill="#f7f1e3"/>
+              <polygon points="360,326 432,288 432,312 360,350" fill="#e8dcc6"/>
+            </g>
+
+            <!-- shackle -->
+            <path d="M 224 300 V 224 A 48 48 0 0 1 320 224 V 300"
+                  fill="none" stroke="#d8cab0" stroke-width="30" stroke-linecap="round"/>
+            <path d="M 224 300 V 224 A 48 48 0 0 1 320 224 V 300"
+                  fill="none" stroke="#f4ecdb" stroke-width="16" stroke-linecap="round"/>
+
+            <!-- body -->
+            <polygon points="170,300 214,278 434,278 390,300" fill="#fbf6ea" stroke="rgba(58,42,28,0.34)" stroke-width="1.6"/>
+            <polygon points="390,300 434,278 434,392 390,414" fill="#e6dbc5" stroke="rgba(58,42,28,0.34)" stroke-width="1.6"/>
+            <rect x="170" y="300" width="220" height="114" rx="4" fill="#f6efdf" stroke="rgba(58,42,28,0.34)" stroke-width="1.6"/>
+
+            <path d="M 186 332 H 374 M 186 360 H 374 M 186 388 H 374" stroke="rgba(58,42,28,0.10)" stroke-width="1"/>
+
+            <!-- keyhole -->
+            <circle cx="280" cy="348" r="13.5" fill="#3a2a1c"/>
+            <path d="M 280 358 L 267 388 H 293 Z" fill="#3a2a1c"/>
+
+            <!-- accent edge -->
+            <path d="M 174 408 H 386" stroke="#b04f31" stroke-width="2" opacity="0.55"/>
+
+            <!-- small paper tabs -->
+            <g font-family="JetBrains Mono, monospace" font-size="11" fill="#8a8172" letter-spacing="1">
+              <rect x="92" y="336" width="54" height="20" rx="3" fill="#fffdf6" stroke="rgba(58,42,28,0.18)"/>
+              <text x="102" y="350">01 NET</text>
+              <rect x="92" y="362" width="62" height="20" rx="3" fill="#fffdf6" stroke="rgba(58,42,28,0.18)"/>
+              <text x="102" y="376">02 KTO</text>
+              <rect x="92" y="388" width="58" height="20" rx="3" fill="#fffdf6" stroke="rgba(58,42,28,0.18)"/>
+              <text x="102" y="402">03 DAT</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="sich-stage-bottom">
+          <span class="sich-hint">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
+            <span data-en="Drag to turn · click to open">Ziehen dreht · Klick öffnet</span>
+          </span>
+          <button class="sich-open" type="button" data-sich-open aria-pressed="false">
+            <span class="sich-lbl-open" data-en="Open the lock">Schloss öffnen</span>
+            <span class="sich-lbl-close" data-en="Close the lock">Schloss schließen</span>
+          </button>
+        </div>
+      </div>
+
+      <figcaption class="sich-stage-foot">
+        <span data-en="Paper, light, three layers: network, account, data.">Papier, Licht, drei Ebenen: Netz, Konto, Daten.</span>
+        <span class="sich-stage-live" data-sich-live aria-live="polite" data-en="WebGL ready">WebGL bereit</span>
+      </figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<!-- ============ THREAT MODEL ============ -->
+<section class="sich-sec" id="bedrohungen" data-screen-label="Bedrohungsmodell">
+  <div class="wrap">
+    <div class="sich-sec-head reveal">
+      <span class="sich-eyebrow"><b>01</b> <span data-en="Where it hurts">Wo es weh tut</span></span>
+      <div>
+        <h2 class="h2" data-en="Four doors. Most incidents walk through one of them.">Vier Türen. Die meisten Vorfälle kommen durch eine davon.</h2>
+        <p class="lead" data-en="Security is not a product you install once. It is a set of decisions at four places where data, code and people meet.">
+          Sicherheit ist kein Produkt, das man einmal installiert. Sie ist eine Reihe
+          von Entscheidungen an vier Stellen, an denen Daten, Code und Menschen
+          aufeinandertreffen.
+        </p>
+      </div>
+    </div>
+
+    <div class="sich-threats">
+      <article class="sich-threat reveal">
+        <span class="sich-threat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m8 9-4 3 4 3M16 9l4 3-4 3M13.5 5l-3 14"/></svg>
+        </span>
+        <span class="sich-threat-no">01</span>
+        <h3 data-en="Injected code">Fremder Code</h3>
+        <p data-en="A comment field becomes a script tag, a search parameter ends up in the DOM. XSS does not need a broken server — one unescaped string is enough.">
+          Ein Kommentarfeld wird zum Script-Tag, ein Suchparameter landet im DOM.
+          XSS braucht keinen kaputten Server — ein nicht escaptes Zeichen reicht.
+        </p>
+        <ul class="sich-threat-list">
+          <li data-en="Render text as text, never as HTML">Text als Text rendern, nie als HTML</li>
+          <li data-en="CSP without unsafe-eval and CDNs">CSP ohne unsafe-eval und CDNs</li>
+          <li data-en="Allowlist for links and protocols">Allowlist für Links und Protokolle</li>
+        </ul>
+      </article>
+
+      <article class="sich-threat reveal" data-d="1">
+        <span class="sich-threat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="15" r="4"/><path d="m11 12 8-8M17 6l2 2M14 9l2 2"/></svg>
+        </span>
+        <span class="sich-threat-no">02</span>
+        <h3 data-en="Stolen accounts">Kontoübernahme</h3>
+        <p data-en="Passwords are reused, reset mails are guessed, sessions never expire. The cheapest way into a system is still a valid login.">
+          Passwörter werden wiederverwendet, Reset-Mails erraten, Sitzungen laufen nie ab.
+          Der billigste Weg in ein System ist weiterhin ein gültiger Login.
+        </p>
+        <ul class="sich-threat-list">
+          <li data-en="PBKDF2-SHA256, 310,000 rounds">PBKDF2-SHA256, 310.000 Runden</li>
+          <li data-en="Lockout after five attempts">Sperre nach fünf Versuchen</li>
+          <li data-en="Short sessions, explicit logout">Kurze Sitzungen, klares Abmelden</li>
+        </ul>
+      </article>
+
+      <article class="sich-threat reveal" data-d="2">
+        <span class="sich-threat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg>
+        </span>
+        <span class="sich-threat-no">03</span>
+        <h3 data-en="Data leaving">Datenabfluss</h3>
+        <p data-en="One query without a user filter, one export without a limit, one backup in a public bucket. Data leaks quietly, not with an alarm.">
+          Eine Abfrage ohne Nutzerfilter, ein Export ohne Limit, ein Backup im
+          öffentlichen Bucket. Daten verschwinden leise, nicht mit Alarm.
+        </p>
+        <ul class="sich-threat-list">
+          <li data-en="Row level security, not just UI checks">Row Level Security statt UI-Prüfung</li>
+          <li data-en="Least privilege for every key">Minimalrechte für jeden Schlüssel</li>
+          <li data-en="Exports with limits and audit trail">Exporte mit Limit und Protokoll</li>
+        </ul>
+      </article>
+
+      <article class="sich-threat reveal" data-d="3">
+        <span class="sich-threat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v6M12 15v6M3 12h6M15 12h6"/><circle cx="12" cy="12" r="3.2"/></svg>
+        </span>
+        <span class="sich-threat-no">04</span>
+        <h3 data-en="Silent failure">Der Ausfall</h3>
+        <p data-en="A certificate expires, a disk fills up, a restore was never tested. The incident is bad; discovering it three days later is worse.">
+          Ein Zertifikat läuft ab, eine Platte füllt sich, ein Restore wurde nie
+          getestet. Der Vorfall ist schlecht; ihn drei Tage später zu bemerken ist schlimmer.
+        </p>
+        <ul class="sich-threat-list">
+          <li data-en="Backups with a tested restore">Backups mit getestetem Restore</li>
+          <li data-en="Uptime and certificate monitoring">Uptime- und Zertifikats-Monitoring</li>
+          <li data-en="One page: who does what">Eine Seite: wer macht was</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECURITY CHECK ============ -->
+<section class="sich-sec sich-sec-check" id="check" data-screen-label="Sicherheits-Check">
+  <div class="wrap">
+    <div class="sich-sec-head reveal">
+      <span class="sich-eyebrow"><b>02</b> <span data-en="Self check">Selbsttest</span></span>
+      <div>
+        <h2 class="h2" data-en="Eight questions. An honest picture in two minutes.">Acht Fragen. Ein ehrliches Bild in zwei Minuten.</h2>
+        <p class="lead" data-en="No account, no upload, no tracking. Answer for your current setup — not for the setup you plan to build.">
+          Kein Konto, kein Upload, kein Tracking. Antworte für den Stand, den du
+          heute hast — nicht für den, den du bauen willst.
+        </p>
+      </div>
+    </div>
+
+    <form class="sich-check reveal" data-check novalidate>
+      <div class="sich-check-list">
+
+        <fieldset class="sich-q" data-q="0">
+          <legend>
+            <span class="sich-q-no">01</span>
+            <span data-en="Every form and input is validated on the server, not only in the browser.">Jede Eingabe wird serverseitig geprüft, nicht nur im Browser.</span>
+          </legend>
+          <div class="sich-seg">
+            <label><input type="radio" name="sich-q0" value="2"><span data-en="Yes">Ja</span></label>
+            <label><input type="radio" name="sich-q0" value="1"><span data-en="Partly">Teils</span></label>
+            <label><input type="radio" name="sich-q0" value="0"><span data-en="No">Nein</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="sich-q" data-q="1">
+          <legend>
+            <span class="sich-q-no">02</span>
+            <span data-en="The site loads no scripts from third-party servers (CSP without CDNs).">Die Seite lädt keine Skripte von fremden Servern (CSP ohne CDNs).</span>
+          </legend>
+          <div class="sich-seg">
+            <label><input type="radio" name="sich-q1" value="2"><span data-en="Yes">Ja</span></label>
+            <label><input type="radio" name="sich-q1" value="1"><span data-en="Partly">Teils</span></label>
+            <label><input type="radio" name="sich-q1" value="0"><span data-en="No">Nein</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="sich-q" data-q="2">
+          <legend>
+            <span class="sich-q-no">03</span>
+            <span data-en="Accounts have a second factor or passkeys — not only a password.">Konten haben einen zweiten Faktor oder Passkeys — nicht nur ein Passwort.</span>
+          </legend>
+          <div class="sich-seg">
+            <label><input type="radio" name="sich-q2" value="2"><span data-en="Yes">Ja</span></label>
+            <label><input type="radio" name="sich-q2" value="1"><span data-en="Partly">Teils</span></label>
+            <label><input type="radio" name="sich-q2" value="0"><span data-en="No">Nein</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="sich-q" data-q="3">
+          <legend>
+            <span class="sich-q-no">04</span>
+            <span data-en="Database access is limited per user (row level security or equivalent).">Datenbankzugriffe sind pro Nutzer beschränkt (Row Level Security oder gleichwertig).</span>
+          </legend>
+          <div class="sich-seg">
+            <label><input type="radio" name="sich-q3" value="2"><span data-en="Yes">Ja</span></label>
+            <label><input type="radio" name="sich-q3" value="1"><span data-en="Partly">Teils</span></label>
+            <label><input type="radio" name="sich-q3" value="0"><span data-en="No">Nein</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="sich-q" data-q="4">
+          <legend>
+            <span class="sich-q-no">05</span>
+            <span data-en="Backups exist and a restore has been tested in the last twelve months.">Backups existieren und ein Restore wurde in den letzten zwölf Monaten getestet.</span>
+          </legend>
+          <div class="sich-seg">
+            <label><input type="radio" name="sich-q4" value="2"><span data-en="Yes">Ja</span></label>
+            <label><input type="radio" name="sich-q4" value="1"><span data-en="Partly">Teils</span></label>
+            <label><input type="radio" name="sich-q4" value="0"><span data-en="No">Nein</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="sich-q" data-q="5">
+          <legend>
+            <span class="sich-q-no">06</span>
+            <span data-en="Security updates are installed within 30 days — critical ones within 72 hours.">Sicherheitsupdates kommen innerhalb von 30 Tagen — kritische binnen 72 Stunden.</span>
+          </legend>
+          <div class="sich-seg">
+            <label><input type="radio" name="sich-q5" value="2"><span data-en="Yes">Ja</span></label>
+            <label><input type="radio" name="sich-q5" value="1"><span data-en="Partly">Teils</span></label>
+            <label><input type="radio" name="sich-q5" value="0"><span data-en="No">Nein</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="sich-q" data-q="6">
+          <legend>
+            <span class="sich-q-no">07</span>
+            <span data-en="Logs and error reports contain no passwords, tokens or personal data.">Logs und Fehlerberichte enthalten keine Passwörter, Token oder personenbezogenen Daten.</span>
+          </legend>
+          <div class="sich-seg">
+            <label><input type="radio" name="sich-q6" value="2"><span data-en="Yes">Ja</span></label>
+            <label><input type="radio" name="sich-q6" value="1"><span data-en="Partly">Teils</span></label>
+            <label><input type="radio" name="sich-q6" value="0"><span data-en="No">Nein</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="sich-q" data-q="7">
+          <legend>
+            <span class="sich-q-no">08</span>
+            <span data-en="There is a working, published way to report a security issue.">Es gibt einen erreichbaren, veröffentlichten Meldeweg für Sicherheitslücken.</span>
+          </legend>
+          <div class="sich-seg">
+            <label><input type="radio" name="sich-q7" value="2"><span data-en="Yes">Ja</span></label>
+            <label><input type="radio" name="sich-q7" value="1"><span data-en="Partly">Teils</span></label>
+            <label><input type="radio" name="sich-q7" value="0"><span data-en="No">Nein</span></label>
+          </div>
+        </fieldset>
+
+      </div>
+
+      <aside class="sich-result" data-result data-level="none" aria-label="Ergebnis des Sicherheits-Checks">
+        <div class="sich-result-top">
+          <span class="sich-result-kicker" data-en="Your result">Dein Ergebnis</span>
+          <span class="sich-result-count"><b data-answered>0</b><span aria-hidden="true">/</span>8</span>
+        </div>
+
+        <div class="sich-ring">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="sich-ring-track" cx="60" cy="60" r="52"/>
+            <circle class="sich-ring-bar" cx="60" cy="60" r="52" data-ring/>
+          </svg>
+          <div class="sich-ring-center">
+            <b data-score aria-live="polite">—</b>
+            <span data-en="of 100">von 100</span>
+          </div>
+        </div>
+
+        <p class="sich-level" data-level-label data-en="Answer the questions to see your level.">Beantworte die Fragen, um deine Stufe zu sehen.</p>
+
+        <div class="sich-advice" data-advice>
+          <p class="sich-advice-empty" data-en="Recommendations appear here as soon as you answer.">Empfehlungen erscheinen hier, sobald du antwortest.</p>
+        </div>
+
+        <div class="sich-result-actions">
+          <button class="btn btn-primary btn-sm" type="button" data-check-copy data-en="Copy result">Ergebnis kopieren</button>
+          <button class="btn btn-ghost btn-sm" type="button" data-check-reset data-en="Reset">Zurücksetzen</button>
+        </div>
+
+        <p class="sich-result-note" data-en="Stored locally only. No server, no analytics.">Nur lokal gespeichert. Kein Server, keine Analyse.</p>
+      </aside>
+    </form>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="sich-sec sich-sec-tiers" id="leistungen" data-screen-label="Leistungen">
+  <div class="wrap">
+    <div class="sich-sec-head reveal">
+      <span class="sich-eyebrow"><b>03</b> <span data-en="Services">Leistungen</span></span>
+      <div>
+        <h2 class="h2" data-en="Three ways to sleep better.">Drei Wege, besser zu schlafen.</h2>
+        <p class="lead" data-en="Fixed scope, fixed price, written report. No hourly surprise and no lock-in — everything lands in your repository.">
+          Fester Umfang, fester Preis, schriftlicher Bericht. Keine Stundenüberraschung
+          und keine Bindung — alles landet in deinem Repository.
+        </p>
+      </div>
+    </div>
+
+    <div class="sich-tiers reveal">
+      <article class="sich-tier">
+        <div class="sich-tier-head">
+          <span class="sich-tier-no">01</span>
+          <h3 data-en="Audit">Audit</h3>
+          <p data-en="Find out where you stand. Before anything is changed.">Erst wissen, wo du stehst. Bevor etwas geändert wird.</p>
+        </div>
+        <p class="sich-price"><b>1.900 €</b><span data-en="fixed · 5 working days">fest · 5 Arbeitstage</span></p>
+        <ul class="sich-tier-list">
+          <li data-en="Code, headers and dependency check">Code-, Header- und Abhängigkeitsprüfung</li>
+          <li data-en="Threat model for your setup">Bedrohungsmodell für dein Setup</li>
+          <li data-en="Report sorted by risk, not by effort">Bericht nach Risiko, nicht nach Aufwand</li>
+          <li data-en="60-minute debrief">60 Minuten Auswertung</li>
+          <li data-en="No changes without your go">Keine Änderung ohne dein Go</li>
+        </ul>
+        <a class="btn btn-ghost" href="kontakt.html" data-en="Request audit">Audit anfragen</a>
+      </article>
+
+      <article class="sich-tier is-featured">
+        <span class="sich-tier-flag" data-en="Most booked">Am häufigsten</span>
+        <div class="sich-tier-head">
+          <span class="sich-tier-no">02</span>
+          <h3 data-en="Hardening">Härtung</h3>
+          <p data-en="Fix what the audit found. With proof, not promises.">Beheben, was das Audit gefunden hat. Mit Beweis, nicht mit Versprechen.</p>
+        </div>
+        <p class="sich-price"><b>3.400 €</b><span data-en="fixed · 10 working days">fest · 10 Arbeitstage</span></p>
+        <ul class="sich-tier-list">
+          <li data-en="CSP, headers, cookies, CORS">CSP, Header, Cookies, CORS</li>
+          <li data-en="Login, sessions and permissions">Login, Sitzungen und Rechte</li>
+          <li data-en="Rate limits and input boundaries">Rate Limits und Eingabegrenzen</li>
+          <li data-en="Backup and restore rehearsal">Backup- und Restore-Probe</li>
+          <li data-en="Short handover document for your team">Kurze Übergabe für dein Team</li>
+        </ul>
+        <a class="btn btn-primary" href="kontakt.html"><span data-en="Request hardening">Härtung anfragen</span> <span class="arr">→</span></a>
+      </article>
+
+      <article class="sich-tier">
+        <div class="sich-tier-head">
+          <span class="sich-tier-no">03</span>
+          <h3 data-en="Care">Begleitung</h3>
+          <p data-en="Stay current without hiring a security team.">Aktuell bleiben, ohne ein Sicherheitsteam einzustellen.</p>
+        </div>
+        <p class="sich-price"><b>690 €</b><span data-en="per month · cancel quarterly">pro Monat · quartalsweise kündbar</span></p>
+        <ul class="sich-tier-list">
+          <li data-en="Monthly header and dependency check">Monatlicher Header- und Abhängigkeitscheck</li>
+          <li data-en="Patch window with short notice">Patch-Fenster mit kurzer Ankündigung</li>
+          <li data-en="Reach us within 72 hours">Erreichbar innerhalb von 72 Stunden</li>
+          <li data-en="Quarterly one-page report">Quartalsbericht auf einer Seite</li>
+          <li data-en="Incident call at the same workday">Notfallruf am selben Werktag</li>
+        </ul>
+        <a class="btn btn-ghost" href="kontakt.html" data-en="Ask about care">Begleitung anfragen</a>
+      </article>
+    </div>
+
+    <p class="sich-tier-note reveal" data-en="Net prices plus VAT. Non-profits and teams under five people pay a reduced rate — just ask.">
+      Nettopreise zzgl. USt. Vereine und Teams unter fünf Personen zahlen einen
+      reduzierten Satz — einfach fragen.
+    </p>
+  </div>
+</section>
+
+<!-- ============ MEASURES / CODE ============ -->
+<section class="sich-sec sich-sec-code" id="massnahmen" data-screen-label="Maßnahmen">
+  <div class="wrap">
+    <div class="sich-sec-head reveal">
+      <span class="sich-eyebrow"><b>04</b> <span data-en="Under the hood">Unter der Haube</span></span>
+      <div>
+        <h2 class="h2" data-en="Show the measure, not the certificate.">Zeig die Maßnahme, nicht das Zertifikat.</h2>
+        <p class="lead" data-en="Four excerpts from this website. Copy them, adapt them, or use them as a checklist for your own stack.">
+          Vier Ausschnitte aus dieser Website. Kopieren, anpassen oder als Prüfliste
+          für den eigenen Stack verwenden.
+        </p>
+      </div>
+    </div>
+
+    <div class="sich-code-shell reveal" data-sich-tabs>
+      <div class="sich-code-tabs" role="tablist" aria-label="Maßnahmen">
+        <button class="sich-code-tab" id="sich-tab-csp" type="button" role="tab" aria-selected="true" aria-controls="sich-panel-csp" tabindex="0">
+          <b>01</b><span data-en="Policy">Policy</span>
+        </button>
+        <button class="sich-code-tab" id="sich-tab-pw" type="button" role="tab" aria-selected="false" aria-controls="sich-panel-pw" tabindex="-1">
+          <b>02</b><span data-en="Passwords">Passwörter</span>
+        </button>
+        <button class="sich-code-tab" id="sich-tab-rls" type="button" role="tab" aria-selected="false" aria-controls="sich-panel-rls" tabindex="-1">
+          <b>03</b><span data-en="Database">Datenbank</span>
+        </button>
+        <button class="sich-code-tab" id="sich-tab-head" type="button" role="tab" aria-selected="false" aria-controls="sich-panel-head" tabindex="-1">
+          <b>04</b><span data-en="Headers">Header</span>
+        </button>
+      </div>
+
+      <div class="sich-code-body">
+
+        <div class="sich-code-panel" role="tabpanel" id="sich-panel-csp" aria-labelledby="sich-tab-csp" tabindex="0">
+          <div class="sich-code-copy">
+            <span class="sich-code-kicker" data-en="Content Security Policy">Content Security Policy</span>
+            <h3 data-en="Only this origin may execute script.">Nur diese Origin darf Skript ausführen.</h3>
+            <p data-en="No CDN, no inline event handlers, no eval. Every source has to be named. A blocked import fails visibly in the console — that is the point.">
+              Kein CDN, keine Inline-Handler, kein eval. Jede Quelle muss benannt
+              werden. Ein blockierter Import fällt sichtbar in der Konsole aus —
+              genau das ist der Zweck.
+            </p>
+            <ul class="sich-code-facts">
+              <li data-en="Applies to: every HTML page">Gilt für: jede HTML-Seite</li>
+              <li data-en="Trade-off: inline styles need 'unsafe-inline'">Kompromiss: Inline-Styles brauchen 'unsafe-inline'</li>
+              <li data-en="Next step: nonce or hash via build step">Nächster Schritt: Nonce oder Hash im Build</li>
+            </ul>
+          </div>
+          <div class="sich-code-block">
+            <div class="sich-code-bar"><span>sicherheit.html · &lt;head&gt;</span><button type="button" data-copy="sich-snippet-csp" data-en="Copy">Kopieren</button></div>
+<pre id="sich-snippet-csp"><code>&lt;meta http-equiv="Content-Security-Policy"
+      content="default-src 'self';
+               script-src 'self';
+               object-src 'none';
+               base-uri 'self';
+               form-action 'self' mailto:;
+               upgrade-insecure-requests"&gt;</code></pre>
+          </div>
+        </div>
+
+        <div class="sich-code-panel" role="tabpanel" id="sich-panel-pw" aria-labelledby="sich-tab-pw" tabindex="0" hidden>
+          <div class="sich-code-copy">
+            <span class="sich-code-kicker" data-en="Password storage">Passwort-Speicherung</span>
+            <h3 data-en="Slow on purpose. 310,000 rounds.">Absichtlich langsam. 310.000 Runden.</h3>
+            <p data-en="A fast hash is a gift to an attacker with a stolen table. PBKDF2 with a random salt per account makes every guess expensive — and the cost stays measurable.">
+              Ein schneller Hash ist ein Geschenk an jeden, der eine Tabelle stiehlt.
+              PBKDF2 mit zufälligem Salt pro Konto macht jeden Versuch teuer — und
+              die Kosten bleiben messbar.
+            </p>
+            <ul class="sich-code-facts">
+              <li data-en="Applies to: accounts and reset tokens">Gilt für: Konten und Reset-Token</li>
+              <li data-en="Never log the password or the hash">Passwort und Hash nie loggen</li>
+              <li data-en="Lockout after five failed attempts">Sperre nach fünf Fehlversuchen</li>
+            </ul>
+          </div>
+          <div class="sich-code-block">
+            <div class="sich-code-bar"><span>auth.js · deriveBits</span><button type="button" data-copy="sich-snippet-pw" data-en="Copy">Kopieren</button></div>
+<pre id="sich-snippet-pw"><code>const key = await crypto.subtle.deriveBits(
+  {
+    name: 'PBKDF2',
+    hash: 'SHA-256',
+    salt: randomSalt(16),
+    iterations: 310000
+  },
+  await crypto.subtle.importKey(
+    'raw', encoder.encode(password), 'PBKDF2', false, ['deriveBits']
+  ),
+  256
+);</code></pre>
+          </div>
+        </div>
+
+        <div class="sich-code-panel" role="tabpanel" id="sich-panel-rls" aria-labelledby="sich-tab-rls" tabindex="0" hidden>
+          <div class="sich-code-copy">
+            <span class="sich-code-kicker" data-en="Row level security">Row Level Security</span>
+            <h3 data-en="The database answers only its owner.">Die Datenbank antwortet nur dem Eigentümer.</h3>
+            <p data-en="A hidden button is not a permission. RLS puts the rule in the database, so a copied request with a foreign id returns nothing — no matter which client sent it.">
+              Ein versteckter Knopf ist keine Berechtigung. RLS legt die Regel in die
+              Datenbank: Eine kopierte Anfrage mit fremder ID liefert nichts — egal,
+              welcher Client sie geschickt hat.
+            </p>
+            <ul class="sich-code-facts">
+              <li data-en="Applies to: every table with user data">Gilt für: jede Tabelle mit Nutzerdaten</li>
+              <li data-en="Test with two accounts, not one">Mit zwei Konten testen, nicht mit einem</li>
+              <li data-en="Service role key stays on the server">Service-Role-Key bleibt auf dem Server</li>
+            </ul>
+          </div>
+          <div class="sich-code-block">
+            <div class="sich-code-bar"><span>supabase/schema.sql · policies</span><button type="button" data-copy="sich-snippet-rls" data-en="Copy">Kopieren</button></div>
+<pre id="sich-snippet-rls"><code>alter table public.threads enable row level security;
+
+create policy "threads_read_published"
+  on public.threads for select
+  using (published = true);
+
+create policy "threads_insert_own"
+  on public.threads for insert
+  with check (auth.uid() = author_id);
+
+create policy "threads_update_own"
+  on public.threads for update
+  using (auth.uid() = author_id)
+  with check (auth.uid() = author_id);</code></pre>
+          </div>
+        </div>
+
+        <div class="sich-code-panel" role="tabpanel" id="sich-panel-head" aria-labelledby="sich-tab-head" tabindex="0" hidden>
+          <div class="sich-code-copy">
+            <span class="sich-code-kicker" data-en="Response headers">Antwort-Header</span>
+            <h3 data-en="Headers are the part you cannot click away.">Header sind der Teil, den man nicht wegklicken kann.</h3>
+            <p data-en="GitHub Pages serves files but sets no custom headers. The same block works on Netlify and Cloudflare Pages; on GitHub the meta tag stays the fallback. We document both instead of pretending.">
+              GitHub Pages liefert Dateien, setzt aber keine eigenen Header. Derselbe
+              Block funktioniert auf Netlify und Cloudflare Pages; auf GitHub bleibt
+              das Meta-Tag der Rückfall. Wir dokumentieren beides, statt es zu verschweigen.
+            </p>
+            <ul class="sich-code-facts">
+              <li data-en="Applies to: the host, not the HTML">Gilt für: den Hoster, nicht das HTML</li>
+              <li data-en="HSTS only after HTTPS works everywhere">HSTS erst, wenn HTTPS überall läuft</li>
+              <li data-en="Check with: curl -I">Prüfen mit: curl -I</li>
+            </ul>
+          </div>
+          <div class="sich-code-block">
+            <div class="sich-code-bar"><span>_headers · Netlify / Cloudflare</span><button type="button" data-copy="sich-snippet-head" data-en="Copy">Kopieren</button></div>
+<pre id="sich-snippet-head"><code>/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Cross-Origin-Opener-Policy: same-origin
+  Content-Security-Policy: default-src 'self'; object-src 'none';
+    base-uri 'self'; frame-ancestors 'none'</code></pre>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="sich-sec" id="ablauf" data-screen-label="Ablauf">
+  <div class="wrap">
+    <div class="sich-sec-head reveal">
+      <span class="sich-eyebrow"><b>05</b> <span data-en="Process">Ablauf</span></span>
+      <div>
+        <h2 class="h2" data-en="Four steps. No theatre.">Vier Schritte. Kein Theater.</h2>
+        <p class="lead" data-en="You always know what happens this week, what it costs and what you get in hand at the end.">
+          Du weißt immer, was diese Woche passiert, was es kostet und was am Ende
+          in deiner Hand liegt.
+        </p>
+      </div>
+    </div>
+
+    <ol class="sich-steps reveal">
+      <li class="sich-step">
+        <span class="sich-step-no">01</span>
+        <h3 data-en="Look">Sehen</h3>
+        <p data-en="We read the code, the headers and the access rules. No scan report alone — a person traces the paths.">
+          Wir lesen Code, Header und Zugriffsregeln. Kein Scan-Bericht allein —
+          ein Mensch verfolgt die Wege.
+        </p>
+        <span class="sich-step-time" data-en="Day 1–2">Tag 1–2</span>
+      </li>
+      <li class="sich-step">
+        <span class="sich-step-no">02</span>
+        <h3 data-en="Weigh">Wiegen</h3>
+        <p data-en="Every finding gets a likelihood, an impact and a price to fix. You decide the order, not the tool.">
+          Jeder Fund bekommt Eintrittswahrscheinlichkeit, Wirkung und Fixpreis.
+          Du entscheidest die Reihenfolge, nicht das Werkzeug.
+        </p>
+        <span class="sich-step-time" data-en="Day 3">Tag 3</span>
+      </li>
+      <li class="sich-step">
+        <span class="sich-step-no">03</span>
+        <h3 data-en="Close">Schließen</h3>
+        <p data-en="Small fixes immediately, larger ones in a branch with tests. After each change: prove it with a request, not a screenshot.">
+          Kleine Fixes sofort, größere in einem Branch mit Tests. Nach jeder Änderung:
+          mit einer Anfrage beweisen, nicht mit einem Screenshot.
+        </p>
+        <span class="sich-step-time" data-en="Day 4–9">Tag 4–9</span>
+      </li>
+      <li class="sich-step">
+        <span class="sich-step-no">04</span>
+        <h3 data-en="Hand over">Übergeben</h3>
+        <p data-en="Documentation, access list, restore plan and a short call. Your team can run it without us.">
+          Dokumentation, Zugriffsliste, Restore-Plan und ein kurzes Gespräch.
+          Dein Team kann es ohne uns betreiben.
+        </p>
+        <span class="sich-step-time" data-en="Day 10">Tag 10</span>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sich-sec sich-sec-faq" id="fragen" data-screen-label="Fragen">
+  <div class="wrap sich-faq-grid">
+    <div class="sich-faq-intro reveal">
+      <span class="sich-eyebrow"><b>06</b> <span data-en="Questions">Fragen</span></span>
+      <h2 class="h2" data-en="What clients ask before the first call.">Was Kunden vor dem ersten Gespräch fragen.</h2>
+      <p class="lead" data-en="If your question is not here, write two sentences. That is enough for a first answer.">
+        Fehlt deine Frage, schreib zwei Sätze. Das reicht für eine erste Antwort.
+      </p>
+      <a class="btn btn-ghost" href="mailto:Haqmalh@icloud.com?subject=Sicherheitsfrage" data-en="Ask by email">Per E-Mail fragen</a>
+    </div>
+
+    <div class="sich-faq reveal" data-d="1">
+      <details class="faq-item" open>
+        <summary><span data-en="Is a small website really a target?">Ist eine kleine Website wirklich ein Ziel?</span><span class="fi" aria-hidden="true"></span></summary>
+        <div class="faq-a" data-en="Attacks run automatically. They look for known gaps, open forms and reused passwords — not for a particular name. Small sites are often easier to reach because nobody checks them regularly.">
+          Angriffe laufen automatisiert. Gesucht werden bekannte Lücken, offene
+          Formulare und wiederverwendete Passwörter — kein bestimmter Name. Kleine
+          Seiten sind oft leichter erreichbar, weil niemand sie regelmäßig prüft.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><span data-en="How long does an audit take?">Wie lange dauert ein Audit?</span><span class="fi" aria-hidden="true"></span></summary>
+        <div class="faq-a" data-en="For a website or a small application: five working days. Then a report with priorities and a sixty-minute call. Hardening takes another five to ten days depending on scope.">
+          Für eine Website oder eine kleine Anwendung: fünf Arbeitstage. Danach ein
+          Bericht mit Prioritäten und ein Gespräch von sechzig Minuten. Die Härtung
+          dauert je nach Umfang weitere fünf bis zehn Tage.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><span data-en="Do we have to change host or provider?">Müssen wir Hoster oder Anbieter wechseln?</span><span class="fi" aria-hidden="true"></span></summary>
+        <div class="faq-a" data-en="Usually not. We work with the stack you have. Only when the host does not allow security headers or backups are missing do we say so — and then show two concrete alternatives.">
+          In der Regel nicht. Wir arbeiten mit dem vorhandenen Stack. Nur wenn der
+          Hoster keine Sicherheits-Header erlaubt oder Backups fehlen, sagen wir das
+          offen — und zeigen dann zwei konkrete Alternativen.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><span data-en="What happens during an active incident?">Was passiert bei einem akuten Vorfall?</span><span class="fi" aria-hidden="true"></span></summary>
+        <div class="faq-a" data-en="Care clients reach us within 72 hours; during an active incident, the same workday. First steps are always the same: lock access, preserve evidence, check backups, then restore.">
+          Begleitungskunden erreichen uns innerhalb von 72 Stunden, bei einem aktiven
+          Vorfall am selben Werktag. Erste Schritte sind immer dieselben: Zugänge
+          sperren, Beweise sichern, Backups prüfen, dann erst wiederherstellen.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><span data-en="Does the code stay ours?">Bleibt der Code unser Eigentum?</span><span class="fi" aria-hidden="true"></span></summary>
+        <div class="faq-a" data-en="Yes. We commit to your repository, document every change and hand over keys, configuration and a restore plan. There is no dependency on our infrastructure.">
+          Ja. Wir committen in dein Repository, dokumentieren jede Änderung und
+          übergeben Schlüssel, Konfiguration und einen Wiederherstellungsplan. Es
+          gibt keine Abhängigkeit von unserer Infrastruktur.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="sich-sec sich-sec-report" id="meldeweg" data-screen-label="Meldeweg">
+  <div class="wrap">
+    <div class="sich-sec-head reveal">
+      <span class="sich-eyebrow"><b>07</b> <span data-en="Report a flaw">Meldeweg</span></span>
+      <div>
+        <h2 class="h2" data-en="Found a hole? <em>Tell us first.</em>">Eine Lücke gefunden? <em>Sag es uns zuerst.</em></h2>
+        <p class="lead" data-en="No lawyer letter, no counter-questions: a confirmation within 48 hours and a date for the fix. If you report in good faith and keep the data to yourself, you have nothing to fear from us.">
+          Kein Anwaltsschreiben, keine Gegenfragen: eine Bestätigung innerhalb von
+          48 Stunden und ein Termin für den Fix. Wer in guter Absicht meldet und
+          die Daten für sich behält, hat von uns nichts zu befürchten.
+        </p>
+      </div>
+    </div>
+
+    <ol class="sich-steps">
+      <li class="sich-step reveal">
+        <span class="sich-step-no">01</span>
+        <h3 data-en="Mail with place and observation">Mail mit Ort und Beobachtung</h3>
+        <p data-en="URL, affected page, one sentence about what you saw. A screenshot helps, a proof of concept helps more — neither is required.">
+          URL, betroffene Seite, ein Satz dazu, was du gesehen hast. Ein Screenshot
+          hilft, ein Nachweis hilft mehr — Pflicht ist beides nicht.
+        </p>
+        <span class="sich-step-time" data-en="5 minutes">5 Minuten</span>
+      </li>
+      <li class="sich-step reveal" data-d="1">
+        <span class="sich-step-no">02</span>
+        <h3 data-en="Confirmation within 48 h">Bestätigung in 48 Stunden</h3>
+        <p data-en="You get a real reply with an assessment and a date, not an autoresponder. If we cannot reproduce it, we say so and ask again.">
+          Du bekommst eine echte Antwort mit Einschätzung und Termin, keinen
+          Autoresponder. Wenn wir es nicht nachstellen können, sagen wir das und
+          fragen nach.
+        </p>
+        <span class="sich-step-time" data-en="≤ 48 h">≤ 48 h</span>
+      </li>
+      <li class="sich-step reveal" data-d="2">
+        <span class="sich-step-no">03</span>
+        <h3 data-en="Fix and credit">Fix und Nennung</h3>
+        <p data-en="We close the gap, write down the cause and name you if you want. We do not pay a bounty — we answer fast and fix properly instead.">
+          Wir schließen die Lücke, halten die Ursache schriftlich fest und nennen
+          dich, wenn du möchtest. Ein Kopfgeld zahlen wir nicht — dafür antworten
+          wir schnell und reparieren richtig.
+        </p>
+        <span class="sich-step-time" data-en="Fix ≤ 14 days">Fix ≤ 14 Tage</span>
+      </li>
+    </ol>
+
+    <div class="sich-report-actions reveal">
+      <a class="btn btn-primary" href="mailto:Haqmalh@icloud.com?subject=Security%20report"><span data-en="Report a flaw">Lücke melden</span> <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href=".well-known/security.txt" data-en="Read security.txt">security.txt lesen</a>
+      <span class="sich-report-note" data-en="PGP key on request · no tracking · we never pass reports to third parties.">
+        PGP-Schlüssel auf Anfrage · kein Tracking · wir geben Meldungen nicht weiter.
+      </span>
+    </div>
+  </div>
+</section>
+
+<section class="sich-cta" data-screen-label="Abschluss">
+  <div class="wrap sich-cta-grid">
+    <div class="reveal">
+      <span class="sich-eyebrow sich-eyebrow-light"><b>08</b> <span data-en="Next step">Nächster Schritt</span></span>
+      <h2 class="sich-cta-title" data-en="The best time was before the incident.<br><em>The second best is today.</em>">
+        Der beste Zeitpunkt war vor dem Vorfall.<br>
+        <em>Der zweitbeste ist heute.</em>
+      </h2>
+      <p class="sich-cta-lead" data-en="Send us the URL and one sentence about what worries you. You get a first assessment within two working days — free and without a sales call.">
+        Schick uns die URL und einen Satz dazu, was dir Sorgen macht. Du bekommst
+        eine erste Einschätzung innerhalb von zwei Arbeitstagen — kostenlos und
+        ohne Verkaufsgespräch.
+      </p>
+    </div>
+    <div class="sich-cta-actions reveal" data-d="1">
+      <a class="btn btn-primary btn-lg" href="mailto:Haqmalh@icloud.com?subject=Sicherheitscheck%20anfragen"><span data-en="Send URL and question">URL und Frage senden</span> <span class="arr">→</span></a>
+      <a class="btn btn-ghost btn-lg" href="kontakt.html" data-en="Open contact form">Zum Kontaktformular</a>
+      <span class="sich-cta-note" data-en="No newsletter. No tracking. Answer from a person.">Kein Newsletter. Kein Tracking. Antwort von einem Menschen.</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div data-include="footer"></div>
+
+<div class="sich-toast" role="status" aria-live="polite" data-toast></div>
+
+<noscript>
+  <style>
+    .sich-code-panel[hidden] { display: block !important; }
+    .sich-code-panel { border-top: 1px solid var(--line); padding-top: 22px; margin-top: 22px; }
+    .sich-result { display: none; }
+    .sich-check::after { content: "Für den Selbsttest wird JavaScript benötigt. Die Fragen bleiben lesbar."; display: block; padding: 18px; border: 1px solid var(--line); border-radius: 12px; color: var(--muted); }
+  </style>
+</noscript>
+
+<script src="components.js"></script>
+<script src="auth-config.js"></script>
+<script src="auth.js"></script>
+<script src="main.js"></script>
+<script src="ui-v3.js"></script>
+<script src="ui-v4.js"></script>
+<script src="background.js"></script>
+<script src="sicherheit.js"></script>
+<script type="module" src="scene-sicherheit.js"></script>
+</body>
+</html>

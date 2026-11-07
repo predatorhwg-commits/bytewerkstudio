@@ -163,6 +163,12 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://bytewerkstudio.com/sicherheit.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://bytewerkstudio.com/probierstand.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>

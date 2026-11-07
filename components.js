@@ -96,6 +96,7 @@
             <a href="softwareentwicklung-ludwigshafen.html#webentwicklung" data-en="Web development" data-es="Desarrollo web">Web-Entwicklung</a>
             <a href="softwareentwicklung-ludwigshafen.html#app-entwicklung" data-en="App development" data-es="Desarrollo de apps">App-Entwicklung</a>
             <a href="softwareentwicklung-ludwigshafen.html" data-en="IT services" data-es="Servicios IT">IT-Dienstleistungen</a>
+            <a href="sicherheit.html" data-en="Security" data-es="Seguridad">Sicherheit</a>
           </div>
           <div class="footer-col">
             <h4 data-en="Studio" data-es="Estudio">Studio</h4>
