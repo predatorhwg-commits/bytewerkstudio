@@ -215,10 +215,10 @@ Server; im Netz kommen Latenz und TLS hinzu.
 | Messung | Ergebnis |
 |---|---|
 | Seiten | 34 |
-| Median übertragene Bytes | 1159 KB |
-| Größte Seite | 1716 KB |
-| Median LCP | 864 ms |
-| Schlechtester LCP | 1032 ms |
+| Median übertragene Bytes | 1168 KB |
+| Größte Seite | 1603 KB |
+| Median LCP | 852 ms |
+| Schlechtester LCP | 956 ms |
 | Seiten mit CLS über 0,1 | 0 |
 
 Der größte Einzelposten ist three.js (`vendor/`, rund 700 KB) auf
@@ -233,8 +233,8 @@ Mobilmenü greift und die 3D-Bühnen kleiner ausfallen.
 | Messung | Ergebnis |
 |---|---|
 | Seiten | 34 |
-| Median übertragene Bytes | 1155 KB |
-| Größte Seite | 1597 KB |
+| Median übertragene Bytes | 1161 KB |
+| Größte Seite | 1603 KB |
 | Median LCP | 872 ms |
 | Schlechtester LCP | 1036 ms |
 | Seiten mit CLS über 0,1 | 0 |

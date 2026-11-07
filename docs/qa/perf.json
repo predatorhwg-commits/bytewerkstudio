@@ -2,91 +2,21 @@
   "summary": {
     "pages": 34,
     "errors": 0,
-    "median_bytes": 1187389,
-    "max_bytes": 1757927,
-    "median_lcp": 864,
-    "worst_lcp": 1032,
+    "median_bytes": 1196368,
+    "max_bytes": 1642140,
+    "median_lcp": 852,
+    "worst_lcp": 956,
     "pages_cls_over_01": 0,
     "images_without_dims": 0
   },
   "rows": [
     {
       "page": "404.html",
-      "lcp": 184,
+      "lcp": 204,
       "cls": 0.001,
-      "dom": 189,
-      "load": 190,
-      "bytes": 1229057,
-      "requests": 26,
-      "biggest": [
-        {
-          "url": "/vendor/three.core.min.js",
-          "bytes": 381124
-        },
-        {
-          "url": "/vendor/three.module.min.js",
-          "bytes": 338908
-        },
-        {
-          "url": "/fonts/newsreader-latin.woff2",
-          "bytes": 131848
-        },
-        {
-          "url": "/fonts/inter-latin.woff2",
-          "bytes": 48432
-        },
-        {
-          "url": "/styles-claude.css",
-          "bytes": 41700
-        }
-      ],
-      "images_total": 0,
-      "images_lazy": 0,
-      "images_no_dims": 0,
-      "images_oversize": 0
-    },
-    {
-      "page": "agb.html",
-      "lcp": 840,
-      "cls": 0.001,
-      "dom": 51,
-      "load": 52,
-      "bytes": 427371,
-      "requests": 18,
-      "biggest": [
-        {
-          "url": "/fonts/newsreader-latin.woff2",
-          "bytes": 131848
-        },
-        {
-          "url": "/fonts/inter-latin.woff2",
-          "bytes": 48432
-        },
-        {
-          "url": "/styles-claude.css",
-          "bytes": 41700
-        },
-        {
-          "url": "/ui-v4.js",
-          "bytes": 37295
-        },
-        {
-          "url": "/styles.css",
-          "bytes": 31487
-        }
-      ],
-      "images_total": 0,
-      "images_lazy": 0,
-      "images_no_dims": 0,
-      "images_oversize": 0
-    },
-    {
-      "page": "arbeiten.html",
-      "lcp": 868,
-      "cls": 0.001,
-      "dom": 97,
-      "load": 97,
-      "bytes": 1757927,
+      "dom": 201,
+      "load": 201,
+      "bytes": 1238203,
       "requests": 27,
       "biggest": [
         {
@@ -98,8 +28,78 @@
           "bytes": 338908
         },
         {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 42130
+        }
+      ],
+      "images_total": 0,
+      "images_lazy": 0,
+      "images_no_dims": 0,
+      "images_oversize": 0
+    },
+    {
+      "page": "agb.html",
+      "lcp": 848,
+      "cls": 0.001,
+      "dom": 46,
+      "load": 46,
+      "bytes": 436365,
+      "requests": 19,
+      "biggest": [
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 42130
+        },
+        {
+          "url": "/ui-v4.js",
+          "bytes": 37614
+        },
+        {
+          "url": "/styles.css",
+          "bytes": 31731
+        }
+      ],
+      "images_total": 0,
+      "images_lazy": 0,
+      "images_no_dims": 0,
+      "images_oversize": 0
+    },
+    {
+      "page": "arbeiten.html",
+      "lcp": 864,
+      "cls": 0.001,
+      "dom": 119,
+      "load": 119,
+      "bytes": 1642140,
+      "requests": 28,
+      "biggest": [
+        {
+          "url": "/vendor/three.core.min.js",
+          "bytes": 381124
+        },
+        {
+          "url": "/vendor/three.module.min.js",
+          "bytes": 338908
+        },
+        {
           "url": "/media/mastil-start-bg.jpg",
-          "bytes": 314771
+          "bytes": 190034
         },
         {
           "url": "/fonts/newsreader-latin.woff2",
@@ -117,47 +117,12 @@
     },
     {
       "page": "burgenwerk.html",
-      "lcp": 864,
+      "lcp": 872,
       "cls": 0.001,
-      "dom": 97,
-      "load": 97,
-      "bytes": 1252740,
-      "requests": 26,
-      "biggest": [
-        {
-          "url": "/vendor/three.core.min.js",
-          "bytes": 381124
-        },
-        {
-          "url": "/vendor/three.module.min.js",
-          "bytes": 338908
-        },
-        {
-          "url": "/fonts/newsreader-latin.woff2",
-          "bytes": 131848
-        },
-        {
-          "url": "/media/mastil-logo.jpg",
-          "bytes": 74087
-        },
-        {
-          "url": "/fonts/inter-latin.woff2",
-          "bytes": 48432
-        }
-      ],
-      "images_total": 4,
-      "images_lazy": 0,
-      "images_no_dims": 0,
-      "images_oversize": 0
-    },
-    {
-      "page": "bytewerk-pdf-text-pro.html",
-      "lcp": 876,
-      "cls": 0.001,
-      "dom": 105,
-      "load": 105,
-      "bytes": 1189491,
-      "requests": 28,
+      "dom": 106,
+      "load": 106,
+      "bytes": 1219503,
+      "requests": 27,
       "biggest": [
         {
           "url": "/vendor/three.core.min.js",
@@ -177,7 +142,42 @@
         },
         {
           "url": "/styles-claude.css",
-          "bytes": 41700
+          "bytes": 42130
+        }
+      ],
+      "images_total": 4,
+      "images_lazy": 0,
+      "images_no_dims": 0,
+      "images_oversize": 0
+    },
+    {
+      "page": "bytewerk-pdf-text-pro.html",
+      "lcp": 876,
+      "cls": 0.001,
+      "dom": 104,
+      "load": 104,
+      "bytes": 1196460,
+      "requests": 29,
+      "biggest": [
+        {
+          "url": "/vendor/three.core.min.js",
+          "bytes": 381124
+        },
+        {
+          "url": "/vendor/three.module.min.js",
+          "bytes": 338908
+        },
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 42130
         }
       ],
       "images_total": 6,
@@ -187,11 +187,46 @@
     },
     {
       "page": "checkout.html",
-      "lcp": 792,
+      "lcp": 768,
       "cls": 0.006,
-      "dom": 57,
-      "load": 57,
-      "bytes": 428592,
+      "dom": 47,
+      "load": 47,
+      "bytes": 437972,
+      "requests": 20,
+      "biggest": [
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 42130
+        },
+        {
+          "url": "/ui-v4.js",
+          "bytes": 37614
+        },
+        {
+          "url": "/styles.css",
+          "bytes": 31731
+        }
+      ],
+      "images_total": 0,
+      "images_lazy": 0,
+      "images_no_dims": 0,
+      "images_oversize": 0
+    },
+    {
+      "page": "datenschutz.html",
+      "lcp": 852,
+      "cls": 0.001,
+      "dom": 43,
+      "load": 44,
+      "bytes": 441084,
       "requests": 19,
       "biggest": [
         {
@@ -204,50 +239,15 @@
         },
         {
           "url": "/styles-claude.css",
-          "bytes": 41700
+          "bytes": 42130
         },
         {
           "url": "/ui-v4.js",
-          "bytes": 37295
+          "bytes": 37614
         },
         {
           "url": "/styles.css",
-          "bytes": 31487
-        }
-      ],
-      "images_total": 0,
-      "images_lazy": 0,
-      "images_no_dims": 0,
-      "images_oversize": 0
-    },
-    {
-      "page": "datenschutz.html",
-      "lcp": 828,
-      "cls": 0.001,
-      "dom": 44,
-      "load": 45,
-      "bytes": 432090,
-      "requests": 18,
-      "biggest": [
-        {
-          "url": "/fonts/newsreader-latin.woff2",
-          "bytes": 131848
-        },
-        {
-          "url": "/fonts/inter-latin.woff2",
-          "bytes": 48432
-        },
-        {
-          "url": "/styles-claude.css",
-          "bytes": 41700
-        },
-        {
-          "url": "/ui-v4.js",
-          "bytes": 37295
-        },
-        {
-          "url": "/styles.css",
-          "bytes": 31487
+          "bytes": 31731
         }
       ],
       "images_total": 0,
@@ -257,12 +257,12 @@
     },
     {
       "page": "entwickler.html",
-      "lcp": 928,
+      "lcp": 952,
       "cls": 0.001,
-      "dom": 97,
-      "load": 97,
-      "bytes": 1309596,
-      "requests": 26,
+      "dom": 77,
+      "load": 77,
+      "bytes": 1319561,
+      "requests": 27,
       "biggest": [
         {
           "url": "/vendor/three.core.min.js",
@@ -282,7 +282,7 @@
         },
         {
           "url": "/entwickler.html",
-          "bytes": 43255
+          "bytes": 43571
         }
       ],
       "images_total": 0,
@@ -292,12 +292,12 @@
     },
     {
       "page": "forum.html",
-      "lcp": 100,
+      "lcp": 68,
       "cls": 0.015,
-      "dom": 247,
-      "load": 249,
-      "bytes": 1347582,
-      "requests": 24,
+      "dom": 155,
+      "load": 156,
+      "bytes": 1358075,
+      "requests": 25,
       "biggest": [
         {
           "url": "/vendor/three.core.min.js",
@@ -313,7 +313,7 @@
         },
         {
           "url": "/forum.js",
-          "bytes": 94595
+          "bytes": 94794
         },
         {
           "url": "/fonts/inter-latin.woff2",
@@ -327,12 +327,12 @@
     },
     {
       "page": "impressum.html",
-      "lcp": 828,
+      "lcp": 852,
       "cls": 0.001,
-      "dom": 48,
-      "load": 48,
-      "bytes": 426062,
-      "requests": 18,
+      "dom": 43,
+      "load": 44,
+      "bytes": 435056,
+      "requests": 19,
       "biggest": [
         {
           "url": "/fonts/newsreader-latin.woff2",
@@ -344,15 +344,15 @@
         },
         {
           "url": "/styles-claude.css",
-          "bytes": 41700
+          "bytes": 42130
         },
         {
           "url": "/ui-v4.js",
-          "bytes": 37295
+          "bytes": 37614
         },
         {
           "url": "/styles.css",
-          "bytes": 31487
+          "bytes": 31731
         }
       ],
       "images_total": 0,
@@ -362,16 +362,16 @@
     },
     {
       "page": "index.html",
-      "lcp": 988,
+      "lcp": 940,
       "cls": 0.001,
-      "dom": 152,
-      "load": 153,
-      "bytes": 1151418,
-      "requests": 34,
+      "dom": 93,
+      "load": 94,
+      "bytes": 1034252,
+      "requests": 35,
       "biggest": [
         {
           "url": "/media/mastil-start-bg.jpg",
-          "bytes": 314771
+          "bytes": 190034
         },
         {
           "url": "/fonts/newsreader-latin.woff2",
@@ -387,7 +387,7 @@
         },
         {
           "url": "/index.html",
-          "bytes": 60694
+          "bytes": 60179
         }
       ],
       "images_total": 19,
@@ -397,12 +397,12 @@
     },
     {
       "page": "keyforge-vault.html",
-      "lcp": 864,
+      "lcp": 868,
       "cls": 0.001,
-      "dom": 61,
-      "load": 61,
-      "bytes": 687874,
-      "requests": 27,
+      "dom": 58,
+      "load": 58,
+      "bytes": 697248,
+      "requests": 28,
       "biggest": [
         {
           "url": "/fonts/newsreader-latin.woff2",
@@ -434,10 +434,10 @@
       "page": "kontakt.html",
       "lcp": 76,
       "cls": 0.001,
-      "dom": 61,
-      "load": 61,
-      "bytes": 1223899,
-      "requests": 22,
+      "dom": 58,
+      "load": 58,
+      "bytes": 1235504,
+      "requests": 23,
       "biggest": [
         {
           "url": "/vendor/three.core.min.js",
@@ -457,7 +457,7 @@
         },
         {
           "url": "/styles-claude.css",
-          "bytes": 41700
+          "bytes": 42130
         }
       ],
       "images_total": 0,
@@ -467,12 +467,12 @@
     },
     {
       "page": "konto.html",
-      "lcp": 68,
+      "lcp": 60,
       "cls": 0,
-      "dom": 15,
-      "load": 15,
-      "bytes": 449186,
-      "requests": 21,
+      "dom": 16,
+      "load": 16,
+      "bytes": 458099,
+      "requests": 22,
       "biggest": [
         {
           "url": "/fonts/newsreader-latin.woff2",
@@ -484,15 +484,15 @@
         },
         {
           "url": "/styles-claude.css",
-          "bytes": 41700
+          "bytes": 42130
         },
         {
           "url": "/ui-v4.js",
-          "bytes": 37295
+          "bytes": 37614
         },
         {
           "url": "/styles.css",
-          "bytes": 31487
+          "bytes": 31731
         }
       ],
       "images_total": 1,
@@ -502,12 +502,12 @@
     },
     {
       "page": "lernreich-pro.html",
-      "lcp": 924,
-      "cls": 0.013,
-      "dom": 342,
-      "load": 343,
-      "bytes": 1310036,
-      "requests": 30,
+      "lcp": 868,
+      "cls": 0.001,
+      "dom": 96,
+      "load": 96,
+      "bytes": 1319479,
+      "requests": 31,
       "biggest": [
         {
           "url": "/vendor/three.core.min.js",
@@ -537,12 +537,12 @@
     },
     {
       "page": "login.html",
-      "lcp": 148,
+      "lcp": 68,
       "cls": 0,
-      "dom": 159,
-      "load": 159,
-      "bytes": 433360,
-      "requests": 20,
+      "dom": 48,
+      "load": 48,
+      "bytes": 442346,
+      "requests": 21,
       "biggest": [
         {
           "url": "/fonts/newsreader-latin.woff2",
@@ -554,15 +554,15 @@
         },
         {
           "url": "/styles-claude.css",
-          "bytes": 41700
+          "bytes": 42130
         },
         {
           "url": "/ui-v4.js",
-          "bytes": 37295
+          "bytes": 37614
         },
         {
           "url": "/styles.css",
-          "bytes": 31487
+          "bytes": 31731
         }
       ],
       "images_total": 1,
@@ -572,12 +572,12 @@
     },
     {
       "page": "lumaweek-planner.html",
-      "lcp": 116,
+      "lcp": 84,
       "cls": 0.012,
-      "dom": 127,
-      "load": 127,
-      "bytes": 1312027,
-      "requests": 30,
+      "dom": 102,
+      "load": 102,
+      "bytes": 1320568,
+      "requests": 31,
       "biggest": [
         {
           "url": "/vendor/three.core.min.js",
@@ -607,12 +607,12 @@
     },
     {
       "page": "marke.html",
-      "lcp": 932,
+      "lcp": 844,
       "cls": 0.001,
-      "dom": 288,
-      "load": 289,
-      "bytes": 1249111,
-      "requests": 24,
+      "dom": 110,
+      "load": 110,
+      "bytes": 1259063,
+      "requests": 25,
       "biggest": [
         {
           "url": "/vendor/three.core.min.js",
@@ -632,7 +632,7 @@
         },
         {
           "url": "/styles-claude.css",
-          "bytes": 41700
+          "bytes": 42130
         }
       ],
       "images_total": 0,
@@ -642,24 +642,20 @@
     },
     {
       "page": "mastil.html",
-      "lcp": 912,
+      "lcp": 852,
       "cls": 0.001,
-      "dom": 167,
-      "load": 167,
-      "bytes": 902875,
-      "requests": 26,
+      "dom": 62,
+      "load": 62,
+      "bytes": 745304,
+      "requests": 27,
       "biggest": [
         {
           "url": "/media/mastil-start-bg.jpg",
-          "bytes": 314771
+          "bytes": 190034
         },
         {
           "url": "/fonts/newsreader-latin.woff2",
           "bytes": 131848
-        },
-        {
-          "url": "/media/mastil-logo.jpg",
-          "bytes": 74087
         },
         {
           "url": "/media/lernreich-logo.png",
@@ -668,6 +664,10 @@
         {
           "url": "/fonts/inter-latin.woff2",
           "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 42130
         }
       ],
       "images_total": 8,
@@ -677,116 +677,11 @@
     },
     {
       "page": "musterbuch.html",
-      "lcp": 1032,
+      "lcp": 936,
       "cls": 0.001,
-      "dom": 276,
-      "load": 276,
-      "bytes": 1204550,
-      "requests": 22,
-      "biggest": [
-        {
-          "url": "/vendor/three.core.min.js",
-          "bytes": 381124
-        },
-        {
-          "url": "/vendor/three.module.min.js",
-          "bytes": 338908
-        },
-        {
-          "url": "/fonts/newsreader-latin.woff2",
-          "bytes": 131848
-        },
-        {
-          "url": "/fonts/inter-latin.woff2",
-          "bytes": 48432
-        },
-        {
-          "url": "/styles-claude.css",
-          "bytes": 41700
-        }
-      ],
-      "images_total": 0,
-      "images_lazy": 0,
-      "images_no_dims": 0,
-      "images_oversize": 0
-    },
-    {
-      "page": "neon-dominion.html",
-      "lcp": 952,
-      "cls": 0.001,
-      "dom": 129,
-      "load": 129,
-      "bytes": 626171,
-      "requests": 25,
-      "biggest": [
-        {
-          "url": "/fonts/newsreader-latin.woff2",
-          "bytes": 131848
-        },
-        {
-          "url": "/media/neon-dominion-gameplay.jpg",
-          "bytes": 108830
-        },
-        {
-          "url": "/media/mastil-logo.jpg",
-          "bytes": 74087
-        },
-        {
-          "url": "/fonts/inter-latin.woff2",
-          "bytes": 48432
-        },
-        {
-          "url": "/styles-claude.css",
-          "bytes": 41700
-        }
-      ],
-      "images_total": 7,
-      "images_lazy": 0,
-      "images_no_dims": 0,
-      "images_oversize": 0
-    },
-    {
-      "page": "passwort-vergessen.html",
-      "lcp": 116,
-      "cls": 0.012,
-      "dom": 126,
-      "load": 126,
-      "bytes": 429078,
-      "requests": 19,
-      "biggest": [
-        {
-          "url": "/fonts/newsreader-latin.woff2",
-          "bytes": 131848
-        },
-        {
-          "url": "/fonts/inter-latin.woff2",
-          "bytes": 48432
-        },
-        {
-          "url": "/styles-claude.css",
-          "bytes": 41700
-        },
-        {
-          "url": "/ui-v4.js",
-          "bytes": 37295
-        },
-        {
-          "url": "/styles.css",
-          "bytes": 31487
-        }
-      ],
-      "images_total": 0,
-      "images_lazy": 0,
-      "images_no_dims": 0,
-      "images_oversize": 0
-    },
-    {
-      "page": "probierstand.html",
-      "lcp": 128,
-      "cls": 0.001,
-      "dom": 248,
-      "load": 248,
-      "bytes": 1234103,
+      "dom": 88,
+      "load": 88,
+      "bytes": 1213625,
       "requests": 23,
       "biggest": [
         {
@@ -807,7 +702,7 @@
         },
         {
           "url": "/styles-claude.css",
-          "bytes": 41700
+          "bytes": 42130
         }
       ],
       "images_total": 0,
@@ -816,12 +711,12 @@
       "images_oversize": 0
     },
     {
-      "page": "produkt.html",
-      "lcp": 852,
+      "page": "neon-dominion.html",
+      "lcp": 864,
       "cls": 0.001,
-      "dom": 65,
-      "load": 65,
-      "bytes": 571464,
+      "dom": 59,
+      "load": 59,
+      "bytes": 593136,
       "requests": 26,
       "biggest": [
         {
@@ -829,12 +724,8 @@
           "bytes": 131848
         },
         {
-          "url": "/media/lernreich-logo.png",
-          "bytes": 68670
-        },
-        {
-          "url": "/media/pruefungs-countdown-logo.png",
-          "bytes": 60789
+          "url": "/media/neon-dominion-gameplay.jpg",
+          "bytes": 108830
         },
         {
           "url": "/fonts/inter-latin.woff2",
@@ -842,7 +733,11 @@
         },
         {
           "url": "/styles-claude.css",
-          "bytes": 41700
+          "bytes": 42130
+        },
+        {
+          "url": "/ui-v4.js",
+          "bytes": 37614
         }
       ],
       "images_total": 7,
@@ -851,47 +746,12 @@
       "images_oversize": 0
     },
     {
-      "page": "pruefungs-countdown.html",
-      "lcp": 924,
-      "cls": 0.001,
-      "dom": 123,
-      "load": 123,
-      "bytes": 571257,
-      "requests": 26,
-      "biggest": [
-        {
-          "url": "/fonts/newsreader-latin.woff2",
-          "bytes": 131848
-        },
-        {
-          "url": "/media/lernreich-logo.png",
-          "bytes": 68670
-        },
-        {
-          "url": "/media/pruefungs-countdown-logo.png",
-          "bytes": 60789
-        },
-        {
-          "url": "/fonts/inter-latin.woff2",
-          "bytes": 48432
-        },
-        {
-          "url": "/styles-claude.css",
-          "bytes": 41700
-        }
-      ],
-      "images_total": 7,
-      "images_lazy": 0,
-      "images_no_dims": 0,
-      "images_oversize": 0
-    },
-    {
-      "page": "register.html",
-      "lcp": 132,
+      "page": "passwort-vergessen.html",
+      "lcp": 68,
       "cls": 0,
-      "dom": 113,
-      "load": 113,
-      "bytes": 437176,
+      "dom": 48,
+      "load": 48,
+      "bytes": 438064,
       "requests": 20,
       "biggest": [
         {
@@ -904,15 +764,155 @@
         },
         {
           "url": "/styles-claude.css",
-          "bytes": 41700
+          "bytes": 42130
         },
         {
           "url": "/ui-v4.js",
-          "bytes": 37295
+          "bytes": 37614
         },
         {
           "url": "/styles.css",
-          "bytes": 31487
+          "bytes": 31731
+        }
+      ],
+      "images_total": 0,
+      "images_lazy": 0,
+      "images_no_dims": 0,
+      "images_oversize": 0
+    },
+    {
+      "page": "probierstand.html",
+      "lcp": 88,
+      "cls": 0.001,
+      "dom": 141,
+      "load": 141,
+      "bytes": 1243142,
+      "requests": 24,
+      "biggest": [
+        {
+          "url": "/vendor/three.core.min.js",
+          "bytes": 381124
+        },
+        {
+          "url": "/vendor/three.module.min.js",
+          "bytes": 338908
+        },
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 42130
+        }
+      ],
+      "images_total": 0,
+      "images_lazy": 0,
+      "images_no_dims": 0,
+      "images_oversize": 0
+    },
+    {
+      "page": "produkt.html",
+      "lcp": 856,
+      "cls": 0.001,
+      "dom": 58,
+      "load": 58,
+      "bytes": 579979,
+      "requests": 27,
+      "biggest": [
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/media/lernreich-logo.png",
+          "bytes": 68670
+        },
+        {
+          "url": "/media/pruefungs-countdown-logo.png",
+          "bytes": 60789
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 42130
+        }
+      ],
+      "images_total": 7,
+      "images_lazy": 0,
+      "images_no_dims": 0,
+      "images_oversize": 0
+    },
+    {
+      "page": "pruefungs-countdown.html",
+      "lcp": 852,
+      "cls": 0.001,
+      "dom": 58,
+      "load": 58,
+      "bytes": 580547,
+      "requests": 27,
+      "biggest": [
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/media/lernreich-logo.png",
+          "bytes": 68670
+        },
+        {
+          "url": "/media/pruefungs-countdown-logo.png",
+          "bytes": 60789
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 42130
+        }
+      ],
+      "images_total": 7,
+      "images_lazy": 0,
+      "images_no_dims": 0,
+      "images_oversize": 0
+    },
+    {
+      "page": "register.html",
+      "lcp": 72,
+      "cls": 0,
+      "dom": 73,
+      "load": 73,
+      "bytes": 446161,
+      "requests": 21,
+      "biggest": [
+        {
+          "url": "/fonts/newsreader-latin.woff2",
+          "bytes": 131848
+        },
+        {
+          "url": "/fonts/inter-latin.woff2",
+          "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 42130
+        },
+        {
+          "url": "/ui-v4.js",
+          "bytes": 37614
+        },
+        {
+          "url": "/styles.css",
+          "bytes": 31731
         }
       ],
       "images_total": 1,
@@ -922,12 +922,12 @@
     },
     {
       "page": "shop.html",
-      "lcp": 860,
+      "lcp": 848,
       "cls": 0.001,
-      "dom": 121,
-      "load": 121,
-      "bytes": 1395820,
-      "requests": 34,
+      "dom": 103,
+      "load": 103,
+      "bytes": 1362124,
+      "requests": 35,
       "biggest": [
         {
           "url": "/vendor/three.core.min.js",
@@ -942,12 +942,12 @@
           "bytes": 131848
         },
         {
-          "url": "/media/mastil-logo.jpg",
-          "bytes": 74087
-        },
-        {
           "url": "/media/lernreich-logo.png",
           "bytes": 68670
+        },
+        {
+          "url": "/media/pruefungs-countdown-logo.png",
+          "bytes": 60789
         }
       ],
       "images_total": 11,
@@ -957,12 +957,12 @@
     },
     {
       "page": "showroom.html",
-      "lcp": 988,
-      "cls": 0.001,
-      "dom": 134,
-      "load": 176,
-      "bytes": 1443820,
-      "requests": 34,
+      "lcp": 956,
+      "cls": 0.002,
+      "dom": 92,
+      "load": 127,
+      "bytes": 1409705,
+      "requests": 35,
       "biggest": [
         {
           "url": "/vendor/three.core.min.js",
@@ -977,27 +977,27 @@
           "bytes": 131848
         },
         {
-          "url": "/media/mastil-logo.jpg",
-          "bytes": 74087
-        },
-        {
           "url": "/media/lernreich-logo.png",
           "bytes": 68670
+        },
+        {
+          "url": "/media/pruefungs-countdown-logo.png",
+          "bytes": 60789
         }
       ],
       "images_total": 13,
       "images_lazy": 11,
       "images_no_dims": 0,
-      "images_oversize": 8
+      "images_oversize": 7
     },
     {
       "page": "sicherheit.html",
       "lcp": 888,
       "cls": 0.001,
-      "dom": 85,
-      "load": 85,
-      "bytes": 1292291,
-      "requests": 24,
+      "dom": 76,
+      "load": 76,
+      "bytes": 1301085,
+      "requests": 25,
       "biggest": [
         {
           "url": "/vendor/three.core.min.js",
@@ -1013,7 +1013,7 @@
         },
         {
           "url": "/sicherheit.html",
-          "bytes": 53767
+          "bytes": 53471
         },
         {
           "url": "/fonts/inter-latin.woff2",
@@ -1027,20 +1027,16 @@
     },
     {
       "page": "softwareentwicklung-ludwigshafen.html",
-      "lcp": 888,
+      "lcp": 868,
       "cls": 0.001,
-      "dom": 92,
-      "load": 93,
-      "bytes": 659272,
-      "requests": 28,
+      "dom": 57,
+      "load": 57,
+      "bytes": 626360,
+      "requests": 29,
       "biggest": [
         {
           "url": "/fonts/newsreader-latin.woff2",
           "bytes": 131848
-        },
-        {
-          "url": "/media/mastil-logo.jpg",
-          "bytes": 74087
         },
         {
           "url": "/media/lernreich-logo.png",
@@ -1053,6 +1049,10 @@
         {
           "url": "/fonts/inter-latin.woff2",
           "bytes": 48432
+        },
+        {
+          "url": "/styles-claude.css",
+          "bytes": 42130
         }
       ],
       "images_total": 10,
@@ -1062,12 +1062,12 @@
     },
     {
       "page": "studio.html",
-      "lcp": 920,
+      "lcp": 872,
       "cls": 0.001,
-      "dom": 97,
-      "load": 97,
-      "bytes": 1187389,
-      "requests": 22,
+      "dom": 59,
+      "load": 59,
+      "bytes": 1196368,
+      "requests": 23,
       "biggest": [
         {
           "url": "/vendor/three.core.min.js",
@@ -1087,7 +1087,7 @@
         },
         {
           "url": "/styles-claude.css",
-          "bytes": 41700
+          "bytes": 42130
         }
       ],
       "images_total": 0,
@@ -1097,12 +1097,12 @@
     },
     {
       "page": "updatepilot.html",
-      "lcp": 920,
+      "lcp": 896,
       "cls": 0.001,
-      "dom": 187,
-      "load": 187,
-      "bytes": 1180364,
-      "requests": 28,
+      "dom": 128,
+      "load": 128,
+      "bytes": 1189716,
+      "requests": 29,
       "biggest": [
         {
           "url": "/vendor/three.core.min.js",
@@ -1122,7 +1122,7 @@
         },
         {
           "url": "/styles-claude.css",
-          "bytes": 41700
+          "bytes": 42130
         }
       ],
       "images_total": 6,
@@ -1132,12 +1132,12 @@
     },
     {
       "page": "vergleich.html",
-      "lcp": 868,
+      "lcp": 848,
       "cls": 0.001,
-      "dom": 74,
-      "load": 74,
-      "bytes": 447571,
-      "requests": 19,
+      "dom": 51,
+      "load": 51,
+      "bytes": 456326,
+      "requests": 20,
       "biggest": [
         {
           "url": "/fonts/newsreader-latin.woff2",
@@ -1149,15 +1149,15 @@
         },
         {
           "url": "/styles-claude.css",
-          "bytes": 41700
+          "bytes": 42130
         },
         {
           "url": "/ui-v4.js",
-          "bytes": 37295
+          "bytes": 37614
         },
         {
           "url": "/styles.css",
-          "bytes": 31487
+          "bytes": 31731
         }
       ],
       "images_total": 0,
@@ -1167,12 +1167,12 @@
     },
     {
       "page": "zeichenwerk.html",
-      "lcp": 84,
+      "lcp": 72,
       "cls": 0.001,
-      "dom": 79,
-      "load": 79,
-      "bytes": 1264445,
-      "requests": 24,
+      "dom": 65,
+      "load": 65,
+      "bytes": 1273308,
+      "requests": 25,
       "biggest": [
         {
           "url": "/vendor/three.core.min.js",
@@ -1192,7 +1192,7 @@
         },
         {
           "url": "/styles-claude.css",
-          "bytes": 41700
+          "bytes": 42130
         }
       ],
       "images_total": 0,
