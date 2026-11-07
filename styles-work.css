@@ -1,0 +1,411 @@
+/* ============================================================
+   BYTEWERK STUDIO — styles-work.css
+   ------------------------------------------------------------
+   Case gallery for the "Ausgewaehlte Arbeiten" block.
+
+   Loaded after styles-claude.css so the Claude look stays the
+   reference. Everything here is namespaced under .wg (and a
+   couple of scoped fixes for the no-JS bento); no global rules,
+   no other section is touched.
+
+   Without JavaScript the section keeps its static bento — this
+   file only styles the gallery that work-gallery.js builds.
+   ============================================================ */
+
+/* ---------- shell ---------- */
+
+.wg {
+  display: grid;
+  grid-template-columns: minmax(0, 1.62fr) minmax(0, 1fr);
+  gap: clamp(24px, 3.4vw, 52px);
+  align-items: stretch;
+}
+
+.wg[hidden] {
+  display: none;
+}
+
+/* ---------- stage ---------- */
+
+.wg-stage {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--line, #e6e1d4);
+  border-radius: var(--radius-lg, 20px);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(243, 240, 232, 0.72)),
+    var(--paper-2, #f3f0e8);
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 18px 40px -28px rgba(31, 30, 29, 0.28);
+  isolation: isolate;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.wg-stage:hover,
+.wg-stage:focus-visible {
+  border-color: rgba(176, 79, 49, 0.28);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 22px 48px -26px rgba(31, 30, 29, 0.34);
+}
+
+.wg-stage:focus-visible {
+  outline: 2px solid var(--accent, #b04f31);
+  outline-offset: 3px;
+}
+
+/* Inner hairline mat: makes a screenshot read as a mounted print
+   instead of an image that happens to sit in a box. */
+.wg-stage::after {
+  content: "";
+  position: absolute;
+  inset: clamp(8px, 1vw, 13px);
+  border: 1px solid rgba(31, 30, 29, 0.07);
+  border-radius: calc(var(--radius-lg, 20px) - 8px);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.wg-frames {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.wg-frame {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: clamp(20px, 3vw, 40px) clamp(20px, 3.4vw, 52px);
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: opacity;
+}
+
+.wg-frame.is-on {
+  opacity: 1;
+}
+
+.wg-frame img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1px solid rgba(31, 30, 29, 0.09);
+  background: var(--surface, #fff);
+  box-shadow: 0 24px 44px -30px rgba(31, 30, 29, 0.45);
+  transform: translateZ(0);
+}
+
+/* Cases without a screenshot get a typographic plate instead of a
+   hole: same weight as an image, no apology. */
+.wg-plate {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  padding: clamp(18px, 2.4vw, 30px);
+  border-radius: 10px;
+  border: 1px solid rgba(176, 79, 49, 0.18);
+  background:
+    radial-gradient(120% 90% at 100% 0%, rgba(176, 79, 49, 0.09), transparent 62%),
+    linear-gradient(160deg, rgba(255, 253, 248, 0.96), rgba(243, 240, 232, 0.86));
+}
+
+.wg-plate-n {
+  font-family: var(--mono, ui-monospace, monospace);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent, #b04f31);
+}
+
+/* Number sits at the top edge, title and description together at
+   the bottom — the layout of a plate in a printed catalogue. An
+   auto top margin pulls both to the floor without a wrapper. */
+.wg-plate-t {
+  margin: auto 0 0;
+  font-family: var(--display, Georgia, serif);
+  font-weight: 400;
+  font-size: clamp(26px, 3.4vw, 46px);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  color: var(--ink, #1f1e1d);
+  text-wrap: balance;
+}
+
+.wg-plate-d {
+  margin: 12px 0 0;
+  max-width: 46ch;
+  font-size: clamp(13px, 1.05vw, 15px);
+  line-height: 1.55;
+  color: var(--muted, #6b665c);
+}
+
+/* ---------- stage chrome: counter + open affordance ---------- */
+
+.wg-count,
+.wg-open {
+  position: absolute;
+  z-index: 4;
+  font-family: var(--mono, ui-monospace, monospace);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.wg-count {
+  top: clamp(16px, 2vw, 24px);
+  right: clamp(16px, 2vw, 26px);
+  padding: 6px 9px;
+  border-radius: 999px;
+  background: rgba(250, 249, 245, 0.82);
+  border: 1px solid var(--line, #e6e1d4);
+  color: var(--muted, #6b665c);
+  backdrop-filter: blur(6px);
+}
+
+.wg-count b {
+  font-weight: 600;
+  color: var(--accent-700, #96402a);
+}
+
+.wg-open {
+  left: clamp(16px, 2vw, 26px);
+  bottom: clamp(16px, 2vw, 26px);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 13px;
+  border-radius: 999px;
+  border: 1px solid rgba(176, 79, 49, 0.26);
+  background: rgba(255, 253, 248, 0.9);
+  color: var(--accent-700, #96402a);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.wg-stage:hover .wg-open,
+.wg-stage:focus-visible .wg-open {
+  opacity: 1;
+  transform: none;
+}
+
+/* On a plate the chip would land on the plate's own bottom border,
+   so it stays away; the stage is still a link, the cursor says so. */
+.wg-stage.is-plate .wg-open {
+  display: none;
+}
+
+/* ---------- index ---------- */
+
+/* The index spans the stage's full height: five evenly
+   distributed rows, last hairline flush with the stage bottom. */
+.wg-index {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--line, #e6e1d4);
+}
+
+.wg-row {
+  position: relative;
+  display: grid;
+  flex: 1 0 auto;
+  grid-template-columns: 3.1em minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  padding: clamp(12px, 1.35vw, 17px) 6px clamp(12px, 1.35vw, 17px) 0;
+  border-bottom: 1px solid var(--line, #e6e1d4);
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease, padding-left 0.24s ease;
+}
+
+/* The active case is marked with a clay rule that grows out of
+   the number column — the same language as the hero panel. */
+.wg-row::before {
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: 50%;
+  width: 2px;
+  height: 0;
+  border-radius: 2px;
+  background: var(--accent, #b04f31);
+  transform: translateY(-50%);
+  transition: height 0.26s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.wg-row.is-on::before {
+  height: calc(100% - 12px);
+}
+
+.wg-n {
+  font-family: var(--mono, ui-monospace, monospace);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--faint, #6f6a60);
+  transition: color 0.2s ease;
+}
+
+.wg-row.is-on .wg-n {
+  color: var(--accent, #b04f31);
+}
+
+.wg-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.wg-cat {
+  font-family: var(--mono, ui-monospace, monospace);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint, #6f6a60);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wg-title {
+  font-family: var(--display, Georgia, serif);
+  font-size: clamp(17px, 1.5vw, 21px);
+  line-height: 1.14;
+  letter-spacing: -0.01em;
+  color: var(--ink-soft, #3b3833);
+  transition: color 0.2s ease;
+}
+
+.wg-row.is-on .wg-title,
+.wg-row:hover .wg-title {
+  color: var(--ink, #1f1e1d);
+}
+
+.wg-ar {
+  font-size: 13px;
+  color: var(--accent, #b04f31);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.wg-row.is-on .wg-ar,
+.wg-row:hover .wg-ar,
+.wg-row:focus-visible .wg-ar {
+  opacity: 1;
+  transform: none;
+}
+
+.wg-row:focus-visible {
+  outline: 2px solid var(--accent, #b04f31);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* ---------- switch-over ----------
+   work-gallery.js adds `wg-active` to the section only after the
+   gallery has been built and inserted. Until then (and whenever
+   the script cannot run) the bento stays visible. */
+
+#arbeiten.wg-active .work-bento {
+  display: none;
+}
+
+/* ---------- no-JS bento: two scoped repairs ----------
+   The arrow chip sat white-on-white over the KeyForge dashboard
+   screenshot and disappeared; and the last row stretched to
+   ragged heights. */
+
+#arbeiten .wc-go {
+  background: rgba(31, 30, 29, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  color: #fff;
+  backdrop-filter: blur(6px);
+}
+
+#arbeiten .work-card.text-only {
+  align-content: start;
+}
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 980px) {
+  .wg {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  .wg-stage {
+    aspect-ratio: 3 / 2;
+  }
+
+  .wg-frame {
+    padding: clamp(14px, 3.5vw, 26px);
+  }
+}
+
+@media (max-width: 560px) {
+  .wg-row {
+    grid-template-columns: 2.6em minmax(0, 1fr) auto;
+    gap: 10px;
+  }
+
+  .wg-stage {
+    aspect-ratio: 4 / 3;
+    border-radius: 14px;
+  }
+
+  .wg-open {
+    display: none;
+  }
+}
+
+/* ---------- motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .wg-frame,
+  .wg-open,
+  .wg-row,
+  .wg-row::before,
+  .wg-ar,
+  .wg-title {
+    transition: none;
+  }
+
+  .wg-open {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- print ---------- */
+
+@media print {
+  .wg-open,
+  .wg-count {
+    display: none;
+  }
+
+  .wg-frame {
+    opacity: 1;
+    position: relative;
+  }
+
+  .wg-index {
+    border-top: none;
+  }
+}
