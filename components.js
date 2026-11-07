@@ -40,7 +40,7 @@
     </div>`;
 
   const linksHTML = (mobile) => NAV_LINKS.map(l => {
-    const active = l.match && page === l.match ? ' class="active"' : '';
+    const active = l.match && page === l.match ? ' class="active" aria-current="page"' : '';
     return `<a href="${l.href}"${active} data-en="${l.en}" data-es="${l.es || l.en}">${l.de}</a>`;
   }).join('');
 
