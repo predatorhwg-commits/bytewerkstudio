@@ -97,6 +97,42 @@ SWITCH_CHECK = r"""
 """
 
 
+# Nach dem Umschalten auf EN: Wo steht noch Deutsch? Das ist strenger als
+# das Zählen fehlender data-en, weil es auch Texte aus JavaScript findet.
+GERMAN_AUDIT = r"""
+() => {
+  const markers = /\b(und|oder|nicht|keine|dein|deine|wir|für|über|ohne|Kostenlos|Kaufen|Antworten|Gelöst|Anfrage|Projekt starten|Anmelden|Speichern|Nach Kauf|Lokal|Impressum|Datenschutz)\b|[äöüßÄÖÜ]/;
+  const skip = new Set(['SCRIPT','STYLE','CODE','PRE','SVG','KBD','SAMP']);
+  const out = [];
+  const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  let n;
+  while ((n = w.nextNode())) {
+    const t = (n.nodeValue || '').replace(/\s+/g, ' ').trim();
+    if (t.length < 4 || !markers.test(t)) continue;
+    const el = n.parentElement;
+    if (!el || skip.has(el.tagName)) continue;
+    if (el.closest('[aria-hidden="true"], .fm-item, .fm-thread, .fm-post, noscript')) continue;
+    // Feldinhalte sind keine Beschriftungen: Im Probierstand steht dort ein
+    // Beispieltext, der bewusst deutsch bleibt.
+    if (el.matches('textarea, input, option')) continue;
+    const cs = getComputedStyle(el);
+    if (cs.display === 'none' || cs.visibility === 'hidden') continue;
+    out.push({text: t.slice(0, 70), tag: el.tagName,
+              cls: (el.className || '').toString().slice(0, 34)});
+  }
+  return out;
+}
+"""
+
+# Was in beiden Sprachen gleich bleibt oder nicht übersetzt wird.
+KEEP_GERMAN = (
+    "Prüfungs-Countdown", "Pruefungs-Countdown", "Lernreich", "KeyForge Vault",
+    "UpdatePilot", "Neon Dominion", "Bytewerk PDF Text Pro", "LumaWeek Planner",
+    "MASTIL", "BURGENWERK", "NEON HORDE", "Bytewerk", "Heinigstraße",
+    "Haqmalh@icloud.com",
+)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--base", default="http://127.0.0.1:8809")
@@ -145,9 +181,17 @@ def main() -> int:
                     row["switch"] = sw
                     row["switch_wrong"] = len(sw["wrong"])
                     row["lang_after"] = sw["html_lang"]
+                    left = page.evaluate(GERMAN_AUDIT)
+                    row["german_left"] = [
+                        g for g in left
+                        if not g["text"].startswith(KEEP_GERMAN)
+                        # "Tool 02 · <Produktname>" — der Produktname bleibt.
+                        and not re.match(r"^(Tool|Werkzeug) \d+ · ", g["text"])]
+                    row["german_left_count"] = len(row["german_left"])
                 else:
                     row["switch_wrong"] = None
                     row["switch_note"] = "kein Sprachknopf gefunden"
+                    row["german_left_count"] = None
             except Exception as exc:
                 row["error"] = str(exc)[:120]
                 try:
@@ -216,6 +260,8 @@ def main() -> int:
         "pages_with_missing": sum(1 for r in ok if r.get("missing_static")),
         "switch_failures": sum(r.get("switch_wrong") or 0 for r in ok),
         "pages_with_switch_failure": sum(1 for r in ok if r.get("switch_wrong")),
+        "german_left": sum(r.get("german_left_count") or 0 for r in ok),
+        "pages_with_german_left": sum(1 for r in ok if r.get("german_left_count")),
     }
     write_report(target, summary, rows)
 

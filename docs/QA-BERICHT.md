@@ -64,6 +64,29 @@ Schritt läuft in einem eigenen Browser mit leerem Speicher.
 | Bestanden | 9 |
 | Befunde | 0 |
 
+### Sprachen Deutsch und Englisch
+
+`tools/qa_i18n.py` prüft die Umschaltung im Browser, nicht die
+Absicht im Quelltext: Es zählt sichtbare Textknoten ohne
+englische Fassung, klickt auf EN und vergleicht jedes Element mit
+`data-en` gegen seine Übersetzung. Danach sucht es auf der
+englischen Seite nach deutscher Restsprache — das findet auch
+Texte, die erst JavaScript erzeugt.
+
+| Messung | Ergebnis |
+|---|---|
+| Seiten | 34 |
+| Umschaltfehler | 0 |
+| Deutsche Reste auf EN | 0 |
+| Statische Texte ohne EN | 356 |
+| Davon von JavaScript erzeugt | 307 |
+| Nutzerinhalte (bleiben wie geschrieben) | 108 |
+
+Die Zahl der Texte ohne Attribut ist ein Arbeitsstand, kein
+Fehler: Viele davon sind Produktnamen, Preise, Adressen und
+Beiträge von Nutzern, die in beiden Sprachen gleich bleiben.
+Maßgeblich sind die ersten beiden Zeilen.
+
 ## 4. Sicherheit
 
 `tools/qa_security.py` prüft die Fehlerklassen, die bei einer

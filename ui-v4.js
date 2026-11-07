@@ -603,6 +603,11 @@
     update();
 
     document.addEventListener('bw:lang', () => {
+      // Der Preis stand beim Aufbau in der Landessprache fest. Nach dem
+      // Umschalten wird er neu aus der Preiszeile gelesen — die hat ein
+      // data-en und ist damit schon übersetzt.
+      const current = $('.pd-price .amount', info);
+      if (current) barPrice.textContent = current.textContent.trim();
       barBtn.textContent = T('Kaufen', 'Buy');
       $('span', share).textContent = T('Link kopieren', 'Copy link');
       share.setAttribute('aria-label', T('Link kopieren', 'Copy link'));

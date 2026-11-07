@@ -46,6 +46,7 @@ def main() -> int:
     perf = load("perf.json")
     perf_mobil = load("perf-mobil.json")
     forum = load("forum.json")
+    i18n = load("i18n.json")
 
     s = static["summary"]
     seo_rows = seo.get("rows", [])
@@ -155,6 +156,31 @@ def main() -> int:
                 ["Bestanden", f.get("passed", 0)],
                 ["Befunde", f.get("findings", 0)],
             ], ["Messung", "Ergebnis"]))
+            body.append("")
+        if i18n:
+            i = i18n.get("summary", {})
+            body.append("### Sprachen Deutsch und Englisch")
+            body.append("")
+            body.append("`tools/qa_i18n.py` prüft die Umschaltung im Browser, nicht die")
+            body.append("Absicht im Quelltext: Es zählt sichtbare Textknoten ohne")
+            body.append("englische Fassung, klickt auf EN und vergleicht jedes Element mit")
+            body.append("`data-en` gegen seine Übersetzung. Danach sucht es auf der")
+            body.append("englischen Seite nach deutscher Restsprache — das findet auch")
+            body.append("Texte, die erst JavaScript erzeugt.")
+            body.append("")
+            body.append(md_table([
+                ["Seiten", i.get("pages", 0)],
+                ["Umschaltfehler", i.get("switch_failures", 0)],
+                ["Deutsche Reste auf EN", i.get("german_left", 0)],
+                ["Statische Texte ohne EN", i.get("texts_without_en", 0)],
+                ["Davon von JavaScript erzeugt", i.get("dynamic_without_en", 0)],
+                ["Nutzerinhalte (bleiben wie geschrieben)", i.get("user_content", 0)],
+            ], ["Messung", "Ergebnis"]))
+            body.append("")
+            body.append("Die Zahl der Texte ohne Attribut ist ein Arbeitsstand, kein")
+            body.append("Fehler: Viele davon sind Produktnamen, Preise, Adressen und")
+            body.append("Beiträge von Nutzern, die in beiden Sprachen gleich bleiben.")
+            body.append("Maßgeblich sind die ersten beiden Zeilen.")
             body.append("")
     else:
         body.append("Noch kein vollständiger Lauf: `docs/qa/runtime.json` fehlt.")
