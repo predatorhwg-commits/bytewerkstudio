@@ -134,5 +134,12 @@ Webhook, der `profiles.plan` setzt — nicht einen Schalter im Browser.
   kurzer Text, Antwort ohne Titelfeld, Persistenz nach Reload — geprüft,
   0 Fehler. Slug bleibt beim Titel-Edit erhalten.
 - 390 px und 320 px mit offenem Editor: 0 Überlauf, Knöpfe passen.
+- Belastung: 110-Zeichen-Titel ohne Leerzeichen, 160-Zeichen-URL und
+  180-Zeichen-Zeile im Code-Block, Emoji und Umlaute — 320, 390, 834 und
+  1440 px ohne Überlauf. Der Bruchschutz (`overflow-wrap: anywhere`) sitzt
+  an Thread-Titel, Listentitel, Wissensarchiv, Beitragsnamen und
+  Autorennamen; `pre` scrollt intern.
+- Unbekannter Deep-Link `#/t/<slug>`: Liste sichtbar, Thread verborgen,
+  einmaliger Hinweis „Dieses Thema gibt es nicht oder nicht mehr.“
 - Spanisch: `lang='es'` liefert englische Oberfläche und `en-GB`-Datum,
   nie deutsche Texte.
