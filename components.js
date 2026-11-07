@@ -104,6 +104,7 @@
             <a href="arbeiten.html" data-en="Work" data-es="Proyectos">Arbeiten</a>
             <a href="bauplan.html" data-en="Blueprint" data-es="Plano">Bauplan</a>
             <a href="showroom.html" data-en="3D showroom" data-es="Showroom 3D">3D-Showroom</a>
+            <a href="hochspannung.html" data-en="Game · HOCHSPANNUNG">Spiel · HOCHSPANNUNG</a>
             <a href="zeichenwerk.html" data-en="Zeichenwerk" data-es="Zeichenwerk">Zeichenwerk</a>
             <a href="index.html#preise" data-en="Pricing" data-es="Precios">Preise</a>
             <a href="shop.html" data-en="Shop" data-es="Tienda">Shop</a>

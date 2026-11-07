@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<script>document.documentElement.classList.add('js');var L=localStorage.getItem('bw-lang');if(L)document.documentElement.lang=L;</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#faf9f5">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CaeQ8Q3geGyk4C+zSbiPIgg9xb3aa/Jes1V9wggsHR4='; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'; connect-src 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>HOCHSPANNUNG — kostenloses Browserspiel | Bytewerk Studio</title>
+<meta name="description" content="HOCHSPANNUNG ist ein kostenloses Geschicklichkeitsspiel im Browser: am Stromkabel schwingen, im richtigen Moment loslassen, Energie sammeln. Eine Taste, kein Konto, kein Download.">
+<link rel="canonical" href="https://bytewerkstudio.com/hochspannung.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HOCHSPANNUNG — ein Funke, eine Leitung, kein Netz">
+<meta property="og:description" content="Kostenloses Browserspiel von Bytewerk Studio: schwing dich an der Stromleitung nach vorn und lass im richtigen Moment los. Auch mobil, ohne Anmeldung.">
+<meta property="og:url" content="https://bytewerkstudio.com/hochspannung.html">
+<meta property="og:image" content="https://bytewerkstudio.com/media/og-hochspannung.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="HOCHSPANNUNG — ein leuchtender Funke schwingt an einer Stromleitung durch die Nacht">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HOCHSPANNUNG — kostenloses Browserspiel">
+<meta name="twitter:description" content="Am Kabel schwingen, im richtigen Moment loslassen. Eine Taste, kein Konto, kein Download.">
+<meta name="twitter:image" content="https://bytewerkstudio.com/media/og-hochspannung.png">
+<meta property="og:site_name" content="Bytewerk Studio">
+<meta property="og:locale" content="de_DE">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles-v3.css">
+<link rel="stylesheet" href="styles-claude.css">
+<link rel="stylesheet" href="styles-hochspannung.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "HOCHSPANNUNG",
+  "url": "https://bytewerkstudio.com/hochspannung.html",
+  "description": "Kostenloses Geschicklichkeitsspiel im Browser: am Stromkabel schwingen, im richtigen Moment loslassen und Energie sammeln.",
+  "genre": ["Arcade", "Skill game"],
+  "gamePlatform": "Web browser",
+  "applicationCategory": "Game",
+  "operatingSystem": "Any",
+  "isAccessibleForFree": true,
+  "inLanguage": ["de", "en"],
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bytewerk Studio",
+    "url": "https://bytewerkstudio.com/"
+  }
+}
+</script>
+</head>
+<body class="hs-page">
+
+<a class="hs-skip" href="#hs-stage" data-en="Skip to game">Zum Spiel springen</a>
+
+<div data-include="header"></div>
+
+<main id="main">
+
+<!-- ============================ HERO ============================ -->
+<section class="hs-hero" aria-labelledby="hs-title">
+  <div class="wrap hs-hero-grid">
+
+    <div class="hs-copy">
+      <div class="hs-crumb">
+        <a href="index.html" data-en="Home">Start</a>
+        <span aria-hidden="true">/</span>
+        <span data-en="Game">Spiel</span>
+      </div>
+
+      <span class="hs-kicker"><i aria-hidden="true"></i><span data-en="Free browser game · no account">Kostenloses Browserspiel · kein Konto</span></span>
+
+      <h1 class="hs-title" id="hs-title">HOCH<span>SPANNUNG</span></h1>
+
+      <p class="hs-lead" data-en="You are the spark. Hold on to the power line, swing forward, and let go at the right moment. <strong>One key, one hand, no download.</strong>">
+        Du bist der Funke. Halt dich an der Stromleitung fest, schwing nach vorn
+        und lass im richtigen Moment los. <strong>Eine Taste, eine Hand, kein Download.</strong>
+      </p>
+
+      <div class="hs-cta">
+        <a class="btn btn-primary btn-lg" href="#hs-stage" data-hs-jump>
+          <span data-en="Play now">Jetzt spielen</span> <span class="arr">→</span>
+        </a>
+        <a class="btn btn-ghost btn-lg" href="#anleitung" data-en="How it works">So funktioniert's</a>
+      </div>
+
+      <ul class="hs-facts">
+        <li data-en="Runs in the browser">Läuft im Browser</li>
+        <li data-en="Works on phones">Auch mobil</li>
+        <li data-en="No tracking, no cookies">Kein Tracking, keine Cookies</li>
+        <li data-en="Best score stays local">Bestwert bleibt lokal</li>
+      </ul>
+    </div>
+
+    <div class="hs-stage" id="hs-stage" data-state="menu">
+      <canvas id="hs-canvas" tabindex="0" role="application"
+              aria-label="HOCHSPANNUNG. Halte Leertaste oder Pfeil nach oben, oder den Finger auf dem Feld, um die nächste Stromleitung zu greifen. Lass los, um zu fliegen. P pausiert, M schaltet den Ton."
+              data-en-aria="HOCHSPANNUNG. Hold Space or Arrow Up, or keep your finger on the field, to grab the next power line. Release to fly. P pauses, M mutes."></canvas>
+
+      <div class="hs-hud" aria-hidden="true">
+        <div class="hs-hud-top">
+          <div class="hs-scorebox">
+            <span class="hs-label" data-en="Score">Punkte</span>
+            <b id="hs-score">0</b>
+          </div>
+          <div class="hs-hud-right">
+            <div class="hs-stat"><span data-en="Metres">Meter</span><b id="hs-meters">0</b></div>
+            <div class="hs-stat"><span data-en="Energy">Energie</span><b id="hs-energy">0</b></div>
+            <div class="hs-stat hs-stat--best"><span data-en="Best">Rekord</span><b id="hs-best">0</b></div>
+            <button class="hs-iconbtn" type="button" id="hs-mute" aria-pressed="false" aria-label="Ton einschalten" data-en-aria="Turn sound on">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M11 5 6.5 9H3v6h3.5L11 19V5Z"/><path d="M15 9.5a4 4 0 0 1 0 5"/><path d="M17.8 7a7.5 7.5 0 0 1 0 10" class="hs-wave"/><path d="M4 4l16 16" class="hs-muted-mark"/></svg>
+            </button>
+            <button class="hs-iconbtn" type="button" id="hs-pause" aria-label="Pause" data-en-aria="Pause">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="hs-combo" id="hs-combo" hidden>×1</div>
+        <div class="hs-release" id="hs-release" hidden data-en="Let go now">Jetzt loslassen</div>
+        <div class="hs-hint" id="hs-hint" data-en="Hold = grab · Release = fly">Halten = greifen · Loslassen = fliegen</div>
+      </div>
+
+      <!-- Start -->
+      <div class="hs-overlay" id="hs-menu">
+        <div class="hs-panel">
+          <p class="hs-panel-kicker" data-en="Ready?">Bereit?</p>
+          <h2 data-en="One tap. One spark.">Ein Tipp. Ein Funke.</h2>
+          <p data-en="Hold the line, swing forward, release at the top. Collect cyan energy on the way.">
+            Halte die Leitung, schwing nach vorn, lass oben los.
+            Unterwegs sammelst du cyanfarbene Energie.
+          </p>
+          <button class="btn btn-primary btn-lg" type="button" id="hs-start" data-hs-start>
+            <span data-en="Start game">Spiel starten</span> <span class="arr">→</span>
+          </button>
+          <p class="hs-panel-note" data-en="Space or finger on the field · P pause · M sound">Leertaste oder Finger auf dem Feld · P Pause · M Ton</p>
+        </div>
+      </div>
+
+      <!-- Pause -->
+      <div class="hs-overlay" id="hs-paused" hidden>
+        <div class="hs-panel">
+          <p class="hs-panel-kicker" data-en="Paused">Pause</p>
+          <h2 data-en="Catch your breath.">Kurz durchatmen.</h2>
+          <p data-en="The line waits. Nothing moves while you are here.">Die Leitung wartet. Hier bewegt sich nichts weiter.</p>
+          <div class="hs-pause-actions">
+            <button class="btn btn-primary" type="button" id="hs-resume" data-en="Continue">Weiter</button>
+            <button class="btn btn-ghost" type="button" id="hs-restart-paused" data-en="Restart">Neu starten</button>
+          </div>
+          <p class="hs-panel-note" data-en="P or Esc continues">P oder Esc geht weiter</p>
+        </div>
+      </div>
+
+      <!-- Game over -->
+      <div class="hs-overlay" id="hs-over" hidden>
+        <div class="hs-panel">
+          <p class="hs-panel-kicker" data-en="Run over">Lauf beendet</p>
+          <h2 data-en="The spark is out.">Der Funke ist raus.</h2>
+          <div class="hs-result">
+            <div><b id="hs-over-score">0</b><span data-en="Score">Punkte</span></div>
+            <div><b id="hs-over-meters">0</b><span data-en="Metres">Meter</span></div>
+            <div><b id="hs-over-energy">0</b><span data-en="Energy">Energie</span></div>
+          </div>
+          <span class="hs-newbest" id="hs-newbest" hidden data-en="New record">Neuer Rekord</span>
+          <p class="hs-panel-note"><span data-en="Record">Rekord</span>: <b id="hs-over-best">0</b></p>
+          <button class="btn btn-primary btn-lg" type="button" id="hs-restart" data-hs-start>
+            <span data-en="One more run">Nochmal</span> <span class="arr">→</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="hs-live" id="hs-live" role="status" aria-live="polite"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================ HOW IT WORKS ============================ -->
+<section class="hs-howto" id="anleitung" aria-labelledby="hs-howto-title">
+  <div class="wrap">
+    <div class="hs-howto-head">
+      <h2 id="hs-howto-title" data-en="Three moves. That is the whole game.">Drei Bewegungen. Mehr ist es nicht.</h2>
+      <p data-en="The game explains itself in five seconds. Getting far takes a little longer.">
+        Das Spiel erklärt sich in fünf Sekunden. Weit zu kommen dauert etwas länger.
+      </p>
+    </div>
+
+    <div class="hs-cards">
+      <article class="hs-card">
+        <span class="n">01</span>
+        <h3 data-en="Hold">Halten</h3>
+        <p data-en="Press Space, click, or keep your finger on the field. The spark grabs the next line within reach.">
+          Leertaste, Maus oder Finger gedrückt halten. Der Funke greift die nächste Leitung in Reichweite.
+        </p>
+        <svg viewBox="0 0 64 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <path d="M2 26c10 0 12-20 22-20s12 20 22 20" stroke-dasharray="3 4"/>
+          <circle cx="24" cy="6" r="3.2" fill="currentColor" stroke="none"/>
+          <path d="M46 26v-8m-4 0h8" />
+        </svg>
+      </article>
+
+      <article class="hs-card">
+        <span class="n">02</span>
+        <h3 data-en="Swing">Schwingen</h3>
+        <p data-en="The line carries you. The longer you stay on it, the more speed you build — and the higher you rise.">
+          Die Leitung trägt dich. Je länger du dranbleibst, desto mehr Fahrt baust du auf — und desto höher steigst du.
+        </p>
+        <svg viewBox="0 0 64 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <path d="M8 4h48" stroke-dasharray="3 4"/>
+          <path d="M32 4v9" />
+          <circle cx="32" cy="16" r="3.4" fill="currentColor" stroke="none"/>
+          <path d="M16 28a16 16 0 0 1 32 0" />
+        </svg>
+      </article>
+
+      <article class="hs-card">
+        <span class="n">03</span>
+        <h3 data-en="Release">Loslassen</h3>
+        <p data-en="Let go while you are moving upwards. The HUD shows the moment. A clean release earns a bonus.">
+          Loslassen, während du nach oben fliegst. Das HUD zeigt den Moment. Ein sauberer Absprung bringt Bonus.
+        </p>
+        <svg viewBox="0 0 64 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <path d="M6 27C18 27 22 5 40 5" />
+          <path d="m34 5 6-3-2 7" />
+          <circle cx="10" cy="27" r="3.2" fill="currentColor" stroke="none"/>
+          <path d="M50 20h8M54 16v8" opacity=".55"/>
+        </svg>
+      </article>
+    </div>
+
+    <div class="hs-keys">
+      <span><kbd>Space</kbd><span data-en="Hold / release">Halten / loslassen</span></span>
+      <span><kbd>P</kbd><span data-en="Pause">Pause</span></span>
+      <span><kbd>M</kbd><span data-en="Sound on / off">Ton an / aus</span></span>
+      <span data-en="Touch: hold anywhere on the field">Touch: irgendwo auf dem Feld halten</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<noscript>
+  <div class="wrap">
+    <p class="hs-noscript">HOCHSPANNUNG läuft im Browser und braucht JavaScript. Die Anleitung oben funktioniert auch ohne — das Spiel selbst nicht.</p>
+  </div>
+</noscript>
+
+<div data-include="footer"></div>
+
+<script src="components.js"></script>
+<script src="main.js"></script>
+<script src="hochspannung.js"></script>
+</body>
+</html>
