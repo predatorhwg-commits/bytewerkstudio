@@ -17,6 +17,8 @@
     { href: 'index.html#leistungen', de: 'Leistungen', en: 'Services', match: null },
     { href: 'arbeiten.html',           de: 'Arbeiten',   en: 'Work',     match: 'arbeiten' },
     { href: 'showroom.html',           de: 'Showroom',   en: 'Showroom', match: 'showroom' },
+    { href: 'forum.html',              de: 'Forum',      en: 'Forum',    match: 'forum' },
+    { href: 'entwickler.html',         de: 'Entwickler', en: 'Developers', match: 'entwickler' },
     { href: 'index.html#preise',     de: 'Preise',     en: 'Pricing',  match: null },
     { href: 'shop.html',             de: 'Shop',       en: 'Shop',     match: 'shop' },
     { href: 'studio.html',           de: 'Studio',     en: 'Studio',   match: 'studio' },
@@ -89,6 +91,7 @@
             <a href="softwareentwicklung-ludwigshafen.html#webentwicklung" data-en="Web development">Web-Entwicklung</a>
             <a href="softwareentwicklung-ludwigshafen.html#app-entwicklung" data-en="App development">App-Entwicklung</a>
             <a href="softwareentwicklung-ludwigshafen.html" data-en="IT services">IT-Dienstleistungen</a>
+            <a href="sicherheit.html" data-en="Security">Sicherheit</a>
           </div>
           <div class="footer-col">
             <h4 data-en="Studio">Studio</h4>
