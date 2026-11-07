@@ -40,7 +40,7 @@
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/arbeiten.html",
-      "data_en": 48
+      "data_en": 49
     },
     {
       "page": "burgenwerk.html",
@@ -68,7 +68,7 @@
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/bytewerk-pdf-text-pro.html",
-      "data_en": 37
+      "data_en": 38
     },
     {
       "page": "checkout.html",
@@ -166,7 +166,7 @@
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/keyforge-vault.html",
-      "data_en": 48
+      "data_en": 49
     },
     {
       "page": "kontakt.html",
@@ -180,7 +180,7 @@
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/kontakt.html",
-      "data_en": 92
+      "data_en": 100
     },
     {
       "page": "konto.html",
@@ -208,7 +208,7 @@
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/lernreich-pro.html",
-      "data_en": 44
+      "data_en": 46
     },
     {
       "page": "login.html",
@@ -236,7 +236,7 @@
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/lumaweek-planner.html",
-      "data_en": 45
+      "data_en": 48
     },
     {
       "page": "marke.html",
@@ -264,7 +264,7 @@
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/mastil.html",
-      "data_en": 41
+      "data_en": 46
     },
     {
       "page": "musterbuch.html",
@@ -278,7 +278,7 @@
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/musterbuch.html",
-      "data_en": 67
+      "data_en": 68
     },
     {
       "page": "neon-dominion.html",
@@ -292,7 +292,7 @@
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/neon-dominion.html",
-      "data_en": 37
+      "data_en": 40
     },
     {
       "page": "passwort-vergessen.html",
@@ -334,7 +334,7 @@
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/produkt.html",
-      "data_en": 45
+      "data_en": 49
     },
     {
       "page": "pruefungs-countdown.html",
@@ -348,7 +348,7 @@
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/pruefungs-countdown.html",
-      "data_en": 44
+      "data_en": 46
     },
     {
       "page": "register.html",
@@ -446,7 +446,7 @@
       "csp": "yes",
       "description": true,
       "canonical": "https://bytewerkstudio.com/updatepilot.html",
-      "data_en": 41
+      "data_en": 44
     },
     {
       "page": "vergleich.html",

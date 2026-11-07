@@ -1,16 +1,28 @@
 /* Ausgelagert aus checkout.html fuer CSP ohne unsafe-inline. */
 (function () {
-  const cart = [{ title: 'Lernreich', price: 'Kostenlos', qty: 1 }];
-
   const list = document.getElementById('cart-list');
-  if (list) {
-    list.innerHTML = cart.map(item => `
+  const base = [{ title: 'Lernreich', price: { de: 'Kostenlos', en: 'Free' }, qty: 1 }];
+
+  function lang() {
+    return document.documentElement.lang === 'en' ? 'en' : 'de';
+  }
+
+  function cart() {
+    return base.map(item => ({ ...item, price: item.price[lang()] }));
+  }
+
+  function renderList() {
+    if (!list) return;
+    list.innerHTML = cart().map(item => `
       <div class="row">
         <span class="key">${item.qty || 1}x</span>
         <span class="val"><strong>${item.title}</strong><br>${item.price}</span>
       </div>
     `).join('');
   }
+
+  renderList();
+  document.addEventListener('bw:lang', renderList);
 
   const form = document.getElementById('checkout-form');
   if (!form) return;
@@ -27,10 +39,12 @@
     event.preventDefault();
     if (!fields.map(mark).every(Boolean)) return;
     const data = new FormData(form);
+    // Die Bestellung geht per E-Mail an das Studio; sie bleibt deutsch,
+    // damit sie im Postfach einheitlich ankommt.
     const body = [
       'Lernreich Anfrage Bytewerk Studio',
       '',
-      ...cart.map(item => '- ' + (item.qty || 1) + 'x ' + item.title + ' / ' + item.price),
+      ...cart().map(item => '- ' + (item.qty || 1) + 'x ' + item.title + ' / ' + item.price),
       '',
       'Name: ' + data.get('name'),
       'E-Mail: ' + data.get('email'),

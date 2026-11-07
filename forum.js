@@ -646,6 +646,11 @@
                                 { day: '2-digit', month: 'short', year: 'numeric' });
   }
 
+  /** "1 Antwort" / "3 Antworten" — die Zahl steht daneben, das Wort zählt mit. */
+  function replyWord(n) {
+    return t(n === 1 ? 'Antwort' : 'Antworten', n === 1 ? 'reply' : 'replies');
+  }
+
   function fullDate(iso) {
     const d = new Date(iso);
     if (isNaN(d)) return '';
@@ -862,7 +867,7 @@
     const side = el('div', { class: 'fm-item-side' });
     const replies = el('div', { class: 'fm-count-block' });
     replies.appendChild(el('b', { text: String(th.posts.length) }));
-    replies.appendChild(el('span', { text: t('Antworten', 'replies') }));
+    replies.appendChild(el('span', { text: replyWord(th.posts.length) }));
     side.appendChild(replies);
 
     const views = el('div', { class: 'fm-views' });
@@ -1765,7 +1770,7 @@
         card.appendChild(by);
       }
 
-      card.appendChild(el('span', { class: 'fm-know-count', text: th.posts.length + ' ' + t('Antworten', 'replies') }));
+      card.appendChild(el('span', { class: 'fm-know-count', text: th.posts.length + ' ' + replyWord(th.posts.length) }));
       host.appendChild(card);
     });
   }

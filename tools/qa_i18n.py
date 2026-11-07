@@ -21,6 +21,7 @@ Aufruf:
 from __future__ import annotations
 
 import argparse
+import html as htmllib
 import json
 import os
 import re
@@ -56,7 +57,10 @@ AUDIT = r"""
     // Ein Vorfahre mit data-en deckt den ganzen Teilbaum ab.
     if (el.closest('[data-en], [data-en-ph], [data-en-aria]')) continue;
     missing.push({text: text.slice(0, 60), tag: el.tagName,
-                  cls: (el.className || '').toString().slice(0, 40)});
+                  cls: (el.className || '').toString().slice(0, 40),
+                  // Nutzerinhalt (Threads, Beiträge) bleibt so stehen, wie er
+                  // geschrieben wurde — er wird nicht übersetzt.
+                  user: !!el.closest('.fm-item, .fm-thread, .fm-post, .fm-reply-box')});
   }
   return {missing, lang: document.documentElement.lang};
 }
@@ -161,11 +165,44 @@ def main() -> int:
             pass
 
     ok = [r for r in rows if "error" not in r]
+
+    # Drei Gruppen, weil sie unterschiedlich zu bewerten sind:
+    #   statisch  — Text steht im HTML und braucht ein data-en (echte Lücke),
+    #   dynamisch — von JavaScript erzeugt; hier zählt die Umschaltung,
+    #   Inhalt    — Nutzertexte (Threads, Beiträge), bleiben wie geschrieben.
+    for r in ok:
+        src = ""
+        try:
+            src = (ROOT / r["page"]).read_text(encoding="utf-8")
+        except OSError:
+            pass
+        for m in r.get("missing", []):
+            # Ein Textknoten ist nur dann statisch, wenn genau dieses Element
+            # im Quelltext steht. Eine Substring-Suche zählt sonst erzeugte
+            # Texte mit, die zufällig auch irgendwo im HTML vorkommen.
+            pattern = (r"<" + re.escape(m["tag"]) + r"\b[^>]*>\s*"
+                       + re.escape(htmllib.unescape(m["text"])) + r"\s*</"
+                       + re.escape(m["tag"]) + r">")
+            if m.get("user"):
+                m["kind"] = "inhalt"
+            elif re.search(pattern, src, re.IGNORECASE):
+                m["kind"] = "statisch"
+            else:
+                m["kind"] = "dynamisch"
+
+    groups = {"statisch": 0, "dynamisch": 0, "inhalt": 0}
+    for r in ok:
+        for m in r.get("missing", []):
+            groups[m["kind"]] += 1
+        r["missing_static"] = sum(1 for m in r.get("missing", []) if m["kind"] == "statisch")
+
     summary = {
         "pages": len(rows),
         "errors": len(rows) - len(ok),
-        "texts_without_en": sum(r.get("missing_count", 0) for r in ok),
-        "pages_with_missing": sum(1 for r in ok if r.get("missing_count")),
+        "texts_without_en": groups["statisch"],
+        "dynamic_without_en": groups["dynamisch"],
+        "user_content": groups["inhalt"],
+        "pages_with_missing": sum(1 for r in ok if r.get("missing_static")),
         "switch_failures": sum(r.get("switch_wrong") or 0 for r in ok),
         "pages_with_switch_failure": sum(1 for r in ok if r.get("switch_wrong")),
     }
@@ -174,12 +211,13 @@ def main() -> int:
         encoding="utf-8")
 
     if summary["texts_without_en"]:
-        print("\nFehlende Übersetzungen (häufigste Texte):")
+        print("\nFehlende statische Übersetzungen (häufigste Texte):")
         from collections import Counter
         c = Counter()
         for r in ok:
             for m in r.get("missing", []):
-                c[(m["text"], m["tag"], m["cls"])] += 1
+                if m.get("kind") == "statisch":
+                    c[(m["text"], m["tag"], m["cls"])] += 1
         for (t, tag, cls), n in c.most_common(25):
             print(f"  {n:3}x {tag:6} {cls[:24]:24} {t[:52]}")
     print("I18N", json.dumps(summary, ensure_ascii=False))
