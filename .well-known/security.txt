@@ -1,0 +1,16 @@
+Contact: mailto:Haqmalh@icloud.com?subject=Security%20report
+Expires: 2027-11-01T00:00:00.000Z
+Preferred-Languages: de, en
+Canonical: https://bytewerkstudio.com/.well-known/security.txt
+Policy: https://bytewerkstudio.com/sicherheit.html#meldeweg
+Acknowledgments: https://bytewerkstudio.com/sicherheit.html#meldeweg
+
+# Bytewerk Studio — Sicherheitsmeldungen
+#
+# Bitte zuerst per Mail melden, keine öffentlichen Issues für Lücken.
+# Bestätigung innerhalb von 48 Stunden, Fix in der Regel in 14 Tagen.
+# Kein Kopfgeld. Nennung auf Wunsch.
+#
+# Scope: bytewerkstudio.com und alle Seiten darunter.
+# Kein Scope: fremde Dienste, Social-Media-Konten, DDoS-Tests,
+# automatisiertes Scannen ohne vorherige Absprache.
