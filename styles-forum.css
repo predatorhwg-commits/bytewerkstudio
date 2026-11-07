@@ -1521,10 +1521,18 @@ body.fm-is-thread .fm-progress { opacity: 1; }
   .fm-hero-grid { grid-template-columns: minmax(0, 1fr); gap: 26px; }
   .fm-hero-stage { order: -1; max-width: 560px; }
   .fm-stage-frame { aspect-ratio: 16 / 10; }
-  .fm-layout { grid-template-columns: minmax(0, 1fr); }
-  .fm-rail { position: static; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
-  .fm-rail-note { grid-column: 1 / -1; }
-  .fm-rail-access { grid-column: 1 / -1; }
+  /* The rail used to stand between the reader and the board: categories,
+     view, scope, account card and house rules together pushed the first
+     thread to y=1592 at 900px and y=1712 on a phone. Filters stay above
+     the list, the explanatory blocks move below it. */
+  .fm-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+  .fm-rail { display: contents; }
+  .fm-rail-cats { order: 1; grid-column: 1 / -1; min-width: 0; }
+  .fm-rail-view { order: 2; min-width: 0; }
+  .fm-rail-scope { order: 3; min-width: 0; }
+  .fm-main { order: 4; grid-column: 1 / -1; min-width: 0; }
+  .fm-rail-access { order: 5; grid-column: 1 / -1; }
+  .fm-rail-note { order: 6; grid-column: 1 / -1; }
   .fm-rail-block { min-width: 0; }
   .fm-cats {
     flex-direction: row;
@@ -1546,6 +1554,19 @@ body.fm-is-thread .fm-progress { opacity: 1; }
 }
 
 @media (max-width: 720px) {
+  /* On a phone the rail used to stand between the reader and the board:
+     categories, view, account card and house rules together pushed the
+     first thread to y=1712 — two full screens of scrolling. The filters
+     stay above the list, the explanatory blocks move below it. */
+  .fm-layout { display: flex; flex-direction: column; align-items: stretch; }
+  .fm-rail { display: contents; }
+  .fm-rail-cats { order: 1; min-width: 0; }
+  .fm-rail-view { order: 2; min-width: 0; }
+  .fm-rail-scope { order: 3; min-width: 0; }
+  .fm-main { order: 4; min-width: 0; }
+  .fm-rail-access { order: 5; }
+  .fm-rail-note { order: 6; }
+
   .fm-toolbar { flex-wrap: wrap; }
   .fm-search { order: 1; flex-basis: 100%; }
   .fm-toolbar-right { order: 2; width: 100%; justify-content: space-between; }
