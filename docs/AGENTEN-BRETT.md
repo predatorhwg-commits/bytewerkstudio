@@ -167,6 +167,50 @@ Erledigt und geprüft:
 - **Header-Name:** Avatar-Initialen werden jetzt ebenfalls escaped
   (`auth.js`). Vorher war der Name im Label schon escaped, die Initialen nicht.
 
+## Stand 07.11.2026, 12:20 — Performance und Social-Vorschau
+
+**Social-Vorschau.** Vorher zeigten 15 Seiten auf `logo.svg` (28×28, wird von
+kaum einer Plattform als Bild angezeigt) und `arbeiten.html` auf ein
+`og-bytewerk.png`, das es nicht gab. Jetzt hat jede öffentliche Seite eine
+eigene 1200×630-Karte in `media/og-*.png`, erzeugt von `tools/og-images.py`.
+`tools/check-social.mjs` prüft Datei, Maße und `og:url` gegen `canonical`.
+Ergebnis: 29 Seiten mit Karte, 0 Probleme.
+
+**Bilder.** 85 Bilder auf 14 Seiten laden jetzt erst kurz vor dem Sichtfeld
+(`loading="lazy"`, `decoding="async"`). Gesetzt wurden sie über
+`tools/lazy-images.mjs` nur dort, wo das Bild auf **beiden** geprüften Breiten
+(1440 und 390) mindestens 1,5 Bildschirme unter der Oberkante liegt — der
+erste Bildschirm bleibt unangetastet.
+
+Vier Bilder waren deutlich größer als ihre Anzeigefläche:
+
+| Datei | vorher | nachher | Anzeige |
+|---|---|---|---|
+| `mastil-start-bg.jpg` | 307 KB (1672 px) | 185 KB (1202 px) | max. 601 CSS-px |
+| `mastil-logo.jpg` | 72 KB (620 px) | 7 KB (160 px) | 73 CSS-px |
+| `lernreich-logo.png` | 67 KB | 50 KB (128 Farben) | 46 CSS-px |
+| `pruefungs-countdown-logo.png` | 59 KB | 51 KB (160 Farben) | 34 CSS-px |
+
+Nachgerechnet statt geschätzt: Pixel-Differenz gegen die Originale, mittlere
+Abweichung 0,69–3,13 von 255, Anteil deutlich sichtbarer Pixel (Differenz > 24)
+unter 0,15 % — keine sichtbare Änderung.
+
+**Messung Startseite** (Chromium, 1440×900, kalter Cache, gleiche Sonde):
+
+| | vorher | nachher |
+|---|---|---|
+| Übertragung gesamt | 1473 KB | 611 KB |
+| davon Bilder | 533 KB | 405 KB |
+| LCP | 4424 ms | 1440 ms |
+| Bild-Anfragen | 9 | 6 |
+
+**Sitemap.** Alle 30 Einträge auf `lastmod 2026-11-07`; `check-links` meldet
+968 Ziele ohne Problem.
+
+**Abschlusslauf.** `security-gate.mjs` 10/10 grün, `sweep-release.mjs`
+35 Seiten × 4 Breiten: 0 Überlauf, 0 Konsolenfehler, 0 doppelte IDs,
+0 fehlende `alt`.
+
 ### Datei-Hinweis
 
 `ui-v4.js` gehört laut `AGENTS.md` zu einer anderen Linie. Die Änderung ist ein
