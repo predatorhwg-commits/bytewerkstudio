@@ -279,6 +279,14 @@ Webhook, der `profiles.plan` setzt — nicht einen Schalter im Browser.
   überlebt (`dialog.open` true, Titel unverändert), während Tab B
   schreibt. Nach Reload sind alle Themen und Antworten aus beiden Tabs da.
   Live bestätigt (Build `ce401bf`), 0 CSP-Verstöße, 0 Konsolenfehler.
+- Reihenfolge auf kleinen Bildschirmen: Kategorien, Ansicht und Umfang
+  stehen über der Liste, Zugangskarte und Hausordnung darunter. Vorher
+  schob die Seitenleiste den ersten Beitrag bei 900 px auf `y=1592`, auf
+  dem Handy auf `y=1712` — fast zwei Bildschirme Scrollen bis zum ersten
+  Thema. Jetzt: 900 px `y=1289`, 390 px `y=1340`, 320 px `y=1339`.
+  Elf Breiten von 1440 bis 320 px: 0 Überlauf, Desktop unverändert
+  (`258px 814px`), 9 Themen, 0 Konsolenfehler. Live bestätigt
+  (Build `589594f`).
 - Supabase-Schema in einer echten PostgreSQL-Instanz (`pgserver`, nicht
   nur `pglast`): 6 Tabellen, 6 Kategorien, 13/13 Prüfungen grün. INSERT
   setzt Autor, Zeit und `views` und verwirft `pinned`/`solved`;
