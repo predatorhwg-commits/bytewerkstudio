@@ -121,6 +121,11 @@ Ein Thema zählt eine Ansicht pro Seitenaufruf. Antworten, Sprachwechsel und
 erneutes Rendern erhöhen den Zähler nicht; gesperrte Pro-Themen zählen gar
 nicht. Nach einem Reload zählt der nächste Aufruf als neue Ansicht.
 
+Antworten tragen einen Rückverweis (`replyTo`). Er erscheint als kleine
+Zeile „Antwort an <Name>“ über dem Beitrag und springt per Klick zum
+Original, das kurz hervorgehoben wird. Ohne gültiges Ziel entfällt die
+Zeile.
+
 ## Bearbeiten
 
 Eigene Beiträge lassen sich direkt im Thread ändern. Der erste Beitrag
@@ -186,8 +191,9 @@ Webhook, der `profiles.plan` setzt — nicht einen Schalter im Browser.
 - Belastung: 110-Zeichen-Titel ohne Leerzeichen, 160-Zeichen-URL und
   180-Zeichen-Zeile im Code-Block, Emoji und Umlaute — 320, 390, 834 und
   1440 px ohne Überlauf. Der Bruchschutz (`overflow-wrap: anywhere`) sitzt
-  an Thread-Titel, Listentitel, Wissensarchiv, Beitragsnamen und
-  Autorennamen; `pre` scrollt intern.
+  an Thread-Titel, Listentitel, Wissensarchiv, Beitrags- und Autorennamen,
+  an der Thread-Meta-Zeile und an der Antwort-Referenz; `pre` scrollt
+  intern.
 - Unbekannter Deep-Link `#/t/<slug>`: Liste sichtbar **und gefüllt**
   (neun Themen), Thread verborgen, Fortschrittslinie aus, einmaliger
   Hinweis „Dieses Thema gibt es nicht oder nicht mehr.“
@@ -203,6 +209,9 @@ Webhook, der `profiles.plan` setzt — nicht einen Schalter im Browser.
 - Zähler: 214 → 215 beim Öffnen, 216 nach Reload (neue Sitzung), bleibt
   216 nach Antwort und Sprachwechsel; ein gesperrtes Pro-Thema bleibt
   bei 52. Vorher erhöhte jedes Neu-Rendern den Zähler.
+- Antwort-Referenz: „Antwort an <Name>“ erscheint über der Antwort, der
+  Klick springt zum Original (`is-flash`), nach Reload bleibt die Zeile.
+  320/390/1440 px mit 60-Zeichen-Namen: 0 Überlauf.
 - Spanisch: `lang='es'` liefert englische Oberfläche und `en-GB`-Datum,
   nie deutsche Texte.
 - Supabase-Schema in einer echten PostgreSQL-Instanz (`pgserver`, nicht

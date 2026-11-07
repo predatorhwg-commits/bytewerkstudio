@@ -1316,6 +1316,26 @@
     }
     main.appendChild(head);
 
+    if (post.replyTo) {
+      const target = post.replyTo === th.id
+        ? { id: th.id, author: th.author }
+        : th.posts.find(p => p.id === post.replyTo);
+      if (target) {
+        const ref = el('a', { class: 'fm-reply-ref', href: '#post-' + encodeURIComponent(target.id) });
+        ref.appendChild(icon(ICONS.reply));
+        ref.appendChild(el('span', { text: t('Antwort an ' + target.author.name, 'Reply to ' + target.author.name) }));
+        ref.addEventListener('click', e => {
+          e.preventDefault();
+          const node = document.getElementById('post-' + target.id);
+          if (!node) return;
+          node.scrollIntoView({ block: 'center', behavior: 'smooth' });
+          node.classList.add('is-flash');
+          setTimeout(() => node.classList.remove('is-flash'), 1400);
+        });
+        main.appendChild(ref);
+      }
+    }
+
     const body = el('div', { class: 'fm-post-body' });
     renderMarkdown(txt(post.body), body);
     main.appendChild(body);
