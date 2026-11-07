@@ -1,9 +1,9 @@
 {
   "summary": {
     "pages": 34,
-    "errors": 1,
-    "texts_without_en": 877,
-    "pages_with_missing": 33,
+    "errors": 0,
+    "texts_without_en": 803,
+    "pages_with_missing": 34,
     "switch_failures": 0,
     "pages_with_switch_failure": 0
   },
@@ -32,18 +32,8 @@
           "cls": ""
         },
         {
-          "text": "kostenlos",
-          "tag": "SPAN",
-          "cls": ""
-        },
-        {
           "text": "Prüfungs-Countdown",
           "tag": "A",
-          "cls": ""
-        },
-        {
-          "text": "kostenlos",
-          "tag": "SPAN",
           "cls": ""
         },
         {
@@ -92,18 +82,8 @@
           "cls": ""
         },
         {
-          "text": "kostenlos",
-          "tag": "SPAN",
-          "cls": ""
-        },
-        {
           "text": "NEON HORDE",
           "tag": "A",
-          "cls": ""
-        },
-        {
-          "text": "kostenlos",
-          "tag": "SPAN",
           "cls": ""
         },
         {
@@ -122,7 +102,7 @@
           "cls": "small"
         }
       ],
-      "missing_count": 22,
+      "missing_count": 18,
       "switch": {
         "wrong": [],
         "lang": "en",
@@ -286,11 +266,6 @@
           "cls": "crumb"
         },
         {
-          "text": "Web · Browser · Strategie",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "BURGENWERK",
           "tag": "H1",
           "cls": ""
@@ -346,11 +321,6 @@
           "cls": "price"
         },
         {
-          "text": "Windows · Premium · Tower Conquest",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "Neon Dominion",
           "tag": "H3",
           "cls": ""
@@ -401,7 +371,7 @@
           "cls": "btn btn-primary"
         }
       ],
-      "missing_count": 24,
+      "missing_count": 22,
       "switch": {
         "wrong": [],
         "lang": "en",
@@ -417,11 +387,6 @@
           "text": "Bytewerk PDF Text Pro",
           "tag": "DIV",
           "cls": "crumb"
-        },
-        {
-          "text": "Windows · PDF/OCR · Lifetime-Lizenz",
-          "tag": "SPAN",
-          "cls": "cat"
         },
         {
           "text": "Bytewerk PDF Text Pro",
@@ -459,11 +424,6 @@
           "cls": "val"
         },
         {
-          "text": "Kaufanfrage per E-Mail senden",
-          "tag": "A",
-          "cls": ""
-        },
-        {
           "text": "Nach Kauf: Bytewerk-PDF-Text-Pro-Setup-1.1.2.exe",
           "tag": "SPAN",
           "cls": "val"
@@ -479,29 +439,14 @@
           "cls": ""
         },
         {
-          "text": "Windows · Updates · Lebenslange Lizenz",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "UpdatePilot",
           "tag": "H3",
           "cls": ""
         },
         {
-          "text": "Windows · Security · PayPal",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "KeyForge Vault",
           "tag": "H3",
           "cls": ""
-        },
-        {
-          "text": "Windows · Planung · PayPal",
-          "tag": "SPAN",
-          "cls": "cat"
         },
         {
           "text": "LumaWeek Planner",
@@ -549,7 +494,7 @@
           "cls": "btn btn-primary"
         }
       ],
-      "missing_count": 27,
+      "missing_count": 22,
       "switch": {
         "wrong": [],
         "lang": "en",
@@ -649,11 +594,6 @@
         },
         {
           "text": "Sandbox",
-          "tag": "H3",
-          "cls": ""
-        },
-        {
-          "text": "Team",
           "tag": "H3",
           "cls": ""
         },
@@ -818,11 +758,6 @@
           "cls": ""
         },
         {
-          "text": "Team",
-          "tag": "TD",
-          "cls": ""
-        },
-        {
           "text": "Antwort-Header",
           "tag": "CAPTION",
           "cls": "dev-visually-hidden"
@@ -853,7 +788,7 @@
           "cls": "v5-keys-open"
         }
       ],
-      "missing_count": 42,
+      "missing_count": 40,
       "switch": {
         "wrong": [],
         "lang": "en",
@@ -865,11 +800,6 @@
     {
       "page": "forum.html",
       "missing": [
-        {
-          "text": "Forum",
-          "tag": "SPAN",
-          "cls": ""
-        },
         {
           "text": "three.js",
           "tag": "B",
@@ -1636,7 +1566,7 @@
           "cls": "v5-keys-open"
         }
       ],
-      "missing_count": 154,
+      "missing_count": 153,
       "switch": {
         "wrong": [],
         "lang": "en",
@@ -1882,19 +1812,9 @@
           "cls": "wg-title"
         },
         {
-          "text": "Windows · Pro · PayPal",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "Lernreich Pro",
           "tag": "H3",
           "cls": ""
-        },
-        {
-          "text": "Windows · Security · PayPal",
-          "tag": "SPAN",
-          "cls": "cat"
         },
         {
           "text": "KeyForge Vault",
@@ -2107,7 +2027,7 @@
           "cls": ""
         }
       ],
-      "missing_count": 85,
+      "missing_count": 83,
       "switch": {
         "wrong": [],
         "lang": "en",
@@ -2135,11 +2055,6 @@
           "cls": ""
         },
         {
-          "text": "PayPal akzeptiert",
-          "tag": "SPAN",
-          "cls": "note"
-        },
-        {
           "text": "Link kopieren",
           "tag": "SPAN",
           "cls": ""
@@ -2153,16 +2068,6 @@
           "text": "Premium · Security · Passwortmanager · Produktivitaet",
           "tag": "SPAN",
           "cls": "val"
-        },
-        {
-          "text": "PayPal akzeptiert",
-          "tag": "SPAN",
-          "cls": "val"
-        },
-        {
-          "text": "Kaufanfrage per E-Mail senden",
-          "tag": "A",
-          "cls": ""
         },
         {
           "text": "Nach Kauf: KeyForge-Vault-Setup-1.0.0.exe",
@@ -2185,24 +2090,9 @@
           "cls": ""
         },
         {
-          "text": "Windows · Lernen · Produktivitaet",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "Lernreich",
           "tag": "H3",
           "cls": ""
-        },
-        {
-          "text": "Kostenlos",
-          "tag": "SPAN",
-          "cls": "price"
-        },
-        {
-          "text": "Windows · Pruefung · Planung",
-          "tag": "SPAN",
-          "cls": "cat"
         },
         {
           "text": "Pruefungs-Countdown",
@@ -2210,24 +2100,9 @@
           "cls": ""
         },
         {
-          "text": "Kostenlos",
-          "tag": "SPAN",
-          "cls": "price"
-        },
-        {
-          "text": "Windows · Pro · PayPal",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "Lernreich Pro",
           "tag": "H3",
           "cls": ""
-        },
-        {
-          "text": "Windows · Planung · PayPal",
-          "tag": "SPAN",
-          "cls": "cat"
         },
         {
           "text": "LumaWeek Planner",
@@ -2235,19 +2110,9 @@
           "cls": ""
         },
         {
-          "text": "Windows · Updates · Lebenslange Lizenz",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "UpdatePilot",
           "tag": "H3",
           "cls": ""
-        },
-        {
-          "text": "Windows · PDF/OCR · Lifetime-Lizenz",
-          "tag": "SPAN",
-          "cls": "cat"
         },
         {
           "text": "Bytewerk PDF Text Pro",
@@ -2295,7 +2160,7 @@
           "cls": "btn btn-primary"
         }
       ],
-      "missing_count": 35,
+      "missing_count": 24,
       "switch": {
         "wrong": [],
         "lang": "en",
@@ -2449,11 +2314,6 @@
           "cls": ""
         },
         {
-          "text": "PayPal akzeptiert",
-          "tag": "SPAN",
-          "cls": "note"
-        },
-        {
           "text": "Details ansehen",
           "tag": "A",
           "cls": "btn btn-ghost btn-lg"
@@ -2474,16 +2334,6 @@
           "cls": "val"
         },
         {
-          "text": "PayPal akzeptiert",
-          "tag": "SPAN",
-          "cls": "val"
-        },
-        {
-          "text": "Kaufanfrage per E-Mail senden",
-          "tag": "A",
-          "cls": ""
-        },
-        {
           "text": "Download und GitHub-Zugriff nach Kauf",
           "tag": "SPAN",
           "cls": "val"
@@ -2494,24 +2344,9 @@
           "cls": "val"
         },
         {
-          "text": "Windows · Lernen · Produktivitaet",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "Lernreich",
           "tag": "H3",
           "cls": ""
-        },
-        {
-          "text": "Kostenlos",
-          "tag": "SPAN",
-          "cls": "price"
-        },
-        {
-          "text": "Windows · Pruefung · Planung",
-          "tag": "SPAN",
-          "cls": "cat"
         },
         {
           "text": "Pruefungs-Countdown",
@@ -2519,24 +2354,9 @@
           "cls": ""
         },
         {
-          "text": "Kostenlos",
-          "tag": "SPAN",
-          "cls": "price"
-        },
-        {
-          "text": "Windows · Security · PayPal",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "KeyForge Vault",
           "tag": "H3",
           "cls": ""
-        },
-        {
-          "text": "Windows · Planung · PayPal",
-          "tag": "SPAN",
-          "cls": "cat"
         },
         {
           "text": "LumaWeek Planner",
@@ -2544,19 +2364,9 @@
           "cls": ""
         },
         {
-          "text": "Windows · Updates · Lebenslange Lizenz",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "UpdatePilot",
           "tag": "H3",
           "cls": ""
-        },
-        {
-          "text": "Windows · PDF/OCR · Lifetime-Lizenz",
-          "tag": "SPAN",
-          "cls": "cat"
         },
         {
           "text": "Bytewerk PDF Text Pro",
@@ -2604,7 +2414,7 @@
           "cls": "btn btn-primary"
         }
       ],
-      "missing_count": 34,
+      "missing_count": 23,
       "switch": {
         "wrong": [],
         "lang": "en",
@@ -2675,11 +2485,6 @@
           "cls": ""
         },
         {
-          "text": "PayPal akzeptiert",
-          "tag": "SPAN",
-          "cls": "note"
-        },
-        {
           "text": "Link kopieren",
           "tag": "SPAN",
           "cls": ""
@@ -2693,16 +2498,6 @@
           "text": "Premium · Wochenplan · Jahresplan · Produktivitaet",
           "tag": "SPAN",
           "cls": "val"
-        },
-        {
-          "text": "PayPal akzeptiert",
-          "tag": "SPAN",
-          "cls": "val"
-        },
-        {
-          "text": "Kaufanfrage per E-Mail senden",
-          "tag": "A",
-          "cls": ""
         },
         {
           "text": "Nach Kauf: LumaWeekPlanner-Setup-1.0.0.exe",
@@ -2725,24 +2520,9 @@
           "cls": ""
         },
         {
-          "text": "Windows · Lernen · Produktivitaet",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "Lernreich",
           "tag": "H3",
           "cls": ""
-        },
-        {
-          "text": "Kostenlos",
-          "tag": "SPAN",
-          "cls": "price"
-        },
-        {
-          "text": "Windows · Pruefung · Planung",
-          "tag": "SPAN",
-          "cls": "cat"
         },
         {
           "text": "Pruefungs-Countdown",
@@ -2750,34 +2530,14 @@
           "cls": ""
         },
         {
-          "text": "Kostenlos",
-          "tag": "SPAN",
-          "cls": "price"
-        },
-        {
-          "text": "Windows · Security · PayPal",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "KeyForge Vault",
           "tag": "H3",
           "cls": ""
         },
         {
-          "text": "Windows · Updates · Lebenslange Lizenz",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "UpdatePilot",
           "tag": "H3",
           "cls": ""
-        },
-        {
-          "text": "Windows · PDF/OCR · Lifetime-Lizenz",
-          "tag": "SPAN",
-          "cls": "cat"
         },
         {
           "text": "Bytewerk PDF Text Pro",
@@ -2825,7 +2585,7 @@
           "cls": "btn btn-primary"
         }
       ],
-      "missing_count": 33,
+      "missing_count": 23,
       "switch": {
         "wrong": [],
         "lang": "en",
@@ -2956,19 +2716,9 @@
           "cls": ""
         },
         {
-          "text": "Web · Browser · Strategie",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "BURGENWERK",
           "tag": "H3",
           "cls": ""
-        },
-        {
-          "text": "Windows · Premium · Tower Conquest",
-          "tag": "SPAN",
-          "cls": "cat"
         },
         {
           "text": "Neon Dominion",
@@ -2976,19 +2726,9 @@
           "cls": ""
         },
         {
-          "text": "Windows · PDF/OCR · Lifetime-Lizenz",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "Bytewerk PDF Text Pro",
           "tag": "H3",
           "cls": ""
-        },
-        {
-          "text": "Windows · Updates · Lebenslange Lizenz",
-          "tag": "SPAN",
-          "cls": "cat"
         },
         {
           "text": "UpdatePilot",
@@ -2996,19 +2736,9 @@
           "cls": ""
         },
         {
-          "text": "Windows · Lernen · Produktivitaet",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "Lernreich",
           "tag": "H3",
           "cls": ""
-        },
-        {
-          "text": "Kostenlos",
-          "tag": "SPAN",
-          "cls": "price"
         },
         {
           "text": "Keine Treffer",
@@ -3056,7 +2786,7 @@
           "cls": "btn btn-primary"
         }
       ],
-      "missing_count": 34,
+      "missing_count": 28,
       "switch": {
         "wrong": [],
         "lang": "en",
@@ -3150,7 +2880,146 @@
     },
     {
       "page": "neon-dominion.html",
-      "error": "Page.wait_for_timeout: Target page, context or browser has been closed"
+      "missing": [
+        {
+          "text": "Neon Dominion",
+          "tag": "DIV",
+          "cls": "crumb"
+        },
+        {
+          "text": "Windows · Premium · Neon-Tech · Tower Conquest",
+          "tag": "SPAN",
+          "cls": "cat"
+        },
+        {
+          "text": "Neon Dominion",
+          "tag": "H1",
+          "cls": ""
+        },
+        {
+          "text": "Windows 10/11 · Offline-Spiel",
+          "tag": "SPAN",
+          "cls": "note"
+        },
+        {
+          "text": "Link kopieren",
+          "tag": "SPAN",
+          "cls": ""
+        },
+        {
+          "text": "Windows 10/11 x64",
+          "tag": "SPAN",
+          "cls": "val"
+        },
+        {
+          "text": "Spiel · Strategie · Tower Conquest · Neon-Tech",
+          "tag": "SPAN",
+          "cls": "val"
+        },
+        {
+          "text": "30 Offline-Missionen",
+          "tag": "SPAN",
+          "cls": "val"
+        },
+        {
+          "text": "Offline-Installer, kein Login, kein DRM, keine In-App-Kaeufe",
+          "tag": "SPAN",
+          "cls": "val"
+        },
+        {
+          "text": "Phaser, TypeScript, Vite, React, Electron",
+          "tag": "SPAN",
+          "cls": "val"
+        },
+        {
+          "text": "Dual-Core 2.4 GHz, 4 GB RAM, WebGL-Grafik, 500 MB Speicher",
+          "tag": "SPAN",
+          "cls": "val"
+        },
+        {
+          "text": "GitHub Repository",
+          "tag": "A",
+          "cls": ""
+        },
+        {
+          "text": "BURGENWERK",
+          "tag": "H3",
+          "cls": ""
+        },
+        {
+          "text": "Web · Windows · Strategie",
+          "tag": "SPAN",
+          "cls": "cat"
+        },
+        {
+          "text": "MASTIL",
+          "tag": "H3",
+          "cls": ""
+        },
+        {
+          "text": "Demo frei",
+          "tag": "SPAN",
+          "cls": "price"
+        },
+        {
+          "text": "KeyForge Vault",
+          "tag": "H3",
+          "cls": ""
+        },
+        {
+          "text": "LumaWeek Planner",
+          "tag": "H3",
+          "cls": ""
+        },
+        {
+          "text": "Keine Treffer",
+          "tag": "B",
+          "cls": ""
+        },
+        {
+          "text": "Andere Suche oder Filter zurücksetzen.",
+          "tag": "P",
+          "cls": ""
+        },
+        {
+          "text": "Filter zurücksetzen",
+          "tag": "BUTTON",
+          "cls": "btn btn-ghost btn-sm"
+        },
+        {
+          "text": "Bytewerk",
+          "tag": "SPAN",
+          "cls": "brand-name"
+        },
+        {
+          "text": "Studio",
+          "tag": "I",
+          "cls": ""
+        },
+        {
+          "text": "Bytewerk Studio · bytewerkstudio.com",
+          "tag": "SPAN",
+          "cls": "small"
+        },
+        {
+          "text": "Neon Dominion",
+          "tag": "SPAN",
+          "cls": "pds-t"
+        },
+        {
+          "text": "Kaufen",
+          "tag": "A",
+          "cls": "btn btn-primary"
+        }
+      ],
+      "missing_count": 26,
+      "switch": {
+        "wrong": [],
+        "lang": "en",
+        "html_lang": "en"
+      },
+      "switch_wrong": 0,
+      "lang_after": "en"
     },
     {
       "page": "passwort-vergessen.html",
@@ -3199,11 +3068,6 @@
       "page": "probierstand.html",
       "missing": [
         {
-          "text": "Probierstand",
-          "tag": "SPAN",
-          "cls": ""
-        },
-        {
           "text": "Fig. 02",
           "tag": "B",
           "cls": ""
@@ -3232,6 +3096,11 @@
           "text": "KeyForge Vault",
           "tag": "A",
           "cls": "pb-product-tag"
+        },
+        {
+          "text": "&Yql&z5Eofyc46spTJ4c",
+          "tag": "DIV",
+          "cls": "pb-pw-field"
         },
         {
           "text": "sehr stark",
@@ -3307,11 +3176,6 @@
           "cls": "crumb"
         },
         {
-          "text": "Windows · Lernen · Produktivitaet",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "Lernreich",
           "tag": "H1",
           "cls": ""
@@ -3332,11 +3196,6 @@
           "cls": "val"
         },
         {
-          "text": "Kostenlos",
-          "tag": "SPAN",
-          "cls": "val"
-        },
-        {
           "text": "lernreich.pro/#download",
           "tag": "A",
           "cls": ""
@@ -3347,24 +3206,9 @@
           "cls": "val"
         },
         {
-          "text": "Windows · Pruefung · Planung",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "Pruefungs-Countdown",
           "tag": "H3",
           "cls": ""
-        },
-        {
-          "text": "Kostenlos",
-          "tag": "SPAN",
-          "cls": "price"
-        },
-        {
-          "text": "Windows · Pro · PayPal",
-          "tag": "SPAN",
-          "cls": "cat"
         },
         {
           "text": "Lernreich Pro",
@@ -3372,19 +3216,9 @@
           "cls": ""
         },
         {
-          "text": "Windows · Security · PayPal",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "KeyForge Vault",
           "tag": "H3",
           "cls": ""
-        },
-        {
-          "text": "Windows · Planung · PayPal",
-          "tag": "SPAN",
-          "cls": "cat"
         },
         {
           "text": "LumaWeek Planner",
@@ -3392,19 +3226,9 @@
           "cls": ""
         },
         {
-          "text": "Windows · Updates · Lebenslange Lizenz",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "UpdatePilot",
           "tag": "H3",
           "cls": ""
-        },
-        {
-          "text": "Windows · PDF/OCR · Lifetime-Lizenz",
-          "tag": "SPAN",
-          "cls": "cat"
         },
         {
           "text": "Bytewerk PDF Text Pro",
@@ -3477,7 +3301,7 @@
           "cls": "btn btn-primary"
         }
       ],
-      "missing_count": 35,
+      "missing_count": 26,
       "switch": {
         "wrong": [],
         "lang": "en",
@@ -3520,11 +3344,6 @@
           "cls": "val"
         },
         {
-          "text": "Kostenlos",
-          "tag": "SPAN",
-          "cls": "val"
-        },
-        {
           "text": "Pruefungs-Countdown-Setup.exe",
           "tag": "A",
           "cls": ""
@@ -3540,24 +3359,9 @@
           "cls": "val"
         },
         {
-          "text": "Windows · Lernen · Produktivitaet",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "Lernreich",
           "tag": "H3",
           "cls": ""
-        },
-        {
-          "text": "Kostenlos",
-          "tag": "SPAN",
-          "cls": "price"
-        },
-        {
-          "text": "Windows · Pro · PayPal",
-          "tag": "SPAN",
-          "cls": "cat"
         },
         {
           "text": "Lernreich Pro",
@@ -3565,19 +3369,9 @@
           "cls": ""
         },
         {
-          "text": "Windows · Security · PayPal",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "KeyForge Vault",
           "tag": "H3",
           "cls": ""
-        },
-        {
-          "text": "Windows · Planung · PayPal",
-          "tag": "SPAN",
-          "cls": "cat"
         },
         {
           "text": "LumaWeek Planner",
@@ -3585,19 +3379,9 @@
           "cls": ""
         },
         {
-          "text": "Windows · Updates · Lebenslange Lizenz",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "UpdatePilot",
           "tag": "H3",
           "cls": ""
-        },
-        {
-          "text": "Windows · PDF/OCR · Lifetime-Lizenz",
-          "tag": "SPAN",
-          "cls": "cat"
         },
         {
           "text": "Bytewerk PDF Text Pro",
@@ -3670,7 +3454,7 @@
           "cls": "btn btn-primary"
         }
       ],
-      "missing_count": 36,
+      "missing_count": 28,
       "switch": {
         "wrong": [],
         "lang": "en",
@@ -3751,29 +3535,14 @@
           "cls": "badge"
         },
         {
-          "text": "Windows · Lernen · Produktivitaet",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "Lernreich",
           "tag": "H3",
           "cls": ""
         },
         {
-          "text": "Windows · Prüfung · Planung",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "Prüfungs-Countdown",
           "tag": "H3",
           "cls": ""
-        },
-        {
-          "text": "Windows · Pro · PayPal",
-          "tag": "SPAN",
-          "cls": "cat"
         },
         {
           "text": "Lernreich Pro",
@@ -3786,11 +3555,6 @@
           "cls": ""
         },
         {
-          "text": "Windows · Security · PayPal",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "KeyForge Vault",
           "tag": "H3",
           "cls": ""
@@ -3799,11 +3563,6 @@
           "text": "PayPal",
           "tag": "SMALL",
           "cls": ""
-        },
-        {
-          "text": "Windows · Planung · PayPal",
-          "tag": "SPAN",
-          "cls": "cat"
         },
         {
           "text": "LumaWeek Planner",
@@ -3816,11 +3575,6 @@
           "cls": ""
         },
         {
-          "text": "Windows · Updates · Lebenslange Lizenz",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "UpdatePilot",
           "tag": "H3",
           "cls": ""
@@ -3831,11 +3585,6 @@
           "cls": ""
         },
         {
-          "text": "Windows · PDF/OCR · Lifetime-Lizenz",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "Bytewerk PDF Text Pro",
           "tag": "H3",
           "cls": ""
@@ -3844,11 +3593,6 @@
           "text": "Lifetime",
           "tag": "SMALL",
           "cls": ""
-        },
-        {
-          "text": "Web · Browser · Strategie",
-          "tag": "SPAN",
-          "cls": "cat"
         },
         {
           "text": "BURGENWERK",
@@ -3896,11 +3640,6 @@
           "cls": "badge"
         },
         {
-          "text": "Windows · Premium · Tower Conquest",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "Neon Dominion",
           "tag": "H3",
           "cls": ""
@@ -3941,7 +3680,7 @@
           "cls": "small"
         }
       ],
-      "missing_count": 40,
+      "missing_count": 31,
       "switch": {
         "wrong": [],
         "lang": "en",
@@ -3953,11 +3692,6 @@
     {
       "page": "showroom.html",
       "missing": [
-        {
-          "text": "Showroom",
-          "tag": "SPAN",
-          "cls": ""
-        },
         {
           "text": "Showroom · 3D",
           "tag": "SPAN",
@@ -4054,7 +3788,7 @@
           "cls": "small"
         }
       ],
-      "missing_count": 20,
+      "missing_count": 19,
       "switch": {
         "wrong": [],
         "lang": "en",
@@ -4129,11 +3863,6 @@
     {
       "page": "softwareentwicklung-ludwigshafen.html",
       "missing": [
-        {
-          "text": "Start",
-          "tag": "A",
-          "cls": ""
-        },
         {
           "text": "Softwareentwicklung",
           "tag": "H1",
@@ -4230,24 +3959,9 @@
           "cls": "k"
         },
         {
-          "text": "Windows · Lernen · Produktivitaet",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "Lernreich",
           "tag": "H3",
           "cls": ""
-        },
-        {
-          "text": "Kostenlos",
-          "tag": "SPAN",
-          "cls": "price"
-        },
-        {
-          "text": "Windows · Pruefung · Planung",
-          "tag": "SPAN",
-          "cls": "cat"
         },
         {
           "text": "Pruefungs-Countdown",
@@ -4255,24 +3969,9 @@
           "cls": ""
         },
         {
-          "text": "Kostenlos",
-          "tag": "SPAN",
-          "cls": "price"
-        },
-        {
-          "text": "Windows · Pro · PayPal",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "Lernreich Pro",
           "tag": "H3",
           "cls": ""
-        },
-        {
-          "text": "Windows · Security · PayPal",
-          "tag": "SPAN",
-          "cls": "cat"
         },
         {
           "text": "KeyForge Vault",
@@ -4280,19 +3979,9 @@
           "cls": ""
         },
         {
-          "text": "Windows · Planung · PayPal",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "LumaWeek Planner",
           "tag": "H3",
           "cls": ""
-        },
-        {
-          "text": "Windows · Updates · Lebenslange Lizenz",
-          "tag": "SPAN",
-          "cls": "cat"
         },
         {
           "text": "UpdatePilot",
@@ -4300,19 +3989,9 @@
           "cls": ""
         },
         {
-          "text": "Windows · PDF/OCR · Lifetime-Lizenz",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "Bytewerk PDF Text Pro",
           "tag": "H3",
           "cls": ""
-        },
-        {
-          "text": "Web · Browser · Strategie",
-          "tag": "SPAN",
-          "cls": "cat"
         },
         {
           "text": "BURGENWERK",
@@ -4333,11 +4012,6 @@
           "text": "Demo frei",
           "tag": "SPAN",
           "cls": "price"
-        },
-        {
-          "text": "Windows · Premium · Tower Conquest",
-          "tag": "SPAN",
-          "cls": "cat"
         },
         {
           "text": "Neon Dominion",
@@ -4390,7 +4064,7 @@
           "cls": "small"
         }
       ],
-      "missing_count": 52,
+      "missing_count": 40,
       "switch": {
         "wrong": [],
         "lang": "en",
@@ -4441,11 +4115,6 @@
           "cls": "crumb"
         },
         {
-          "text": "Windows · Updates · Lebenslange Lizenz",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "UpdatePilot",
           "tag": "H1",
           "cls": ""
@@ -4476,16 +4145,6 @@
           "cls": "val"
         },
         {
-          "text": "PayPal akzeptiert",
-          "tag": "SPAN",
-          "cls": "val"
-        },
-        {
-          "text": "Kaufanfrage per E-Mail senden",
-          "tag": "A",
-          "cls": ""
-        },
-        {
           "text": "Nach Kauf: UpdatePilot_Setup_1.0.2.exe",
           "tag": "SPAN",
           "cls": "val"
@@ -4506,19 +4165,9 @@
           "cls": ""
         },
         {
-          "text": "Windows · Security · PayPal",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "KeyForge Vault",
           "tag": "H3",
           "cls": ""
-        },
-        {
-          "text": "Windows · Planung · PayPal",
-          "tag": "SPAN",
-          "cls": "cat"
         },
         {
           "text": "LumaWeek Planner",
@@ -4526,19 +4175,9 @@
           "cls": ""
         },
         {
-          "text": "Windows · Pro · PayPal",
-          "tag": "SPAN",
-          "cls": "cat"
-        },
-        {
           "text": "Lernreich Pro",
           "tag": "H3",
           "cls": ""
-        },
-        {
-          "text": "Windows · PDF/OCR · Lifetime-Lizenz",
-          "tag": "SPAN",
-          "cls": "cat"
         },
         {
           "text": "Bytewerk PDF Text Pro",
@@ -4586,7 +4225,7 @@
           "cls": "btn btn-primary"
         }
       ],
-      "missing_count": 30,
+      "missing_count": 23,
       "switch": {
         "wrong": [],
         "lang": "en",
