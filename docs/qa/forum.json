@@ -1,0 +1,54 @@
+{
+  "summary": {
+    "checks": 9,
+    "findings": 0,
+    "passed": 9
+  },
+  "checks": [
+    {
+      "check": "Liste zeigt die vorhandenen Threads",
+      "ok": true,
+      "detail": "9 Threads"
+    },
+    {
+      "check": "Suche schränkt die Liste ein",
+      "ok": true,
+      "detail": "'haltet': 1 von 9"
+    },
+    {
+      "check": "Suche ohne Treffer zeigt den leeren Zustand",
+      "ok": true,
+      "detail": "leerer Zustand sichtbar, 0 Einträge"
+    },
+    {
+      "check": "Sortierung ändert die Reihenfolge",
+      "ok": true,
+      "detail": "gewechselt über 'unanswered'"
+    },
+    {
+      "check": "Kategoriefilter wirkt",
+      "ok": true,
+      "detail": "Frontend & UI1: 1 von 9"
+    },
+    {
+      "check": "Thema eröffnen verlangt ein Konto",
+      "ok": true,
+      "detail": "Weiterleitung zu login.html"
+    },
+    {
+      "check": "Thread anlegen speichert dauerhaft",
+      "ok": true,
+      "detail": "testthread-aus-der-pruefung"
+    },
+    {
+      "check": "Antwort direkt nach dem Thema wird gebremst",
+      "ok": true,
+      "detail": "Noch 18 Sekunden bis zum nächsten Beitrag."
+    },
+    {
+      "check": "Konto, Thread und Antwort funktionieren",
+      "ok": true,
+      "detail": "Antwort nach Neuladen vorhanden"
+    }
+  ]
+}
