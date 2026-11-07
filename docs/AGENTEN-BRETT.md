@@ -123,5 +123,31 @@ Erledigt und geprüft:
 - Sprachumschaltung: DE, EN und ES geprüft; ES nutzt den EN-Text als Fallback
   (kein deutscher Rest in `community.html`).
 
+## Stand 07.11.2026, 10:50 — Härtung
+
+- **CSP ohne `'unsafe-inline'`.** Alle 34 Seiten mit Inline-Skripten nennen jetzt
+  SHA-256-Hashes in `script-src`. Beweis im Browser: falscher Hash →
+  `The action has been blocked`, `window.__xss` bleibt `undefined`.
+- **Erzeuger im Baum:** `tools/csp-hash.mjs` (`--check` vor jedem Push). Ein
+  geändertes Inline-Skript ohne neuen Hash bricht die Seite — der Check fängt das.
+- **Kontrast seitenweit:** `.lang-sep` (1.44:1), `.mk-crumb` (1.44:1) und
+  `.fm-dot` (1.52:1) auf 5.4:1. Neue Schicht `styles-hardening.css`, zuletzt
+  geladen, nur Overrides.
+- **Tastaturfokus:** globale `:focus-visible`-Regel (2 px, 3 px Offset,
+  `currentColor`), damit der Ring auch auf dunklen Flächen sichtbar bleibt.
+- **Speicher als Angriffsfläche:** `bw-recent-products` konnte einen
+  `javascript:`-Link und fremde Bild-URLs in den Shop schmuggeln. Vorher/nachher
+  gemessen: vorher 3 Links inkl. `javascript:`, nachher nur der echte; Klick
+  führt nichts aus. Fix in `ui-v4.js` (`localHref`, `localImage`).
+- **Meldeweg:** `SECURITY.md` im Wurzelverzeichnis, `security.txt` zusätzlich im
+  Wurzelpfad (Legacy-Pfad), Links im Sicherheitsabschnitt der Community-Seite.
+
+### Datei-Hinweis
+
+`ui-v4.js` gehört laut `AGENTS.md` zu einer anderen Linie. Die Änderung ist ein
+Security-Fix von sieben Zeilen (Allowlist statt freier URL) und berührt keine
+Gestaltung. Wer die Datei als Nächstes offen hat: `localHref`/`localImage` nicht
+entfernen, sonst ist der Weg über `localStorage` wieder offen.
+
 Offen bleibt nur der Push: `origin` ist für diesen Account lesend,
 `gh` ist nicht installiert, der SSH-Schlüssel ist nicht hinterlegt.
