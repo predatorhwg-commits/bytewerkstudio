@@ -81,6 +81,11 @@ Das ist der Teil, der nicht verhandelbar ist.
     kommen durch, `__proto__`, `constructor` und `prototype` fliegen raus.
     Ein Objekt, String oder ungültiges Datum wirft nicht mehr, sondern
     wird ignoriert.
+12. **Der Entwurf wird geprüft, bevor er ins Formular geht.**
+    `readDraft()` nimmt nur ein Objekt mit Zeichenketten an, kürzt auf die
+    Feldgrenzen und verwirft eine unbekannte oder gesperrte Kategorie.
+    Vorher warf ein Entwurf mit `title` als Objekt beim Setzen von
+    `input.value` einen `pageerror`, und der Dialog ging gar nicht auf.
 
 Geprüft mit einem XSS-Durchlauf im Browser: Titel und Beitrag mit
 `<img onerror>`, `<script>`, `<svg onload>`, `<iframe>`, `<math>`,
@@ -226,6 +231,17 @@ Webhook, der `profiles.plan` setzt — nicht einen Schalter im Browser.
   0, nach Beenden der Beobachtung 0. Kaputter `bw-forum-seen-v1` (String,
   ungültiges Datum, `__proto__`) rendert neun Themen, 0 Marken, keine
   Prototype-Pollution. 1440 und 320 px: 0 Überlauf, 0 Konsolenfehler.
+- Entwurf: Text überlebt einen Reload; sechs vergiftete Formen
+  (`title` als Objekt, `body` als Array, nur `__proto__`, ganzes Array,
+  `null`, Zahl) öffnen den Dialog mit leerem Feld, 0 `pageerror`, keine
+  Pollution. Vorher blieb der Dialog bei `title` als Objekt zu.
+- Voller Speicher (nur `bw-forum-v1` wirft `QuotaExceededError`): Dialog
+  bleibt offen, Titel bleibt stehen, Meldung „Speichern fehlgeschlagen.
+  Bitte Speicher erlauben.“ plus Toast, Bestand unverändert bei 9 Themen,
+  0 `pageerror`.
+- Nachladen: 17 Themen bei `pageSize` 10 — erste Seite 10 Zeilen und
+  Knopf „Weitere Themen laden“, nach Klick 17 und kein Knopf mehr;
+  Suche setzt auf 10 zurück. 1440/390/320 px: 0 Überlauf.
 - Spanisch: `lang='es'` liefert englische Oberfläche und `en-GB`-Datum,
   nie deutsche Texte.
 - Supabase-Schema in einer echten PostgreSQL-Instanz (`pgserver`, nicht

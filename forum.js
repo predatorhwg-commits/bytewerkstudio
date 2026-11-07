@@ -296,6 +296,23 @@
     return Array.isArray(value) ? value : [];
   }
 
+  /* The draft comes back from storage, so every field is checked before
+     it reaches an input. A non-string title used to throw on
+     `input.value = {}` and kept the composer from opening at all. */
+  function readDraft() {
+    const raw = readJSON(CFG.draftKey, null);
+    if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null;
+    const str = (value, max) => typeof value === 'string' ? value.slice(0, max) : '';
+    const draft = {
+      title: str(raw.title, CFG.maxTitle),
+      body: str(raw.body, CFG.maxBody),
+      tags: str(raw.tags, 80),
+      cat: typeof raw.cat === 'string' ? raw.cat : ''
+    };
+    if (!draft.title && !draft.body && !draft.tags) return null;
+    return draft;
+  }
+
   function writeJSON(key, value) {
     try {
       localStorage.setItem(key, JSON.stringify(value));
@@ -1728,11 +1745,15 @@
     composer.cat.value = wanted;
     updateComposerNote();
 
-    const draft = readJSON(CFG.draftKey, null);
+    const draft = readDraft();
     if (draft && !composer.title.value) {
-      composer.title.value = draft.title || '';
-      composer.body.value = draft.body || '';
-      composer.tags.value = draft.tags || '';
+      composer.title.value = draft.title;
+      composer.body.value = draft.body;
+      composer.tags.value = draft.tags;
+      if (draft.cat && CATS.some(c => c.id === draft.cat) && !catOf(draft.cat).pro) {
+        composer.cat.value = draft.cat;
+        updateComposerNote();
+      }
     }
     updateCounts();
 
