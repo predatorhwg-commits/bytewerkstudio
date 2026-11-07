@@ -32,15 +32,20 @@ Jede Seite liefert eine CSP im `<head>`. Muster:
 ```
 default-src 'self';
 script-src 'self' 'sha256-…' 'sha256-…';
-style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-font-src https://fonts.gstatic.com;
-img-src 'self' data:;
+style-src 'self';
+font-src 'self';
+img-src 'self';
 object-src 'none';
+frame-src 'none';
 base-uri 'self';
 form-action 'self' mailto:;
 connect-src 'self' https://*.supabase.co;
 upgrade-insecure-requests
 ```
+
+Alle vier Laderichtungen — Skripte, Stile, Schriften, Bilder — kommen
+inzwischen ohne Fremdherkunft und ohne Pauschalausnahme aus. Was das im
+Einzelnen bedeutet, steht unten.
 
 **Skripte laufen über Hashes, nicht über `'unsafe-inline'`.** Jede Seite nennt
 die SHA-256-Hashes ihrer eigenen Inline-Skripte (Sprachstart im `<head>` und,
@@ -62,10 +67,44 @@ node tools/csp-hash.mjs .          # schreibt die Hashes neu
 node tools/csp-hash.mjs . --check  # Exit 1, wenn eine Seite abweicht
 ```
 
-`--check` gehört vor jeden Push. `style-src` behält `'unsafe-inline'`, weil
-`style="…"`-Attribute im Markup stehen; über CSS lässt sich kein Skript
-ausführen. `object-src 'none'` verhindert Flash/PDF-Einbettung, `base-uri 'self'`
-verhindert Base-Tag-Hijacking.
+`--check` gehört vor jeden Push.
+
+**Stile ohne Pauschalausnahme.** `style-src` nennt nur noch `'self'`. Dafür
+wurden 214 `style="…"`-Attribute in 79 Utility-Klassen überführt
+(`styles-inline.css`, erzeugt von `tools/inline-styles-to-classes.mjs`) und die
+zwei verbliebenen `<style>`-Blöcke der Startseite in eigene Dateien ausgelagert
+(`styles-community-teaser.css`, `styles-noscript.css`). Ein injiziertes
+`style="…"` oder `<style>` wird damit ebenfalls blockiert.
+
+Dass die Umstellung die Darstellung nicht verändert hat, wurde gemessen, nicht
+behauptet: `tools/probe-inline-equiv.js` vergleicht für jedes Element mit einer
+`si-`-Klasse den berechneten Wert jeder ersetzten Eigenschaft mit dem
+ursprünglichen Wert. Auf acht Seiten: 0 Abweichungen (ein Treffer erklärte sich
+als `#shop` mit `!important`, das vorher wie nachher gewinnt). Zusätzlich
+Vergleich der Seitenhöhen und Elementgeometrie vor/nach: identisch; die
+verbleibenden Unterschiede treten im selben Maß zwischen zwei Messungen
+desselben Stands auf (animierte Canvas-Elemente).
+
+**Schriften lokal.** `@import url(https://fonts.googleapis.com/…)` ist aus
+`styles.css` und `styles-claude.css` entfernt. Die fünf Familien liegen als
+variable WOFF2 in `fonts/` (272 KB gesamt, Lizenzen in `fonts/LICENSES.md`) und
+werden per `@font-face` aus `fonts/fonts.css` geladen. Damit geht beim Aufruf
+keine IP-Adresse mehr an Google, und zwei DNS-/TLS-Verbindungen entfallen. Im
+Browser nachgemessen: 0 externe Anfragen, drei Familien geladen.
+
+**Bilder ohne `data:`.** `img-src` erlaubt nur noch eigene Dateien. Die sieben
+Inline-SVG-Symbole aus dem CSS wurden von `tools/externalize-data-uris.mjs`
+nach `media/ui/` ausgelagert; sechs davon sind byteidentisch mit dem bisherigen
+Data-URI, das siebte (eine Rauschtextur) wurde vollständig geschrieben.
+
+`object-src 'none'` verhindert Flash/PDF-Einbettung, `frame-src 'none'` das
+Einbetten in fremde Frames, `base-uri 'self'` Base-Tag-Hijacking.
+
+**Prüfbar.** `tools/security-gate.mjs` prüft jetzt zwölf Punkte, darunter
+„keine Inline-Stile" und „`style-src` ohne `'unsafe-inline'`". Gegenprobe mit
+einer absichtlich unsicheren Testseite: beide Prüfungen rot, nach dem Rückbau
+wieder grün. Zusätzlich wurden alle 35 Seiten mit einem
+`securitypolicyviolation`-Mitschnitt geladen: 0 Verstöße.
 
 Zusätzlich auf allen Seiten: `referrer` = `strict-origin-when-cross-origin`,
 `X-Content-Type-Options` soweit der Hoster es setzt, `noindex` auf Konto-,

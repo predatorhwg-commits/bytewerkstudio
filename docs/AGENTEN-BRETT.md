@@ -211,6 +211,63 @@ unter 0,15 % — keine sichtbare Änderung.
 35 Seiten × 4 Breiten: 0 Überlauf, 0 Konsolenfehler, 0 doppelte IDs,
 0 fehlende `alt`.
 
+## Stand 07.11.2026, 13:10 — CSP geschlossen, Schriften lokal, WebP
+
+**CSP: alle vier Laderichtungen auf `'self'`.**
+
+| Direktive | vorher | jetzt |
+|---|---|---|
+| `script-src` | `'self'` + Hashes | `'self'` + Hashes (unverändert) |
+| `style-src` | `'self' 'unsafe-inline' https://fonts.googleapis.com` | `'self'` |
+| `font-src` | `https://fonts.gstatic.com` | `'self'` |
+| `img-src` | `'self' data:` | `'self'` |
+
+Für `style-src` wurden 214 Inline-Stile in 79 Klassen überführt
+(`tools/inline-styles-to-classes.mjs` → `styles-inline.css`) und die zwei
+`<style>`-Blöcke der Startseite ausgelagert
+(`styles-community-teaser.css`, `styles-noscript.css`).
+
+*Beweis statt Behauptung:* `tools/probe-inline-equiv.js` löst für jedes Element
+mit `si-`-Klasse jede ersetzte Eigenschaft auf und vergleicht sie mit dem
+ursprünglichen Wert — 0 Abweichungen auf acht Seiten. Seitenhöhen und
+Elementgeometrie vor/nach identisch; Restunterschiede liegen im Rauschen
+zweier Messungen desselben Stands (animierte Canvas-Elemente). Alle 35 Seiten
+mit `securitypolicyviolation`-Mitschnitt geladen: **0 Verstöße**.
+
+**Schriften lokal.** Fünf variable WOFF2 in `fonts/` (272 KB, Lizenzen in
+`fonts/LICENSES.md`), `@import` zu Google entfernt, `preload` für Inter und
+Newsreader. Keine IP-Adresse mehr an Google, zwei Verbindungen weniger.
+Gemessen: 0 externe Anfragen pro Seite.
+
+**Bilder: WebP + srcset.** Drei Bilder trugen 405 der 408 KB Bildlast der
+Startseite. Jetzt liegen 800w/1200w/Original als WebP daneben, `srcset` mit
+**gemessenen** `sizes` (Anzeigebreite bei 1440 und 390 in vw umgerechnet, je
+2 vw Reserve). Zweiter Fund: `work-gallery.js` las `img.getAttribute('src')`
+und lud damit die Großdatei ein zweites Mal — jetzt werden `srcset`/`sizes` an
+die Galeriebilder weitergegeben.
+
+| Startseite | vorher | nachher |
+|---|---|---|
+| Bilder | 405 KB | 93 KB |
+| Übertragung gesamt (gzip) | 968 KB | 652 KB |
+| Bild-Anfragen | 9 | 6 |
+
+**Prüftor erweitert.** `security-gate.mjs` hat jetzt 12 Prüfungen (neu: keine
+Inline-Stile, `style-src` ohne `'unsafe-inline'`). Gegenprobe: Testseite mit
+`style="…"`, `<style>` und `'unsafe-inline'` → beide Prüfungen rot.
+
+**Abschlusslauf.** `security-gate --live`: 12/12 grün, 1110 interne Ziele ohne
+Problem. `sweep-release`: 35 Seiten × 4 Breiten, 0 Überlauf, 0
+Konsolenfehler, 0 doppelte IDs, 0 fehlende `alt`. `check-social`: 0 Probleme.
+
+**Nicht übernommen:** Der Zweig `main` hat 52 Commits weniger Inhalt und
+parallel dieselben Themen bearbeitet (u. a. eigene Schrift- und
+`style-src`-Lösung). Ein Merge hätte 40 Dateien mit über 300 Konfliktblöcken
+erzeugt. Übernommen wurden stattdessen die dort entstandenen Werkzeuge
+(`responsive-images`, `inline-styles-to-classes`, `harden-csp`,
+`externalize-data-uris`, `verify-csp`, `verify-site`) und der sparsamere
+Schriftsatz mit Lizenzen.
+
 ### Datei-Hinweis
 
 `ui-v4.js` gehört laut `AGENTS.md` zu einer anderen Linie. Die Änderung ist ein
